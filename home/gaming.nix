@@ -5,6 +5,6 @@
     lutris
     wine
     protonplus
-  ]
+  ];
 }
 
