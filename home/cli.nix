@@ -1,8 +1,10 @@
 {inputs, pkgs, ...}:
 {
   home.packages = with pkgs; [
-    neofetch
+
+    fastfetch
     yazi
+    grimblast
 
     # Standard Utility
     zip

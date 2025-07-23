@@ -2,7 +2,7 @@
 
 {
   programs = {
-    kitty = {
+    steam = {
       enable = true;
     };
   };
