@@ -9,5 +9,6 @@
       ./configuration/fonts.nix
       ./configuration/nvidia.nix
       ./configuration/environment.nix
+      ./stylix.nix
     ];
 }

@@ -9,7 +9,7 @@
     discord
     brave
     yubikey-personalization-gui
-
+    xfce.thunar
   ];
 }
 

@@ -4,10 +4,9 @@
   home.username = "tinus";
   home.homeDirectory = "/home/tinus";
   
-  imports =
-    [ 
+  imports = [ 
       ./home
-    ]
+    ];
 
 
 
