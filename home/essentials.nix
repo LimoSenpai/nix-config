@@ -7,6 +7,8 @@
     vscode-fhs
     nextcloud-client
     discord
+    vesktop
+    arrpc
     brave
     yubikey-personalization-gui
     xfce.thunar

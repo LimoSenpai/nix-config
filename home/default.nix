@@ -4,13 +4,12 @@
   imports =
     [
       ./zen.nix
-
       ./essentials.nix
       ./gaming.nix
       ./cli.nix
       ./options.nix
-
       ./rice.nix
       ./x_cursor.nix
+
     ];
 }
