@@ -1,8 +1,10 @@
-{ conifg, pkgs, ... }:
+{ conifg, pkgs, lib, ... }:
 {
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-emoji
-  ];
+  fonts = {
+    enableDefaultPackages = true;  # optional
+
+    packages = with pkgs; [
+      noto-fonts
+    ] ++ (builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts));
+  };
 }
