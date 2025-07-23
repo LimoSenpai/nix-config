@@ -6,6 +6,8 @@
       ./wm/hyprland.nix
       ./sddm.nix
       ./gaming.nix
-      ./fonts.nix
+      ./configuration/fonts.nix
+      ./configuration/nvidia.nix
+      ./configuration/environment.nix
     ];
 }

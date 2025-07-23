@@ -11,13 +11,15 @@
     hyprland.url = "github:hyprwm/Hyprland";
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
-      # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
-      # to have it up-to-date or simply don't specify the nixpkgs input
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    stylix = {
+      url = "github:nix-community/stylix/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, hyprland, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, hyprland, stylix, ... }: {
 
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
@@ -27,6 +29,7 @@
           ./configuration.nix
           ./system
           
+          stylix.nixosModules.stylix
           # make home-manager as a module of nixos
           # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
           home-manager.nixosModules.home-manager

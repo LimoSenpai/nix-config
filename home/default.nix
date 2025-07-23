@@ -11,5 +11,6 @@
       ./options.nix
 
       ./rice.nix
+      ./x_cursor.nix
     ];
 }
