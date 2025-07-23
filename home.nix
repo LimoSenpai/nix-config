@@ -8,26 +8,30 @@
     [ 
       ./home
     ];
-  # link the configuration file in current directory to the specified location in home directory
-  # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
 
-  # link all files in `./scripts` to `~/.config/i3/scripts`
-  # home.file.".config/i3/scripts" = {
-  #   source = ./scripts;
-  #   recursive = true;   # link recursively
-  #   executable = true;  # make all files executable
-  # };
+    #X Cursor
+    home.pointerCursor = 
+    let 
+      getFrom = url: hash: name: {
+          gtk.enable = true;
+          x11.enable = true;
+          name = name;
+          size = 48;
+          package = 
+            pkgs.runCommand "moveUp" {} ''
+              mkdir -p $out/share/icons
+              ln -s ${pkgs.fetchzip {
+                url = url;
+                hash = hash;
+              }} $out/share/icons/${name}
+          '';
+        };
+    in
+      getFrom 
+        "https://github.com/rose-pine/cursor/releases/download/v1.1.0/BreezeX-RosePine-Linux.tar.xz"
+        "sha256-t5xwAPGhuQUfGThedLsmtZEEp1Ljjo3Udhd5Ql3O67c="
+        "BreezeX-RosePine";
 
-  # encode the file content in nix configuration file directly
-  # home.file.".xxx".text = ''
-  #     xxx
-  # '';
-
-  # set cursor size and dpi for 4k monitor
-  xresources.properties = {
-    "Xcursor.size" = 16;
-    "Xft.dpi" = 172;
-  };
 
   # basic configuration of git, please change to your own
   programs.git = {

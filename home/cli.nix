@@ -11,6 +11,7 @@
     xz
     unzip
     p7zip
+    kdePackages.ark
 
     eza # A modern replacement for ‘ls’
     fzf # A command-line fuzzy finder
