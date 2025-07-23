@@ -4,6 +4,6 @@
   imports =
     [
       ./wm/hyprland.nix
-      ./lockscreen/sddm.nix
+      ./sddm.nix
     ];
 }

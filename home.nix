@@ -29,59 +29,6 @@
     "Xft.dpi" = 172;
   };
 
-  # Packages that should be installed to the user profile.
-  home.packages = with pkgs; [
-    # here is some command line tools I use frequently
-    # feel free to add your own or remove some of them
-
-    neofetch
-    yazi # terminal file manager
-    vscode-fhs
-    swww
-    waypaper
-    grimblast
-
-    # archives
-    zip
-    xz
-    unzip
-    p7zip
-
-    # utils
-    eza # A modern replacement for ‘ls’
-    fzf # A command-line fuzzy finder
-
-    # misc
-    file
-    which
-    tree
-    gnused
-    gnutar
-    gawk
-    zstd
-    gnupg
-
-    # nix related
-    #
-    # it provides the command `nom` works just like `nix`
-    # with more details log output
-    nix-output-monitor
-
-    btop  # replacement of htop/nmon
-    iotop # io monitoring
-    iftop # network monitoring
-
-    # system call monitoring
-    lsof # list open files
-
-    # system tools
-    sysstat
-    lm_sensors # for `sensors` command
-    ethtool
-    pciutils # lspci
-    usbutils # lsusb
-  ];
-
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
@@ -126,7 +73,7 @@
 
     # set some aliases, feel free to add more or remove some
     shellAliases = {
-      k = "kubectl";
+      ls = "eza";
       urldecode = "python3 -c 'import sys, urllib.parse as ul; print(ul.unquote_plus(sys.stdin.read()))'";
       urlencode = "python3 -c 'import sys, urllib.parse as ul; print(ul.quote_plus(sys.stdin.read()))'";
     };

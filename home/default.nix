@@ -3,10 +3,10 @@
 {
   imports =
     [
-      ./gui/zen.nix
-      ./gui/bitwarden.nix
-      ./gui/rofi.nix
-      ./gui/dolphin.nix
-      ./cli/kitty.nix
+      ./zen.nix
+      
+      ./essentials.nix
+      ./cli.nix
+      ./options.nix
     ];
 }
