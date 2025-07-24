@@ -26,10 +26,10 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
+          stylix.nixosModules.stylix
           ./configuration.nix
           ./system
           
-          stylix.nixosModules.stylix
           # make home-manager as a module of nixos
           # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
           home-manager.nixosModules.home-manager
