@@ -8,7 +8,6 @@
     portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     xwayland.enable = true;
   };
-
    environment.systemPackages = with pkgs; [
     dunst
     libnotify
@@ -21,7 +20,6 @@
    ];
 
   environment.sessionVariables = {
-    WLR_NO_HARDWARE_CURSORS = "1"; 
     NIXOS_OZONE = "1"; 
   };
 }
