@@ -5,7 +5,7 @@
     fastfetch
     yazi
     grimblast
-    jq
+    mdadm
 
 
     # Standard Utility

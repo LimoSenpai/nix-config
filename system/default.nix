@@ -11,6 +11,6 @@
       ./configuration/fonts.nix
       ./configuration/nvidia.nix
       ./configuration/environment.nix
-      ./configuration/arrpc_service.nix
+      ./configuration/global_apps.nix
     ];
 }

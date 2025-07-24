@@ -166,9 +166,9 @@
 
         tooltip {
             font-family: inherit;
-            background: #15161e;
+            background: @base00;
             /* tooltip background */
-            border: 2px solid #c0caf5;
+            border: 2px solid @base0D;
             /* tooltip border size and color */
             border-radius: 5px;
             /* tooltip rounded corners */
@@ -186,19 +186,19 @@
         #pulseaudio,
         #gamemode,
         #custom-updates {
-            /*text-shadow: 1px 1px 2px rgb(0, 0, 0);*/
+            /*text-shadow: 1px 1px 2px @base00;*/
             /* text shadow, offset-x | offset-y | blur-radius | color */
-            background: #292c3c; /*#15161e default*/
+            background: @base00; /*#15161e default*/
             /* background color */
             margin: 10px 4px 4px 4px;
             /* empty spaces around */
             padding: 4px 10px;
             /* extend pill size, vertical then horizontal */
-            box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.185);
+            box-shadow: 1px 1px 2px 1px @base01;
             /* pill background shadows */
             border-radius: 8px; /*Default 5*/
             /* rounded corners */
-            color: #77b5a6;
+            color: @base05;
         }
 
         /* extend empty space on both side of the bar,
@@ -210,8 +210,8 @@
         }
 
         #privacy-item {
-            background: #e64553;
-            color: #15161e;
+            background: @base08;
+            color: @base05;
         }
 
         /**#tray menu {
@@ -232,7 +232,7 @@
                 background-color, border-left-color, border-right-color;
             transition-duration: 0.1s;
             font-size: 10px;
-            color: #c0caf5;
+            color: @base05;
         }
 
         #workspaces button.empty {
@@ -245,22 +245,22 @@
 
         #workspaces button.active {
             /* active workspace */
-            background: #7899df;
+            background: @base02;
 
         }
 
         #workspaces button:hover {
-            background: #77b5a6;
+            background: @base04;
             /* hovered workspace color */
         }
 
         #power-profiles-daemon {
-            color: #c4cdf2;
+            color: @base04;
         }
 
         @keyframes blink {
             to {
-                background-color: #e64553;
+                background-color: @base08;
             }
         }
 
