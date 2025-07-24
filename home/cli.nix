@@ -5,6 +5,7 @@
     fastfetch
     yazi
     grimblast
+    jq
 
     # Standard Utility
     zip

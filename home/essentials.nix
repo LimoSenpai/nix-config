@@ -11,7 +11,8 @@
     brave
     yubikey-personalization-gui
     xfce.thunar
-
+    polkit_gnome
+    lxqt.lxqt-sudo
     streamlink-twitch-gui-bin
   ];
 }

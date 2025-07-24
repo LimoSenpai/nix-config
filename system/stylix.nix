@@ -7,7 +7,7 @@ in
 {
   stylix = {
     enable = true;
-    image = inputs.self + "/assets/wallpapers/Chainsaw_Man_Yoru_Wallpaper.jpg";
+    image = inputs.self + "/assets/wallpapers/current_wallpaper.jpg";
     polarity = "dark";
     opacity = {
       terminal = opacity;
