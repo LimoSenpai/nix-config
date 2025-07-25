@@ -12,5 +12,7 @@
       ./configuration/nvidia.nix
       ./configuration/environment.nix
       ./configuration/global_apps.nix
+
+      ./rice/dunst.nix
     ];
 }

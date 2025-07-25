@@ -30,6 +30,7 @@
           stylix.nixosModules.stylix
           ./configuration.nix
           ./system
+
           
           # make home-manager as a module of nixos
           # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
@@ -39,7 +40,6 @@
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
             home-manager.users.tinus = import ./home.nix;
-
             # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
             home-manager.extraSpecialArgs = {
               inherit inputs;

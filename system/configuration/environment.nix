@@ -9,6 +9,7 @@
     neovim
     # Cursor theme
     rose-pine-hyprcursor
+    nwg-displays
   ];
   
 
@@ -28,4 +29,7 @@
       mode = "0755";
     };
   };
+
+
+  services.power-profiles-daemon.enable = true;
 }

@@ -188,7 +188,7 @@
         #custom-updates {
             /*text-shadow: 1px 1px 2px @base00;*/
             /* text shadow, offset-x | offset-y | blur-radius | color */
-            background: @base00; /*#15161e default*/
+            background: alpha(@base00, 0.5);
             /* background color */
             margin: 10px 4px 4px 4px;
             /* empty spaces around */
