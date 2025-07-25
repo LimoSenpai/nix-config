@@ -17,4 +17,5 @@
       size = 26;
     };
   };
+  home.sessionVariables.GTK_THEME = "Gruvbox-Plus-Dark";
 }

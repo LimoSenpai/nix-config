@@ -9,15 +9,24 @@
     brave
     yubikey-personalization-gui
     streamlink-twitch-gui-bin
+    thunderbird
+    evolution
+    obs-studio
+    obsidian
 
     vesktop
     arrpc
     easyeffects
 
     kdePackages.dolphin
-    xfce.thunar
     polkit_gnome
     lxqt.lxqt-sudo
+
+    # Nautilus and extensions
+    nautilus
+    nautilus-open-any-terminal
+    code-nautilus
+    sushi
     
   ];
 }

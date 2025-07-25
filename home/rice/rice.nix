@@ -33,6 +33,7 @@
     power-profiles-daemon
     gamemode
     playerctl
+
   ];
   
   stylix.targets.waybar.enable = true;

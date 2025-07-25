@@ -6,10 +6,10 @@
     nano
     wget
     pavucontrol
-    neovim
-    # Cursor theme
-    rose-pine-hyprcursor
     nwg-displays
+    # theme
+    rose-pine-hyprcursor
+    gruvbox-plus-icons
   ];
   
 

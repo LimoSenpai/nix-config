@@ -30,7 +30,7 @@
 
       "Super+Alt, O, exec, hyprctl dispatch exit"
 
-      "Super+CTRL, W, exec, ../../../assets/scripts/switchwall.sh" # Switch wallpaper
+      "Super+CTRL, W, exec, /etc/profiles/per-user/tinus/bin/switchwall" # Switch wallpaper
 
       # --- Brightness and volume keys ---
       ", XF86MonBrightnessUp, exec, qs -c $qsConfig ipc call brightness increment || brightnessctl s 5%+" 
@@ -50,7 +50,7 @@
       ##! Apps
       "Super, T, exec, kitty -1"
       "Ctrl+Alt, T, exec, kitty -1" # Terminal
-      "Super, E, exec, dolphin" # File manager
+      "Super, E, exec, nautilus" # File manager
       "Super, B, exec, zen" # Browser
       "Super, C, exec, code" # Code editor
       "Ctrl+Super, V, exec, pavucontrol" # Volume mixer
