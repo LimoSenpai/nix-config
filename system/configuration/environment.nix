@@ -10,6 +10,7 @@
     # theme
     rose-pine-hyprcursor
     gruvbox-plus-icons
+    bluez
   ];
   
 
@@ -30,6 +31,12 @@
     };
   };
 
-
+  # services
   services.power-profiles-daemon.enable = true;
+  services.blueman.enable = true; # Optional, for GUI
+  services.dbus.packages = [ pkgs.blueman ];
+
+  #hardware 
+  hardware.bluetooth.enable = true;
+  hardware.graphics.enable32Bit = true;
 }

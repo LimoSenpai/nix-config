@@ -258,6 +258,7 @@
         hide_special_on_workspace_change = true;
     };
 
+
     cursor = {
         zoom_factor = 1;
         zoom_rigid = false;
@@ -363,7 +364,7 @@
 
 
       # Tiling
-      "tile, class:^dev\.warp\.Warp$"
+      # "tile, class:^dev\.warp\.Warp$"
 
       # Picture-in-Picture
       "float, title:^([Pp]icture[-\s]?[Ii]n[-\s]?[Pp]icture)(.*)$"
