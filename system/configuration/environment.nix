@@ -25,6 +25,7 @@
   
 
   programs.nix-ld.enable = true;
+  programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
 
   environment.variables = {
     XCURSOR_THEME = "BreezeX-RosePine";

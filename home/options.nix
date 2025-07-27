@@ -29,18 +29,7 @@
   };
 
 
-  xdg = {
-    enable = true;
-      mimeApps = {
-      enable = true;
-      defaultApplications = {
-        "text/html" = [ "zen.desktop" ];
-        "image/png" = [ "imv.desktop" ];
-        "application/pdf" = [ "org.pwmt.zathura.desktop" ];
-        "inode/directory" = [ "nautilus.desktop" ];
-      };
-    };
-  };
+ 
 
 
   # Waybar Systemd Service

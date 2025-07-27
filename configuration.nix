@@ -49,6 +49,7 @@
     variant = "nodeadkeys";
   };
 
+
   # Configure console keymap
   console.keyMap = "de-latin1-nodeadkeys";
 

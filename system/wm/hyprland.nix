@@ -13,6 +13,8 @@
    environment.systemPackages = with pkgs; [
     dunst
     libnotify
+    wlogout
+    wleave
     
     (waybar.overrideAttrs (oldAttrs: {
         mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
