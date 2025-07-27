@@ -11,6 +11,14 @@
   
   wayland.windowManager.hyprland.enable = true;
 
+  home.sessionVariables = {
+    XDG_DATA_DIRS = "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}:/usr/share";
+    BROWSER = "zen";
+    EDITOR = "nano";
+    TERMINAL = "kitty";
+  };
+  
+
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new home Manager release introduces backwards

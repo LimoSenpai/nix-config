@@ -7,19 +7,31 @@
     wget
     pavucontrol
     nwg-displays
+    bluez
+    gsettings-desktop-schemas
+    glib
+    man-db
+
     # theme
     rose-pine-hyprcursor
     gruvbox-plus-icons
-    bluez
+    hicolor-icon-theme
+
+    #cirno
+    libxml2
+    webkitgtk_4_1
+    p7zip
   ];
   
 
+  programs.nix-ld.enable = true;
+
   environment.variables = {
-    EDITOR = "nano";
     XCURSOR_THEME = "BreezeX-RosePine";
     XCURSOR_SIZE = 26;
     HYPRCURSOR_THEME = "rose-pine-hyprcursor";
     HYPRCURSOR_SIZE = 26;
+    NIXOS_OZONE = "1"; # Enable Ozone for Hyprland
   };
   
   environment.etc = {

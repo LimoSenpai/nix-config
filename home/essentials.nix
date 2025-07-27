@@ -13,6 +13,8 @@
     evolution
     obs-studio
     obsidian
+    jq
+    loupe
 
     vesktop
     arrpc
@@ -27,7 +29,6 @@
     nautilus-open-any-terminal
     code-nautilus
     sushi
-    
   ];
 }
 

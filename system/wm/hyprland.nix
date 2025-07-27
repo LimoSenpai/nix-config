@@ -9,6 +9,7 @@
     xwayland.enable = true;
     withUWSM = true;
   };
+
    environment.systemPackages = with pkgs; [
     dunst
     libnotify
@@ -18,9 +19,4 @@
       })
     )
    ];
-
-  environment.sessionVariables = {
-    NIXOS_OZONE = "1"; 
-  };
-
 }

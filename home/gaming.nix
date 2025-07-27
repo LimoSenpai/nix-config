@@ -3,13 +3,19 @@
 {
   home.packages =  with pkgs; [
     lutris
-    wine
-    protonplus
     gamescope
     linuxKernel.packages.linux_zen.xpadneo
 
+    #wine and proton
+    wine
+    winetricks
+    protontricks
+    protonplus
+
     #lutris Icon fix
     adwaita-icon-theme
+
+    cirno-downloader
   ];
 }
 

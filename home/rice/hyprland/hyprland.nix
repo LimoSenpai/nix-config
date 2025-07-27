@@ -132,8 +132,7 @@
 
 
     exec-once = [
-      # Bar, wallpaper
-      "waybar &"
+      # wallpaper
       "waypaper --restore"
 
       # Input method
@@ -286,7 +285,7 @@
       # Uncomment to apply global transparency to all windows:
       # windowrulev2 = opacity 0.89 override 0.89 override, class:.*
 
-      "opacity 0.7, class:^(kitty)$"
+
 
       # Kando
       "noblur, class:kando"
@@ -297,16 +296,9 @@
       "float, class:kando"
       "pin, class:kando"
 
-      # Moves all Guild Wars 2 windows to monitor 2 (index is zero-based: monitor 1 = 0, monitor 2 = 1, etc.)
-      "monitor 1,floating,class:(gw2-64\.exe)"
-      "monitor 1,title:^(Guild Wars 2)$"
-      "monitor 1,title:Guild"
-      "monitor 1,xwayland:1"
-
-
-      # Disable blur for xwayland context menus
-      "noblur,class:^()$,title:^()$"
-      # windowrulev2 = noblur, xwayland:1
+      
+      # Opacity 
+      "opacity 0.6, class:^(kitty)$"
 
       # Floating
       "float, class:^(dunst)$"
@@ -328,8 +320,9 @@
       "float, class:org.freedesktop.impl.portal.desktop.kde"
       "float, class:^(steam)$,title:^(Steam Settings)$"
       "float, class:^(steam)$,title:^(Friends List)$"
+      "float, class:^(Bitwarden)$"
+      "float, class:^(.blueman-manager-wrapped)$"
 
-      # FLOAT
       "float, tag:notifications*"
       "float, tag:wallpaper*"
       "float, tag:settings*"
@@ -337,10 +330,12 @@
       "float, class:(org.gnome.Calculator), title:(Calculator)"
       "float, class:^(mpv|com.github.rafostar.Clapper)$"
       "float, class:^([Qq]alculate-gtk)$"
-      #float, class:^([Ww]hatsapp-for-linux|ZapZap|com.rtosta.zapzap)$
       "float, class:^([Ff]erdium)$"
       "float, title:^(Picture-in-Picture)$"
-      #float, title:^(Firefox)$
+
+
+      # Disable blur for xwayland context menus
+      "noblur,class:^()$,title:^()$"
 
       # windowrule - ######### float popups and dialogue #######
       "float, title:^(Authentication Required)$"

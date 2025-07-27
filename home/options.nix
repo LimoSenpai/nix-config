@@ -1,4 +1,4 @@
-{ cofig, pkgs, ... }:
+{ cofig, pkgs, lib, inputs, ... }:
 
 {
   programs = {
@@ -25,6 +25,39 @@
         gcloud.disabled = true;
         line_break.disabled = true;
       };
+    };
+  };
+
+
+  xdg = {
+    enable = true;
+      mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "text/html" = [ "zen.desktop" ];
+        "image/png" = [ "imv.desktop" ];
+        "application/pdf" = [ "org.pwmt.zathura.desktop" ];
+        "inode/directory" = [ "nautilus.desktop" ];
+      };
+    };
+  };
+
+
+  # Waybar Systemd Service
+  systemd.user.services.waybar = {
+    Unit = {
+      Description = "Waybar status bar";
+      After = [ "graphical-session.target" ];
+    };
+
+    Service = {
+      ExecStart = "${pkgs.waybar}/bin/waybar";
+      Restart = "on-failure";
+      RestartSec = 2;
+    };
+
+    Install = {
+      WantedBy = [ "default.target" ];
     };
   };
 }
