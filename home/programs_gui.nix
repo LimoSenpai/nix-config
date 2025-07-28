@@ -6,12 +6,11 @@
     bitwarden-desktop
     vscode-fhs
     nextcloud-client
-    brave
+    #brave
     yubikey-personalization-gui
     streamlink-twitch-gui-bin
     thunderbird
     evolution
-    obs-studio
     obsidian
     jq
     loupe

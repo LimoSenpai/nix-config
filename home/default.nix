@@ -14,10 +14,10 @@
       
 
       ./zen.nix
-      ./essentials.nix
-      ./gaming.nix
-      ./cli.nix
-      ./options.nix
+      ./programs_gaming.nix
+      ./programs_cli.nix
+      ./programs_gui.nix
+      ./programs_options.nix
       
     ];
 }

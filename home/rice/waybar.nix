@@ -19,17 +19,23 @@
             "mpris"
             "gamemode"
             "privacy"
+            "tray"
           ];
           "modules-center" = [
             "clock"
           ];
           "modules-right" = [
-            "tray"
             "cpu"
             "memory"
             "pulseaudio"
-            "power-profiles-daemon" 
+            "power-profiles-daemon"
+            "custom/poweroff"
           ];
+          "custom/poweroff" = {
+            format = "⏻";
+            on-click = "wleave";
+            interval = 3600;
+          };
           "hyprland/workspaces" = {
             "format" = "<span size='small' font='normal Font Awesome 6 Free'>{icon}</span>";
             "on-click" = "activate";
@@ -185,7 +191,8 @@
         #memory,
         #pulseaudio,
         #gamemode,
-        #custom-updates {
+        #custom-updates,
+        #custom-poweroff {
             /*text-shadow: 1px 1px 2px @base00;*/
             /* text shadow, offset-x | offset-y | blur-radius | color */
             background: alpha(@base00, 0.5);
@@ -199,6 +206,11 @@
             border-radius: 8px; /*Default 5*/
             /* rounded corners */
             color: @base05;
+        }
+
+        #custom-poweroff:hover {
+          background: alpha(@base08, 0.5);
+          border-radius: 5px;
         }
 
         /* extend empty space on both side of the bar,
@@ -250,7 +262,7 @@
         }
 
         #workspaces button:hover {
-            background: @base04;
+            background: alpha(@base08, 0.5);
             /* hovered workspace color */
         }
 

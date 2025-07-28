@@ -16,6 +16,7 @@
     adwaita-icon-theme
 
     cirno-downloader
+    heroic-unwrapped
   ];
 }
 

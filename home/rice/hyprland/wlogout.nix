@@ -1,5 +1,6 @@
-{ inputs, pkgs, lib, ... }:
+{ inputs, pkgs, lib, config, stylix, ... }:
 let
+  colors = config.lib.stylix.colors.withHashtag;
   iconFiles = builtins.readDir ../../../assets/icons/wlogout;
 
   iconSymlinks = builtins.foldl'
@@ -64,15 +65,15 @@ in
       }
 
       window {
-        background-color: rgba(30, 30, 46, 0.90);
+        background-color: ${colors.base01}80; /* 20% Overlay */
       }
 
       button {
-        border-radius: 0;
-        border-color: #b4befe;
-        text-decoration-color: #cdd6f4;
-        color: #cdd6f4;
-        background-color: #181825;
+        border-radius: 10;
+        border-color: ${colors.base03};
+        text-decoration-color: ${colors.base04};
+        color: ${colors.base04};
+        background-color: ${colors.base01};
         border-style: solid;
         border-width: 1px;
         background-repeat: no-repeat;
@@ -82,7 +83,8 @@ in
 
       button:focus, button:active, button:hover {
         /* 20% Overlay 2, 80% mantle */
-        background-color: rgb(48, 50, 66);
+        border-color: ${colors.base0D};
+        background-color: ${colors.base08};
         outline-style: none;
       }
 

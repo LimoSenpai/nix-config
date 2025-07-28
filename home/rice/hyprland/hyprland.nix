@@ -49,7 +49,6 @@
 
       ##! Apps
       "Super, T, exec, kitty -1"
-      "Ctrl+Alt, T, exec, kitty -1" # Terminal
       "Super, E, exec, nautilus" # File manager
       "Super, B, exec, zen" # Browser
       "Super, C, exec, code" # Code editor

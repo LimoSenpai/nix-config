@@ -40,41 +40,14 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "de";
-    variant = "nodeadkeys";
-  };
-
-
   # Configure console keymap
   console.keyMap = "de-latin1-nodeadkeys";
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.tinus = {
-    isNormalUser = true;
-    description = "Tinus Braun";
-    extraGroups = [ "networkmanager" "wheel" ];
-  };
+  
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
