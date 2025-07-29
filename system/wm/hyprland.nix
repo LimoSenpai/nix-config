@@ -15,7 +15,6 @@
     dunst
     libnotify
     wleave
-    swaylock-plugin
     
     (waybar.overrideAttrs (oldAttrs: {
         mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];

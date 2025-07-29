@@ -112,7 +112,7 @@
             "spacing" = 10;
           };
           "cpu" = {
-            "interval" = 30;
+            "interval" = 1;
             "format" = " {usage}%";
             "max-length" = 10;
           };

@@ -49,7 +49,7 @@
 
       ##! Apps
       "Super, T, exec, kitty -1"
-      "Super, E, exec, nautilus" # File manager
+      "Super, E, exec, thunar" # File manager
       "Super, B, exec, zen" # Browser
       "Super, C, exec, code" # Code editor
       "Ctrl+Super, V, exec, pavucontrol" # Volume mixer
@@ -138,8 +138,7 @@
       "fcitx5"
 
       # Core components (authentication, lock screen, notification daemon)
-      "gnome-keyring-daemon --start --components=secrets"
-      "/usr/lib/polkit-kde-authentication-agent-1 || /usr/libexec/polkit-kde-authentication-agent-1  || /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 || /usr/libexec/polkit-gnome-authentication-agent-1"
+      "lxqt-policykit-agent &"
       "sleep 1 && dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 
       # Clipboard: history
@@ -155,7 +154,7 @@
       "[workspace 9 silent] easyeffects"
       "[workspace 3 silent] vesktop"
       "[workspace 4 silent] lutris"
-      "[workspace 4] steam"
+      "[workspace 4 silent] steam"
       "nextcloud --background"
       "arrpc"
     ];

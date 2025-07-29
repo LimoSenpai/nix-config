@@ -11,6 +11,7 @@
       ./configuration/fonts.nix
       ./configuration/nvidia.nix
       ./configuration/environment.nix
+      ./configuration/rivalcfg.nix
 
       ./rice/dunst.nix
     ];

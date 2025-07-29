@@ -3,10 +3,10 @@
   home.packages = with pkgs; [
 
     fastfetch
+    neofetch
     yazi
     grimblast
     mdadm
-
 
     # Standard Utility
     zip
