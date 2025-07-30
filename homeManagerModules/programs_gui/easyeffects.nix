@@ -1,4 +1,4 @@
-{inputs, pkgs, lib, config, ... }: {
+{ inputs, pkgs, lib, config, ... }: {
 
   options = {
     easyeffects.enable = lib.mkEnableOption "EasyEffects GUI for PipeWire and PulseAudio";
@@ -10,4 +10,3 @@
     ];
   };
 }
-

@@ -1,6 +1,5 @@
 { config, lib, pkgs, inputs, stylix, ... }:
 
-
 let
   opacity = 0.95;
 in

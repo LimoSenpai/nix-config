@@ -3,24 +3,14 @@
 {
   imports =
     [
-      ./rice/hyprland 
+      ./windowmanager/hyprland 
+      ./windowmanager/wm_utilities
       
-      ./rice/rice.nix
-      ./rice/x_cursor.nix
-      ./rice/waybar.nix
-      ./rice/dunst.nix
-      ./rice/switchwall.nix
-      ./rice/wlogout.nix
-      
-
-      ./zen.nix
-      ./programs_gaming.nix
-      ./programs_cli.nix
-      ./programs_gui.nix
       ./programs_options.nix
 
       # New Structure
+      ./programs_cli
+      ./programs_gaming
       ./programs_gui
-      
     ];
 }

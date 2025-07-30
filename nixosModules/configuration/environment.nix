@@ -18,6 +18,9 @@
     glib
     brave
 
+
+    adwaita-icon-theme
+
     # Root Authentication
     lxqt.lxqt-sudo
     polkit_gnome
@@ -53,10 +56,7 @@
       ];
     };
     
-    foot = {
-      enable = true;
-      enableZshIntegration = true;
-    };
+
     
     zsh = {
       enable = true;

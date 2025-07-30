@@ -2,7 +2,7 @@
 set -e
 
 NIXCONFIG="$HOME/.config/nix-config"
-STYLIX_FILE="$NIXCONFIG/system/stylix.nix"
+STYLIX_FILE="$NIXCONFIG/nixosModules/stylix.nix"
 WALLPAPER_DIR="$NIXCONFIG/assets/wallpapers"
 TARGET_LINK="$WALLPAPER_DIR/current_wallpaper.jpg"
 WAYPAPER_INI="$HOME/.config/waypaper/config.ini"

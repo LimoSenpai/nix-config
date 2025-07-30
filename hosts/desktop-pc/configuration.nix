@@ -14,8 +14,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # Use stable kernel for NVIDIA compatibility
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_6_15;
 
   networking.hostName = "nixos"; # Define your hostname.
 
@@ -30,12 +31,16 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # NixOS module options
+  hyprland.enable = true;
+
+
+  # Configure console keymap
+  console.keyMap = "de-latin1-nodeadkeys";
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
-
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "de_DE.UTF-8";
     LC_IDENTIFICATION = "de_DE.UTF-8";
@@ -48,20 +53,12 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-  # Configure console keymap
-  console.keyMap = "de-latin1-nodeadkeys";
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

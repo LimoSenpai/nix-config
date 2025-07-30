@@ -1,7 +1,10 @@
-#X Cursor
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, lib, ... }: {
 
-{
+  options = {
+    x_cursor.enable = lib.mkEnableOption "Custom X Cursor";
+  };
+
+  config = lib.mkIf config.x_cursor.enable {
     home.pointerCursor = 
     let 
       getFrom = url: hash: name: {
@@ -23,4 +26,5 @@
         "https://github.com/rose-pine/cursor/releases/download/v1.1.0/BreezeX-RosePine-Linux.tar.xz"
         "sha256-t5xwAPGhuQUfGThedLsmtZEEp1Ljjo3Udhd5Ql3O67c="
         "BreezeX-RosePine";
+  };
 }

@@ -1,7 +1,10 @@
-{
-  pkgs,
-  ...
-}: {
+{ pkgs, lib, config, inputs, ...}: {
+
+options = {
+  dunst.enable = lib.mkEnableOption "Dunst Notification Daemon";
+};
+
+config = lib.mkIf config.dunst.enable {
   services.dunst = {
     enable = true;
     iconTheme = {
@@ -59,4 +62,5 @@
 
       };
     };
+  };
 }
