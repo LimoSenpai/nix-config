@@ -1,4 +1,4 @@
-{ inputs, pkgs, lib, config, ...}: {
+{ inputs, pkgs, lib, config, stylix, ...}: {
 
   options = {
     niri.enable = lib.mkEnableOption "Niri";
@@ -9,12 +9,12 @@
       enable = true;
       package = [ pkgs.niri-stable ];
     };
-
+      
     environment.systemPackages = with pkgs; [
-      (waybar.overrideAttrs (oldAttrs: {
-          mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-        })
-      )
-    ];
+        (waybar.overrideAttrs (oldAttrs: {
+            mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+          })
+        )
+      ];
   };
 }

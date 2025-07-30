@@ -6,6 +6,7 @@
       imports = [ 
         ./home.nix
         inputs.self.outputs.homeManagerModules.default
+        inputs.self.homeManagerModules.niri
       ];
     };
     useGlobalPkgs = true;

@@ -11,6 +11,7 @@
       ./programs_gui
       
       ./windowmanager/hyprland 
+      ./windowmanager/niri
       ./windowmanager/wm_utilities
     ];
 }

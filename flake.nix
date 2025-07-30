@@ -10,6 +10,8 @@
     };
     # Hyprland, the Wayland compositor
     hyprland.url = "github:hyprwm/Hyprland";
+    # Niri, a Wayland compositor
+    niri-flake.url = "github:sodiboo/niri-flake";
     # Zen Browser
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
@@ -31,7 +33,7 @@
 
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, hyprland, stylix, self, sddm-sugar-candy-nix, ... }:
+  outputs = inputs@{ nixpkgs, home-manager, hyprland, stylix, self, sddm-sugar-candy-nix, niri-flake, ... }:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
@@ -50,8 +52,8 @@
       default = final: prev: {
         wine = prev.wineWowPackages.stable;
         cirno-downloader = prev.callPackage ./pkgs/cirno-downloader.nix {};
-        
       };
+      niri = niri-flake.overlays.niri;
     };
 
     nixosConfigurations = {
@@ -70,12 +72,17 @@
           {
             nixpkgs.overlays = [ 
               self.overlays.default 
+              self.overlays.niri
               sddm-sugar-candy-nix.overlays.default
             ];
           }
         ];
       };
     };
-    homeManagerModules.default = ./homeManagerModules;
+    homeManagerModules = {
+      niri = niri-flake.homeModules.niri;
+      default = ./homeManagerModules;
+    };
+
   };
 }
