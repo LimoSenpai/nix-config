@@ -3,7 +3,7 @@
 {
   imports =
     [
-      ./wm/hyprland.nix
+      ./wm/hyprland
       ./sddm.nix
       ./gaming.nix
       ./stylix.nix
@@ -13,6 +13,5 @@
       ./configuration/environment.nix
       ./configuration/rivalcfg.nix
 
-      ./rice/dunst.nix
     ];
 }

@@ -31,7 +31,7 @@
 
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, hyprland, stylix, self, sddm-sugar-candy-nix,... }:
+  outputs = inputs@{ nixpkgs, home-manager, hyprland, stylix, self, sddm-sugar-candy-nix, ... }:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
@@ -59,8 +59,8 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          ./configuration.nix
-          ./system
+          ./hosts/desktop-pc/configuration.nix
+          ./nixosModules
 
           sddm-sugar-candy-nix.nixosModules.default
           stylix.nixosModules.stylix
@@ -71,19 +71,9 @@
               sddm-sugar-candy-nix.overlays.default
             ];
           }
-
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-            home-manager.users.tinus = import ./home.nix;
-            home-manager.extraSpecialArgs = {
-              inherit inputs pkgs;
-            };
-          }
         ];
       };
     };
+    homeManagerModules.default = ../homeManagerModules;
   };
 }

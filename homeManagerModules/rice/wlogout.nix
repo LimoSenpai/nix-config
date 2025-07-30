@@ -1,12 +1,12 @@
 { inputs, pkgs, lib, config, stylix, ... }:
 let
   colors = config.lib.stylix.colors.withHashtag;
-  iconFiles = builtins.readDir ../../../assets/icons/wlogout;
+  iconFiles = builtins.readDir ../../assets/icons/wlogout;
 
   iconSymlinks = builtins.foldl'
     (acc: name:
       acc // {
-        ".config/wlogout/icons/${name}".source = ../../../assets/icons/wlogout + "/${name}";
+        ".config/wlogout/icons/${name}".source = ../../assets/icons/wlogout + "/${name}";
       }
     )
     { } (builtins.attrNames iconFiles);

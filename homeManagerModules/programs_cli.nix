@@ -7,6 +7,7 @@
     yazi
     grimblast
     mdadm
+    jq
 
     # Standard Utility
     zip

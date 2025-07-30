@@ -22,8 +22,6 @@
     lxqt.lxqt-sudo
     polkit_gnome
 
-
-
     # Default Applications
     gsettings-desktop-schemas
     man-db

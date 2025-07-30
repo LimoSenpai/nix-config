@@ -3,14 +3,14 @@
 {
   imports =
     [
+      ./rice/hyprland
+      
       ./rice/rice.nix
       ./rice/x_cursor.nix
       ./rice/waybar.nix
-
+      ./rice/dunst.nix
       ./rice/switchwall.nix
-
-      ./rice/hyprland/hyprland.nix
-      ./rice/hyprland/wlogout.nix
+      ./rice/wlogout.nix
       
 
       ./zen.nix
