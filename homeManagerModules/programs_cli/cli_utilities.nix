@@ -16,36 +16,7 @@
       mdadm
       jq
 
-      zip
-      xz
-      unzip
-      p7zip
-      kdePackages.ark
-
-      eza # A modern replacement for ‘ls’
-      fzf # A command-line fuzzy finder
-
-      file
-      which
-      tree
-      gnused
-      gnutar
-      gawk
-      zstd
-      gnupg
-
-      btop
-      iotop
-      iftop
-      nvtop
-
-      lsof
-
-      sysstat
-      lm_sensors 
-      ethtool
-      pciutils
-      usbutils
+      
 
       # nix related
       #

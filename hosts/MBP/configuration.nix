@@ -67,7 +67,18 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  
+  # NixOS module options
+  hyprland.enable = false;
+  nvidia.enable = false; # Enable NVIDIA GPU support
+  niri.enable = true; # Enable Niri, a Wayland compositor
+
+  # Programs Gui
+  nwg-displays.enable = true; # Display Management
+  pavucontrol.enable = true; # PulseAudio Volume Control
+
+  # Programs Cli
+  cli_utilities.enable = true; # Enable CLI Utilities
+  cirno_deps.enable = true; # Enable Cirno Dependencies
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

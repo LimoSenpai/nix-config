@@ -4,6 +4,7 @@
   imports =
     [
       ./wm/hyprland
+      ./wm/niri
       ./sddm.nix
       ./stylix.nix
 

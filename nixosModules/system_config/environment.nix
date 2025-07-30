@@ -1,6 +1,18 @@
 
-{ config, lib, pkgs, ... }: {
-  
+{ config, lib, pkgs, ... }:
+{
+
+  systemd.user.services.lxqt-policykit = {
+    description = "PolicyKit Authentication Agent";
+    wantedBy = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.lxqt.lxqt-policykit}/libexec/lxqt-policykit-agent";
+      Restart = "on-failure";
+    };
+  };
+
+
   # Environment Settings
   environment.variables = {
     XCURSOR_THEME = "BreezeX-RosePine";
