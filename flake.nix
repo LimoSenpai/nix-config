@@ -60,8 +60,10 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/desktop-pc/configuration.nix
+          ./hosts/desktop-pc/home-manager.nix
           ./nixosModules
 
+          home-manager.nixosModules.home-manager
           sddm-sugar-candy-nix.nixosModules.default
           stylix.nixosModules.stylix
 
@@ -74,6 +76,6 @@
         ];
       };
     };
-    homeManagerModules.default = ../homeManagerModules;
+    homeManagerModules.default = ./homeManagerModules;
   };
 }

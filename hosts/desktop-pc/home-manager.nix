@@ -1,16 +1,15 @@
-{ inputs, lib, pkgs, ... } : {
+{ inputs, lib, pkgs, ... }: {
 
-  home-manager.tinus = {
-    extraSpecialArgs = { inherit inputs pkgs; };
-    users = {
-      modules = [ 
-       hosts/desktop-pc/home.nix
-       inputs.self.outputs.homeManagerModules.default
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users.tinus = {
+      imports = [ 
+        ./home.nix
+        inputs.self.outputs.homeManagerModules.default
       ];
     };
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "backup";
-    nixosModules.home-manager
   };
 }

@@ -1,15 +1,16 @@
 { config, inputs, lib, pkgs, ... }: {
 
+  imports = [   
+    inputs.zen-browser.homeModules.beta
+    # inputs.zen-browser.homeModules.twilight
+    # inputs.zen-browser.homeModules.twilight-official
+  ];
+
   options = {
     zen.enable = lib.mkEnableOption "Zen Browser";
   };
 
   config = lib.mkIf config.zen.enable {
-    imports = [   
-      inputs.zen-browser.homeModules.beta
-      # inputs.zen-browser.homeModules.twilight
-      # inputs.zen-browser.homeModules.twilight-official
-    ];
 
     programs.zen-browser = {
       enable = true;

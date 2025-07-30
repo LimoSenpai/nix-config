@@ -1,12 +1,14 @@
 { config, pkgs, stylix, ... }:
 
 {
-  wayland.windowManager.hyprland.settings = {
+  wayland.windowManager.hyprland = {
+    enable = true;
+    settings = {
 
-    source = [
-      "monitors.conf"
-      "workspaces.conf"
-    ];
+      source = [
+        "monitors.conf"
+        "workspaces.conf"
+      ];
 
     general = {
         # Gaps and border
@@ -431,5 +433,6 @@
       # Launchers need to be FAST
       "noanim, gtk4-layer-shell"
     ];
+    };
   };
 }

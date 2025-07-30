@@ -7,7 +7,6 @@
     loupe
     vesktop
     arrpc
-    easyeffects
   ];
 }
 

@@ -1,23 +1,20 @@
 {
   pkgs,
-  browser,
   ...
 }: {
-  home-manager.sharedModules = [
-    (_: {
-      services.dunst = {
-        enable = true;
-        iconTheme = {
-          name = "Papirus-Dark";
-          package = pkgs.papirus-icon-theme;
-        };
-        settings = {
-          global = {
-            frame_color = "#89b4fa";
-            highlight = "#89b4fa";
-            rounded = "yes";
-            origin = "top-right";
-            alignment = "left";
+  services.dunst = {
+    enable = true;
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+    settings = {
+      global = {
+        frame_color = "#89b4fa";
+        highlight = "#89b4fa";
+        rounded = "yes";
+        origin = "top-right";
+        alignment = "left";
             vertical_alignment = "center";
             width = "400";
             height = "400";
@@ -50,18 +47,16 @@
             mouse_left_click = "do_action, close_current";
             mouse_middle_click = "close_current";
             mouse_right_click = "close_all";
-            padding = 10;
-            plain_text = "no";
-            separator_height = 2;
-            show_indicators = "yes";
-            shrink = "no";
-            word_wrap = "yes";
-          };
-
-          fullscreen_delay_everything = {fullscreen = "delay";};
-
+          padding = 10;
+          plain_text = "no";
+          separator_height = 2;
+          show_indicators = "yes";
+          shrink = "no";
+          word_wrap = "yes";
         };
+
+        fullscreen_delay_everything = {fullscreen = "delay";};
+
       };
-    })
-  ];
+    };
 }

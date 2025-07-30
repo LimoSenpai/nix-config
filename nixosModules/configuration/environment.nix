@@ -37,14 +37,6 @@
     p7zip
   ];
   
-  # User Settings
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.tinus = {
-    isNormalUser = true;
-    description = "Tinus Braun";
-    extraGroups = [ "networkmanager" "wheel" "plugdev"];
-    shell = pkgs.zsh;
-  };
 
   # Program options
   programs = {

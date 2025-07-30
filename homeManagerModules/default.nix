@@ -3,7 +3,7 @@
 {
   imports =
     [
-      ./rice/hyprland
+      ./rice/hyprland 
       
       ./rice/rice.nix
       ./rice/x_cursor.nix
@@ -18,6 +18,9 @@
       ./programs_cli.nix
       ./programs_gui.nix
       ./programs_options.nix
+
+      # New Structure
+      ./programs_gui
       
     ];
 }

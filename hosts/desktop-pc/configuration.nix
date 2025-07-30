@@ -19,6 +19,14 @@
 
   networking.hostName = "nixos"; # Define your hostname.
 
+  # User Settings
+  users.users.tinus = {
+    isNormalUser = true;
+    description = "Tinus Braun";
+    extraGroups = [ "networkmanager" "wheel" "plugdev"];
+    shell = pkgs.zsh;
+  };
+
   # Enable networking
   networking.networkmanager.enable = true;
 
@@ -42,7 +50,6 @@
 
   # Configure console keymap
   console.keyMap = "de-latin1-nodeadkeys";
-
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
