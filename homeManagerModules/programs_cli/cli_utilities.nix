@@ -37,6 +37,7 @@
       btop
       iotop
       iftop
+      nvtop
 
       lsof
 

@@ -5,13 +5,13 @@
     [
       ./wm/hyprland
       ./sddm.nix
-      ./gaming.nix
       ./stylix.nix
 
-      ./configuration/fonts.nix
-      ./configuration/nvidia.nix
-      ./configuration/environment.nix
-      ./configuration/rivalcfg.nix
 
+      # new Structure
+      ./programs_gaming
+      ./programs_gui
+      ./programs_cli
+      ./system_config
     ];
 }

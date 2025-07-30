@@ -9,5 +9,10 @@
       ./vesktop.nix
       ./yubikey.nix
       ./zen.nix
+      ./brave.nix
+      ./vscode.nix
+      ./nextcloud.nix
+      ./bitwarden.nix
+      ./obsidian.nix
     ];
 }

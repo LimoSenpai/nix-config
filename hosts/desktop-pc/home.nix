@@ -36,9 +36,16 @@
 
   # Enable/disable your custom modules here
   # gui Programs
+  zen.enable = true; # Web Browser | Firefox based
+  brave.enable = false; # Web Browser | Chromium based
+
+  vscode.enable = true; # Visual Studio Code - Code Editing
+  nextcloud.enable = true; # Nextcloud Client
   easyeffects.enable = true;
   vesktop.enable = true;
-  zen.enable = true;
+  bitwarden.enable = true; # Password Manager
+  obsidian.enable = true; # Note-taking App
+  
   loupe.enable = true; # Image viewer
   yubikey.enable = true; # Security Key Support
   spicetify.enable = true; # Spotify Customization

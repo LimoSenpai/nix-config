@@ -31,9 +31,6 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # NixOS module options
-  hyprland.enable = true;
-
 
   # Configure console keymap
   console.keyMap = "de-latin1-nodeadkeys";
@@ -58,6 +55,20 @@
 
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  # NixOS module options
+  hyprland.enable = true;
+  nvidia.enable = true; # Enable NVIDIA GPU support
+
+  # Programs Gui
+  nwg-displays.enable = true; # Display Management
+  pavucontrol.enable = true; # PulseAudio Volume Control
+
+  # Programs Cli
+  cli_utilities.enable = true; # Enable CLI Utilities
+  cirno_deps.enable = true; # Enable Cirno Dependencies
+  
+
 
 
   # This value determines the NixOS release from which the default
