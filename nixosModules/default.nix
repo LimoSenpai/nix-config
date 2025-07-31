@@ -5,6 +5,7 @@
     [
       ./wm/hyprland
       ./wm/niri
+      ./wm/wm_utils
       ./sddm.nix
       ./stylix.nix
 
