@@ -16,6 +16,14 @@
 
   networking.hostName = "nixosMBP"; # Define your hostname.
 
+  users.users.tinus = {
+    isNormalUser = true;
+    description = "Tinus Braun";
+    group = "tinus";
+    extraGroups = [ "networkmanager" "wheel" "plugdev"];
+    shell = pkgs.zsh;
+  };
+
   # Enable networking
   networking.networkmanager = {
      enable = true;

@@ -23,6 +23,7 @@
   dunst.enable = true; # Notification Daemon
   waybar.enable = true; # Status Bar
   rofi-wayland.enable = true; # Application Launcher
+  wofi.enable = true; # Application Launcher
   wlogout.enable = true; # Logout Utility
 
   x_cursor.enable = true; # Custom X Cursor

@@ -5,6 +5,7 @@
       ./x_cursor.nix
       ./rose-pine-cursor.nix
       ./rofi.nix
+      ./wofi.nix
       ./waybar.nix
       ./dunst.nix
       ./switchwall.nix

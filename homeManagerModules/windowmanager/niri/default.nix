@@ -141,11 +141,6 @@
         );
         ## Optionally add more binds or use a helper for shift/alt combos if needed!
 
-        # --- MOUSE BINDS ---
-        binds-mouse = with config.lib.niri.actions; {
-          "Mod+MouseLeft".action.move-window = [];
-          "Mod+MouseRight".action.resize-window = [];
-        };
       };
     };
   };

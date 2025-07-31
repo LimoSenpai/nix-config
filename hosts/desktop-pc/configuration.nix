@@ -24,9 +24,12 @@
   users.users.tinus = {
     isNormalUser = true;
     description = "Tinus Braun";
+    group = "tinus";
     extraGroups = [ "networkmanager" "wheel" "plugdev"];
     shell = pkgs.zsh;
   };
+
+  users.groups.tinus = {};
 
   # Enable networking
   networking.networkmanager.enable = true;

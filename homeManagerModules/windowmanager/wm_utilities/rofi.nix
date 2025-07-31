@@ -8,6 +8,7 @@
     home.packages =  with pkgs; [
       rofi-wayland
     ];
+    stylix.targets.rofi.enable = true;
   };
 }
 
