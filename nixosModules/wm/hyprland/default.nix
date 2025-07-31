@@ -15,16 +15,5 @@
       withUWSM = true;
 
     };
-
-    environment.systemPackages = with pkgs; [
-      dunst
-      libnotify
-      wleave
-      
-      (waybar.overrideAttrs (oldAttrs: {
-          mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-        })
-      )
-    ];
   };
 }

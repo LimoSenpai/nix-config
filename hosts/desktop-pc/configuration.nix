@@ -61,6 +61,10 @@
 
   # NixOS module options
   hyprland.enable = true;
+  libnotify.enable = true; # Enable libnotify for notifications
+  wleave.enable = true; # Enable Wleave for window management
+  dunst.enable = true; # Enable Dunst for notifications
+
   nvidia.enable = true; # Enable NVIDIA GPU support
 
   # Programs Gui
