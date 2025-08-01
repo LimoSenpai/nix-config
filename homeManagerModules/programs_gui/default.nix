@@ -14,5 +14,6 @@
       ./nextcloud.nix
       ./bitwarden.nix
       ./obsidian.nix
+      ./gui_utilities.nix
     ];
 }

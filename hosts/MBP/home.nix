@@ -18,7 +18,7 @@
   };
 
   # Window Manager Environment
-  hyprland.enable = false;
+  hyprland.enable = true;
   niri.enable = true; # Niri Window Manager
   dunst.enable = true; # Notification Daemon
   waybar.enable = true; # Status Bar
@@ -38,7 +38,7 @@
   # Enable/disable your custom modules here
   # gui Programs
   zen.enable = true;
-  brave.enable = true; # Web Browser
+  brave.enable = false; # Web Browser
 
   vscode.enable = true; # Visual Studio Code - Code Editing
   nextcloud.enable = true; # Nextcloud Client

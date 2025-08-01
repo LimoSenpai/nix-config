@@ -27,10 +27,11 @@
   # Enable networking
   networking.networkmanager = {
      enable = true;
-     wifi.backend = "iwd";
+     wifi.backend = "wpa_supplicant";
 
   };
-  networking.wireless.iwd.enable = true;
+  # networking.wireless.iwd.enable = true;
+
   hardware.firmware = [
    (pkgs.stdenvNoCC.mkDerivation (final: {
       name = "brcm-firmware";
@@ -76,8 +77,8 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # NixOS module options
-  hyprland.enable = false;
-  nvidia.enable = false; # Enable NVIDIA GPU support
+  hyprland.enable = true;
+  nvidia.enable = true; # Enable NVIDIA GPU support
   niri.enable = true; # Enable Niri, a Wayland compositor
 
   # Programs Gui
