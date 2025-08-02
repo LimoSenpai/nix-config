@@ -96,6 +96,9 @@
   #dunst.enable = true; # Enable Dunst for notifications
 
   ## Programs Gui
+  steam.enable = true; # Enable Steam for gaming
+
+  
   nwg-displays.enable = true; # Display Management
   pavucontrol.enable = true; # PulseAudio Volume Control
 

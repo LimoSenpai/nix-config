@@ -3,11 +3,6 @@
 {
   imports =
     [
-      ./wm/hyprland
-      ./wm/niri
-      ./wm/bspwm
-      ./wm/gnome
-      ./wm/wm_utils
       ./sddm.nix
       ./stylix.nix
 
@@ -17,5 +12,12 @@
       ./programs_gui
       ./programs_cli
       ./system_config
+
+
+      ./wm/hyprland
+      ./wm/niri
+      ./wm/bspwm
+      ./wm/gnome
+      ./wm/wm_utils
     ];
 }

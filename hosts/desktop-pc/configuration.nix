@@ -75,6 +75,8 @@
   nvidia.enable = true; # Enable NVIDIA GPU support
 
   # Programs Gui
+  steam.enable = true; # Enable Steam for gaming
+  gui_utils.enable = true; # Enable GUI Utilities
   nwg-displays.enable = true; # Display Management
   pavucontrol.enable = true; # PulseAudio Volume Control
 

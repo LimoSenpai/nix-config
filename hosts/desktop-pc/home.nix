@@ -41,6 +41,7 @@
   zen.enable = true; # Web Browser | Firefox based
   brave.enable = false; # Web Browser | Chromium based
 
+  gui_utils.enable = true; # GUI Utilities
   vscode.enable = true; # Visual Studio Code - Code Editing
   nextcloud.enable = true; # Nextcloud Client
   easyeffects.enable = true;
