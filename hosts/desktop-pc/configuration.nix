@@ -21,6 +21,8 @@
   networking.hostName = "nixos"; # Define your hostname.
 
   # User Settings
+  users.groups.tinus = {};
+
   users.users.tinus = {
     isNormalUser = true;
     description = "Tinus Braun";

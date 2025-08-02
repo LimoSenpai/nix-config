@@ -16,6 +16,8 @@
 
   networking.hostName = "nixosMBP"; # Define your hostname.
 
+  users.groups.tinus = {};
+  
   users.users.tinus = {
     isNormalUser = true;
     description = "Tinus Braun";
