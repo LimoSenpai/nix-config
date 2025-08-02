@@ -81,14 +81,15 @@
   ## NixOS module options ##
 
   ## Window Managers
-  bspwm.enable = true; # Enable BSPWM, a tiling window manager
-  hyprland.enable = true;
-  nvidia.enable = true; # Enable NVIDIA GPU support
-  niri.enable = true; # Enable Niri, a Wayland compositor
+  gnome.enable = true; # Enable GNOME desktop environment
+  #bspwm.enable = true; # Enable BSPWM, a tiling window manager
+  #hyprland.enable = true;
+  #nvidia.enable = true; # Enable NVIDIA GPU support
+  #niri.enable = true; # Enable Niri, a Wayland compositor
 
-  libnotify.enable = true; # Enable libnotify for notifications
-  wleave.enable = true; # Enable Wleave for window management
-  dunst.enable = true; # Enable Dunst for notifications
+  #libnotify.enable = true; # Enable libnotify for notifications
+  #wleave.enable = true; # Enable Wleave for window management
+  #dunst.enable = true; # Enable Dunst for notifications
 
   ## Programs Gui
   nwg-displays.enable = true; # Display Management
