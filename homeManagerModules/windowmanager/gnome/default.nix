@@ -5,7 +5,6 @@
   };
 
   config = lib.mkIf config.gnome.enable {
-    home-manager.users.myuser = {
         dconf = {
             enable = true;
             settings = {
@@ -20,7 +19,6 @@
                 "org/gnome/desktop/interface".color-scheme = "prefer-dark";
             };
         };
-    };
 
   };
 }
