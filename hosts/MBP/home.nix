@@ -17,9 +17,9 @@
     TERMINAL = "kitty";
   };
 
-  # Window Manager Environment
- # hyprland.enable = true;
-#  niri.enable = true; # Niri Window Manager
+  #Window Manager Environment
+  #hyprland.enable = true;
+  #niri.enable = true; # Niri Window Manager
   gnome.enable = true;
   dunst.enable = true; # Notification Daemon
   waybar.enable = true; # Status Bar

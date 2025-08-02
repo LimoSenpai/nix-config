@@ -84,7 +84,7 @@
 
   ## Window Managers
   gnome.enable = true; # Enable GNOME desktop environment
-  #bspwm.enable = true; # Enable BSPWM, a tiling window manager
+  bspwm.enable = true; # Enable BSPWM, a tiling window manager
   #hyprland.enable = true;
   #nvidia.enable = true; # Enable NVIDIA GPU support
   #niri.enable = true; # Enable Niri, a Wayland compositor
