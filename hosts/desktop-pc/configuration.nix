@@ -59,8 +59,13 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # NixOS module options
+  #Window Managers
+  bspwm.enable = true; # Enable BSPWM, a tiling window manager
   hyprland.enable = true;
+  nvidia.enable = true; # Enable NVIDIA GPU support
+  niri.enable = true; # Enable Niri, a Wayland compositor
+
+  
   libnotify.enable = true; # Enable libnotify for notifications
   wleave.enable = true; # Enable Wleave for window management
   dunst.enable = true; # Enable Dunst for notifications

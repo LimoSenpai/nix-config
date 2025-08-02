@@ -76,18 +76,29 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # NixOS module options
+
+
+  ## NixOS module options ##
+
+  ## Window Managers
+  bspwm.enable = true; # Enable BSPWM, a tiling window manager
   hyprland.enable = true;
   nvidia.enable = true; # Enable NVIDIA GPU support
   niri.enable = true; # Enable Niri, a Wayland compositor
 
-  # Programs Gui
+  libnotify.enable = true; # Enable libnotify for notifications
+  wleave.enable = true; # Enable Wleave for window management
+  dunst.enable = true; # Enable Dunst for notifications
+
+  ## Programs Gui
   nwg-displays.enable = true; # Display Management
   pavucontrol.enable = true; # PulseAudio Volume Control
 
-  # Programs Cli
+  ## Programs Cli
   cli_utilities.enable = true; # Enable CLI Utilities
-  cirno_deps.enable = true; # Enable Cirno Dependencies
+  # cirno_deps.enable = true; # Enable Cirno Dependencies
+
+
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
