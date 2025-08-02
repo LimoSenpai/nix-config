@@ -16,8 +16,13 @@
 
   networking.hostName = "nixosMBP"; # Define your hostname.
 
+<<<<<<< HEAD
+   users.groups.tinus = {};
+
+=======
   users.groups.tinus = {};
   
+>>>>>>> f81ddbdc4e7814e579cf16594fd340abf7bb4ac4
   users.users.tinus = {
     isNormalUser = true;
     description = "Tinus Braun";
@@ -89,7 +94,11 @@
   #nvidia.enable = true; # Enable NVIDIA GPU support
   #niri.enable = true; # Enable Niri, a Wayland compositor
 
+<<<<<<< HEAD
+  #sddm.enable = true; 
+=======
   #sddm.enable = true; # Enable SDDM, a display manager
+>>>>>>> f81ddbdc4e7814e579cf16594fd340abf7bb4ac4
 
   #libnotify.enable = true; # Enable libnotify for notifications
   #wleave.enable = true; # Enable Wleave for window management
