@@ -13,6 +13,7 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # nixos-hardware.url = "github:nixos/nixos-hardware"; Only for Apple T2 hardware. PUT IN OUTPUTS IF ENABLED
     # Hyprland, the Wayland compositor
     hyprland.url = "github:hyprwm/Hyprland";
     # Niri, a Wayland compositor
@@ -70,6 +71,7 @@
           ./hosts/desktop-pc/home-manager.nix
           ./nixosModules
 
+          # nixos-hardware.nixosModules.apple-t2 only for Apple T2 hardware. PUT IN OUTPUTS IF ENABLED
           home-manager.nixosModules.home-manager
           sddm-sugar-candy-nix.nixosModules.default
           stylix.nixosModules.stylix
