@@ -21,6 +21,8 @@
   networking.hostName = "nixos"; # Define your hostname.
 
   # User Settings
+  users.groups.tinus = {};
+
   users.users.tinus = {
     isNormalUser = true;
     description = "Tinus Braun";
@@ -64,7 +66,8 @@
   hyprland.enable = true;
   niri.enable = true; # Enable Niri, a Wayland compositor
 
-  
+  sddm.enable = true; # Enable SDDM, a display manager
+
   libnotify.enable = true; # Enable libnotify for notifications
   wleave.enable = true; # Enable Wleave for window management
   dunst.enable = true; # Enable Dunst for notifications

@@ -7,7 +7,6 @@
   config = lib.mkIf config.niri.enable {
     programs.niri = {
       enable = true;
-      package = [ pkgs.niri-stable ];
     };
       
     environment.systemPackages = with pkgs; [
