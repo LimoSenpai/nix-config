@@ -6,7 +6,7 @@
 
   config = lib.mkIf config.gnome.enable {
     services.xserver = {
-      displayManager.gdm.enable = true;
+      #displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
     };
     environment.gnome.excludePackages = (with pkgs; [

@@ -1,11 +1,11 @@
 { inputs, pkgs, lib, config, stylix, ...}: {
 
   options = {
-    niri.enable = lib.mkEnableOption "Niri";
+    sway.enable = lib.mkEnableOption "Sway";
   };
 
-  config = lib.mkIf config.niri.enable {
-    programs.niri = {
+  config = lib.mkIf config.sway.enable {
+    programs.sway = {
       enable = true;
     };
       

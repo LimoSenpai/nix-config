@@ -281,6 +281,7 @@
         "QT_QPA_PLATFORMTHEME, kde"
         # QT_STYLE_OVERRIDE,kvantum
         "WLR_NO_HARDWARE_CURSORS, 1"
+        "AQ_DRM_DEVICES,/dev/dri/card2"
       ];
 
       windowrule = [

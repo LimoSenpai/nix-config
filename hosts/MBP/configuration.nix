@@ -9,7 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
-  
+  #services.xserver.videoDrivers = [ "intel" "amdgpu" ];
   
   # latest kernel patches
   # boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -71,6 +71,8 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  services.openssh.enable = true;
+  services.openssh.settings.PasswordAuthentication = true;
   
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -85,15 +87,16 @@
   ## Window Managers
   gnome.enable = true; # Enable GNOME desktop environment
   bspwm.enable = true; # Enable BSPWM, a tiling window manager
-  #hyprland.enable = true;
+  hyprland.enable = true;
+  sway.enable = true; # Enable Sway, a Wayland compositor
   #nvidia.enable = true; # Enable NVIDIA GPU support
-  #niri.enable = true; # Enable Niri, a Wayland compositor
+  niri.enable = true; # Enable Niri, a Wayland compositor
 
-  #sddm.enable = true; 
+  sddm.enable = true; 
 
-  #libnotify.enable = true; # Enable libnotify for notifications
-  #wleave.enable = true; # Enable Wleave for window management
-  #dunst.enable = true; # Enable Dunst for notifications
+  libnotify.enable = true; # Enable libnotify for notifications
+  wleave.enable = true; # Enable Wleave for window management
+  dunst.enable = true; # Enable Dunst for notifications
 
   ## Programs Gui
   nwg-displays.enable = true; # Display Management
