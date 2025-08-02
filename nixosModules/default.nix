@@ -8,6 +8,7 @@
       ./wm/bspwm
       ./wm/gnome
       ./wm/wm_utils
+      ./wm/kde6
       ./sddm.nix
       ./stylix.nix
 
