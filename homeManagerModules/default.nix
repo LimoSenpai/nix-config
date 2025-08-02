@@ -12,6 +12,7 @@
       
       ./windowmanager/hyprland 
       ./windowmanager/niri
+      ./windowmanager/gnome
       ./windowmanager/wm_utilities
     ];
 }

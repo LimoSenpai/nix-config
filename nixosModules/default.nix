@@ -6,6 +6,7 @@
       ./wm/hyprland
       ./wm/niri
       ./wm/bspwm
+      ./wm/gnome
       ./wm/wm_utils
       ./sddm.nix
       ./stylix.nix
