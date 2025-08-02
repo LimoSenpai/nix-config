@@ -89,6 +89,8 @@
   #nvidia.enable = true; # Enable NVIDIA GPU support
   #niri.enable = true; # Enable Niri, a Wayland compositor
 
+  #sddm.enable = true; # Enable SDDM, a display manager
+
   #libnotify.enable = true; # Enable libnotify for notifications
   #wleave.enable = true; # Enable Wleave for window management
   #dunst.enable = true; # Enable Dunst for notifications

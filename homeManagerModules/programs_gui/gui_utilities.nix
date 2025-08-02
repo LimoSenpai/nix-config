@@ -6,7 +6,6 @@
 
   config = lib.mkIf config.gui_utils.enable {
     home.packages =  with pkgs; [
-      ventoy-full-gtk
     ];
   };
 }
