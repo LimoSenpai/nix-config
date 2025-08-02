@@ -12,6 +12,10 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
+  boot.loader = {
+    efi.efiSysMountPoint = "/boot"; # make sure to change this to your EFI partition!
+    systemd-boot.enable = true;
+  };
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/2e23a4f9-469e-42dd-913e-f2c9b3a2fcc6";
