@@ -86,7 +86,8 @@
 
   ## Window Managers
   gnome.enable = true; # Enable GNOME desktop environment
-  bspwm.enable = true; # Enable BSPWM, a tiling window manager
+  #kde6.enable = true; # Enable KDE Plasma 6 desktop environment
+  #bspwm.enable = true; # Enable BSPWM, a tiling window manager
   hyprland.enable = true;
   sway.enable = true; # Enable Sway, a Wayland compositor
   #nvidia.enable = true; # Enable NVIDIA GPU support
@@ -99,6 +100,7 @@
   dunst.enable = true; # Enable Dunst for notifications
 
   ## Programs Gui
+  steam.enable = true;
   nwg-displays.enable = true; # Display Management
   pavucontrol.enable = true; # PulseAudio Volume Control
 
@@ -114,6 +116,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Did you read the comment?
 
 }

@@ -1,16 +1,16 @@
 {
   description = "NixOS configuration";
 
-  # nixConfig = {
-  #   extra-substituters = ["https://cache.soopy.moe"];
-  #   extra-trusted-public-keys = ["cache.soopy.moe-1:0RZVsQeR+GOh0VQI9rvnHz55nVXkFardDqfm4+afjPo="];
-  # };
+  nixConfig = {
+     extra-substituters = ["https://cache.soopy.moe"];
+     extra-trusted-public-keys = ["cache.soopy.moe-1:0RZVsQeR+GOh0VQI9rvnHz55nVXkFardDqfm4+afjPo="];
+   };
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # home-manager, used for managing user configuration
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:nixos/nixos-hardware"; #Only for Apple T2 hardware. PUT IN OUTPUTS IF ENABLED
@@ -25,7 +25,7 @@
     };
     # Stylix 
     stylix = {
-      url = "github:nix-community/stylix/release-25.05";
+      url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Spicetify
@@ -60,6 +60,11 @@
         cirno-downloader = prev.callPackage ./pkgs/cirno-downloader.nix {};
       };
       niri = niri-flake.overlays.niri;
+      noGtksourceviewCheck = final: prev: {
+        gtksourceview = prev.gtksourceview.overrideAttrs (old: {
+        doCheck = false;
+      });
+     };
     };
 
     nixosConfigurations = {
@@ -81,6 +86,7 @@
               self.overlays.default 
               self.overlays.niri
               sddm-sugar-candy-nix.overlays.default
+              self.overlays.noGtksourceviewCheck
             ];
           }
         ];

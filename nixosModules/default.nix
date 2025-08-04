@@ -9,6 +9,7 @@
       ./wm/gnome
       ./wm/wm_utils
       ./wm/kde6
+      ./wm/sway
       ./sddm.nix
       ./stylix.nix
 

@@ -6,9 +6,12 @@
 
   config = lib.mkIf config.gnome.enable {
     services.xserver = {
-      #displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
     };
+    environment.systemPackages = with pkgs; [
+       gnomeExtensions.pop-shell
+       gnome-tweaks
+    ];
     environment.gnome.excludePackages = (with pkgs; [
       atomix # puzzle game
       cheese # webcam tool

@@ -10,15 +10,29 @@
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usbhid" "uas" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [ "kvm-intel" "apple-gmux" "applesmc" ]; #   
+  boot.kernelParams = [ 
+    "amdgpu.dc=1"
+    #"amdgpu.force_probe=1"
+    "amdgpu.exp_hw_support=1"
+    #"amdgpu.ppfeaturemask=0xffffffff"
+    #"amdgpu.dpm=0"
+    #"pci=nomsi"
+    #"iommu=soft"
+    ];
+  #boot.blacklistedKernelModules = [ "i915" ];
   boot.extraModulePackages = [ ];
   boot.loader = {
     efi.efiSysMountPoint = "/boot"; # make sure to change this to your EFI partition!
     systemd-boot.enable = true;
   };
 
+  
+
+  hardware.enableAllFirmware = true;
+
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/2e23a4f9-469e-42dd-913e-f2c9b3a2fcc6";
+    { device = "/dev/disk/by-label/NIXROOT";
       fsType = "ext4";
     };
 

@@ -5,15 +5,6 @@
   };
 
   config = lib.mkIf config.sway.enable {
-    programs.sway = {
-      enable = true;
-    };
-      
-    environment.systemPackages = with pkgs; [
-        (waybar.overrideAttrs (oldAttrs: {
-            mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-          })
-        )
-      ];
+    programs.sway.enable = true;
   };
 }

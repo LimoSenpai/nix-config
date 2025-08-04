@@ -11,9 +11,13 @@
 
         source = [
           "monitors.conf"
-          "workspaces.conf"
+        #  "workspaces.conf"
         ];
-
+      
+      debug = {
+          disable_logs = false;
+      };
+      
       general = {
           # Gaps and border
           gaps_in = 4;
@@ -281,7 +285,7 @@
         "QT_QPA_PLATFORMTHEME, kde"
         # QT_STYLE_OVERRIDE,kvantum
         "WLR_NO_HARDWARE_CURSORS, 1"
-        "AQ_DRM_DEVICES,/dev/dri/card2"
+        "AQ_DRM_DEVICES,/dev/dri/card1:/dev/dri/card2"
       ];
 
       windowrule = [
