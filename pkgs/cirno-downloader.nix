@@ -2,7 +2,7 @@
 , glibc, openssl, webkitgtk_4_1
 , gtk3, cairo, gdk-pixbuf, libsoup_3, glib
 , gst_all_1, fdk_aac, glib-networking, gsettings-desktop-schemas
-, libjpeg, librsvg, libpng, libwebp, gdk-pixbuf-xlib, ... }:
+, libjpeg, librsvg, libpng, libwebp, gdk-pixbuf-xlib, gdk-pixbuf-dev, ... }:
 
 stdenv.mkDerivation {
   pname = "cirno-downloader";
@@ -11,7 +11,7 @@ stdenv.mkDerivation {
   src = ../assets/bin/cirno-downloader;
 
   dontUnpack = true;
-  nativeBuildInputs = [ makeWrapper patchelf glib.dev ];
+  nativeBuildInputs = [ makeWrapper patchelf glib.dev gdk-pixbuf.dev ];
 
   installPhase = ''
     mkdir -p $out/bin
@@ -30,6 +30,13 @@ stdenv.mkDerivation {
 
     mv ./cirno-downloader-patched $out/bin/cirno-downloader
 
+    mkdir -p $out/lib/gdk-pixbuf-2.0/2.10.0/loaders
+    cp -r ${gdk-pixbuf}/lib/gdk-pixbuf-2.0/2.10.0/loaders/* $out/lib/gdk-pixbuf-2.0/2.10.0/loaders/
+    GDK_PIXBUF_MODULEDIR=$out/lib/gdk-pixbuf-2.0/2.10.0/loaders \
+      ${gdk-pixbuf.dev}/bin/gdk-pixbuf-query-loaders > $out/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache
+
+
+
     mkdir -p $out/share/glib-2.0/schemas
 
     mkdir -p $out/share/glib-2.0/schemas
@@ -43,7 +50,17 @@ stdenv.mkDerivation {
       --set GDK_BACKEND x11 \
       --set GIO_USE_VFS local \
       --set GIO_EXTRA_MODULES ${lib.makeLibraryPath [ glib-networking ]} \
-      --set XDG_DATA_DIRS "$out/share:$XDG_DATA_DIRS"
+      --set XDG_DATA_DIRS "$out/share:$XDG_DATA_DIRS" \
+      --set GST_PLUGIN_PATH "${lib.makeSearchPath "lib/gstreamer-1.0" [
+        gst_all_1.gst-plugins-base
+        gst_all_1.gst-plugins-good
+        gst_all_1.gst-plugins-bad
+        gst_all_1.gst-plugins-ugly
+        gst_all_1.gst-libav
+        # fdk_aac is a codec library, not a plugin, but leave it in your rpath
+      ]}" \
+      --set GDK_PIXBUF_MODULE_FILE $out/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache \
+      --set GDK_PIXBUF_MODULEDIR $out/lib/gdk-pixbuf-2.0/2.10.0/loaders
   '';
 
   meta = {

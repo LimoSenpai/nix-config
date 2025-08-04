@@ -76,6 +76,7 @@
 
   # Programs Gui
   steam.enable = true; # Enable Steam for gaming
+  cirno.enable = true; # Enable Cirno Downloader for games
   gui_utils.enable = true; # Enable GUI Utilities
   nwg-displays.enable = true; # Display Management
   pavucontrol.enable = true; # PulseAudio Volume Control
