@@ -8,7 +8,7 @@ stdenv.mkDerivation {
   pname = "cirno-downloader";
   version = "1.0";
 
-  src = ../../../assets/bin/cirno-downloader;
+  src = ../assets/bin/cirno-downloader;
 
   dontUnpack = true;
   nativeBuildInputs = [ makeWrapper patchelf glib.dev gdk-pixbuf.dev ];

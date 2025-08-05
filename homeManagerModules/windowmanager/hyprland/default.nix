@@ -14,12 +14,6 @@
           "workspaces.conf"
         ];
       
-      gestures = {
-        workspace_swipe = true;
-        workspace_swipe_fingers = 4;
-        workspace_swipe_distance = 300;
-        workspace_swipe_min_speed_to_switch = 10;
-      };
       
       general = {
           # Gaps and border
@@ -35,6 +29,13 @@
           allow_tearing = true; # This just allows the `immediate` window rule to work
 
           snap.enabled = true;
+      };
+
+      gestures = {
+        workspace_swipe = true;
+        workspace_swipe_fingers = 4;
+        workspace_swipe_distance = 300;
+        #workspace_swipe_min_speed_to_switch = 10;
       };
           
           bind = [

@@ -1,7 +1,6 @@
 {
   description = "NixOS configuration";
 
-
   # nixConfig = {
   #   extra-substituters = ["https://cache.soopy.moe"];
   #   extra-trusted-public-keys = ["cache.soopy.moe-1:0RZVsQeR+GOh0VQI9rvnHz55nVXkFardDqfm4+afjPo="];
@@ -40,7 +39,6 @@
 
   };
 
-
   outputs = inputs@{ nixpkgs, home-manager, hyprland, stylix, self, sddm-sugar-candy-nix, niri-flake, ... }:
   let
     system = "x86_64-linux";
@@ -53,17 +51,15 @@
     {
     # Custom packages (Derivations) for the system
     packages.${system} = {
-      cirno-downloader = pkgs.callPackage ./../../pkgs/cirno-downloader.nix {
-        gdk-pixbuf-dev = pkgs.gdk-pixbuf.dev;
-      };
+      cirno-downloader = pkgs.callPackage ./pkgs/cirno-downloader.nix {};
+      gdk-pixbuf-dev = pkgs.gdk-pixbuf.dev;
     };
     # Make Derivations accessible in the flake
     overlays = {
       default = final: prev: {
         wine = prev.wineWowPackages.stable;
-        cirno-downloader = prev.callPackage ./pkgs/cirno-downloader.nix {
-          gdk-pixbuf-dev = prev.gdk-pixbuf.dev;
-        };
+        cirno-downloader = prev.callPackage ./pkgs/cirno-downloader.nix {};
+        gdk-pixbuf-dev = pkgs.gdk-pixbuf.dev;
       };
       niri = niri-flake.overlays.niri;
     };
