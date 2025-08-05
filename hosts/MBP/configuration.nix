@@ -16,8 +16,9 @@
 
   networking.hostName = "nixosMBP"; # Define your hostname.
 
-   users.groups.tinus = {};
 
+  users.groups.tinus = {};
+  
   users.users.tinus = {
     isNormalUser = true;
     description = "Tinus Braun";
@@ -95,12 +96,14 @@
 
   sddm.enable = true; 
 
+
   libnotify.enable = true; # Enable libnotify for notifications
   wleave.enable = true; # Enable Wleave for window management
   dunst.enable = true; # Enable Dunst for notifications
 
   ## Programs Gui
-  steam.enable = true;
+  steam.enable = true; # Enable Steam for gaming
+
   nwg-displays.enable = true; # Display Management
   pavucontrol.enable = true; # PulseAudio Volume Control
 
