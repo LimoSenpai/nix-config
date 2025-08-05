@@ -16,6 +16,10 @@
     nixos-hardware.url = "github:nixos/nixos-hardware"; #Only for Apple T2 hardware. PUT IN OUTPUTS IF ENABLED
     # Hyprland, the Wayland compositor
     hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
     # Niri, a Wayland compositor
     niri-flake.url = "github:sodiboo/niri-flake";
     # Zen Browser
@@ -39,7 +43,7 @@
 
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, nixos-hardware, hyprland, stylix, self, sddm-sugar-candy-nix, niri-flake, ... }:
+  outputs = inputs@{ nixpkgs, home-manager, nixos-hardware, hyprland, hyprland-plugins, stylix, self, sddm-sugar-candy-nix, niri-flake, ... }:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs {

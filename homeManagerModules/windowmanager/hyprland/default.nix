@@ -7,6 +7,11 @@
   config = lib.mkIf config.hyprland.enable {
     wayland.windowManager.hyprland = {
       enable = true;
+
+      plugins = [
+        pkgs.hyprlandPlugins.hyprgrass
+      ];
+
       settings = {
 
         source = [
@@ -163,12 +168,7 @@
 
 
         # Custom Programs
-        "[workspace 9 silent] easyeffects"
-        "[workspace 3 silent] vesktop"
-        "[workspace 4 silent] lutris"
-        "[workspace 4 silent] steam"
         "nextcloud --background"
-        "arrpc"
       ];
 
       decoration = {
