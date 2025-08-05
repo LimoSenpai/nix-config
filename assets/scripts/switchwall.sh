@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-NIXCONFIG="$HOME/.config/nix-config"
+NIXCONFIG="$HOME/.config/nix-config/hosts/$HOSTNAME"
 STYLIX_FILE="$NIXCONFIG/nixosModules/stylix.nix"
 WALLPAPER_DIR="$NIXCONFIG/assets/wallpapers"
 TARGET_LINK="$WALLPAPER_DIR/current_wallpaper.jpg"
@@ -44,10 +44,10 @@ rm -f "$TARGET_LINK"
 cp "$SELECTED_WALLPAPER" "$TARGET_LINK"
 
 # Update stylix config
-sed -i 's|image = inputs\.self \+ .*$|image = inputs.self + "/assets/wallpapers/current_wallpaper.jpg";|' "$STYLIX_FILE"
+sed -i 's|image = inputs\.self \+ .*$|image = inputs.self + "/../../assets/wallpapers/current_wallpaper.jpg";|' "$STYLIX_FILE"
 
 # git add (optional)
 git -C "$NIXCONFIG" add "$TARGET_LINK"
 
 # NixOS rebuild
-lxqt-sudo nixos-rebuild switch --flake "$NIXCONFIG#nixos"
+lxqt-sudo nixos-rebuild switch --flake "$NIXCONFIG"
