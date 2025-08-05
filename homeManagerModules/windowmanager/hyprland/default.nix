@@ -33,8 +33,15 @@
 
           snap.enabled = true;
       };
-          
-          bind = [
+
+      gestures = {
+        workspace_swipe = true;
+        workspace_swipe_fingers = 4;
+        workspace_swipe_distance = 300;
+        workspace_swipe_min_speed_to_switch = 10;
+      };
+
+      bind = [
         # --- Launcher ---
         "Super, Space, exec, pkill rofi || rofi -show drun" # Launcher
 
@@ -243,6 +250,13 @@
           repeat_rate = 35;
 
           follow_mouse = 1;
+
+          touchpad = {
+            natural_scroll = true;
+            tap-to-click = true;
+            middle_button_emulation = true;
+            clickfinger_behavior = true;
+          };
       };
 
       misc = {
