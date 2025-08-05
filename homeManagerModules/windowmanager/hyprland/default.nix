@@ -11,11 +11,14 @@
 
         source = [
           "monitors.conf"
-        #  "workspaces.conf"
+          "workspaces.conf"
         ];
       
-      debug = {
-          disable_logs = false;
+      gestures = {
+        workspace_swipe = true;
+        workspace_swipe_fingers = 4;
+        workspace_swipe_distance = 300;
+        workspace_swipe_min_speed_to_switch = 10;
       };
       
       general = {
