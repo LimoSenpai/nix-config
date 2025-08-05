@@ -7,6 +7,24 @@ WALLPAPER_DIR="$NIXCONFIG/assets/wallpapers"
 TARGET_LINK="$WALLPAPER_DIR/current_wallpaper.jpg"
 WAYPAPER_INI="$HOME/.config/waypaper/config.ini"
 
+# Detect current host and set appropriate flake path
+HOSTNAME=$(hostname)
+case "$HOSTNAME" in
+    "nixos-desktop")
+        FLAKE_PATH="$NIXCONFIG/hosts/desktop-pc"
+        FLAKE_CONFIG="nixos-desktop"
+        ;;
+    "nixosMBP")
+        FLAKE_PATH="$NIXCONFIG/hosts/MBP"
+        FLAKE_CONFIG="MBP"
+        ;;
+    *)
+        echo "Unknown hostname: $HOSTNAME. Please update the script with your host configuration."
+        echo "Available hosts: desktop-pc, nixosMBP"
+        exit 1
+        ;;
+esac
+
 OLD_WALLPAPER=$(awk -F'=' '/^wallpaper[ ]*=/{gsub(/^[ \t]+|[ \t]+$/, "", $2); print $2}' "$WAYPAPER_INI")
 OLD_WALLPAPER="${OLD_WALLPAPER/#\~/$HOME}"
 
@@ -43,11 +61,20 @@ mkdir -p "$WALLPAPER_DIR"
 rm -f "$TARGET_LINK"
 cp "$SELECTED_WALLPAPER" "$TARGET_LINK"
 
-# Update stylix config
-sed -i 's|image = inputs\.self \+ .*$|image = inputs.self + "/assets/wallpapers/current_wallpaper.jpg";|' "$STYLIX_FILE"
+# Update stylix config based on host
+case "$HOSTNAME" in
+    "desktop-pc")
+        # For desktop-pc, the flake is in hosts/desktop-pc/, so assets are at ../../assets
+        sed -i 's|image = inputs\.self \+ .*$|image = inputs.self + "/../../assets/wallpapers/current_wallpaper.jpg";|' "$STYLIX_FILE"
+        ;;
+    "nixosMBP")
+        # For MBP, if flake is in hosts/MBP/, assets are at ../../assets
+        sed -i 's|image = inputs\.self \+ .*$|image = inputs.self + "/../../assets/wallpapers/current_wallpaper.jpg";|' "$STYLIX_FILE"
+        ;;
+esac
 
 # git add (optional)
 git -C "$NIXCONFIG" add "$TARGET_LINK"
 
 # NixOS rebuild
-lxqt-sudo nixos-rebuild switch --flake "$NIXCONFIG#nixos"
+lxqt-sudo nixos-rebuild switch --flake "$FLAKE_PATH#$FLAKE_CONFIG"
