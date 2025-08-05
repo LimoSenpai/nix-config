@@ -7,5 +7,6 @@
       ./foot.nix
       ./power-profiles-daemon.nix
       ./playerctl.nix
+      ./tiny-dfr.nix
     ];
 }
