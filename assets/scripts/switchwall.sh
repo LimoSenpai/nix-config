@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-NIXCONFIG="$HOME/.config/nix-config"
+NIXCONFIG="$HOME/.config/nix-config/hosts/$HOSTNAME"
 STYLIX_FILE="$NIXCONFIG/nixosModules/stylix.nix"
 WALLPAPER_DIR="$NIXCONFIG/assets/wallpapers"
 TARGET_LINK="$WALLPAPER_DIR/current_wallpaper.jpg"
@@ -61,6 +61,7 @@ mkdir -p "$WALLPAPER_DIR"
 rm -f "$TARGET_LINK"
 cp "$SELECTED_WALLPAPER" "$TARGET_LINK"
 
+<<<<<<< HEAD
 # Update stylix config based on host
 case "$HOSTNAME" in
     "desktop-pc")
@@ -72,9 +73,17 @@ case "$HOSTNAME" in
         sed -i 's|image = inputs\.self \+ .*$|image = inputs.self + "/../../assets/wallpapers/current_wallpaper.jpg";|' "$STYLIX_FILE"
         ;;
 esac
+=======
+# Update stylix config
+sed -i 's|image = inputs\.self \+ .*$|image = inputs.self + "/../../assets/wallpapers/current_wallpaper.jpg";|' "$STYLIX_FILE"
+>>>>>>> a0057cb8b7e8baaf0a5902c3b72e11d0995f6a8e
 
 # git add (optional)
 git -C "$NIXCONFIG" add "$TARGET_LINK"
 
 # NixOS rebuild
+<<<<<<< HEAD
 lxqt-sudo nixos-rebuild switch --flake "$FLAKE_PATH#$FLAKE_CONFIG"
+=======
+lxqt-sudo nixos-rebuild switch --flake "$NIXCONFIG"
+>>>>>>> a0057cb8b7e8baaf0a5902c3b72e11d0995f6a8e
