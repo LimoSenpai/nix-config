@@ -16,9 +16,10 @@
 
         source = [
           "monitors.conf"
-        #  "workspaces.conf"
+          "workspaces.conf"
         ];
       
+
       general = {
           # Gaps and border
           gaps_in = 4;
@@ -39,6 +40,7 @@
         workspace_swipe = true;
         workspace_swipe_fingers = 4;
         workspace_swipe_distance = 300;
+
       };
 
       bind = [
