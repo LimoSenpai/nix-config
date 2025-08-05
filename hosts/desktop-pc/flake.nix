@@ -51,27 +51,27 @@
     {
     # Custom packages (Derivations) for the system
     packages.${system} = {
-      cirno-downloader = pkgs.callPackage ./pkgs/cirno-downloader.nix {};
+      cirno-downloader = pkgs.callPackage ../../pkgs/cirno-downloader.nix {};
       gdk-pixbuf-dev = pkgs.gdk-pixbuf.dev;
     };
     # Make Derivations accessible in the flake
     overlays = {
       default = final: prev: {
         wine = prev.wineWowPackages.stable;
-        cirno-downloader = prev.callPackage ./pkgs/cirno-downloader.nix {};
+        cirno-downloader = prev.callPackage ../../pkgs/cirno-downloader.nix {};
         gdk-pixbuf-dev = pkgs.gdk-pixbuf.dev;
       };
       niri = niri-flake.overlays.niri;
     };
 
     nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
+      nixos-desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          ./hosts/desktop-pc/configuration.nix
-          ./hosts/desktop-pc/home-manager.nix
-          ./nixosModules
+          ./configuration.nix
+          ./home-manager.nix
+          ../../nixosModules
 
           # nixos-hardware.nixosModules.apple-t2 only for Apple T2 hardware. PUT IN OUTPUTS IF ENABLED
           home-manager.nixosModules.home-manager
@@ -90,7 +90,7 @@
     };
     homeManagerModules = {
       niri = niri-flake.homeModules.niri;
-      default = ./homeManagerModules;
+      default = ../../homeManagerModules;
     };
 
   };

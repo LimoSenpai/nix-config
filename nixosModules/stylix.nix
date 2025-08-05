@@ -6,7 +6,7 @@ in
 {
   stylix = {
     enable = true;
-    image = inputs.self + "/assets/wallpapers/current_wallpaper.jpg";
+    image = inputs.self + "/../../assets/wallpapers/current_wallpaper.jpg";
     polarity = "dark";
     opacity = {
       terminal = opacity;

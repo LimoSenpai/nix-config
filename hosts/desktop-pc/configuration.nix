@@ -18,7 +18,7 @@
   # boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelPackages = pkgs.linuxPackages_6_15;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nixos-desktop"; # Define your hostname.
 
   # User Settings
   users.groups.tinus = {};
