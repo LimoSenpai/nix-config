@@ -29,5 +29,10 @@
       ''; 
       mode = "0755";
     };
+    "modprobe.d/apple-gmux.conf" = {
+      text = ''
+        options apple-gmux force_idg=y
+      '';
+    };
   };
 }

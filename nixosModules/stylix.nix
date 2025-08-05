@@ -33,5 +33,6 @@ in
         name = "Noto Color Emoji";
       };
     };
+    targets.qt.platform = lib.mkDefault "adwaita";
   };
 }

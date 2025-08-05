@@ -2,6 +2,9 @@
 { config, lib, pkgs, ... }: {
 
   environment.systemPackages = with pkgs; [
+    mesa-demos
+    radeon-profile
+
     # Root Authentication
     lxqt.lxqt-sudo
     polkit_gnome

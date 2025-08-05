@@ -17,10 +17,10 @@
     TERMINAL = "kitty";
   };
 
-  # Window Manager Environment
- # hyprland.enable = true;
-#  niri.enable = true; # Niri Window Manager
-  gnome.enable = true;
+  #Window Manager Environment
+  hyprland.enable = true;
+  niri.enable = true; # Niri Window Manager
+  #gnome.enable = true;
   dunst.enable = true; # Notification Daemon
   waybar.enable = true; # Status Bar
   rofi-wayland.enable = true; # Application Launcher
@@ -40,7 +40,7 @@
   # gui Programs
   #gui_utils.enable = true;
   zen.enable = true;
-  brave.enable = false; # Web Browser
+  #brave.enable = true; # Web Browser
 
   vscode.enable = true; # Visual Studio Code - Code Editing
   nextcloud.enable = true; # Nextcloud Client
@@ -49,7 +49,7 @@
   bitwarden.enable = true; # Password Manager
 
   loupe.enable = true; # Image viewer
-  yubikey.enable = true; # Security Key Support
+  #yubikey.enable = true; # Security Key Support
   spicetify.enable = true; # Spotify Customization
 
   # cli Programs
@@ -59,12 +59,12 @@
   playerctl.enable = true; # Media Player Control | Used in Waybar
 
   # Gaming Programs
-  lutris.enable = false; # Game Manager
-  wine.enable = false; # Compatibility Layer
-  proton.enable = false; # Proton Addons
-  gamescope.enable = false;
-  gamemode.enable = false; # Game Mode https://search.nixos.org/packages?channel=25.05&from=0&size=50&sort=relevance&type=packages&query=gamemode
-  arrpc.enable = false; # Rich Presence for Vesktop
+  lutris.enable = true; # Game Manager
+  wine.enable = true; # Compatibility Layer
+  proton.enable = true; # Proton Addons
+  gamescope.enable = true;
+  #gamemode.enable = true; # Game Mode https://search.nixos.org/packages?channel=25.05&from=0&size=50&sort=relevance&type=packages&query=gamemode
+  arrpc.enable = true; # Rich Presence for Vesktop
 
 
   # This value determines the home Manager release that your

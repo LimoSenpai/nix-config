@@ -194,11 +194,13 @@
     "gnome-shell": {
       "flake": false,
       "locked": {
+
         "lastModified": 1744584021,
         "narHash": "sha256-0RJ4mJzf+klKF4Fuoc8VN8dpQQtZnKksFmR2jhWE1Ew=",
         "owner": "GNOME",
         "repo": "gnome-shell",
         "rev": "52c517c8f6c199a1d6f5118fae500ef69ea845ae",
+
         "type": "github"
       },
       "original": {
@@ -215,6 +217,7 @@
         ]
       },
       "locked": {
+
         "lastModified": 1753592768,
         "narHash": "sha256-oV695RvbAE4+R9pcsT9shmp6zE/+IZe6evHWX63f2Qg=",
         "owner": "nix-community",
@@ -224,6 +227,7 @@
       },
       "original": {
         "owner": "nix-community",
+
         "ref": "release-25.05",
         "repo": "home-manager",
         "type": "github"
@@ -324,6 +328,7 @@
         "xdph": "xdph"
       },
       "locked": {
+
         "lastModified": 1754144468,
         "narHash": "sha256-SOP9IpcrS3MsfYXUXcGpAao77sRZFovk+3kVjg3zmD8=",
         "owner": "hyprwm",
@@ -565,6 +570,7 @@
         "type": "github"
       }
     },
+
     "nixpkgs": {
       "locked": {
         "lastModified": 1753939845,
@@ -615,6 +621,7 @@
     },
     "nixpkgs_3": {
       "locked": {
+
         "lastModified": 1754028485,
         "narHash": "sha256-IiiXB3BDTi6UqzAZcf2S797hWEPCRZOwyNThJIYhUfk=",
         "owner": "nixos",

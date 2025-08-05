@@ -7,7 +7,9 @@
   config = lib.mkIf config.niri.enable {
     programs.niri = {
       settings = {
-
+        debug = {
+          render-drm-device = "/dev/dri/renderD128";
+        };
         environment = {
           QT_QPA_PLATFORM = "wayland";
           XDG_SESSION_TYPE = "wayland";
