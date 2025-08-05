@@ -5,5 +5,6 @@
     [
       ./cli_utilities.nix
       ./cirno_deps.nix
+      ./tiny-dfr.nix
     ];
 }

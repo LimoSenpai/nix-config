@@ -103,7 +103,7 @@
 
   ## Programs Gui
   steam.enable = true; # Enable Steam for gaming
-
+  mbp_touchbar.enable = true; # Enable MacBook Pro Touch Bar support
   nwg-displays.enable = true; # Display Management
   pavucontrol.enable = true; # PulseAudio Volume Control
 

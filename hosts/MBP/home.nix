@@ -47,7 +47,6 @@
   easyeffects.enable = true;
   vesktop.enable = true;
   bitwarden.enable = true; # Password Manager
-  mbp-touchbar.enable = true; # Touch Bar support for MacBook Pro
   
   loupe.enable = true; # Image viewer
   #yubikey.enable = true; # Security Key Support
