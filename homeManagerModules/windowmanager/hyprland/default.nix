@@ -7,6 +7,11 @@
   config = lib.mkIf config.hyprland.enable {
     wayland.windowManager.hyprland = {
       enable = true;
+
+      plugins = [
+        pkgs.hyprlandPlugins.hyprgrass
+      ];
+
       settings = {
 
         source = [
@@ -14,7 +19,7 @@
           "workspaces.conf"
         ];
       
-      
+
       general = {
           # Gaps and border
           gaps_in = 4;
@@ -35,10 +40,10 @@
         workspace_swipe = true;
         workspace_swipe_fingers = 4;
         workspace_swipe_distance = 300;
-        #workspace_swipe_min_speed_to_switch = 10;
+
       };
-          
-          bind = [
+
+      bind = [
         # --- Launcher ---
         "Super, Space, exec, pkill rofi || rofi -show drun" # Launcher
 
@@ -165,12 +170,7 @@
 
 
         # Custom Programs
-        "[workspace 9 silent] easyeffects"
-        "[workspace 3 silent] vesktop"
-        "[workspace 4 silent] lutris"
-        "[workspace 4 silent] steam"
         "nextcloud --background"
-        "arrpc"
       ];
 
       decoration = {
@@ -247,6 +247,13 @@
           repeat_rate = 35;
 
           follow_mouse = 1;
+
+          touchpad = {
+            natural_scroll = true;
+            tap-to-click = true;
+            middle_button_emulation = true;
+            clickfinger_behavior = true;
+          };
       };
 
       misc = {

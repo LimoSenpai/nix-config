@@ -34,5 +34,8 @@ in
       };
     };
     targets.qt.platform = lib.mkDefault "adwaita";
+    #targets.zen-browser.profileNames = [
+    #  "fbzuf3jk"
+    #];
   };
 }

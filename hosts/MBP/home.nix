@@ -47,7 +47,7 @@
   easyeffects.enable = true;
   vesktop.enable = true;
   bitwarden.enable = true; # Password Manager
-
+  
   loupe.enable = true; # Image viewer
   #yubikey.enable = true; # Security Key Support
   spicetify.enable = true; # Spotify Customization
