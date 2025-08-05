@@ -16,7 +16,7 @@ case "$HOSTNAME" in
         ;;
     "nixosMBP")
         FLAKE_PATH="$NIXCONFIG/hosts/MBP"
-        FLAKE_CONFIG="MBP"
+        FLAKE_CONFIG="nixosMBP"
         ;;
     *)
         echo "Unknown hostname: $HOSTNAME. Please update the script with your host configuration."
