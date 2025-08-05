@@ -3,6 +3,7 @@
 {
   imports =
     [
+      ./cirno.nix
       ./steam.nix
     ];
 }

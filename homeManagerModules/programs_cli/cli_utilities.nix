@@ -16,6 +16,7 @@
       mdadm
       jq
 
+      hyperfine
       
 
       # nix related
