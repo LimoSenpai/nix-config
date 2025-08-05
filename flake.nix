@@ -1,20 +1,19 @@
 {
   description = "NixOS configuration";
 
-
-  # nixConfig = {
-  #   extra-substituters = ["https://cache.soopy.moe"];
-  #   extra-trusted-public-keys = ["cache.soopy.moe-1:0RZVsQeR+GOh0VQI9rvnHz55nVXkFardDqfm4+afjPo="];
-  # };
+  nixConfig = {
+     extra-substituters = ["https://cache.soopy.moe"];
+     extra-trusted-public-keys = ["cache.soopy.moe-1:0RZVsQeR+GOh0VQI9rvnHz55nVXkFardDqfm4+afjPo="];
+   };
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # home-manager, used for managing user configuration
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # nixos-hardware.url = "github:nixos/nixos-hardware"; Only for Apple T2 hardware. PUT IN OUTPUTS IF ENABLED
+    nixos-hardware.url = "github:nixos/nixos-hardware"; #Only for Apple T2 hardware. PUT IN OUTPUTS IF ENABLED
     # Hyprland, the Wayland compositor
     hyprland.url = "github:hyprwm/Hyprland";
     # Niri, a Wayland compositor
@@ -26,7 +25,7 @@
     };
     # Stylix 
     stylix = {
-      url = "github:nix-community/stylix/release-25.05";
+      url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Spicetify
@@ -40,8 +39,7 @@
 
   };
 
-
-  outputs = inputs@{ nixpkgs, home-manager, hyprland, stylix, self, sddm-sugar-candy-nix, niri-flake, ... }:
+  outputs = inputs@{ nixpkgs, home-manager, nixos-hardware, hyprland, stylix, self, sddm-sugar-candy-nix, niri-flake, ... }:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
@@ -53,31 +51,32 @@
     {
     # Custom packages (Derivations) for the system
     packages.${system} = {
-      cirno-downloader = pkgs.callPackage ./pkgs/cirno-downloader.nix {
-        gdk-pixbuf-dev = pkgs.gdk-pixbuf.dev;
-      };
+      cirno-downloader = pkgs.callPackage ./pkgs/cirno-downloader.nix {};
     };
     # Make Derivations accessible in the flake
     overlays = {
       default = final: prev: {
         wine = prev.wineWowPackages.stable;
-        cirno-downloader = prev.callPackage ./pkgs/cirno-downloader.nix {
-          gdk-pixbuf-dev = prev.gdk-pixbuf.dev;
-        };
+        cirno-downloader = prev.callPackage ./pkgs/cirno-downloader.nix {};
       };
       niri = niri-flake.overlays.niri;
+      noGtksourceviewCheck = final: prev: {
+        gtksourceview = prev.gtksourceview.overrideAttrs (old: {
+        doCheck = false;
+      });
+     };
     };
 
     nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
+      nixosMBP = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          ./hosts/desktop-pc/configuration.nix
-          ./hosts/desktop-pc/home-manager.nix
+          ./hosts/MBP/configuration.nix
+          ./hosts/MBP/home-manager.nix
           ./nixosModules
 
-          # nixos-hardware.nixosModules.apple-t2 only for Apple T2 hardware. PUT IN OUTPUTS IF ENABLED
+          nixos-hardware.nixosModules.apple-t2 # only for Apple T2 hardware. PUT IN OUTPUTS IF ENABLED
           home-manager.nixosModules.home-manager
           sddm-sugar-candy-nix.nixosModules.default
           stylix.nixosModules.stylix
@@ -87,6 +86,7 @@
               self.overlays.default 
               self.overlays.niri
               sddm-sugar-candy-nix.overlays.default
+              self.overlays.noGtksourceviewCheck
             ];
           }
         ];
