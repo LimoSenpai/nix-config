@@ -20,7 +20,7 @@
   #Window Manager Environment
   hyprland.enable = true;
   niri.enable = true; # Niri Window Manager
-  gnome.enable = true;
+  #gnome.enable = true;
   dunst.enable = true; # Notification Daemon
   waybar.enable = true; # Status Bar
   rofi-wayland.enable = true; # Application Launcher

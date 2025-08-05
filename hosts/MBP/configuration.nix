@@ -85,7 +85,7 @@
   ## NixOS module options ##
 
   ## Window Managers
-  gnome.enable = true; # Enable GNOME desktop environment
+  #gnome.enable = true; # Enable GNOME desktop environment
   #kde6.enable = true; # Enable KDE Plasma 6 desktop environment
   #bspwm.enable = true; # Enable BSPWM, a tiling window manager
   hyprland.enable = true;
