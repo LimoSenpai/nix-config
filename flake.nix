@@ -61,7 +61,7 @@
     overlays = {
       default = final: prev: {
         wine = prev.wineWowPackages.stable;
-        cirno-downloader = prev.callPackage ./../../pkgs/cirno-downloader.nix {
+        cirno-downloader = prev.callPackage ./pkgs/cirno-downloader.nix {
           gdk-pixbuf-dev = prev.gdk-pixbuf.dev;
         };
       };
@@ -73,9 +73,9 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          ./configuration.nix
-          ./home-manager.nix
-          ./../../nixosModules
+          ./hosts/desktop-pc/configuration.nix
+          ./hosts/desktop-pc/home-manager.nix
+          ./nixosModules
 
           # nixos-hardware.nixosModules.apple-t2 only for Apple T2 hardware. PUT IN OUTPUTS IF ENABLED
           home-manager.nixosModules.home-manager
@@ -94,7 +94,7 @@
     };
     homeManagerModules = {
       niri = niri-flake.homeModules.niri;
-      default = ./../../homeManagerModules;
+      default = ./homeManagerModules;
     };
 
   };
