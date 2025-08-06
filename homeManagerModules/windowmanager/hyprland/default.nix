@@ -178,8 +178,6 @@
         # Custom Programs
         "[workspace 9 silent] easyeffects"
         "[workspace 3 silent] vesktop"
-        "[workspace 4 silent] lutris"
-        "[workspace 4 silent] steam"
         "nextcloud --background"
         "arrpc"
       ];
