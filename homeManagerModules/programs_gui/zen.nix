@@ -1,4 +1,4 @@
-{ config, inputs, lib, pkgs, ... }: {
+{ config, inputs, lib, pkgs, stylix,... }: {
 
   imports = [   
     inputs.zen-browser.homeModules.beta
@@ -11,7 +11,9 @@
   };
 
   config = lib.mkIf config.zen.enable {
-
+    stylix.targets.zen-browser.profileNames = [
+      "fbzuf3jk.Default Profile"
+    ];
     programs.zen-browser = {
       enable = true;
       policies = {
