@@ -1,11 +1,6 @@
 {
   description = "NixOS configuration";
 
-  # nixConfig = {
-  #   extra-substituters = ["https://cache.soopy.moe"];
-  #   extra-trusted-public-keys = ["cache.soopy.moe-1:0RZVsQeR+GOh0VQI9rvnHz55nVXkFardDqfm4+afjPo="];
-  # };
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     # home-manager, used for managing user configuration
@@ -13,7 +8,6 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # nixos-hardware.url = "github:nixos/nixos-hardware"; Only for Apple T2 hardware. PUT IN OUTPUTS IF ENABLED
     # Hyprland, the Wayland compositor
     hyprland.url = "github:hyprwm/Hyprland";
     # Niri, a Wayland compositor
