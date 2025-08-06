@@ -85,7 +85,7 @@
 
   ## NixOS module options ##
 
-  ## Window Managers
+  # System configuration
   #gnome.enable = true; # Enable GNOME desktop environment
   #kde6.enable = true; # Enable KDE Plasma 6 desktop environment
   #bspwm.enable = true; # Enable BSPWM, a tiling window manager
@@ -96,10 +96,12 @@
 
   sddm.enable = true; 
 
-
   libnotify.enable = true; # Enable libnotify for notifications
   wleave.enable = true; # Enable Wleave for window management
   dunst.enable = true; # Enable Dunst for notifications
+
+
+  amd-radeon.enable = false; # Enable AMD Radeon GPU support
 
   ## Programs Gui
   steam.enable = true; # Enable Steam for gaming

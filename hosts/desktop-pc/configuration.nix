@@ -61,8 +61,8 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  #Window Managers
-  bspwm.enable = true; # Enable BSPWM, a tiling window manager
+  # System configuration
+  #bspwm.enable = true; # Enable BSPWM, a tiling window manager
   hyprland.enable = true;
   niri.enable = true; # Enable Niri, a Wayland compositor
 
@@ -72,17 +72,19 @@
   wleave.enable = true; # Enable Wleave for window management
   dunst.enable = true; # Enable Dunst for notifications
 
+  system-programs.enable = true; # Enable system programs
+  standard-apps.enable = true; # Enable standard applications
+
   nvidia.enable = true; # Enable NVIDIA GPU support
+  amd-radeon.enable = false; # Enable AMD Radeon GPU support
 
   # Programs Gui
   steam.enable = true; # Enable Steam for gaming
   cirno.enable = true; # Enable Cirno Downloader for games
-  gui_utils.enable = true; # Enable GUI Utilities
   nwg-displays.enable = true; # Display Management
   pavucontrol.enable = true; # PulseAudio Volume Control
 
   # Programs Cli
-  cli_utilities.enable = true; # Enable CLI Utilities
   cirno_deps.enable = true; # Enable Cirno Dependencies
   
 

@@ -9,5 +9,6 @@
       ./environment.nix
       ./services.nix
       ./hardware.nix
+      ./programs.nix
     ];
 }
