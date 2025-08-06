@@ -38,9 +38,15 @@
 
       gestures = {
         workspace_swipe = true;
-        workspace_swipe_fingers = 4;
-        workspace_swipe_distance = 300;
+        workspace_swipe_cancel_ratio = 0.15;
+      };
 
+      plugin = {
+        touch_gestures = {
+          workspace_swipe_gesture = 3;
+          emulate_touchpad_swipe = true;
+          
+        };
       };
 
       bind = [
