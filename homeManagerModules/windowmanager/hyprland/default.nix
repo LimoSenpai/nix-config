@@ -8,9 +8,9 @@
     wayland.windowManager.hyprland = {
       enable = true;
 
-      plugins = [
-        pkgs.hyprlandPlugins.hyprgrass
-      ];
+      #plugins = [
+      #  pkgs.hyprlandPlugins.hyprgrass
+      #];
 
       settings = {
 
@@ -170,7 +170,12 @@
 
 
         # Custom Programs
+        "[workspace 9 silent] easyeffects"
+        "[workspace 3 silent] vesktop"
+        "[workspace 4 silent] lutris"
+        "[workspace 4 silent] steam"
         "nextcloud --background"
+        "arrpc"
       ];
 
       decoration = {
@@ -295,8 +300,7 @@
         "QT_QPA_PLATFORM, wayland"
         "QT_QPA_PLATFORMTHEME, kde"
         # QT_STYLE_OVERRIDE,kvantum
-        "WLR_NO_HARDWARE_CURSORS, 1"
-        "AQ_DRM_DEVICES,/dev/dri/card1:/dev/dri/card2"
+        "WLR_NO_HARDWARE_CURSORS, 0"
       ];
 
       windowrule = [
