@@ -100,6 +100,8 @@
   wleave.enable = true; # Enable Wleave for window management
   dunst.enable = true; # Enable Dunst for notifications
 
+  system-programs.enable = true; # Enable system programs
+  standard-apps.enable = true; # Enable standard applications
 
   amd-radeon.enable = false; # Enable AMD Radeon GPU support
 
@@ -110,7 +112,6 @@
   pavucontrol.enable = true; # PulseAudio Volume Control
 
   ## Programs Cli
-  cli_utilities.enable = true; # Enable CLI Utilities
   # cirno_deps.enable = true; # Enable Cirno Dependencies
 
 

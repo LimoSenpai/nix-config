@@ -1,4 +1,4 @@
-{ inputs, lib, pkgs, ... }: {
+{ inputs, lib, pkgs, stylix,... }: {
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
