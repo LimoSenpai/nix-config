@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 { config, inputs, lib, pkgs, ... }:
-=======
-{ config, inputs, lib, pkgs, stylix,... }: {
->>>>>>> 069da2c60fc432d530689fceb4359eecb15f9ab0
 
 let
   fxCfg = builtins.fetchurl {
@@ -10,7 +6,6 @@ let
     sha256 = "1mx679fbc4d9x4bnqajqx5a95y1lfasvf90pbqkh9sm3ch945p40";
   };
 
-<<<<<<< HEAD
   # mozilla.cfg / autoconfig uses pref("k", v); user.js uses user_pref("k", v);
   cfgAsUserJs =
     lib.replaceStrings [ "pref(" ] [ "user_pref(" ] (builtins.readFile fxCfg);
@@ -21,12 +16,6 @@ in
   options.zen.enable = lib.mkEnableOption "Zen Browser";
 
   config = lib.mkIf config.zen.enable {
-=======
-  config = lib.mkIf config.zen.enable {
-    stylix.targets.zen-browser.profileNames = [
-      "fbzuf3jk.Default Profile"
-    ];
->>>>>>> 069da2c60fc432d530689fceb4359eecb15f9ab0
     programs.zen-browser = {
       enable = true;
 
