@@ -17,6 +17,14 @@
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    fx-autoconfig = {
+      url = "github:MrOtherGuy/fx-autoconfig";
+      flake = false;
+    };
+    sine = {
+      url = "github:CosmoCreeper/Sine";
+      flake = false;
+    };
     # Stylix 
     stylix = {
       url = "github:nix-community/stylix/release-25.05";
