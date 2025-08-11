@@ -9,16 +9,29 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
-  #services.xserver.videoDrivers = [ "intel" "amdgpu" ];
   
-  # latest kernel patches
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  # Use stable kernel for NVIDIA compatibility
   # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_6_15;
 
-  networking.hostName = "nixosMBP"; # Define your hostname.
+  networking.hostName = "nixosT14"; # Define your hostname.
 
+  environment.etc = {
+    "environment/" = {
+      text = ''
+        http_proxy=http://www-proxy1.uni-marburg.de:3128
+        https_proxy=http://www-proxy1.uni-marburg.de:3128
+      '';
+    };
+  };
 
+  # User Settings
   users.groups.tinus = {};
-  
+
   users.users.tinus = {
     isNormalUser = true;
     description = "Tinus Braun";
@@ -27,32 +40,18 @@
     shell = pkgs.zsh;
   };
 
+  users.groups.tinus = {};
+
   # Enable networking
-  networking.networkmanager = {
-     enable = true;
-     wifi.backend = "wpa_supplicant";
-
-  };
-  # networking.wireless.iwd.enable = true;
-
-  hardware.firmware = [
-   (pkgs.stdenvNoCC.mkDerivation (final: {
-      name = "brcm-firmware";
-      src = ./firmware/brcm;
-      installPhase = ''
-        mkdir -p $out/lib/firmware/brcm
-        cp ${final.src}/* $out/lib/firmware/brcm
-     '';
-     }))
-   ];
+  networking.networkmanager.enable = true;
 
 
+  # Configure console keymap
+  console.keyMap = "de-latin1-nodeadkeys";
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
-
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "de_DE.UTF-8";
     LC_IDENTIFICATION = "de_DE.UTF-8";
@@ -65,36 +64,18 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-  # Configure console keymap
-  console.keyMap = "de-latin1-nodeadkeys";
-
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  services.openssh.enable = true;
-  services.openssh.settings.PasswordAuthentication = true;
-  
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-
-
-  ## NixOS module options ##
-
   # System configuration
-  #gnome.enable = true; # Enable GNOME desktop environment
-  #kde6.enable = true; # Enable KDE Plasma 6 desktop environment
   #bspwm.enable = true; # Enable BSPWM, a tiling window manager
   hyprland.enable = true;
-  sway.enable = true; # Enable Sway, a Wayland compositor
-  #nvidia.enable = true; # Enable NVIDIA GPU support
   niri.enable = true; # Enable Niri, a Wayland compositor
 
-  sddm.enable = true; 
+  sddm.enable = true; # Enable SDDM, a display manager
 
   libnotify.enable = true; # Enable libnotify for notifications
   wleave.enable = true; # Enable Wleave for window management
@@ -103,16 +84,18 @@
   system-programs.enable = true; # Enable system programs
   standard-apps.enable = true; # Enable standard applications
 
+  nvidia.enable = true; # Enable NVIDIA GPU support
   amd-radeon.enable = false; # Enable AMD Radeon GPU support
 
-  ## Programs Gui
+  # Programs Gui
   steam.enable = true; # Enable Steam for gaming
-  mbp_touchbar.enable = true; # Enable MacBook Pro Touch Bar support
+  cirno.enable = true; # Enable Cirno Downloader for games
   nwg-displays.enable = true; # Display Management
   pavucontrol.enable = true; # PulseAudio Volume Control
 
-  ## Programs Cli
-  # cirno_deps.enable = true; # Enable Cirno Dependencies
+  # Programs Cli
+  cirno_deps.enable = true; # Enable Cirno Dependencies
+  
 
 
 
@@ -122,6 +105,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "25.11"; # Did you read the comment?
+  system.stateVersion = "25.05"; # Did you read the comment?
 
 }

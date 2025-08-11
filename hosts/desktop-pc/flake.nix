@@ -75,7 +75,6 @@
           ./home-manager.nix
           ../../nixosModules
 
-          # nixos-hardware.nixosModules.apple-t2 only for Apple T2 hardware. PUT IN OUTPUTS IF ENABLED
           home-manager.nixosModules.home-manager
           sddm-sugar-candy-nix.nixosModules.default
           stylix.nixosModules.stylix

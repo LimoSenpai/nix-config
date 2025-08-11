@@ -13,8 +13,12 @@
 
 
   # services
-  
-  services.netbird.enable = true;
+
+  services.netbird = {
+    enable = true;
+    package = pkgs.netbird;
+    
+  };
 
 
   services.udev.extraRules = ''

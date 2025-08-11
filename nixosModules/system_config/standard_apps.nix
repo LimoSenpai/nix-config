@@ -10,6 +10,7 @@
 
     geteduroam
 
+
     # Root Authentication
     lxqt.lxqt-sudo
     polkit_gnome
