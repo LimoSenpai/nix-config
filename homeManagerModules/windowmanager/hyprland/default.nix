@@ -176,8 +176,6 @@
 
 
         # Custom Programs
-        "[workspace 9 silent] easyeffects"
-        "[workspace 3 silent] vesktop"
         "nextcloud --background"
         "arrpc"
       ];

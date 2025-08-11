@@ -8,6 +8,8 @@
   config = lib.mkIf config.standard-apps.enable {
     environment.systemPackages = with pkgs; [
 
+    geteduroam
+
     # Root Authentication
     lxqt.lxqt-sudo
     polkit_gnome
@@ -18,6 +20,8 @@
     adwaita-icon-theme
 
     #CLI Tools
+    evtest
+
     git
     nano
     wget

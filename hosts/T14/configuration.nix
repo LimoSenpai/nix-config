@@ -81,10 +81,7 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  services.xserver = {
-    enable = true;
-    xkb.options = "altwin:swap_lalt_lwin"; # Swap left Alt and left Super
-  };
+
 
   ## NixOS module options ##
 

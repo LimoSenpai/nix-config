@@ -38,7 +38,7 @@
 
   # Enable/disable your custom modules here
   # gui Programs
-  gui_utils.enable = true;
+  #gui_utils.enable = true;
   zen.enable = true;
   #brave.enable = true; # Web Browser
 
