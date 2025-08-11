@@ -18,6 +18,7 @@
 
       hyperfine
       
+      icu
 
       # nix related
       #
