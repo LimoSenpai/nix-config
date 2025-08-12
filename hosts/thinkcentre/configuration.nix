@@ -32,6 +32,7 @@
   users.groups.tinus = {};
 
   # Enable networking
+  networking.wireguard.enable = true;
   networking = {
     networkmanager.enable = true;
     hostName = "nixos-thinkcentre"; # Define your hostname.
@@ -55,7 +56,9 @@
   # Configure console keymap
   console.keyMap = "de-latin1-nodeadkeys";
   # Set your time zone.
-  time.timeZone = "Europe/Berlin";
+  time.timeZone = lib.mkDefault "Europe/Berlin";
+  networking.timeServers = [ "time.cloudflare.com" ]; 
+  services.automatic-timezoned.enable = true;
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {

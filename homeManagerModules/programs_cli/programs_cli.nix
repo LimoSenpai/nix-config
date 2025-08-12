@@ -9,6 +9,7 @@ let
     jq          = jq;
     hyperfine   = hyperfine;
     icu         = icu;
+    wireguard   = wireguard;
   };
 
   validNames = builtins.attrNames registry;

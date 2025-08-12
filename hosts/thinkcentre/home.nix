@@ -31,6 +31,7 @@
     "yubikey"
   ];
   home-apps-gui.extraPackages = [ 
+    #pkgs.wireguard-ui
   ];
   ### CLI APPS ###
   home-apps-cli.enable = [
@@ -80,7 +81,7 @@
   # Enable/disable your custom modules here
   # gui Programs
   zen.enable = true; # Web Browser | Firefox based
-  spicetify.enable = true; # Spotify Customization
+  #spicetify.enable = true; # Spotify Customization
 
   ### cli Programs ###
 
