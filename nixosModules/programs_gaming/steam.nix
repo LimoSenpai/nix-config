@@ -10,5 +10,8 @@
         enable = true;
       };
     };
+    environment.systemPackages = with pkgs; [
+      adwsteamgtk
+    ];
   };
 }
