@@ -21,7 +21,7 @@ in
       ".config/wlogout/layout.json".text = ''
           {
               "label" : "lock",
-              "action" : "swaylock",
+              "action" : "hyprlock",
               "text" : "Lock",
               "keybind" : "l",
               "icon" : "lock.svg"
@@ -35,7 +35,7 @@ in
           }
           {
               "label" : "logout",
-              "action" : "loginctl terminate-user $USER",
+              "action" : "hyprctl dispatch exit",
               "text" : "Logout",
               "keybind" : "e",
               "icon" : "logout.svg"

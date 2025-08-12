@@ -17,8 +17,49 @@
     TERMINAL = "kitty";
   };
 
-  ### Window Manager Environment ###
 
+  ### GUI APPS ###
+  home-apps-gui.enable = [
+    "vesktop"
+    "bitwarden"
+    #"easyeffects"
+    "obsidian"
+    #"brave"
+    "loupe"
+    "nextcloud"
+    "vscode"
+    "yubikey"
+  ];
+  home-apps-gui.extraPackages = [ 
+  ];
+  ### CLI APPS ###
+  home-apps-cli.enable = [
+    "fastfetch"
+    "yazi"
+    "grimblast"
+    "mdadm"
+    "jq"
+    "hyperfine"
+    "icu"
+  ];
+  home-apps-cli.extraPackages = [ 
+    pkgs.nix-output-monitor
+  ];
+  ### GAMING APPS ###
+  home-apps-gaming.enable = [
+    "arrpc"
+    "gamemode"
+    "gamescope"
+    "lutris"
+    "protontricks"
+    "protonplus"
+    "wine"
+    "winetricks"
+  ];
+  home-apps-gaming.extraPackages = [
+  ];
+
+  ### Window Manager Environment ###
   hyprland.enable = true;
   #niri.enable = false; # Niri Window Manager
   dunst.enable = true; # Notification Daemon
@@ -39,22 +80,10 @@
   # Enable/disable your custom modules here
   # gui Programs
   zen.enable = true; # Web Browser | Firefox based
-  #brave.enable = false; # Web Browser | Chromium based
-  gui_utils.enable = true; # GUI Utilities
-  vscode.enable = true; # Visual Studio Code - Code Editing
-  nextcloud.enable = true; # Nextcloud Client
-  #easyeffects.enable = true;
-  vesktop.enable = true;
-  bitwarden.enable = true; # Password Manager
-  obsidian.enable = true; # Note-taking App
-  
-  loupe.enable = true; # Image viewer
-  yubikey.enable = true; # Security Key Support
   spicetify.enable = true; # Spotify Customization
 
   ### cli Programs ###
 
-  cli_utilities.enable = true; # CLI Utilities
   foot.enable = true; # Terminal Emulator
   power-profiles-daemon.enable = true; # Power Profiles Daemon | Used in Waybar
   playerctl.enable = true; # Media Player Control | Used in Waybar

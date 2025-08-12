@@ -82,6 +82,7 @@
   #niri.enable = true; # Enable Niri, a Wayland compositor
 
   sddm.enable = true; # Enable SDDM, a display manager
+  hyprlock.enable = true;
 
   libnotify.enable = true; # Enable libnotify for notifications
   wleave.enable = true; # Enable Wleave for window management
@@ -94,20 +95,19 @@
   #amd-radeon.enable = false; # Enable AMD Radeon GPU support
 
   ### Programs Gui ###
-  steam.enable = true; # Enable Steam for gaming
-  #cirno.enable = true; # Enable Cirno Downloader for games
   nwg-displays.enable = true; # Display Management
   pavucontrol.enable = true; # PulseAudio Volume Control
+  steam.enable = true; # Enable Steam for gaming
+  #cirno.enable = true; # Enable Cirno Downloader for games
 
   ### Programs Cli ###
   #cirno_deps.enable = true; # Enable Cirno Dependencies
 
 
   ### Work ###
-
   work_default.enable = true;
   element.enable = true;
-  work.adCifs.enable = true;
+  work.adCifs.enable = true; # Drive Mount thingy
   
 
 
