@@ -13,10 +13,10 @@ let
   };
 
   validNames = builtins.attrNames registry;
-  cfg = config.home-gaming;
+  cfg = config.home-apps-gaming;
 in
 {
-  options.home-gaming = {
+  options.home-apps-gaming = {
     enable = lib.mkOption {
       type = lib.types.listOf (lib.types.enum validNames);
       default = [];

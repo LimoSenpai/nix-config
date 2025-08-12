@@ -89,16 +89,6 @@
   playerctl.enable = true; # Media Player Control | Used in Waybar
 
 
-  ### Gaming Programs ###
-
-  #lutris.enable = true; # Game Manager
-  wine.enable = true; # Compatibility Layer
-  proton.enable = true; # Proton Addons
-  #gamescope.enable = true;
-  #gamemode.enable = true; # Game Mode https://search.nixos.org/packages?channel=25.05&from=0&size=50&sort=relevance&type=packages&query=gamemode
-  #arrpc.enable = true; # Rich Presence for Vesktop
-
-
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new home Manager release introduces backwards
