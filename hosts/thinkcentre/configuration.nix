@@ -18,15 +18,11 @@
   # boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelPackages = pkgs.linuxPackages_6_15;
 
-  networking.hostName = "nixosT14"; # Define your hostname.
+  networking.hostName = "nixos-thinkcentre"; # Define your hostname.
 
-  environment.etc = {
-    "environment/" = {
-      text = ''
-        http_proxy=http://www-proxy1.uni-marburg.de:3128
-        https_proxy=http://www-proxy1.uni-marburg.de:3128
-      '';
-    };
+  environment.variables = {
+        http_proxy = "http://www-proxy1.uni-marburg.de:3128";
+        https_proxy = "http://www-proxy1.uni-marburg.de:3128";
   };
 
   # User Settings

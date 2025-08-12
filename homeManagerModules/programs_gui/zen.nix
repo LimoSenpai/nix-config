@@ -20,12 +20,12 @@ in
       enable = true;
 
       # Let the module handle wrapping; just feed it prefs/policies.
-      profiles.default = {
-        id = 0;
-        isDefault = true;
-        extraConfig = cfgAsUserJs;
+      #profiles.default = {
+      #  id = 0;
+      #  isDefault = true;
+      #  extraConfig = cfgAsUserJs;
         # or use `settings = { "browser.startup.homepage" = "…"; }` for key/value prefs
-      };
+      #};
 
       policies = {
         DisableTelemetry = true;
