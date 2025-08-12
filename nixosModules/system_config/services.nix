@@ -14,11 +14,10 @@
 
   # services
 
-  #services.netbird = {
-  #  enable = true;
-  #  package = pkgs.netbird;
-  #  
-  #};
+  services.netbird = {
+    enable = true;
+    package = pkgs.netbird;  
+  };
 
 
   services.udev.extraRules = ''

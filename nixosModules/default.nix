@@ -11,6 +11,7 @@
       ./programs_gaming
       ./programs_gui
       ./programs_cli
+      ./programs_work
       ./system_config
 
 

@@ -17,34 +17,33 @@
     TERMINAL = "kitty";
   };
 
-  # Window Manager Environment
+  ### Window Manager Environment ###
+
   hyprland.enable = true;
-  niri.enable = false; # Niri Window Manager
+  #niri.enable = false; # Niri Window Manager
   dunst.enable = true; # Notification Daemon
   waybar.enable = true; # Status Bar
   rofi-wayland.enable = true; # Application Launcher
   wofi.enable = true; # Application Launcher
   wlogout.enable = true; # Logout Utility
-
   x_cursor.enable = true; # Custom X Cursor
   rose-pine-cursor.enable = true; # Rose Pine Cursor Theme
-
   waypaper.enable = true; # Wallpaper Manager
   swww.enable = true; # Wallpaper Manager
   switchwall.enable = true; # Wallpaper Switcher
 
-  # Stylix targets for Home Manager
+  ### Stylix targets for Home Manager ###
+
   stylix.targets.foot.enable = true;
 
   # Enable/disable your custom modules here
   # gui Programs
   zen.enable = true; # Web Browser | Firefox based
-  brave.enable = false; # Web Browser | Chromium based
-
+  #brave.enable = false; # Web Browser | Chromium based
   gui_utils.enable = true; # GUI Utilities
   vscode.enable = true; # Visual Studio Code - Code Editing
   nextcloud.enable = true; # Nextcloud Client
-  easyeffects.enable = true;
+  #easyeffects.enable = true;
   vesktop.enable = true;
   bitwarden.enable = true; # Password Manager
   obsidian.enable = true; # Note-taking App
@@ -53,19 +52,22 @@
   yubikey.enable = true; # Security Key Support
   spicetify.enable = true; # Spotify Customization
 
-  # cli Programs
+  ### cli Programs ###
+
   cli_utilities.enable = true; # CLI Utilities
   foot.enable = true; # Terminal Emulator
   power-profiles-daemon.enable = true; # Power Profiles Daemon | Used in Waybar
   playerctl.enable = true; # Media Player Control | Used in Waybar
 
-  # Gaming Programs
-  lutris.enable = true; # Game Manager
+
+  ### Gaming Programs ###
+
+  #lutris.enable = true; # Game Manager
   wine.enable = true; # Compatibility Layer
   proton.enable = true; # Proton Addons
-  gamescope.enable = true;
-  gamemode.enable = true; # Game Mode https://search.nixos.org/packages?channel=25.05&from=0&size=50&sort=relevance&type=packages&query=gamemode
-  arrpc.enable = true; # Rich Presence for Vesktop
+  #gamescope.enable = true;
+  #gamemode.enable = true; # Game Mode https://search.nixos.org/packages?channel=25.05&from=0&size=50&sort=relevance&type=packages&query=gamemode
+  #arrpc.enable = true; # Rich Presence for Vesktop
 
 
   # This value determines the home Manager release that your

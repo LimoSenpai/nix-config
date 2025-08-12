@@ -16,14 +16,7 @@
 
   # Use stable kernel for NVIDIA compatibility
   # boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelPackages = pkgs.linuxPackages_6_15;
-
-  networking.hostName = "nixos-thinkcentre"; # Define your hostname.
-
-  environment.variables = {
-        http_proxy = "http://www-proxy1.uni-marburg.de:3128";
-        https_proxy = "http://www-proxy1.uni-marburg.de:3128";
-  };
+  boot.kernelPackages = pkgs.linuxPackages_6_16;
 
   # User Settings
   users.groups.tinus = {};
@@ -32,14 +25,31 @@
     isNormalUser = true;
     description = "Tinus Braun";
     group = "tinus";
-    extraGroups = [ "networkmanager" "wheel" "plugdev"];
+    extraGroups = [ "networkmanager" "wheel" "plugdev" "ad-cifs" ];
     shell = pkgs.zsh;
   };
 
   users.groups.tinus = {};
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking = {
+    networkmanager.enable = true;
+    hostName = "nixos-thinkcentre"; # Define your hostname.
+    proxy = {
+      default = "http://www-proxy1.uni-marburg.de:3128/";
+      httpProxy  = "http://www-proxy1.uni-marburg.de:3128";
+      httpsProxy = "http://www-proxy1.uni-marburg.de:3128";
+      #noProxy = "127.0.0.1,localhost,internal.domain";
+    };
+  };
+  
+  
+  # (Optional but tidy) also expose uppercase for tools that expect it
+  systemd.services.nix-daemon.environment = {
+    HTTP_PROXY  = "http://www-proxy1.uni-marburg.de:3128";
+    HTTPS_PROXY = "http://www-proxy1.uni-marburg.de:3128";
+    NO_PROXY    = "127.0.0.1,localhost,::1,.local";
+  };
 
 
   # Configure console keymap
@@ -66,10 +76,10 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # System configuration
+  ### System configuration ###
   #bspwm.enable = true; # Enable BSPWM, a tiling window manager
   hyprland.enable = true;
-  niri.enable = true; # Enable Niri, a Wayland compositor
+  #niri.enable = true; # Enable Niri, a Wayland compositor
 
   sddm.enable = true; # Enable SDDM, a display manager
 
@@ -80,17 +90,24 @@
   system-programs.enable = true; # Enable system programs
   standard-apps.enable = true; # Enable standard applications
 
-  nvidia.enable = true; # Enable NVIDIA GPU support
-  amd-radeon.enable = false; # Enable AMD Radeon GPU support
+  #nvidia.enable = true; # Enable NVIDIA GPU support
+  #amd-radeon.enable = false; # Enable AMD Radeon GPU support
 
-  # Programs Gui
+  ### Programs Gui ###
   steam.enable = true; # Enable Steam for gaming
-  cirno.enable = true; # Enable Cirno Downloader for games
+  #cirno.enable = true; # Enable Cirno Downloader for games
   nwg-displays.enable = true; # Display Management
   pavucontrol.enable = true; # PulseAudio Volume Control
 
-  # Programs Cli
-  cirno_deps.enable = true; # Enable Cirno Dependencies
+  ### Programs Cli ###
+  #cirno_deps.enable = true; # Enable Cirno Dependencies
+
+
+  ### Work ###
+
+  work_default.enable = true;
+  element.enable = true;
+  work.adCifs.enable = true;
   
 
 
