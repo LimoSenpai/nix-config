@@ -177,16 +177,9 @@
 
 
         # Custom Programs
-<<<<<<< HEAD
         "[workspace 9] easyeffects"
         "nextcloud --background"
         "arrpc"
-=======
-        "thunderbird"
-        "element-desktop"
-        "zen"
-        "~/.config/nix-config/scripts/dfsmount"
->>>>>>> 50c40114c7a16260245c552e2171974dd3f294f5
       ];
 
       decoration = {

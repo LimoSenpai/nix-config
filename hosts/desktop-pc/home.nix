@@ -17,6 +17,52 @@
     TERMINAL = "kitty";
   };
 
+
+### GUI APPS ###
+  home-apps-gui.enable = [
+    "vesktop"
+    "bitwarden"
+    #"easyeffects"
+    "obsidian"
+    "brave"
+    "loupe"
+    "nextcloud"
+    "vscode"
+    "yubikey"
+    #"discord"
+    "pcmanfm"
+  ];
+  home-apps-gui.extraPackages = [ 
+  ];
+
+  ### CLI APPS ###
+  home-apps-cli.enable = [
+    "fastfetch"
+    "yazi"
+    "grimblast"
+    "mdadm"
+    "jq"
+    "hyperfine"
+    "icu"
+  ];
+  home-apps-cli.extraPackages = [ 
+  ];
+  
+  ### GAMING APPS ###
+  home-apps-gaming.enable = [
+    "arrpc"
+    "gamemode"
+    "gamescope"
+    "lutris"
+    "protontricks"
+    "protonplus"
+    "wine"
+    "winetricks"
+  ];
+  home-apps-gaming.extraPackages = [
+  ];
+
+  
   # Window Manager Environment
   hyprland.enable = true;
   niri.enable = false; # Niri Window Manager
@@ -39,33 +85,13 @@
   # Enable/disable your custom modules here
   # gui Programs
   zen.enable = true; # Web Browser | Firefox based
-  brave.enable = false; # Web Browser | Chromium based
 
-  gui_utils.enable = true; # GUI Utilities
-  vscode.enable = true; # Visual Studio Code - Code Editing
-  nextcloud.enable = true; # Nextcloud Client
-  easyeffects.enable = true;
-  vesktop.enable = true;
-  bitwarden.enable = true; # Password Manager
-  obsidian.enable = true; # Note-taking App
-  
-  loupe.enable = true; # Image viewer
-  yubikey.enable = true; # Security Key Support
   spicetify.enable = true; # Spotify Customization
 
   # cli Programs
-  cli_utilities.enable = true; # CLI Utilities
   foot.enable = true; # Terminal Emulator
   power-profiles-daemon.enable = true; # Power Profiles Daemon | Used in Waybar
   playerctl.enable = true; # Media Player Control | Used in Waybar
-
-  # Gaming Programs
-  lutris.enable = true; # Game Manager
-  wine.enable = true; # Compatibility Layer
-  proton.enable = true; # Proton Addons
-  gamescope.enable = true;
-  gamemode.enable = true; # Game Mode https://search.nixos.org/packages?channel=25.05&from=0&size=50&sort=relevance&type=packages&query=gamemode
-  arrpc.enable = true; # Rich Presence for Vesktop
 
 
   # This value determines the home Manager release that your
