@@ -11,6 +11,9 @@ let
     nextcloud   = nextcloud-client;
     vscode      = vscode-fhs;
     yubikey     = yubikey-personalization-gui;
+    goofcord    = goofcord;
+    pcmanfm     = pcmanfm;
+    discord     = discord;
 
   };
 

@@ -71,6 +71,7 @@
         # --- Utilities ---
         "Super+Shift, S, exec, grimblast copy area | wl-copy"
         "Super, Print, exec, grimblast copy screen | wl-copy"
+        "Super, M, exec, bash ~/.config/nix-config/scripts/dfsmount"
 
         ##! Apps
         "Super, T, exec, foot"
@@ -179,6 +180,7 @@
         "thunderbird"
         "element-desktop"
         "zen"
+        "~/.config/nix-config/scripts/dfsmount"
       ];
 
       decoration = {

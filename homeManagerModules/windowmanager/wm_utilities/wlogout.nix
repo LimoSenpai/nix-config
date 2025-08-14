@@ -28,7 +28,7 @@ in
           }
           {
               "label" : "hibernate",
-              "action" : "systemctl hibernate",
+              "action": "sh -lc 'pidof hyprlock >/dev/null || hyprlock & sleep 0.3; systemctl hibernate'",
               "text" : "Hibernate",
               "keybind" : "h",
               "icon" : "hibernate.svg"
@@ -49,7 +49,7 @@ in
           }
           {
               "label" : "suspend",
-              "action" : "systemctl suspend",
+              "action": "sh -lc 'pidof hyprlock >/dev/null || hyprlock & sleep 0.3; systemctl suspend'",
               "text" : "Suspend",
               "keybind" : "u",
               "icon" : "suspend.svg"

@@ -24,15 +24,19 @@
     "bitwarden"
     #"easyeffects"
     "obsidian"
-    #"brave"
+    "brave"
     "loupe"
     "nextcloud"
     "vscode"
     "yubikey"
+    "discord"
+    "pcmanfm"
   ];
   home-apps-gui.extraPackages = [ 
-    #pkgs.wireguard-ui
+    pkgs.networkmanagerapplet
+    pkgs.firefox
   ];
+
   ### CLI APPS ###
   home-apps-cli.enable = [
     "fastfetch"
@@ -45,7 +49,11 @@
   ];
   home-apps-cli.extraPackages = [ 
     pkgs.nix-output-monitor
+    pkgs.betterdiscordctl
+    pkgs.wireguard-tools
+    pkgs.traceroute
   ];
+  
   ### GAMING APPS ###
   home-apps-gaming.enable = [
     "arrpc"

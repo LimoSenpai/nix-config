@@ -75,6 +75,10 @@ case "$HOSTNAME" in
         # For MBP, if flake is in hosts/MBP/, assets are at ../../assets
         sed -i 's|image = inputs\.self \+ .*$|image = inputs.self + "/../../assets/wallpapers/current_wallpaper.jpg";|' "$STYLIX_FILE"
         ;;
+    "nixos-thinkcentre")
+        # For MBP, if flake is in hosts/MBP/, assets are at ../../assets
+        sed -i 's|image = inputs\.self \+ .*$|image = inputs.self + "/../../assets/wallpapers/current_wallpaper.jpg";|' "$STYLIX_FILE"
+        ;;
 esac
 
 # git add (optional)

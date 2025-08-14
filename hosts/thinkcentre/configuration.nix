@@ -32,33 +32,74 @@
   users.groups.tinus = {};
 
   # Enable networking
-  networking.wireguard.enable = true;
   networking = {
     networkmanager.enable = true;
-    hostName = "nixos-thinkcentre"; # Define your hostname.
-    proxy = {
-      default = "http://www-proxy1.uni-marburg.de:3128/";
-      httpProxy  = "http://www-proxy1.uni-marburg.de:3128";
-      httpsProxy = "http://www-proxy1.uni-marburg.de:3128";
-      #noProxy = "127.0.0.1,localhost,internal.domain";
+    hostName = "nixos-thinkcentre";
+
+    # Default gateway via eno1
+    defaultGateway = {
+      address   = "192.168.113.250";
+      interface = "eno1";
+    };
+
+    ### PROXY SETTINGS ### 
+    proxy = { 
+      default = "http://www-proxy1.uni-marburg.de:3128/"; 
+      httpProxy = "http://www-proxy1.uni-marburg.de:3128"; 
+      httpsProxy = "http://www-proxy1.uni-marburg.de:3128"; 
+      noProxy = "127.0.0.1,localhost,::1,.local,192.168.0.0/16,10.0.0.0/8,192.168.178.0/24";
+    };
+
+    networkmanager.ensureProfiles.profiles = {
+      "lan-default" = {
+        connection = {
+          id = "lan-default";
+          type = "ethernet";
+          interface-name = "eno1";
+          autoconnect = true;
+        };
+        ipv4 = {
+          method = "auto";
+          route-metric = 100;
+        };
+        ipv6.method = "auto";
+      };
+    };
+
+    wg-quick.interfaces.wg0 = {
+      configFile = "/etc/wireguard/wg_config.conf"; 
+      preUp = ''
+        ${pkgs.iproute2}/bin/ip route replace 89.246.50.171/32 via 10.193.63.250 dev wlp2s0
+      '';
+      postDown = ''
+        ${pkgs.iproute2}/bin/ip route del 89.246.50.171/32 dev wlp2s0 || true
+      '';
     };
   };
-  
-  
-  # (Optional but tidy) also expose uppercase for tools that expect it
-  systemd.services.nix-daemon.environment = {
-    HTTP_PROXY  = "http://www-proxy1.uni-marburg.de:3128";
-    HTTPS_PROXY = "http://www-proxy1.uni-marburg.de:3128";
-    NO_PROXY    = "127.0.0.1,localhost,::1,.local";
-  };
+
+  networking.networkmanager.dispatcherScripts = [
+    {
+      source = pkgs.writeShellScript "wg-endpoint-route" ''
+        IFACE="$1"; STATE="$2"
+        if [ "$IFACE" = "wlp2s0" ]; then
+          case "$STATE" in
+            up|vpn-up)
+              ${pkgs.iproute2}/bin/ip route replace 89.246.50.171/32 via 10.193.63.250 dev wlp2s0
+              ;;
+            down|vpn-down)
+              ${pkgs.iproute2}/bin/ip route del 89.246.50.171/32 dev wlp2s0 || true
+              ;;
+          esac
+        fi
+      '';
+    }
+  ];
 
 
   # Configure console keymap
   console.keyMap = "de-latin1-nodeadkeys";
   # Set your time zone.
   time.timeZone = lib.mkDefault "Europe/Berlin";
-  networking.timeServers = [ "time.cloudflare.com" ]; 
-  services.automatic-timezoned.enable = true;
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
