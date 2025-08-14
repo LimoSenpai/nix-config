@@ -76,6 +76,7 @@
   rofi-wayland.enable = true; # Application Launcher
   wofi.enable = true; # Application Launcher
   wlogout.enable = true; # Logout Utility
+  hyprlock.enable = true;
   x_cursor.enable = true; # Custom X Cursor
   rose-pine-cursor.enable = true; # Rose Pine Cursor Theme
   waypaper.enable = true; # Wallpaper Manager

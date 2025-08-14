@@ -54,7 +54,7 @@
         "Super, Space, exec, pkill rofi || rofi -show drun" # Launcher
         # --- Hyprland System Stuff ---- #
         "Super+Alt, O, exec, hyprctl dispatch exit"
-        "Super, L, exec, hyprlock"
+        "Super, L, exec, hyprlock -c ~/.config/hypr/hyprlock.conf"
         "Super+CTRL, W, exec, /etc/profiles/per-user/tinus/bin/switchwall" # Switch wallpaper
 
         # --- Brightness and volume keys ---
