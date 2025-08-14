@@ -3,12 +3,7 @@
 {
   imports =
     [
-      ./arrpc.nix
-      ./lutris.nix
-      ./gamemode.nix
-      ./gamescope.nix
-      ./proton.nix
-      ./wine.nix
       ./misc.nix
+      ./programs_gaming.nix
     ];
 }

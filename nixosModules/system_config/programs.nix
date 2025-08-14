@@ -19,6 +19,11 @@
         tumbler
       ];
     };
+
+
+    gpaste = {
+      enable = true;
+    };
     
     zsh = {
       enable = true;

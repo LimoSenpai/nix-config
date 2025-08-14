@@ -1,0 +1,39 @@
+{ lib, pkgs, config, ... }:
+let
+  # Central registry: name -> package
+  registry = with pkgs; {
+    fastfetch   = fastfetch;
+    yazi        = yazi;
+    grimblast   = grimblast; # Screenshot tool
+    mdadm       = mdadm;
+    jq          = jq;
+    hyperfine   = hyperfine;
+    icu         = icu;
+    wireguard   = wireguard;
+  };
+
+  validNames = builtins.attrNames registry;
+  cfg = config.home-apps-cli;
+in
+{
+  options.home-apps-cli = {
+    enable = lib.mkOption {
+      type = lib.types.listOf (lib.types.enum validNames);
+      default = [];
+      example = [ "vesktop" "keepassxc" ];
+      description = "List of registry apps to install.";
+    };
+
+    extraPackages = lib.mkOption {
+      type = lib.types.listOf lib.types.package;
+      default = [];
+      description = "Arbitrary extra packages not in the registry.";
+    };
+  };
+
+  config = {
+    home.packages =
+      (map (name: registry.${name}) cfg.enable)
+      ++ cfg.extraPackages;
+  };
+}

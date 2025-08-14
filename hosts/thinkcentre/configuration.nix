@@ -16,18 +16,7 @@
 
   # Use stable kernel for NVIDIA compatibility
   # boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelPackages = pkgs.linuxPackages_6_15;
-
-  networking.hostName = "nixosT14"; # Define your hostname.
-
-  environment.etc = {
-    "environment/" = {
-      text = ''
-        http_proxy=http://www-proxy1.uni-marburg.de:3128
-        https_proxy=http://www-proxy1.uni-marburg.de:3128
-      '';
-    };
-  };
+  boot.kernelPackages = pkgs.linuxPackages_6_16;
 
   # User Settings
   users.groups.tinus = {};
@@ -36,20 +25,81 @@
     isNormalUser = true;
     description = "Tinus Braun";
     group = "tinus";
-    extraGroups = [ "networkmanager" "wheel" "plugdev"];
+    extraGroups = [ "networkmanager" "wheel" "plugdev" "ad-cifs" ];
     shell = pkgs.zsh;
   };
 
   users.groups.tinus = {};
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking = {
+    networkmanager.enable = true;
+    hostName = "nixos-thinkcentre";
+
+    # Default gateway via eno1
+    defaultGateway = {
+      address   = "192.168.113.250";
+      interface = "eno1";
+    };
+
+    ### PROXY SETTINGS ### 
+    proxy = { 
+      default = "http://www-proxy1.uni-marburg.de:3128/"; 
+      httpProxy = "http://www-proxy1.uni-marburg.de:3128"; 
+      httpsProxy = "http://www-proxy1.uni-marburg.de:3128"; 
+      noProxy = "127.0.0.1,localhost,::1,.local,192.168.0.0/16,10.0.0.0/8,192.168.178.0/24";
+    };
+
+    networkmanager.ensureProfiles.profiles = {
+      "lan-default" = {
+        connection = {
+          id = "lan-default";
+          type = "ethernet";
+          interface-name = "eno1";
+          autoconnect = true;
+        };
+        ipv4 = {
+          method = "auto";
+          route-metric = 100;
+        };
+        ipv6.method = "auto";
+      };
+    };
+
+    wg-quick.interfaces.wg0 = {
+      configFile = "/etc/wireguard/wg_config.conf"; 
+      preUp = ''
+        ${pkgs.iproute2}/bin/ip route replace 89.246.50.171/32 via 10.193.63.250 dev wlp2s0
+      '';
+      postDown = ''
+        ${pkgs.iproute2}/bin/ip route del 89.246.50.171/32 dev wlp2s0 || true
+      '';
+    };
+  };
+
+  networking.networkmanager.dispatcherScripts = [
+    {
+      source = pkgs.writeShellScript "wg-endpoint-route" ''
+        IFACE="$1"; STATE="$2"
+        if [ "$IFACE" = "wlp2s0" ]; then
+          case "$STATE" in
+            up|vpn-up)
+              ${pkgs.iproute2}/bin/ip route replace 89.246.50.171/32 via 10.193.63.250 dev wlp2s0
+              ;;
+            down|vpn-down)
+              ${pkgs.iproute2}/bin/ip route del 89.246.50.171/32 dev wlp2s0 || true
+              ;;
+          esac
+        fi
+      '';
+    }
+  ];
 
 
   # Configure console keymap
   console.keyMap = "de-latin1-nodeadkeys";
   # Set your time zone.
-  time.timeZone = "Europe/Berlin";
+  time.timeZone = lib.mkDefault "Europe/Berlin";
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
@@ -70,12 +120,13 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # System configuration
+  ### System configuration ###
   #bspwm.enable = true; # Enable BSPWM, a tiling window manager
   hyprland.enable = true;
-  niri.enable = true; # Enable Niri, a Wayland compositor
+  #niri.enable = true; # Enable Niri, a Wayland compositor
 
   sddm.enable = true; # Enable SDDM, a display manager
+  hyprlock.enable = true;
 
   libnotify.enable = true; # Enable libnotify for notifications
   wleave.enable = true; # Enable Wleave for window management
@@ -84,17 +135,23 @@
   system-programs.enable = true; # Enable system programs
   standard-apps.enable = true; # Enable standard applications
 
-  nvidia.enable = true; # Enable NVIDIA GPU support
-  amd-radeon.enable = false; # Enable AMD Radeon GPU support
+  #nvidia.enable = true; # Enable NVIDIA GPU support
+  #amd-radeon.enable = false; # Enable AMD Radeon GPU support
 
-  # Programs Gui
-  steam.enable = true; # Enable Steam for gaming
-  cirno.enable = true; # Enable Cirno Downloader for games
+  ### Programs Gui ###
   nwg-displays.enable = true; # Display Management
   pavucontrol.enable = true; # PulseAudio Volume Control
+  steam.enable = true; # Enable Steam for gaming
+  #cirno.enable = true; # Enable Cirno Downloader for games
 
-  # Programs Cli
-  cirno_deps.enable = true; # Enable Cirno Dependencies
+  ### Programs Cli ###
+  #cirno_deps.enable = true; # Enable Cirno Dependencies
+
+
+  ### Work ###
+  work_default.enable = true;
+  element.enable = true;
+  work.adCifs.enable = true; # Drive Mount thingy
   
 
 

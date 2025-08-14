@@ -18,9 +18,13 @@ case "$HOSTNAME" in
         FLAKE_PATH="$NIXCONFIG/hosts/MBP"
         FLAKE_CONFIG="nixosMBP"
         ;;
+    "nixos-thinkcentre")
+        FLAKE_PATH="$NIXCONFIG/hosts/thinkcentre"
+        FLAKE_CONFIG="nixos-thinkcentre"
+        ;;
     *)
         echo "Unknown hostname: $HOSTNAME. Please update the script with your host configuration."
-        echo "Available hosts: desktop-pc, nixosMBP"
+        echo "Available hosts: desktop-pc, nixosMBP, nixos-thinkcentre"
         exit 1
         ;;
 esac
@@ -68,6 +72,10 @@ case "$HOSTNAME" in
         sed -i 's|image = inputs\.self \+ .*$|image = inputs.self + "/../../assets/wallpapers/current_wallpaper.jpg";|' "$STYLIX_FILE"
         ;;
     "nixosMBP")
+        # For MBP, if flake is in hosts/MBP/, assets are at ../../assets
+        sed -i 's|image = inputs\.self \+ .*$|image = inputs.self + "/../../assets/wallpapers/current_wallpaper.jpg";|' "$STYLIX_FILE"
+        ;;
+    "nixos-thinkcentre")
         # For MBP, if flake is in hosts/MBP/, assets are at ../../assets
         sed -i 's|image = inputs\.self \+ .*$|image = inputs.self + "/../../assets/wallpapers/current_wallpaper.jpg";|' "$STYLIX_FILE"
         ;;

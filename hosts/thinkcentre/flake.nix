@@ -67,7 +67,7 @@
     };
 
     nixosConfigurations = {
-      nixosT14 = nixpkgs.lib.nixosSystem {
+      nixos-thinkcentre = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [

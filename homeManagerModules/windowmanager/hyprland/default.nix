@@ -50,11 +50,11 @@
       };
 
       bind = [
-        # --- Launcher ---
+        # --- Launcher --- #
         "Super, Space, exec, pkill rofi || rofi -show drun" # Launcher
-
+        # --- Hyprland System Stuff ---- #
         "Super+Alt, O, exec, hyprctl dispatch exit"
-
+        "Super, L, exec, hyprlock -c ~/.config/hypr/hyprlock.conf"
         "Super+CTRL, W, exec, /etc/profiles/per-user/tinus/bin/switchwall" # Switch wallpaper
 
         # --- Brightness and volume keys ---
@@ -71,6 +71,7 @@
         # --- Utilities ---
         "Super+Shift, S, exec, grimblast copy area | wl-copy"
         "Super, Print, exec, grimblast copy screen | wl-copy"
+        "Super, M, exec, bash ~/.config/nix-config/scripts/dfsmount"
 
         ##! Apps
         "Super, T, exec, foot"
@@ -176,9 +177,16 @@
 
 
         # Custom Programs
+<<<<<<< HEAD
         "[workspace 9] easyeffects"
         "nextcloud --background"
         "arrpc"
+=======
+        "thunderbird"
+        "element-desktop"
+        "zen"
+        "~/.config/nix-config/scripts/dfsmount"
+>>>>>>> 50c40114c7a16260245c552e2171974dd3f294f5
       ];
 
       decoration = {

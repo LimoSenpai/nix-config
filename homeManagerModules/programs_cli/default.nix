@@ -3,9 +3,9 @@
 {
   imports =
     [
-      ./cli_utilities.nix
       ./foot.nix
       ./power-profiles-daemon.nix
       ./playerctl.nix
+      ./programs_cli.nix
     ];
 }

@@ -21,21 +21,21 @@ in
       ".config/wlogout/layout.json".text = ''
           {
               "label" : "lock",
-              "action" : "swaylock",
+              "action" : "hyprlock",
               "text" : "Lock",
               "keybind" : "l",
               "icon" : "lock.svg"
           }
           {
               "label" : "hibernate",
-              "action" : "systemctl hibernate",
+              "action": "sh -lc 'pidof hyprlock >/dev/null || hyprlock & sleep 0.3; systemctl hibernate'",
               "text" : "Hibernate",
               "keybind" : "h",
               "icon" : "hibernate.svg"
           }
           {
               "label" : "logout",
-              "action" : "loginctl terminate-user $USER",
+              "action" : "hyprctl dispatch exit",
               "text" : "Logout",
               "keybind" : "e",
               "icon" : "logout.svg"
@@ -49,7 +49,7 @@ in
           }
           {
               "label" : "suspend",
-              "action" : "systemctl suspend",
+              "action": "sh -lc 'pidof hyprlock >/dev/null || hyprlock & sleep 0.3; systemctl suspend'",
               "text" : "Suspend",
               "keybind" : "u",
               "icon" : "suspend.svg"
