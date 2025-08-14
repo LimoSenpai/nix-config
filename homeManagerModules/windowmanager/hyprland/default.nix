@@ -176,6 +176,7 @@
 
 
         # Custom Programs
+        "[workspace 9] easyeffects"
         "nextcloud --background"
         "arrpc"
       ];
