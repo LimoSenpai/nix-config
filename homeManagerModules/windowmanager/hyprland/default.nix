@@ -181,17 +181,10 @@
 
 
         # Custom Programs
-<<<<<<< HEAD
-        "[workspace 9] easyeffects"
-        "nextcloud --background"
-        "arrpc"
-=======
         "thunderbird"
         "element-desktop"
         "zen"
-        "~/.config/nix-config/scripts/dfsmount"
         
->>>>>>> cb9b78a (added swaync and swaylock)
       ];
 
       decoration = {

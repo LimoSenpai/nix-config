@@ -33,6 +33,7 @@
     "pcmanfm"
     "swaylock-fancy"
     "swaynotificationcenter"
+    "teams"
   ];
   home-apps-gui.extraPackages = [ 
     pkgs.networkmanagerapplet

@@ -14,6 +14,7 @@ let
     goofcord    = goofcord;
     pcmanfm     = pcmanfm;
     discord     = discord;
+    teams       = teams-for-linux;
     swaylock-fancy = swaylock-fancy;
     swaynotificationcenter = swaynotificationcenter;
 
