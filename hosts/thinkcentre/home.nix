@@ -20,7 +20,7 @@
 
   ### GUI APPS ###
   home-apps-gui.enable = [
-    "vesktop"
+    #"vesktop"
     "bitwarden"
     #"easyeffects"
     "obsidian"
@@ -31,6 +31,8 @@
     "yubikey"
     "discord"
     "pcmanfm"
+    "swaylock-fancy"
+    "swaynotificationcenter"
   ];
   home-apps-gui.extraPackages = [ 
     pkgs.networkmanagerapplet

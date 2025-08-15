@@ -14,6 +14,8 @@ let
     goofcord    = goofcord;
     pcmanfm     = pcmanfm;
     discord     = discord;
+    swaylock-fancy = swaylock-fancy;
+    swaynotificationcenter = swaynotificationcenter;
 
   };
 

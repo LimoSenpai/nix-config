@@ -69,10 +69,10 @@
     wg-quick.interfaces.wg0 = {
       configFile = "/etc/wireguard/wg_config.conf"; 
       preUp = ''
-        ${pkgs.iproute2}/bin/ip route replace 89.246.50.171/32 via 10.193.63.250 dev wlp2s0
+        ${pkgs.iproute2}/bin/ip route replace 89.246.49.166/32 via 10.193.63.250 dev wlp2s0
       '';
       postDown = ''
-        ${pkgs.iproute2}/bin/ip route del 89.246.50.171/32 dev wlp2s0 || true
+        ${pkgs.iproute2}/bin/ip route del 89.246.49.166/32 dev wlp2s0 || true
       '';
     };
   };
@@ -84,10 +84,10 @@
         if [ "$IFACE" = "wlp2s0" ]; then
           case "$STATE" in
             up|vpn-up)
-              ${pkgs.iproute2}/bin/ip route replace 89.246.50.171/32 via 10.193.63.250 dev wlp2s0
+              ${pkgs.iproute2}/bin/ip route replace 89.246.49.166/32 via 10.193.63.250 dev wlp2s0
               ;;
             down|vpn-down)
-              ${pkgs.iproute2}/bin/ip route del 89.246.50.171/32 dev wlp2s0 || true
+              ${pkgs.iproute2}/bin/ip route del 89.246.49.166/32 dev wlp2s0 || true
               ;;
           esac
         fi
@@ -126,11 +126,11 @@
   #niri.enable = true; # Enable Niri, a Wayland compositor
 
   sddm.enable = true; # Enable SDDM, a display manager
-  hyprlock.enable = true;
+  #hyprlock.enable = true;
 
   libnotify.enable = true; # Enable libnotify for notifications
   wleave.enable = true; # Enable Wleave for window management
-  dunst.enable = true; # Enable Dunst for notifications
+  #dunst.enable = true; # Enable Dunst for notifications
 
   system-programs.enable = true; # Enable system programs
   standard-apps.enable = true; # Enable standard applications

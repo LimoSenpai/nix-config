@@ -53,9 +53,12 @@
         # --- Launcher --- #
         "Super, Space, exec, pkill rofi || rofi -show drun" # Launcher
         # --- Hyprland System Stuff ---- #
-        "Super+Alt, O, exec, hyprctl dispatch exit"
-        "Super, L, exec, hyprlock -c ~/.config/hypr/hyprlock.conf"
+        "Super+Alt, O, exec, hyprctl dispatch exit" # close Hyprland
+        "Super, L, exec, swaylock-fancy" # lock PC
         "Super+CTRL, W, exec, /etc/profiles/per-user/tinus/bin/switchwall" # Switch wallpaper
+        "Super, N, exec, swaync-client -t" # Notification history
+
+        "Super, D, exec, ~/.config/nix-config/assets/scripts/show_desktop.sh"
 
         # --- Brightness and volume keys ---
         ", XF86MonBrightnessUp, exec, qs -c $qsConfig ipc call brightness increment || brightnessctl s 5%+" 
@@ -166,6 +169,7 @@
         # Core components (authentication, lock screen, notification daemon)
         "lxqt-policykit-agent &"
         "sleep 1 && dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        "swaync"
 
         # Clipboard: history
         # wl-paste --watch cliphist store &
@@ -177,9 +181,17 @@
 
 
         # Custom Programs
+<<<<<<< HEAD
         "[workspace 9] easyeffects"
         "nextcloud --background"
         "arrpc"
+=======
+        "thunderbird"
+        "element-desktop"
+        "zen"
+        "~/.config/nix-config/scripts/dfsmount"
+        
+>>>>>>> cb9b78a (added swaync and swaylock)
       ];
 
       decoration = {
