@@ -10,6 +10,8 @@ let
     hyperfine   = hyperfine;
     icu         = icu;
     wireguard   = wireguard;
+    rg          = ripgrep;
+    tmux        = tmux;
   };
 
   validNames = builtins.attrNames registry;

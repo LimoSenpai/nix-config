@@ -184,6 +184,8 @@
         "thunderbird"
         "element-desktop"
         "zen"
+        "arrpc"
+        "easyeffects"
         
       ];
 

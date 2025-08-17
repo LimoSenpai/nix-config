@@ -74,6 +74,7 @@
 
   system-programs.enable = true; # Enable system programs
   standard-apps.enable = true; # Enable standard applications
+  #zen.enable = true; # Enable Zen Browser, a Firefox-based web browser
 
   nvidia.enable = true; # Enable NVIDIA GPU support
   amd-radeon.enable = false; # Enable AMD Radeon GPU support

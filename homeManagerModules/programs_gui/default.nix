@@ -4,7 +4,7 @@
   imports =
     [
       ./spicetify.nix
-      ./zen.nix
       ./programs_gui.nix
+      ./sine.nix
     ];
 }

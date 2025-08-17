@@ -59,7 +59,7 @@
   
   ### GAMING APPS ###
   home-apps-gaming.enable = [
-    "arrpc"
+    #"arrpc"
     "gamemode"
     "gamescope"
     "lutris"

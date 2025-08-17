@@ -22,7 +22,7 @@
   home-apps-gui.enable = [
     "vesktop"
     "bitwarden"
-    #"easyeffects"
+    "easyeffects"
     "obsidian"
     "brave"
     "loupe"
@@ -31,6 +31,7 @@
     "yubikey"
     #"discord"
     "pcmanfm"
+    "swaynotificationcenter"
   ];
   home-apps-gui.extraPackages = [ 
   ];
@@ -44,6 +45,7 @@
     "jq"
     "hyperfine"
     "icu"
+    "tmux"
   ];
   home-apps-cli.extraPackages = [ 
   ];
@@ -62,7 +64,6 @@
   home-apps-gaming.extraPackages = [
   ];
 
-  
   # Window Manager Environment
   hyprland.enable = true;
   niri.enable = false; # Niri Window Manager
@@ -84,8 +85,8 @@
 
   # Enable/disable your custom modules here
   # gui Programs
-  zen.enable = true; # Web Browser | Firefox based
-
+  zen-sine.enable = true;
+  zen-sine.profilePath = ".zen/fbzuf3jk.Default Profile";
   spicetify.enable = true; # Spotify Customization
 
   # cli Programs
