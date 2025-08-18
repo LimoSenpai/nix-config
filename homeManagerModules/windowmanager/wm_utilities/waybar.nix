@@ -17,8 +17,8 @@
             "layer" = "top"; # Waybar at top layer
             "position" = "top"; #Waybar position (top|bottom|left|right)
             "height" = 30; # Waybar height (to be removed for auto height)
-            "width"= 1920; # Waybar width
             "spacing" = 4; # Gaps between modules (4px)
+            "reload_style_on_change" = true;
             # Choose the order of the modules
             "modules-left" = [
                 "custom/lframe"
@@ -228,6 +228,7 @@
             font-family: JetBrainsMono Nerd Font;
             padding: 0;
             margin: 0;
+            border-radius: 0;
           }
           #waybar {
             color: @base05;

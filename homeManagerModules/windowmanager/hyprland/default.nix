@@ -177,7 +177,7 @@
         "wl-paste --type image --watch cliphist store"
 
         # Cursor
-        "hyprctl setcursor bibata-hyprcursor 26"
+        "hyprctl setcursor Bibata-Modern-Classic 26"
 
 
         # Custom Programs
@@ -313,8 +313,8 @@
         "QT_STYLE_OVERRIDE,kvantum"
         "WLR_NO_HARDWARE_CURSORS, 1"
 
-        "HYPRCURSOR_THEME,Bibata-Modern-Classic"  # Replace Bibata-Modern-Ice with the name of the theme you downloaded
-        "HYPRCURSOR_SIZE,28"                  # Replace 24 with your desired size
+        "HYPRCURSOR_THEME,Bibata-Modern-Classic"
+        "HYPRCURSOR_SIZE,26"
       ];
 
       windowrule = [

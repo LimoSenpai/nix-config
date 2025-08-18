@@ -5,9 +5,18 @@
   };
 
   config = lib.mkIf config.cursor.enable {
-    home.packages =  with pkgs; [
-      bibata-cursors
+    home.packages = with pkgs; [
+      bibata-cursors        # X11 cursors
+      bibata-hyprcursor     # Hyprcursors
     ];
+
+    home.pointerCursor = {
+      gtk.enable = true;
+      x11.enable = true;
+      name = "Bibata-Modern-Classic";
+      size = 26;
+      package = pkgs.bibata-cursors;
+    };
   };
 }
 

@@ -35,9 +35,9 @@
               "custom/poweroff"
             ];
             "custom/poweroff" = {
-              format = "⏻";
-              on-click = "wleave";
-              interval = 3600;
+              "format" = "⏻";
+              "on-click" = "wleave";
+              "interval" = 3600;
             };
             "hyprland/workspaces" = {
               "format" = "<span size='small' font='normal Font Awesome 6 Free'>{icon}</span>";

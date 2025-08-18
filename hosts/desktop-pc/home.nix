@@ -60,6 +60,7 @@
     "protonplus"
     "wine"
     "winetricks"
+    "prismlauncher"
   ];
   home-apps-gaming.extraPackages = [
   ];
