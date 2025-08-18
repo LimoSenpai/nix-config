@@ -91,11 +91,6 @@
 
   stylix.targets.foot.enable = true;
 
-  # Enable/disable your custom modules here
-  # gui Programs
-  zen-sine.enable = true;
-  zen-sine.profilePath = ".zen/fbzuf3jk.Default Profile";
-  #spicetify.enable = true; # Spotify Customization
 
   ### cli Programs ###
 
