@@ -2,7 +2,6 @@
   imports =
     [  
       ./dunst.nix
-      ./x_cursor.nix
       ./cursor.nix
       ./rofi.nix
       ./wofi.nix

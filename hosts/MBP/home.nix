@@ -17,54 +17,91 @@
     TERMINAL = "kitty";
   };
 
-  #Window Manager Environment
+
+  ### GUI APPS ###
+  home-apps-gui.enable = [
+    #"vesktop"
+    "bitwarden"
+    #"easyeffects"
+    "obsidian"
+    "brave"
+    "loupe"
+    "nextcloud"
+    "vscode"
+    "yubikey"
+    "discord"
+    "pcmanfm"
+    "swaylock-fancy"
+    "swaynotificationcenter"
+    "teams"
+  ];
+  home-apps-gui.extraPackages = [ 
+    pkgs.networkmanagerapplet
+    pkgs.firefox
+  ];
+
+  ### CLI APPS ###
+  home-apps-cli.enable = [
+    "fastfetch"
+    "yazi"
+    "grimblast"
+    "mdadm"
+    "jq"
+    "hyperfine"
+    "icu"
+    "tmux"
+  ];
+  home-apps-cli.extraPackages = [ 
+    pkgs.nix-output-monitor
+    pkgs.betterdiscordctl
+    pkgs.wireguard-tools
+    pkgs.traceroute
+  ];
+  
+  ### GAMING APPS ###
+  home-apps-gaming.enable = [
+    #"arrpc"
+    "gamemode"
+    "gamescope"
+    "lutris"
+    "protontricks"
+    "protonplus"
+    "wine"
+    "winetricks"
+    "prismlauncher"
+  ];
+  home-apps-gaming.extraPackages = [
+  ];
+
+  ### Window Manager Environment ###
   hyprland.enable = true;
-  niri.enable = true; # Niri Window Manager
-  #gnome.enable = true;
+  #niri.enable = false; # Niri Window Manager
   dunst.enable = true; # Notification Daemon
   waybar.enable = true; # Status Bar
   rofi-wayland.enable = true; # Application Launcher
+  wofi.enable = true; # Application Launcher
   wlogout.enable = true; # Logout Utility
-
-  x_cursor.enable = true; # Custom X Cursor
-  rose-pine-cursor.enable = true; # Rose Pine Cursor Theme
-
+  hyprlock.enable = true;
+  #cursor.enable = true; # Rose Pine Cursor Theme
   waypaper.enable = true; # Wallpaper Manager
   swww.enable = true; # Wallpaper Manager
   switchwall.enable = true; # Wallpaper Switcher
 
-  # Stylix targets for Home Manager
+  ### Stylix targets for Home Manager ###
+
   stylix.targets.foot.enable = true;
 
   # Enable/disable your custom modules here
   # gui Programs
-  gui_utils.enable = true;
-  zen.enable = true;
-  #brave.enable = true; # Web Browser
+  zen-sine.enable = true;
+  zen-sine.profilePath = ".zen/fbzuf3jk.Default Profile";
+  #spicetify.enable = true; # Spotify Customization
 
-  vscode.enable = true; # Visual Studio Code - Code Editing
-  nextcloud.enable = true; # Nextcloud Client
-  easyeffects.enable = true;
-  vesktop.enable = true;
-  bitwarden.enable = true; # Password Manager
-  
-  loupe.enable = true; # Image viewer
-  #yubikey.enable = true; # Security Key Support
-  spicetify.enable = true; # Spotify Customization
+  ### cli Programs ###
 
-  # cli Programs
-  cli_utilities.enable = true; # CLI Utilities
   foot.enable = true; # Terminal Emulator
   power-profiles-daemon.enable = true; # Power Profiles Daemon | Used in Waybar
   playerctl.enable = true; # Media Player Control | Used in Waybar
-
-  # Gaming Programs
-  lutris.enable = true; # Game Manager
-  wine.enable = true; # Compatibility Layer
-  proton.enable = true; # Proton Addons
-  gamescope.enable = true;
-  #gamemode.enable = true; # Game Mode https://search.nixos.org/packages?channel=25.05&from=0&size=50&sort=relevance&type=packages&query=gamemode
-  arrpc.enable = true; # Rich Presence for Vesktop
 
 
   # This value determines the home Manager release that your
