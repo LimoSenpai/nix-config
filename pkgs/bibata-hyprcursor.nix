@@ -9,11 +9,14 @@ stdenvNoCC.mkDerivation rec {
     sha256 = "sha256-+ZXnbI3bBLcb0nv2YW3eM/tK4dsraNM4UAO9BpSqfXk=";
   };
 
+  sourceRoot = ".";
+
   installPhase = ''
     runHook preInstall
     
     mkdir -p $out/share/icons/Bibata-Modern-Classic
-    cp -r * $out/share/icons/Bibata-Modern-Classic/
+    cp manifest.hl $out/share/icons/Bibata-Modern-Classic/
+    cp -r hyprcursors $out/share/icons/Bibata-Modern-Classic/
     
     runHook postInstall
   '';

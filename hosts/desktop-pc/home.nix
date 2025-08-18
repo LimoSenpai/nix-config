@@ -74,7 +74,7 @@
   wofi.enable = true; # Application Launcher
   wlogout.enable = true; # Logout Utility
 
-  cursor.enable = true; # Rose Pine Cursor Theme
+  cursor.enable = true; # Bibata Cursor Theme
 
   waypaper.enable = true; # Wallpaper Manager
   swww.enable = true; # Wallpaper Manager

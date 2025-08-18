@@ -314,7 +314,7 @@
         "WLR_NO_HARDWARE_CURSORS, 1"
 
         "HYPRCURSOR_THEME,Bibata-Modern-Classic"
-        "HYPRCURSOR_SIZE,26"
+        "HYPRCURSOR_SIZE,28"
       ];
 
       windowrule = [
