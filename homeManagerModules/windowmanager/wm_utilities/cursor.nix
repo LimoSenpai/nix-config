@@ -14,7 +14,7 @@
       gtk.enable = true;
       x11.enable = true;
       name = "Bibata-Modern-Classic";
-      size = 26;
+      size = 28; # Size in pixels
       package = pkgs.bibata-cursors;
     };
   };
