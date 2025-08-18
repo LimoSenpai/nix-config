@@ -69,10 +69,10 @@
     wg-quick.interfaces.wg0 = {
       configFile = "/etc/wireguard/wg_config.conf"; 
       preUp = ''
-        ${pkgs.iproute2}/bin/ip route replace 89.246.49.166/32 via 10.193.63.250 dev wlp2s0
+        ${pkgs.iproute2}/bin/ip route replace 89.246.51.89/32 via 10.193.63.250 dev wlp2s0
       '';
       postDown = ''
-        ${pkgs.iproute2}/bin/ip route del 89.246.49.166/32 dev wlp2s0 || true
+        ${pkgs.iproute2}/bin/ip route del 89.246.51.89/32 dev wlp2s0 || true
       '';
     };
   };
@@ -84,10 +84,10 @@
         if [ "$IFACE" = "wlp2s0" ]; then
           case "$STATE" in
             up|vpn-up)
-              ${pkgs.iproute2}/bin/ip route replace 89.246.49.166/32 via 10.193.63.250 dev wlp2s0
+              ${pkgs.iproute2}/bin/ip route replace 89.246.51.89/32 via 10.193.63.250 dev wlp2s0
               ;;
             down|vpn-down)
-              ${pkgs.iproute2}/bin/ip route del 89.246.49.166/32 dev wlp2s0 || true
+              ${pkgs.iproute2}/bin/ip route del 89.246.51.89/32 dev wlp2s0 || true
               ;;
           esac
         fi

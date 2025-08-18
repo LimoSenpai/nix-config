@@ -49,6 +49,7 @@
     "jq"
     "hyperfine"
     "icu"
+    "tmux"
   ];
   home-apps-cli.extraPackages = [ 
     pkgs.nix-output-monitor
