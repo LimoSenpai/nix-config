@@ -59,6 +59,7 @@
     # Custom packages (Derivations) for the system
     packages.${system} = {
       cirno-downloader = pkgs.callPackage ../../pkgs/cirno-downloader.nix {};
+      bibata-hyprcursor = pkgs.callPackage ../../pkgs/bibata-hyprcursor.nix {};
       gdk-pixbuf-dev = pkgs.gdk-pixbuf.dev;
     };
     # Make Derivations accessible in the flake
@@ -68,6 +69,7 @@
         # dein restliches Overlay-Zeug:
         wine = prev.wineWowPackages.stable;
         cirno-downloader = prev.callPackage ../../pkgs/cirno-downloader.nix {};
+        bibata-hyprcursor = prev.callPackage ../../pkgs/bibata-hyprcursor.nix {};
         gdk-pixbuf-dev = prev.gdk-pixbuf.dev;
       };
 
