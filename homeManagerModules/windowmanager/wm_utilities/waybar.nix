@@ -5,6 +5,7 @@
   };
 
   config = lib.mkIf config.waybar.enable {
+    stylix.targets.waybar.enable = true;
     programs = {
       waybar = {
         enable = true;
@@ -16,7 +17,7 @@
         {
             "layer" = "top"; # Waybar at top layer
             "position" = "top"; #Waybar position (top|bottom|left|right)
-            "height" = 30; # Waybar height (to be removed for auto height)
+            "height" = 35; # Waybar height (to be removed for auto height)
             "spacing" = 4; # Gaps between modules (4px)
             "reload_style_on_change" = true;
             # Choose the order of the modules
@@ -127,9 +128,10 @@
                 # }
             };
             "clock" = {
-                "timezone" = "Europe/Berlin";
-                "tooltip-format" = "<big>{ =%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-                "format-alt" = "{ =%Y-%m-%d}";
+              "interval" = 1;
+              "format" = " {:%d.%m.%Y | %H:%M}  ";
+              "tooltip" = false;
+              "tooltip-format" = "<tt><small>{calendar}</small></tt>";
             };
             "cpu" = {
                 "format" = "{usage}% ";
@@ -154,9 +156,9 @@
                 "format-alt" = "{ifname} = {ipaddr}/{cidr}";
             };
             "pulseaudio" = {
-              "format" = "{icon} {volume}% {format_source}";
-              "format-bluetooth" = "{volume}% {icon}";
-              "format-muted" = "󰖁 0% {format_source}";
+              "format" = "{icon}  {volume}%";
+              "format-bluetooth" = " {volume}% {icon}";
+              "format-muted" = "󰖁 0%";
               "format-icons" = {
                 "headphone" = "";
                 "hands-free" = "";
@@ -224,15 +226,17 @@
 
         ];
         style = ''
+          /* Override Stylix transparency - must come after the @define-color imports */
+          window#waybar, tooltip {
+            background: alpha(@base00, 0.5);
+          }
+          
           * {
             font-family: JetBrainsMono Nerd Font;
             padding: 0;
             margin: 0;
             border-radius: 0;
-          }
-          #waybar {
-            color: @base05;
-            background: alpha(@base00, 0.5);
+            border-color: @base0D;
           }
 
 
