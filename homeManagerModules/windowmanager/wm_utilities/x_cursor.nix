@@ -23,8 +23,8 @@
         };
     in
       getFrom 
-        "https://github.com/rose-pine/cursor/releases/download/v1.1.0/BreezeX-RosePine-Linux.tar.xz"
+        "https://github.com/ful1e5/Bibata_Cursor/releases/download/v2.0.7/Bibata-Modern-Classic.tar.xz"
         "sha256-t5xwAPGhuQUfGThedLsmtZEEp1Ljjo3Udhd5Ql3O67c="
-        "BreezeX-RosePine";
+        "Bibata-Modern-Classic";
   };
 }

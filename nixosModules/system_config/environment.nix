@@ -15,9 +15,9 @@
 
   # Environment Settings
   environment.variables = {
-    XCURSOR_THEME = "BreezeX-RosePine";
+    XCURSOR_THEME = "Bibata-Modern-Classic";
     XCURSOR_SIZE = 26;
-    HYPRCURSOR_THEME = "rose-pine-hyprcursor";
+    HYPRCURSOR_THEME = "Bibata-Modern-Classic";
     HYPRCURSOR_SIZE = 26;
     NIXOS_OZONE = "1"; # Enable Ozone for Hyprland
   };

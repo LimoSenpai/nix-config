@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   environment.systemPackages = [
-    pkgs.zen-browser
+    inputs.zen-browser.packages.${pkgs.system}.default
   ];
 }

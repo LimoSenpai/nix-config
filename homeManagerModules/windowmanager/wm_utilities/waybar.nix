@@ -13,115 +13,92 @@
           target = "graphical-session.target";
         };
         settings = [
-          {
-            "layer" = "top";
-            "height" = 47;
-            "reload_style_on_change" = true;
+        {
+            "layer" = "top"; # Waybar at top layer
+            "position" = "top"; #Waybar position (top|bottom|left|right)
+            "height" = 30; # Waybar height (to be removed for auto height)
+            "width"= 1920; # Waybar width
+            "spacing" = 4; # Gaps between modules (4px)
+            # Choose the order of the modules
             "modules-left" = [
-              "hyprland/workspaces"
-              "mpris"
-              "gamemode"
-              "privacy"
-              "tray"
+                "custom/lframe"
+                "hyprland/workspaces"
+                "custom/rframe"
+            #"custom/now-playing"
             ];
             "modules-center" = [
-              "clock"
+              "custom/now-playing"	
+              "hyprland/window"
             ];
             "modules-right" = [
-              "cpu"
-              "memory"
-              "pulseaudio"
-              "power-profiles-daemon"
-              "custom/poweroff"
+                #"mpd"
+                #"idle_inhibitor"
+                "power-profiles-daemon"
+                "pulseaudio"
+                #"network"
+                "cpu"
+                "memory"
+                "temperature"
+                #"hyprland/language"
+                "clock"
+                "tray"
+                "custom/poweroff"
             ];
-            "custom/poweroff" = {
-              format = "⏻";
-              on-click = "wleave";
-              interval = 3600;
-            };
+            # Modules configuration
             "hyprland/workspaces" = {
-              "format" = "<span size='small' font='normal Font Awesome 6 Free'>{icon}</span>";
-              "on-click" = "activate";
-              "sort-by-number" = true;
-              "on-scroll-up" = "hyprctl dispatch workspace e-1";
-              "on-scroll-down" = "hyprctl dispatch workspace e+1";
+             "disable-scroll" = true;
+              "all-outputs" = true;
+              "warp-on-scroll" = false;
+              "format" = "{icon}";
               "format-icons" = {
-                "1" = "1";
-                "2" = "2";
-                "3" = "3";
-                "4" = "4";
-                "5" = "5";
+                "1" = "⚀";
+                "2" = "⚁";
+                "3" = "⚂";
+                "4" = "⚃";
+                "5" = "⚄";
+                "6" = "⚅";
+                "urgent" = "";
+                "focused" = "";
+                "default" = "";
               };
             };
-            "mpris" = {
-              "format" = "{player_icon}  {title} - {artist}";
-              "format-paused" = "{status_icon}  {title} - {artist}";
-              "max-length" = 50;
-              "dynamic-len" = 10;
-              #only the strings that match "spotify" will appear
-              #"player" = "spotify";
-              "on-scroll-up" = "playerctl --player=spotify volume 0.05+";
-              "on-scroll-down" = "playerctl --player=spotify volume 0.05-";
-              "player-icons" = {
-                "default" = "󰎈";
-                "mpv" = "";
-                "vlc" = "<span color='#E85E00'>󰕼</span>";
-                "spotify" = "<span color='#1DB954'></span>";
-                "brave" = "<span font='normal Font Awesome 6 Free' color='#ed7009'></span>";
-              };
-              "status-icons" = {
-                "paused" = "⏸";
-                "playing" = "";
-                "stopped" = "";
-              };
+            "custom/poweroff" = {
+              "format" = "⏻";
+              "on-click" = "wleave";
+              "interval" = 3600;
             };
-            "gamemode" = {
-              "format" = "{glyph}";
-              "format-alt" = "{glyph} {count}";
-              "glyph" = "";
-              "hide-not-running" = true;
-              "use-icon" = true;
-              "icon-name" = "input-gaming-symbolic";
-              "icon-spacing" = 4;
-              "icon-size" = 20;
-              "tooltip" = true;
-              "tooltip-format" = "Games running: {count}";
+            "hyprland/scratchpad" = {
+                "format" = "{icon} {count}";
+                "show-empty" = false;
+                "format-icons" = ["" ""];
+                "tooltip" = true;
+                "tooltip-format" = "{app} = {title}";
             };
-            "privacy" = {
-              "icon-spacing" = 4;
-              "icon-size" = 12;
-              "transition-duration" = 250;
-              "modules" = [
-                {
-                  "type" = "screenshare";
-                  "tooltip" = true;
-                  "tooltip-icon-size" = 12;
-                }
-                {
-                  "type" = "audio-in";
-                  "tooltip" = true;
-                  "tooltip-icon-size" = 12;
-                }
-              ];
-            };
-            "clock" = {
-              "interval" = 1;
-              "format" = " {:%d.%m.%Y | %H:%M}  ";
-              "tooltip" = false;
-              "tooltip-format" = "<tt><small>{calendar}</small></tt>";
-            };
-            "tray" = {
-              "icon-size" = 15;
-              "spacing" = 10;
-            };
-            "cpu" = {
-              "interval" = 1;
-              "format" = " {usage}%";
-              "max-length" = 10;
-            };
-            "memory" = {
-              "interval" = 30;
-              "format" = " {used:0.1f} GB";
+            "mpd" = {
+                "format" = "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime =%M =%S}/{totalTime =%M =%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ";
+                "format-disconnected" = "Disconnected ";
+                "format-stopped" = "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ";
+                "unknown-tag" = "N/A";
+                "interval" = 5;
+                "consume-icons" = {
+                    "on" = " ";
+                };
+                "random-icons" = {
+                    "off" = "<span color=\"#f53c3c\"></span> ";
+                    "on" = " ";
+                };
+                "repeat-icons" = {
+                    "on" = " ";
+                };
+                "single-icons" = {
+                    "on" = "1 ";
+                };
+                "state-icons" = {
+                    "paused" = "";
+                    "playing" = "";
+                };
+                "tooltip-format" = "MPD (connected)";
+                "tooltip-format-disconnected" = "MPD (disconnected)";
             };
             "power-profiles-daemon" = {
               "format" = "{icon}";
@@ -133,6 +110,48 @@
                 "balanced" = "";
                 "power-saver" = "";
               };
+            };
+            "idle_inhibitor" = {
+                "format" = "{icon}";
+                "format-icons" = {
+                    "activated" = "";
+                    "deactivated" = "";
+                };
+            };
+            "tray" = {
+                # "icon-size" = 21;
+                "spacing" = 10;
+                # "icons" = {
+                #   "blueman" = "bluetooth";
+                #   "TelegramDesktop" = "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+                # }
+            };
+            "clock" = {
+                "timezone" = "Europe/Berlin";
+                "tooltip-format" = "<big>{ =%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+                "format-alt" = "{ =%Y-%m-%d}";
+            };
+            "cpu" = {
+                "format" = "{usage}% ";
+                "tooltip" = false;
+            };
+            "memory" = {
+                "format" = "{}% ";
+            };
+            "temperature" = {
+                # "thermal-zone" = 2;
+                "critical-threshold" = 80;
+                "format" = "{temperatureC}°C";
+                "format-icons" = ["" "" ""];
+            };
+            "network" = {
+                # "interface" = "wlp2*"; // (Optional) To force the use of this interface
+                "format-wifi" = "{essid} ({signalStrength}%) ";
+                "format-ethernet" = "{ipaddr}/{cidr} ";
+                "tooltip-format" = "{ifname} via {gwaddr} ";
+                "format-linked" = "{ifname} (No IP) ";
+                "format-disconnected" = "Disconnected ⚠";
+                "format-alt" = "{ifname} = {ipaddr}/{cidr}";
             };
             "pulseaudio" = {
               "format" = "{icon} {volume}% {format_source}";
@@ -158,125 +177,208 @@
               "format-source" = "";
               "format-source-muted" = "";
             };
-        }
+            # MEDIA PLAYERS (TEST)
+            "custom/now-playing" = {
+              "format" = "{player_icon}  {title} - {artist}";
+              "format-paused" = "{status_icon}  {title} - {artist}";
+              "max-length" = 50;
+              "dynamic-len" = 10;
+              #only the strings that match "spotify" will appear
+              #"player" = "spotify";
+              "on-scroll-up" = "playerctl --player=spotify volume 0.05+";
+              "on-scroll-down" = "playerctl --player=spotify volume 0.05-";
+              "player-icons" = {
+                "default" = "󰎈";
+                "mpv" = "";
+                "vlc" = "<span color='#E85E00'>󰕼</span>";
+                "spotify" = "<span color='#1DB954'></span>";
+                "brave" = "<span font='normal Font Awesome 6 Free' color='#ed7009'></span>";
+              };
+              "status-icons" = {
+                "paused" = "⏸";
+                "playing" = "";
+                "stopped" = "";
+              };
+            };
+
+            "custom/lframe" = {
+          "format" = "/";
+            };
+            "custom/rframe" = {
+          "format" = "/";
+            };
+          
+
+            "custom/playerctl" = {
+              "format" = "{}";
+              "return-type" = "json";
+              "max-length" = 18;
+              "exec" = "~/.config/waybar/scripts/playerctl_scroll.sh";
+              "on-click" = "playerctl -i firefox previous";
+              "on-click-right" = "playerctl -i firefox next";
+              "on-click-middle" = "playerctl -i firefox play-pause";
+              "on-scroll-up" = "playerctl -i firefox volume 0.05+";
+              "on-scroll-down" = "playerctl -i firefox volume 0.05-";
+            };
+          }
+
         ];
         style = ''
           * {
-              font-family: "JetBrainsMono Nerd Font Propo";
-              font-weight: bold;
-              font-size: 14px;
-              min-height: 0;
+            font-family: JetBrainsMono Nerd Font;
+            padding: 0;
+            margin: 0;
+          }
+          #waybar {
+            color: @base05;
+            background: alpha(@base00, 0.5);
           }
 
-          window#waybar {
-              background: transparent;
-              /* main window transparent background */
+
+          /************************/
+          /*  SPECIALS            */
+          /************************/
+
+          #custom-now-playing {
+            color: @base05;
+            font-weight: bold;
+            padding: 0 10px;
           }
 
-          tooltip {
-              font-family: inherit;
-              background: @base00;
-              /* tooltip background */
-              border: 2px solid @base0D;
-              /* tooltip border size and color */
-              border-radius: 5px;
-              /* tooltip rounded corners */
+          #custom-lframe {
+            padding: 0 0 0 10px;
           }
 
-          #workspaces button,
-          #mpris,
-          #privacy-item,
-          #bluetooth,
-          #clock,
-          #tray,
-          #cpu,
-          #power-profiles-daemon,
-          #memory,
-          #pulseaudio,
-          #gamemode,
-          #custom-updates,
-          #custom-poweroff {
-              /*text-shadow: 1px 1px 2px @base00;*/
-              /* text shadow, offset-x | offset-y | blur-radius | color */
-              background: alpha(@base00, 0.5);
-              /* background color */
-              margin: 10px 4px 4px 4px;
-              /* empty spaces around */
-              padding: 4px 10px;
-              /* extend pill size, vertical then horizontal */
-              box-shadow: 1px 1px 2px 1px @base01;
-              /* pill background shadows */
-              border-radius: 8px; /*Default 5*/
-              /* rounded corners */
-              color: @base05;
+          #custom-rframe {
+            padding: 0 10px 0 0;
           }
 
-          #custom-poweroff:hover {
-            background: alpha(@base08, 0.5);
-            border-radius: 5px;
-          }
+          /************************/
+          /*  WORKSPACE BOTTONS   */
+          /************************/
 
-          /* extend empty space on both side of the bar,
-          * value from ~/.config/hypr/hyprland.conf
-          * gaps_out (8px) + border size (2px) = 10px */
-
-          #clock {
-              padding-right: 5px;
-          }
-
-          #privacy-item {
-              background: @base08;
-              color: @base05;
-          }
-
-          /**#tray menu {
-              font-weight: bold;
-          }**/
-
-          #workspaces {
-              padding: 0 3px;
-              /* remove padding around workspace module */
-          }
-
+          /* i use special font and icon; please don't use this style. */
           #workspaces button {
-              padding: 0px 12px 0px 8px;
-              /* fit with pill padding, 0px for not haveing duped vertical padding, 4px to make a square (4px value from module padding: ...#clock {padding >>4px<< 10px}) */
-              margin-left: 3px;
-              border: 1px solid transparent;
-              transition-property:
-                  background-color, border-left-color, border-right-color;
-              transition-duration: 0.1s;
-              font-size: 10px;
-              color: @base05;
-          }
-
-          #workspaces button.empty {
-              padding: 0px 10px;
-          }
-
-          #workspaces button:first-child {
-              margin-left: 0;
-          }
-
-          #workspaces button.active {
-              /* active workspace */
-              background: @base02;
-
+            font-size: 28px;
+            padding: 0 4px 0 4px;
+            color: @base05;
+            border: none;
           }
 
           #workspaces button:hover {
-              background: alpha(@base08, 0.5);
-              /* hovered workspace color */
+            color: @base0D;
+            padding: 1px 4px 0 4px;
+            border: none;
           }
 
-          #power-profiles-daemon {
-              color: @base04;
+          #workspaces button.active {
+            color: @base0D;
+            border: none;
           }
+
+          #workspaces button.urgent {
+            color: @base08;
+            border: none;
+          }
+
+
+
+          /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+          /* a default css fix for GTK css */
+          button:hover {
+            box-shadow: none; /* Remove predefined box-shadow */
+            text-shadow: none; /* Remove predefined text-shadow */
+            transition: none; /* Disable predefined animations */
+            border: none;
+          }
+
+
+
+
+          #idle_inhibitor,
+          #cava,
+          #scratchpad,
+          #mode,
+          #window,
+          #clock,
+          #battery,
+          #backlight,
+          #wireplumber,
+          #tray,
+          #mpris,
+          #power-profiles-daemon,
+          #custom-poweroff,
+          #load {
+            padding: 0 10px;
+            /* color: @foreground; */
+
+            color: @base05;
+            font-weight: bold;
+          }
+
+          #custom-poweroff {
+            padding-right: 20px;
+          }
+
+          #mode {
+              /* color: @foreground; */
+
+              color: @base05;
+              font-weight: bold;
+              padding: 0 10px;
+
+              /* box-shadow: inset 0 -3px @base00; */
+          }
+
+        .modules-left #workspaces button.focused,
+        .modules-left #workspaces button.active {
+          border: 0;
+        }
+
+          /* If workspaces is the leftmost module; omit left margin 
+          .modules-left > widget:first-child > #workspaces {
+              margin-left: 0;
+          }
+
+           If workspaces is the rightmost module; omit right margin 
+          .modules-right > widget:last-child > #workspaces {
+              margin-right: 0;
+          }
+            */
+          #cava {
+              padding: 0 5px;
+          }
+
 
           @keyframes blink {
               to {
-                  background-color: @base08;
+                  background-color: @base00;
+                  color: @base05;
               }
+          }
+
+          label:focus {
+              background-color: @base00;
+          }
+
+          #wireplumber.muted {
+              background-color: @base00;
+          }
+
+          #tray > .passive {
+              -gtk-icon-effect: dim;
+          }
+
+          #tray > .needs-attention {
+              -gtk-icon-effect: highlight;
+          }
+
+          #tray menu {
+              font-family: sans-serif;
+          }
+
+          #scratchpad.empty {
+              background: transparent;
           }
 
         '';

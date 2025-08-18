@@ -3,7 +3,7 @@
     [  
       ./dunst.nix
       ./x_cursor.nix
-      ./rose-pine-cursor.nix
+      ./cursor.nix
       ./rofi.nix
       ./wofi.nix
       ./waybar.nix

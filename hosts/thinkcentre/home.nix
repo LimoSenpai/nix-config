@@ -68,6 +68,7 @@
     "protonplus"
     "wine"
     "winetricks"
+    "prismlauncher"
   ];
   home-apps-gaming.extraPackages = [
   ];
@@ -82,7 +83,7 @@
   wlogout.enable = true; # Logout Utility
   hyprlock.enable = true;
   x_cursor.enable = true; # Custom X Cursor
-  rose-pine-cursor.enable = true; # Rose Pine Cursor Theme
+  #cursor.enable = true; # Rose Pine Cursor Theme
   waypaper.enable = true; # Wallpaper Manager
   swww.enable = true; # Wallpaper Manager
   switchwall.enable = true; # Wallpaper Switcher
@@ -93,7 +94,8 @@
 
   # Enable/disable your custom modules here
   # gui Programs
-  zen.enable = true; # Web Browser | Firefox based
+  zen-sine.enable = true;
+  zen-sine.profilePath = ".zen/fbzuf3jk.Default Profile";
   #spicetify.enable = true; # Spotify Customization
 
   ### cli Programs ###

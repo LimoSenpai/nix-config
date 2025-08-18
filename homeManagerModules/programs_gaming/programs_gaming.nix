@@ -10,6 +10,7 @@ let
     protonplus = protonplus;
     wine       = wine;
     winetricks = winetricks;
+    prismlauncher = prismlauncher;
   };
 
   validNames = builtins.attrNames registry;

@@ -177,7 +177,7 @@
         "wl-paste --type image --watch cliphist store"
 
         # Cursor
-        "hyprctl setcursor rose-pine-hyprcursor 26"
+        "hyprctl setcursor bibata-hyprcursor 26"
 
 
         # Custom Programs
@@ -310,8 +310,11 @@
         # ############ Themes #############
         "QT_QPA_PLATFORM, wayland"
         "QT_QPA_PLATFORMTHEME, kde"
-        # QT_STYLE_OVERRIDE,kvantum
-        "WLR_NO_HARDWARE_CURSORS, 0"
+        "QT_STYLE_OVERRIDE,kvantum"
+        "WLR_NO_HARDWARE_CURSORS, 1"
+
+        "HYPRCURSOR_THEME,Bibata-Modern-Classic"  # Replace Bibata-Modern-Ice with the name of the theme you downloaded
+        "HYPRCURSOR_SIZE,28"                  # Replace 24 with your desired size
       ];
 
       windowrule = [

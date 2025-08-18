@@ -73,8 +73,8 @@
   wofi.enable = true; # Application Launcher
   wlogout.enable = true; # Logout Utility
 
-  x_cursor.enable = true; # Custom X Cursor
-  rose-pine-cursor.enable = true; # Rose Pine Cursor Theme
+  #x_cursor.enable = true; # Custom X Cursor
+  cursor.enable = true; # Rose Pine Cursor Theme
 
   waypaper.enable = true; # Wallpaper Manager
   swww.enable = true; # Wallpaper Manager

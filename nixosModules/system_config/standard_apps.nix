@@ -16,7 +16,6 @@
     polkit_gnome
 
     # themes
-    rose-pine-hyprcursor
     hicolor-icon-theme
     adwaita-icon-theme
 

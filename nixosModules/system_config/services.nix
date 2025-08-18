@@ -12,13 +12,6 @@
   };
 
 
-  # services
-
-  #services.netbird = {
-  #  enable = true;
-  #};
-  #environment.systemPackages = [ pkgs.netbird-ui ];
-
 
   services.udev.extraRules = ''
     # SteelSeries Aerox 9 Wireless — Allow USB and hidraw access
