@@ -149,16 +149,21 @@
 
   ### WORK APPS ###
   nixos-apps-work.enable = [
-    # Add your work apps here
+    "thunderbird-bin"
+    "keepassxc"
+    "libreoffice-qt-still"
+    "krb5"
+    "cifs-utils"
+    "keyutils"
+    "element-desktop"
   ];
   nixos-apps-work.extraPackages = [
     # Add extra work packages here
   ];
 
   # Individual modules (legacy - specialized configurations)
-  # mbp_touchbar.enable = true; # Migrated to tiny-dfr in CLI registry above
-
-
+  mbp_touchbar.enable = true; # Migrated to tiny-dfr in CLI registry above
+  
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
