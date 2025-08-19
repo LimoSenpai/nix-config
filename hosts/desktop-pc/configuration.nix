@@ -123,6 +123,7 @@
   ### WORK APPS ###
   nixos-apps-work.enable = [
     # Add your work apps here
+    "thunderbird"
   ];
   nixos-apps-work.extraPackages = [
     # Add extra work packages here
