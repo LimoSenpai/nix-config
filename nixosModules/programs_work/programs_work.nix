@@ -3,14 +3,14 @@ let
   # Central registry: name -> package/configuration
   registry = with pkgs; {
     # Communication
-    thunderbird-bin    = thunderbird-bin;
-    element-desktop    = element-desktop;
+    thunderbird        = thunderbird-bin;
+    element            = element-desktop;
     
     # Security
-    keepassxc          = keepassxc;
+    keepass            = keepassxc;
     
     # Office
-    libreoffice-qt-still = libreoffice-qt-still;
+    libreoffice        = libreoffice-qt-still;
     
     # Network/Authentication
     krb5               = krb5;
