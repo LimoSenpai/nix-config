@@ -115,12 +115,14 @@
 
   # Hardware Support
   #nvidia.enable = true; # Enable NVIDIA GPU support
-  amd-radeon.enable = false; # Enable AMD Radeon GPU support
+  #amd-radeon.enable = false; # Enable AMD Radeon GPU support
 
   ### GUI APPS ###
   nixos-apps-gui.enable = [
     "pavucontrol"
     "nwg-displays"
+    "mesa-demos"
+    "radeon-profile"
   ];
   nixos-apps-gui.extraPackages = [
     # Add extra GUI packages here
@@ -149,20 +151,17 @@
 
   ### WORK APPS ###
   nixos-apps-work.enable = [
-    "thunderbird-bin"
-    "keepassxc"
-    "libreoffice-qt-still"
+    "thunderbird"
+    "keepass"
+    "libreoffice"
     "krb5"
     "cifs-utils"
     "keyutils"
-    "element-desktop"
+    "element"
   ];
   nixos-apps-work.extraPackages = [
     # Add extra work packages here
   ];
-
-  # Individual modules (legacy - specialized configurations)
-  mbp_touchbar.enable = true; # Migrated to tiny-dfr in CLI registry above
   
 
   # This value determines the NixOS release from which the default
