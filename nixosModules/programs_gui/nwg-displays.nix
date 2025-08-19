@@ -5,8 +5,8 @@
   };
 
   config = lib.mkIf config.nwg-displays.enable {
-    environment.systemPackages = with pkgs; [
-      nwg-displays
+    nixos-apps-gui.enable = [
+      "nwg-displays"
     ];
   };
 }

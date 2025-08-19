@@ -77,7 +77,7 @@
         "Super, M, exec, bash ~/.config/nix-config/scripts/dfsmount"
 
         ##! Apps
-        "Super, T, exec, foot"
+        "Super, T, exec, alacritty" # Terminal Emulator
         "Super, E, exec, thunar" # File manager
         "Super, B, exec, zen" # Browser
         "Super, C, exec, code" # Code editor
@@ -336,8 +336,7 @@
 
         
         # Opacity 
-        "opacity 0.7, class:^(kitty)$"
-        "opacity 0.7, class:^(foot)$"
+        "opacity 0.7, class:^(Alacritty)$"
 
         # Floating
         "float, class:^(dunst)$"

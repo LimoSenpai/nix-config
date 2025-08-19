@@ -12,6 +12,7 @@ let
     wireguard   = wireguard;
     rg          = ripgrep;
     tmux        = tmux;
+    alacritty   = alacritty;
   };
 
   validNames = builtins.attrNames registry;

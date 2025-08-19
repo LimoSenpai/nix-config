@@ -5,12 +5,14 @@
   };
 
   config = lib.mkIf config.cirno_deps.enable {
-    environment.systemPackages = with pkgs; [
-      #cirno
-      libxml2
+    nixos-apps-cli.enable = [
+      "libxml2"
+      "p7zip"
+    ];
+    
+    nixos-apps-cli.extraPackages = with pkgs; [
       webkitgtk_4_1
-      p7zip
-
+      #cirno  # Uncomment when available
     ];
   };
 }

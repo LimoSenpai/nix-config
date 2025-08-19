@@ -5,9 +5,9 @@
   };
 
   config = lib.mkIf config.element.enable {
-    environment.systemPackages = with pkgs; [
-      element-desktop
-      keepassxc
+    nixos-apps-work.enable = [
+      "element-desktop"
+      "keepassxc"
     ];
   };
 }

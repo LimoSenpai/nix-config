@@ -88,34 +88,71 @@
 
   ## NixOS module options ##
 
-  # System configuration
+  ### SYSTEM CONFIGURATION ###
+  # Desktop Environments
   #gnome.enable = true; # Enable GNOME desktop environment
   #kde6.enable = true; # Enable KDE Plasma 6 desktop environment
+
+  # Window Managers
   #bspwm.enable = true; # Enable BSPWM, a tiling window manager
   hyprland.enable = true;
   sway.enable = true; # Enable Sway, a Wayland compositor
-  #nvidia.enable = true; # Enable NVIDIA GPU support
   niri.enable = true; # Enable Niri, a Wayland compositor
 
+  # Display Manager
   sddm.enable = true; 
 
+  # System Services
   libnotify.enable = true; # Enable libnotify for notifications
   wleave.enable = true; # Enable Wleave for window management
   dunst.enable = true; # Enable Dunst for notifications
-
   system-programs.enable = true; # Enable system programs
   standard-apps.enable = true; # Enable standard applications
 
+  # Hardware Support
+  #nvidia.enable = true; # Enable NVIDIA GPU support
   amd-radeon.enable = false; # Enable AMD Radeon GPU support
 
-  ## Programs Gui
-  steam.enable = true; # Enable Steam for gaming
-  mbp_touchbar.enable = true; # Enable MacBook Pro Touch Bar support
-  nwg-displays.enable = true; # Display Management
-  pavucontrol.enable = true; # PulseAudio Volume Control
+  ### GUI APPS ###
+  nixos-apps-gui.enable = [
+    "pavucontrol"
+    "nwg-displays"
+  ];
+  nixos-apps-gui.extraPackages = [
+    # Add extra GUI packages here
+  ];
 
-  ## Programs Cli
-  # cirno_deps.enable = true; # Enable Cirno Dependencies
+  ### CLI APPS ###
+  nixos-apps-cli.enable = [
+    "git"
+    "curl"
+    "htop"
+    "vim"
+    "tiny-dfr"
+  ];
+  nixos-apps-cli.extraPackages = [
+    # Add extra CLI packages here
+  ];
+
+  ### GAMING APPS ###
+  nixos-apps-gaming.enable = [
+    "steam"
+    "adwsteamgtk"
+  ];
+  nixos-apps-gaming.extraPackages = [
+    # Add extra gaming packages here
+  ];
+
+  ### WORK APPS ###
+  nixos-apps-work.enable = [
+    # Add your work apps here
+  ];
+  nixos-apps-work.extraPackages = [
+    # Add extra work packages here
+  ];
+
+  # Individual modules (legacy - specialized configurations)
+  # mbp_touchbar.enable = true; # Migrated to tiny-dfr in CLI registry above
 
 
 

@@ -14,7 +14,7 @@
     XDG_DATA_DIRS = "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}:/usr/share";
     BROWSER = "zen";
     EDITOR = "nano";
-    TERMINAL = "kitty";
+    TERMINAL = "alacritty";
   };
 
 
@@ -50,6 +50,7 @@
     "hyperfine"
     "icu"
     "tmux"
+    "alacritty"
   ];
   home-apps-cli.extraPackages = [ 
     pkgs.nix-output-monitor
@@ -89,12 +90,12 @@
 
   ### Stylix targets for Home Manager ###
 
-  stylix.targets.foot.enable = true;
+  # stylix.targets.foot.enable = true;
 
 
   ### cli Programs ###
 
-  foot.enable = true; # Terminal Emulator
+  # foot.enable = true; # Terminal Emulator (disabled due to SSH issues)
   power-profiles-daemon.enable = true; # Power Profiles Daemon | Used in Waybar
   playerctl.enable = true; # Media Player Control | Used in Waybar
 

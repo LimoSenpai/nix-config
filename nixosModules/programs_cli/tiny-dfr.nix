@@ -5,20 +5,9 @@
   };
 
   config = lib.mkIf config.mbp_touchbar.enable {
-    environment.systemPackages = with pkgs; [
-      tiny-dfr
+    nixos-apps-cli.enable = [
+      "tiny-dfr"
     ];
-
-    hardware = {
-      apple.touchBar = {
-        enable = true;
-        settings = {
-          MediaLayerDefault = true;
-          EnablePixelShift = true;
-          AdaptiveBrightness = true;
-        };
-      };
-    };
   };
 }
 

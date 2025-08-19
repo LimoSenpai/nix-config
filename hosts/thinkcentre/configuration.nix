@@ -145,20 +145,51 @@
   #nvidia.enable = true; # Enable NVIDIA GPU support
   #amd-radeon.enable = false; # Enable AMD Radeon GPU support
 
-  ### Programs Gui ###
-  nwg-displays.enable = true; # Display Management
-  pavucontrol.enable = true; # PulseAudio Volume Control
-  steam.enable = true; # Enable Steam for gaming
-  #cirno.enable = true; # Enable Cirno Downloader for games
+  ### GUI APPS ###
+  nixos-apps-gui.enable = [
+    "pavucontrol"
+    "nwg-displays"
+  ];
+  nixos-apps-gui.extraPackages = [
+    # Add extra GUI packages here
+  ];
 
-  ### Programs Cli ###
-  #cirno_deps.enable = true; # Enable Cirno Dependencies
+  ### CLI APPS ###
+  nixos-apps-cli.enable = [
+    "git"
+    "curl"
+    "htop"
+    "vim"
+  ];
+  nixos-apps-cli.extraPackages = [
+    # Add extra CLI packages here
+  ];
 
+  ### GAMING APPS ###
+  nixos-apps-gaming.enable = [
+    "steam"
+    "adwsteamgtk"
+  ];
+  nixos-apps-gaming.extraPackages = [
+    # Add extra gaming packages here
+  ];
 
-  ### Work ###
-  work_default.enable = true;
-  element.enable = true;
-  work.adCifs.enable = true; # Drive Mount thingy
+  ### WORK APPS ###
+  nixos-apps-work.enable = [
+    "thunderbird-bin"
+    "keepassxc"
+    "libreoffice-qt-still"
+    "krb5"
+    "cifs-utils"
+    "keyutils"
+    "element-desktop"
+  ];
+  nixos-apps-work.extraPackages = [
+    # Add extra work packages here
+  ];
+
+  # Individual modules (legacy - specialized configurations)
+  work.adCifs.enable = true; # Drive Mount thingy (complex config, keep separate)
   
 
 

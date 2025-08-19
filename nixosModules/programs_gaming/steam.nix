@@ -5,13 +5,9 @@
   };
 
   config = lib.mkIf config.steam.enable {
-    programs = {
-      steam = {
-        enable = true;
-      };
-    };
-    environment.systemPackages = with pkgs; [
-      adwsteamgtk
+    nixos-apps-gaming.enable = [
+      "steam"
+      "adwsteamgtk"
     ];
   };
 }
