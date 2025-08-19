@@ -28,7 +28,7 @@
     "loupe"
     "nextcloud"
     "vscode"
-    "yubikey"
+    #"yubikey"
     "discord"
     "pcmanfm"
     "swaylock-fancy"
@@ -37,7 +37,6 @@
   ];
   home-apps-gui.extraPackages = [ 
     pkgs.networkmanagerapplet
-    pkgs.firefox
   ];
 
   ### CLI APPS ###

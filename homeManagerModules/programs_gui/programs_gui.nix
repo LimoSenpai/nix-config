@@ -17,6 +17,7 @@ let
     teams       = teams-for-linux;
     swaylock-fancy = swaylock-fancy;
     swaynotificationcenter = swaynotificationcenter;
+    office      = libreoffice-qt-still;
 
   };
 
