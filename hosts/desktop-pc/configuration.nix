@@ -80,7 +80,6 @@
 
   # Hardware Support
   nvidia.enable = true; # Enable NVIDIA GPU support
-  amd-radeon.enable = false; # Enable AMD Radeon GPU support
 
   ### GUI APPS ###
   nixos-apps-gui.enable = [
