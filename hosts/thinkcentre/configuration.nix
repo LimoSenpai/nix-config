@@ -188,8 +188,6 @@
     # Add extra work packages here
   ];
 
-  # Individual modules (legacy - specialized configurations)
-  work.adCifs.enable = true; # Drive Mount thingy (complex config, keep separate)
   
 
 
