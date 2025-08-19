@@ -29,11 +29,15 @@
 
   # Enable networking
   networking.networkmanager = {
-     enable = true;
-     wifi.backend = "wpa_supplicant";
-
+    enable = true;
+    wifi.backend = "wpa_supplicant";
+  };
+  networking.wg-quick.interfaces.wg0 = {
+    configFile = "/etc/wireguard/wg_config.conf"; 
   };
   # networking.wireless.iwd.enable = true;
+
+  
 
   hardware.firmware = [
    (pkgs.stdenvNoCC.mkDerivation (final: {
