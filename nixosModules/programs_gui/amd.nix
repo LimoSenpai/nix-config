@@ -5,9 +5,9 @@
   };
 
   config = lib.mkIf config.amd-radeon.enable {
-    environment.systemPackages = with pkgs; [
-      mesa-demos
-      radeon-profile
+    nixos-apps-gui.enable = [
+      "mesa-demos"
+      "radeon-profile"
     ];
   };
 }

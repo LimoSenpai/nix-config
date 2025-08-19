@@ -2,11 +2,8 @@
 
 {
   programs = {
-    kitty = {
+    alacritty = {
       enable = true;
-      settings = {
-        confirm_os_window_close = "0";
-      };
     };
     # basic configuration of git, please change to your own
     git = {

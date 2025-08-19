@@ -5,16 +5,13 @@
   };
 
   config = lib.mkIf config.work_default.enable {
-    environment.systemPackages = with pkgs; [
-      
-      thunderbird-bin
-      keepassxc
-      libreoffice-qt-still
-
-      # kerberos 5
-      krb5
-      cifs-utils
-      keyutils
+    nixos-apps-work.enable = [
+      "thunderbird-bin"
+      "keepassxc"
+      "libreoffice-qt-still"
+      "krb5"
+      "cifs-utils"
+      "keyutils"
     ];
   };
 }

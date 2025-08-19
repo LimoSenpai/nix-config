@@ -61,32 +61,73 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # System configuration
+  ### SYSTEM CONFIGURATION ###
+  # Window Managers
   #bspwm.enable = true; # Enable BSPWM, a tiling window manager
   hyprland.enable = true;
   niri.enable = true; # Enable Niri, a Wayland compositor
 
+  # Display Manager
   sddm.enable = true; # Enable SDDM, a display manager
 
+  # System Services
   libnotify.enable = true; # Enable libnotify for notifications
   wleave.enable = true; # Enable Wleave for window management
   dunst.enable = true; # Enable Dunst for notifications
-
   system-programs.enable = true; # Enable system programs
   standard-apps.enable = true; # Enable standard applications
   #zen.enable = true; # Enable Zen Browser, a Firefox-based web browser
 
+  # Hardware Support
   nvidia.enable = true; # Enable NVIDIA GPU support
   amd-radeon.enable = false; # Enable AMD Radeon GPU support
 
-  # Programs Gui
-  steam.enable = true; # Enable Steam for gaming
-  cirno.enable = true; # Enable Cirno Downloader for games
-  nwg-displays.enable = true; # Display Management
-  pavucontrol.enable = true; # PulseAudio Volume Control
+  ### GUI APPS ###
+  nixos-apps-gui.enable = [
+    "pavucontrol"
+    "nwg-displays"
+  ];
+  nixos-apps-gui.extraPackages = [
+    # Add extra GUI packages here
+  ];
 
-  # Programs Cli
-  cirno_deps.enable = true; # Enable Cirno Dependencies
+  ### CLI APPS ###
+  nixos-apps-cli.enable = [
+    "git"
+    "curl"
+    "htop"
+    "vim"
+    "libxml2"
+    "p7zip"
+  ];
+  nixos-apps-cli.extraPackages = [
+    pkgs.webkitgtk_4_1
+  ];
+
+  # Individual CLI modules (legacy - will be removed)
+  # cirno_deps.enable = true; # Migrated to registry above
+
+  ### GAMING APPS ###
+  nixos-apps-gaming.enable = [
+    "steam"
+    "adwsteamgtk"
+    "cirno-downloader"
+  ];
+  nixos-apps-gaming.extraPackages = [
+    # Add extra gaming packages here
+  ];
+
+  # Individual Gaming modules (legacy - will be removed)
+  # steam.enable = true; # Migrated to registry above
+  # cirno.enable = true; # Migrated to registry above
+
+  ### WORK APPS ###
+  nixos-apps-work.enable = [
+    # Add your work apps here
+  ];
+  nixos-apps-work.extraPackages = [
+    # Add extra work packages here
+  ];
   
 
 
