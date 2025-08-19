@@ -176,13 +176,13 @@
 
   ### WORK APPS ###
   nixos-apps-work.enable = [
-    "thunderbird-bin"
-    "keepassxc"
-    "libreoffice-qt-still"
+    "thunderbird"
+    "keepass"
+    "libreoffice"
     "krb5"
     "cifs-utils"
     "keyutils"
-    "element-desktop"
+    "element"
   ];
   nixos-apps-work.extraPackages = [
     # Add extra work packages here
