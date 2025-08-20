@@ -1,4 +1,12 @@
-# Edit this configuration file to define what should be installed on
+# Edit this configuration file to define w    };
+
+    ### PROXY SETTINGS ### 
+    proxy = { 
+      default = "http://www-proxy1.uni-marburg.de:3128/"; 
+      httpProxy = "http://www-proxy1.uni-marburg.de:3128"; 
+      httpsProxy = "http://www-proxy1.uni-marburg.de:3128"; 
+      noProxy = "127.0.0.1,localhost,::1,.local,192.168.0.0/16,10.0.0.0/8,192.168.178.0/24";
+    };d be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
@@ -18,7 +26,7 @@
   # boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelPackages = pkgs.linuxPackages_6_16;
 
-  # User Settings
+  # User Configuration
   users.groups.tinus = {};
 
   users.users.tinus = {
@@ -28,8 +36,6 @@
     extraGroups = [ "networkmanager" "wheel" "plugdev" "ad-cifs" ];
     shell = pkgs.zsh;
   };
-
-  users.groups.tinus = {};
 
   # Enable networking
   networking = {
@@ -103,11 +109,9 @@
   ];
   */
 
-  # Configure console keymap
+  # Console and Localization
   console.keyMap = "de-latin1-nodeadkeys";
-  # Set your time zone.
   time.timeZone = lib.mkDefault "Europe/Berlin";
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "de_DE.UTF-8";
@@ -124,27 +128,35 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Enable Nix flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  ### System configuration ###
-  #bspwm.enable = true; # Enable BSPWM, a tiling window manager
+  #=============================================================================#
+  #                            SYSTEM CONFIGURATION                            #
+  #=============================================================================#
+  
+  # Window Managers
   hyprland.enable = true;
-  #niri.enable = true; # Enable Niri, a Wayland compositor
+  #niri.enable = true;
+  #bspwm.enable = true;
 
-  sddm.enable = true; # Enable SDDM, a display manager
+  # Display Manager
+  sddm.enable = true;
 
-  libnotify.enable = true; # Enable libnotify for notifications
-  wleave.enable = true; # Enable Wleave for window management
-  #dunst.enable = true; # Enable Dunst for notifications
+  # Hardware Support
+  #nvidia.enable = true;
+  #amd-radeon.enable = false;
 
-  system-programs.enable = true; # Enable system programs
-  standard-apps.enable = true; # Enable standard applications
-  #zen.enable = true; # Enable Zen Browser, a Firefox-based web browser
+  # System Services
+  libnotify.enable = true;
+  wleave.enable = true;
+  #dunst.enable = true;
+  system-programs.enable = true;
+  standard-apps.enable = true;
 
-  #nvidia.enable = true; # Enable NVIDIA GPU support
-  #amd-radeon.enable = false; # Enable AMD Radeon GPU support
-
-  ### GUI APPS ###
+  #=============================================================================#
+  #                              GUI PROGRAMS                                  #
+  #=============================================================================#
   nixos-apps-gui.enable = [
     "zen-browser"
 
@@ -154,10 +166,11 @@
     "hyprlock"
   ];
   nixos-apps-gui.extraPackages = [
-    # Add extra GUI packages here
   ];
 
-  ### CLI APPS ###
+  #=============================================================================#
+  #                              CLI PROGRAMS                                  #
+  #=============================================================================#
   nixos-apps-cli.enable = [
     "git"
     "curl"
@@ -184,19 +197,24 @@
     "libxml2"
   ];
   nixos-apps-cli.extraPackages = [
-    # Add extra CLI packages here
   ];
 
-  ### GAMING APPS ###
+  #=============================================================================#
+  #                            GAMING PROGRAMS                                 #
+  #=============================================================================#
   nixos-apps-gaming.enable = [
-    "steam"
     "adwsteamgtk"
   ];
   nixos-apps-gaming.extraPackages = [
-    # Add extra gaming packages here
   ];
+  
+  # Gaming Options
+  steam.enable = true;
+  gamemode.enable = true;
 
-  ### WORK APPS ###
+  #=============================================================================#
+  #                              WORK PROGRAMS                                 #
+  #=============================================================================#
   nixos-apps-work.enable = [
     "thunderbird"
     "keepass"
@@ -207,7 +225,6 @@
     "element"
   ];
   nixos-apps-work.extraPackages = [
-    # Add extra work packages here
   ];
 
   

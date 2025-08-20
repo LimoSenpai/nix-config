@@ -18,7 +18,9 @@
   };
 
 
-  ### GUI APPS ###
+  #=============================================================================#
+  #                              GUI PROGRAMS                                  #
+  #=============================================================================#
   home-apps-gui.enable = [
     #"vesktop"
     "bitwarden"
@@ -39,7 +41,9 @@
     pkgs.networkmanagerapplet
   ];
 
-  ### CLI APPS ###
+  #=============================================================================#
+  #                              CLI PROGRAMS                                  #
+  #=============================================================================#
   home-apps-cli.enable = [
     "fastfetch"
     "yazi"
@@ -49,17 +53,21 @@
     "hyperfine"
     "icu"
     "tmux"
-    "alacritty"
   ];
   home-apps-cli.extraPackages = [ 
     pkgs.wireguard-tools
     pkgs.traceroute
   ];
-  
-  ### GAMING APPS ###
+
+  # CLI program options
+  alacritty.enable = true;
+  git.enable = true;
+
+  #=============================================================================#
+  #                            GAMING PROGRAMS                                 #
+  #=============================================================================#
   home-apps-gaming.enable = [
     #"arrpc"
-    "gamemode"
     "gamescope"
     "lutris"
     "protontricks"
@@ -71,21 +79,34 @@
   home-apps-gaming.extraPackages = [
   ];
 
-  ### Window Manager Environment ###
+  #=============================================================================#
+  #                      WINDOW MANAGER ENVIRONMENT                            #
+  #=============================================================================#
+
   hyprland.enable = true;
-  #niri.enable = false; # Niri Window Manager
+  #niri.enable = false;
 
-  dunst.enable = true; # Notification Daemon
-  waybar.enable = true; # Status Bar
-  rofi-wayland.enable = true; # Application Launcher
-  wofi.enable = true; # Application Launcher
-  wlogout.enable = true; # Logout Utility
+  # Window Manager Utilities
+  dunst.enable = true;
+  waybar.enable = true;
+  rofi-wayland.enable = true;
+  wofi.enable = true;
+  wleave.enable = true;
+  hyprlock.enable = true;
+
+  # Cursor & Theming
   cursor.enable = true; # Bibata Cursor Theme
-  waypaper.enable = true; # Wallpaper Manager
-  swww.enable = true; # Wallpaper Manager
-  switchwall.enable = true; # Wallpaper Switcher
 
-  ### cli Programs ###
+  # Wallpaper Management
+  waypaper.enable = true;
+  swww.enable = true;
+  switchwall.enable = true; 
+
+  #=============================================================================#
+  #                           ADDITIONAL PROGRAMS                              #
+  #=============================================================================#
+  
+  # CLI Programs
   power-profiles-daemon.enable = true; # Power Profiles Daemon | Used in Waybar
   playerctl.enable = true; # Media Player Control | Used in Waybar
 

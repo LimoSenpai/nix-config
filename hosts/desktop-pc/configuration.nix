@@ -20,7 +20,7 @@
 
   networking.hostName = "nixos-desktop"; # Define your hostname.
 
-  # User Settings
+  # User Configuration
   users.groups.tinus = {};
 
   users.users.tinus = {
@@ -31,17 +31,12 @@
     shell = pkgs.zsh;
   };
 
-  users.groups.tinus = {};
-
   # Enable networking
   networking.networkmanager.enable = true;
 
-
-  # Configure console keymap
+  # Console and Localization
   console.keyMap = "de-latin1-nodeadkeys";
-  # Set your time zone.
   time.timeZone = "Europe/Berlin";
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "de_DE.UTF-8";
@@ -58,40 +53,45 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-
+  # Enable Nix flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  ### SYSTEM CONFIGURATION ###
+  #=============================================================================#
+  #                            SYSTEM CONFIGURATION                            #
+  #=============================================================================#
+  
   # Window Managers
-  #bspwm.enable = true; # Enable BSPWM, a tiling window manager
   hyprland.enable = true;
-  niri.enable = true; # Enable Niri, a Wayland compositor
+  niri.enable = true;
+  #bspwm.enable = true;
 
   # Display Manager
-  sddm.enable = true; # Enable SDDM, a display manager
-
-  # System Services
-  libnotify.enable = true; # Enable libnotify for notifications
-  wleave.enable = true; # Enable Wleave for window management
-  dunst.enable = true; # Enable Dunst for notifications
-  system-programs.enable = true; # Enable system programs
-  standard-apps.enable = true; # Enable standard applications
-  #zen.enable = true; # Enable Zen Browser, a Firefox-based web browser
+  sddm.enable = true;
 
   # Hardware Support
-  nvidia.enable = true; # Enable NVIDIA GPU support
+  nvidia.enable = true;
 
-  ### GUI APPS ###
+  # System Services
+  libnotify.enable = true;
+  wleave.enable = true;
+  dunst.enable = true;
+  system-programs.enable = true;
+  standard-apps.enable = true;
+
+  #=============================================================================#
+  #                              GUI PROGRAMS                                  #
+  #=============================================================================#
   nixos-apps-gui.enable = [
     "pavucontrol"
     "nwg-displays"
     "zen-browser"
   ];
   nixos-apps-gui.extraPackages = [
-    # Add extra GUI packages here
   ];
 
-  ### CLI APPS ###
+  #=============================================================================#
+  #                              CLI PROGRAMS                                  #
+  #=============================================================================#
   nixos-apps-cli.enable = [
     "git"
     "curl"
@@ -121,30 +121,27 @@
     pkgs.webkitgtk_4_1
   ];
 
-  # Individual CLI modules (legacy - will be removed)
-  # cirno_deps.enable = true; # Migrated to registry above
-
-  ### GAMING APPS ###
+  #=============================================================================#
+  #                            GAMING PROGRAMS                                 #
+  #=============================================================================#
   nixos-apps-gaming.enable = [
-    "steam"
     "adwsteamgtk"
     "cirno-downloader"
   ];
   nixos-apps-gaming.extraPackages = [
-    # Add extra gaming packages here
   ];
+  
+  # Gaming Options
+  steam.enable = true;
+  gamemode.enable = true;
 
-  # Individual Gaming modules (legacy - will be removed)
-  # steam.enable = true; # Migrated to registry above
-  # cirno.enable = true; # Migrated to registry above
-
-  ### WORK APPS ###
+  #=============================================================================#
+  #                              WORK PROGRAMS                                 #
+  #=============================================================================#
   nixos-apps-work.enable = [
-    # Add your work apps here
     "thunderbird"
   ];
   nixos-apps-work.extraPackages = [
-    # Add extra work packages here
   ];
   
 

@@ -393,6 +393,24 @@
         '';
       };
     };
+
+    # Custom Waybar Systemd Service with restart on failure
+    systemd.user.services.waybar = {
+      Unit = {
+        Description = "Waybar status bar";
+        After = [ "graphical-session.target" ];
+      };
+
+      Service = {
+        ExecStart = "${pkgs.waybar}/bin/waybar";
+        Restart = "on-failure";
+        RestartSec = 2;
+      };
+
+      Install = {
+        WantedBy = [ "default.target" ];
+      };
+    };
   };
 }
 

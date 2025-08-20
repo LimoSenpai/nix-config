@@ -3,12 +3,10 @@ let
   # Central registry: name -> package/configuration
   registry = with pkgs; {
     # Gaming Platforms
-    steam              = null; # Special handling
     lutris             = lutris;
     heroic             = heroic;
     
     # Gaming Tools
-    gamemode           = gamemode;
     gamescope          = gamescope;
     mangohud           = mangohud;
     
@@ -34,7 +32,7 @@ in
     enable = lib.mkOption {
       type = lib.types.listOf (lib.types.enum validNames);
       default = [];
-      example = [ "steam" "lutris" "gamemode" ];
+      example = [ "lutris" "heroic" ];
       description = "List of registry gaming apps to install system-wide.";
     };
 
@@ -45,6 +43,11 @@ in
     };
   };
 
+  options = {
+    steam.enable = lib.mkEnableOption "Steam gaming platform";
+    gamemode.enable = lib.mkEnableOption "GameMode performance optimization";
+  };
+
   config = lib.mkMerge [
     {
       environment.systemPackages = 
@@ -52,13 +55,13 @@ in
         ++ cfg.extraPackages;
     }
     
-    # Special configuration for steam
-    (lib.mkIf (builtins.elem "steam" cfg.enable) {
+    # Steam enable option configuration
+    (lib.mkIf config.steam.enable {
       programs.steam.enable = true;
     })
     
-    # Special configuration for gamemode
-    (lib.mkIf (builtins.elem "gamemode" cfg.enable) {
+    # GameMode enable option configuration
+    (lib.mkIf config.gamemode.enable {
       programs.gamemode.enable = true;
     })
   ];

@@ -90,21 +90,26 @@
     xkb.options = "altwin:swap_lalt_lwin"; # Swap left Alt and left Super
   };
 
-  ## NixOS module options ##
-
-  ### SYSTEM CONFIGURATION ###
+  #=============================================================================#
+  #                            SYSTEM CONFIGURATION                            #
+  #=============================================================================#
+  
   # Desktop Environments
   #gnome.enable = true; # Enable GNOME desktop environment
   #kde6.enable = true; # Enable KDE Plasma 6 desktop environment
 
   # Window Managers
-  #bspwm.enable = true; # Enable BSPWM, a tiling window manager
   hyprland.enable = true;
   sway.enable = true; # Enable Sway, a Wayland compositor
   niri.enable = true; # Enable Niri, a Wayland compositor
+  #bspwm.enable = true; # Enable BSPWM, a tiling window manager
 
   # Display Manager
   sddm.enable = true; 
+
+  # Hardware Support
+  #nvidia.enable = true; # Enable NVIDIA GPU support
+  #amd-radeon.enable = false; # Enable AMD Radeon GPU support
 
   # System Services
   libnotify.enable = true; # Enable libnotify for notifications
@@ -113,11 +118,9 @@
   system-programs.enable = true; # Enable system programs
   standard-apps.enable = true; # Enable standard applications
 
-  # Hardware Support
-  #nvidia.enable = true; # Enable NVIDIA GPU support
-  #amd-radeon.enable = false; # Enable AMD Radeon GPU support
-
-  ### GUI APPS ###
+  #=============================================================================#
+  #                              GUI PROGRAMS                                  #
+  #=============================================================================#
   nixos-apps-gui.enable = [
     "pavucontrol"
     "nwg-displays"
@@ -125,10 +128,11 @@
     "radeon-profile"
   ];
   nixos-apps-gui.extraPackages = [
-    # Add extra GUI packages here
   ];
 
-  ### CLI APPS ###
+  #=============================================================================#
+  #                              CLI PROGRAMS                                  #
+  #=============================================================================#
   nixos-apps-cli.enable = [
     "git"
     "curl"
@@ -156,19 +160,24 @@
     "tiny-dfr"
   ];
   nixos-apps-cli.extraPackages = [
-    # Add extra CLI packages here
   ];
 
-  ### GAMING APPS ###
+  #=============================================================================#
+  #                            GAMING PROGRAMS                                 #
+  #=============================================================================#
   nixos-apps-gaming.enable = [
-    "steam"
     "adwsteamgtk"
   ];
   nixos-apps-gaming.extraPackages = [
-    # Add extra gaming packages here
   ];
+  
+  # Gaming Options
+  steam.enable = true;
+  gamemode.enable = true;
 
-  ### WORK APPS ###
+  #=============================================================================#
+  #                              WORK PROGRAMS                                 #
+  #=============================================================================#
   nixos-apps-work.enable = [
     "thunderbird"
     "keepass"
@@ -179,7 +188,6 @@
     "element"
   ];
   nixos-apps-work.extraPackages = [
-    # Add extra work packages here
   ];
   
 

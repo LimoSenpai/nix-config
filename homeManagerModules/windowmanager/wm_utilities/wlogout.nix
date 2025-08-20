@@ -13,10 +13,10 @@ let
 in
 {
     options = {
-      wlogout.enable = lib.mkEnableOption "wlogout - Logout Utility";
+      wleave.enable = lib.mkEnableOption "wleave - Logout Utility";
     };
 
-    config = lib.mkIf config.wlogout.enable {
+    config = lib.mkIf config.wleave.enable {
     home.file = {
       ".config/wlogout/layout.json".text = ''
           {
