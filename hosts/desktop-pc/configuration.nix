@@ -85,6 +85,7 @@
   nixos-apps-gui.enable = [
     "pavucontrol"
     "nwg-displays"
+    "zen-browser"
   ];
   nixos-apps-gui.extraPackages = [
     # Add extra GUI packages here

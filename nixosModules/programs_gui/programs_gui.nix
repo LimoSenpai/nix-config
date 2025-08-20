@@ -1,11 +1,11 @@
-{ lib, pkgs, config, ... }:
+{ lib, pkgs, config, inputs, ... }:
 let
   # Central registry: name -> package/configuration
   registry = with pkgs; {
     # Browsers
     firefox            = firefox;
     chromium           = chromium;
-    zen-browser        = zen-browser;
+    zen-browser        = inputs.zen-browser.packages.${pkgs.system}.default;
     
     # Media
     vlc                = vlc;

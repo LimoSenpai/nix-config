@@ -34,9 +34,24 @@ in
     };
   };
 
+  options ={
+    alacritty.enable  = lib.mkEnableOption "Alacritty Terminal";
+    git.enable = lib.mkEnableOption "Git version control";
+  };
+
   config = {
     home.packages =
       (map (name: registry.${name}) cfg.enable)
       ++ cfg.extraPackages;
+
+    programs.alacritty = lib.mkIf config.alacritty.enable {
+      enable = true;
+    };
+
+    programs.git = lib.mkIf config.git.enable {
+      enable = true;
+      userName = "Tinus Braun";
+      userEmail = "brauntinus@gnetic.pro";
+    };
   };
 }

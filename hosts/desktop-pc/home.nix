@@ -29,11 +29,13 @@
     "nextcloud"
     "vscode"
     "yubikey"
-    #"discord"
+    "discord"
     "pcmanfm"
     "swaynotificationcenter"
+    #"goofcord"
   ];
   home-apps-gui.extraPackages = [ 
+    pkgs.betterdiscordctl
   ];
 
   ### CLI APPS ###

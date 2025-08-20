@@ -40,9 +40,20 @@ in
     };
   };
 
+  options = {
+    obs-studio.enable = lib.mkEnableOption "OBS Studio screen recording and streaming";
+  };
+
   config = {
     home.packages =
       (map (name: registry.${name}) cfg.enable)
       ++ cfg.extraPackages;
+
+    programs.obs-studio = lib.mkIf config.obs-studio.enable {
+      enable = true;
+      plugins = with pkgs.obs-studio-plugins; [
+        obs-pipewire-audio-capture
+      ];
+    };
   };
 }
