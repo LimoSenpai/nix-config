@@ -132,7 +132,6 @@
   #niri.enable = true; # Enable Niri, a Wayland compositor
 
   sddm.enable = true; # Enable SDDM, a display manager
-  #hyprlock.enable = true;
 
   libnotify.enable = true; # Enable libnotify for notifications
   wleave.enable = true; # Enable Wleave for window management
@@ -147,8 +146,12 @@
 
   ### GUI APPS ###
   nixos-apps-gui.enable = [
+    "zen-browser"
+
+    #System Tools
     "pavucontrol"
     "nwg-displays"
+    "hyprlock"
   ];
   nixos-apps-gui.extraPackages = [
     # Add extra GUI packages here
@@ -158,8 +161,27 @@
   nixos-apps-cli.enable = [
     "git"
     "curl"
-    "htop"
+    "wget"
     "vim"
+    "nano"
+    "htop"
+    "tree"
+    "unzip"
+    "zip"
+    "rsync"
+    "openssh"
+    "killall"
+    "gcc"
+    "gnumake"
+    "nmap"
+    "tcpdump"
+    "wireshark-cli"
+    "lsof"
+    "strace"
+    "file"
+    "which"
+    "p7zip"
+    "libxml2"
   ];
   nixos-apps-cli.extraPackages = [
     # Add extra CLI packages here

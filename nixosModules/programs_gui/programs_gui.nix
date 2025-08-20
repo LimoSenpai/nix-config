@@ -32,6 +32,7 @@ let
     
     # System Tools
     nwg-displays       = nwg-displays;
+    hyprlock           = hyprlock;
     
     # AMD Tools
     mesa-demos         = mesa-demos;
