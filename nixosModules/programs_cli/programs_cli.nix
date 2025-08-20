@@ -14,6 +14,7 @@ let
     zip                = zip;
     rsync              = rsync;
     openssh            = openssh;
+    killall            = killall;
     
     # Development Tools
     gcc                = gcc;

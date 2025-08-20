@@ -12,8 +12,7 @@ in
       ".config/hypr/hyprlock.conf".text = ''
           # BACKGROUND
           background {
-              monitor=DP-2,1920x1200@59.95,2213x0,1.0
-              monitor=DP-3,1920x1200@59.95,293x0,1.0
+              monitor =
               path = ~/.config/nix-config/assets/wallpapers/current_wallpaper.jpg
               blur_passes = 0
               contrast = 0.8916

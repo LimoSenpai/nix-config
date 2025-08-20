@@ -54,11 +54,11 @@
         "Super, Space, exec, pkill rofi || rofi -show drun" # Launcher
         # --- Hyprland System Stuff ---- #
         "Super+Alt, O, exec, hyprctl dispatch exit" # close Hyprland
-        "Super, L, exec, swaylock-fancy" # lock PC
+        "Super, L, exec, hyprlock" # lock PC
         "Super+CTRL, W, exec, /etc/profiles/per-user/tinus/bin/switchwall" # Switch wallpaper
         "Super, N, exec, swaync-client -t" # Notification history
 
-        "Super, D, exec, ~/.config/nix-config/assets/scripts/show_desktop.sh"
+        #"Super, D, exec, ~/.config/nix-config/assets/scripts/show_desktop.sh"
 
         # --- Brightness and volume keys ---
         ", XF86MonBrightnessUp, exec, qs -c $qsConfig ipc call brightness increment || brightnessctl s 5%+" 

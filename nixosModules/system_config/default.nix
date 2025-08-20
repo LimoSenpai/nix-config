@@ -10,6 +10,5 @@
       ./services.nix
       ./hardware.nix
       ./programs.nix
-      ./hyprlock.nix
     ];
 }

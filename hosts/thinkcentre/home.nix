@@ -52,8 +52,6 @@
     "alacritty"
   ];
   home-apps-cli.extraPackages = [ 
-    pkgs.nix-output-monitor
-    pkgs.betterdiscordctl
     pkgs.wireguard-tools
     pkgs.traceroute
   ];
@@ -76,25 +74,18 @@
   ### Window Manager Environment ###
   hyprland.enable = true;
   #niri.enable = false; # Niri Window Manager
+
   dunst.enable = true; # Notification Daemon
   waybar.enable = true; # Status Bar
   rofi-wayland.enable = true; # Application Launcher
   wofi.enable = true; # Application Launcher
   wlogout.enable = true; # Logout Utility
-  hyprlock.enable = true;
-  #cursor.enable = true; # Rose Pine Cursor Theme
+  cursor.enable = true; # Bibata Cursor Theme
   waypaper.enable = true; # Wallpaper Manager
   swww.enable = true; # Wallpaper Manager
   switchwall.enable = true; # Wallpaper Switcher
 
-  ### Stylix targets for Home Manager ###
-
-  # stylix.targets.foot.enable = true;
-
-
   ### cli Programs ###
-
-  # foot.enable = true; # Terminal Emulator (disabled due to SSH issues)
   power-profiles-daemon.enable = true; # Power Profiles Daemon | Used in Waybar
   playerctl.enable = true; # Media Player Control | Used in Waybar
 
