@@ -76,7 +76,7 @@
   wleave.enable = true;
   dunst.enable = true;
   system-programs.enable = true;
-  standard-apps.enable = true;
+  system-essentials.enable = true;
 
   #=============================================================================#
   #                              GUI PROGRAMS                                  #
@@ -85,6 +85,7 @@
     "pavucontrol"
     "nwg-displays"
     "zen-browser"
+    "ark"
   ];
   nixos-apps-gui.extraPackages = [
   ];
@@ -99,12 +100,16 @@
     "vim"
     "nano"
     "htop"
+    "btop"
     "tree"
     "unzip"
     "zip"
+    "xz"
     "rsync"
     "openssh"
     "killall"
+    "eza"
+    "fzf"
     "gcc"
     "gnumake"
     "nmap"
@@ -114,7 +119,21 @@
     "strace"
     "file"
     "which"
+    "evtest"
+    "iotop"
+    "iftop"
+    "sysstat"
+    "lm_sensors"
+    "ethtool"
+    "pciutils"
+    "usbutils"
     "p7zip"
+    "gnutar"
+    "zstd"
+    "gnused"
+    "gawk"
+    "gnupg"
+    "nvtop"
     "libxml2"
   ];
   nixos-apps-cli.extraPackages = [
@@ -140,6 +159,9 @@
   #=============================================================================#
   nixos-apps-work.enable = [
     "thunderbird"
+    #"geteduroam"
+    "lxqt-sudo"
+    "polkit-gnome"
   ];
   nixos-apps-work.extraPackages = [
   ];

@@ -116,7 +116,7 @@
   wleave.enable = true; # Enable Wleave for window management
   dunst.enable = true; # Enable Dunst for notifications
   system-programs.enable = true; # Enable system programs
-  standard-apps.enable = true; # Enable standard applications
+  system-essentials.enable = true; # Enable system essential packages
 
   #=============================================================================#
   #                              GUI PROGRAMS                                  #
@@ -127,6 +127,7 @@
     "nwg-displays"
     "mesa-demos"
     "radeon-profile"
+    "ark"
   ];
   nixos-apps-gui.extraPackages = [
   ];
@@ -141,12 +142,16 @@
     "vim"
     "nano"
     "htop"
+    "btop"
     "tree"
     "unzip"
     "zip"
+    "xz"
     "rsync"
     "openssh"
     "killall"
+    "eza"
+    "fzf"
     "gcc"
     "gnumake"
     "nmap"
@@ -156,7 +161,21 @@
     "strace"
     "file"
     "which"
+    "evtest"
+    "iotop"
+    "iftop"
+    "sysstat"
+    "lm_sensors"
+    "ethtool"
+    "pciutils"
+    "usbutils"
     "p7zip"
+    "gnutar"
+    "zstd"
+    "gnused"
+    "gawk"
+    "gnupg"
+    "nvtop"
     "libxml2"
     "tiny-dfr"
   ];
@@ -187,6 +206,9 @@
     "cifs-utils"
     "keyutils"
     "element"
+    "geteduroam"
+    "lxqt-sudo"
+    "polkit-gnome"
   ];
   nixos-apps-work.extraPackages = [
   ];

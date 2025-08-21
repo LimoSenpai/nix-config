@@ -18,6 +18,7 @@ let
     swaylock-fancy = swaylock-fancy;
     swaynotificationcenter = swaynotificationcenter;
     office      = libreoffice-qt-still;
+    joplin      = joplin-desktop;
 
   };
 

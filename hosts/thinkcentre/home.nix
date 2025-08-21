@@ -36,9 +36,9 @@
     "swaylock-fancy"
     "swaynotificationcenter"
     "teams"
+    "joplin"
   ];
   home-apps-gui.extraPackages = [ 
-    pkgs.networkmanagerapplet
   ];
 
   #=============================================================================#
@@ -84,7 +84,7 @@
   #=============================================================================#
 
   hyprland.enable = true;
-  #niri.enable = false;
+  niri.enable = false;
 
   # Window Manager Utilities
   dunst.enable = true;

@@ -14,8 +14,13 @@ let
     
     # Network/Authentication
     krb5               = krb5;
-    cifs-utils         = cifs-utils;
     keyutils           = keyutils;
+    cifs-utils         = cifs-utils;
+    geteduroam         = geteduroam;
+    
+    # Root Authentication Tools
+    lxqt-sudo          = lxqt.lxqt-sudo;
+    polkit-gnome       = polkit_gnome;
   };
 
   validNames = builtins.attrNames registry;

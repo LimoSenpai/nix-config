@@ -1,15 +1,3 @@
-# Edit this configuration file to define w    };
-
-    ### PROXY SETTINGS ### 
-    proxy = { 
-      default = "http://www-proxy1.uni-marburg.de:3128/"; 
-      httpProxy = "http://www-proxy1.uni-marburg.de:3128"; 
-      httpsProxy = "http://www-proxy1.uni-marburg.de:3128"; 
-      noProxy = "127.0.0.1,localhost,::1,.local,192.168.0.0/16,10.0.0.0/8,192.168.178.0/24";
-    };d be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, lib, pkgs, ... }:
 
 {
@@ -137,7 +125,7 @@
   
   # Window Managers
   hyprland.enable = true;
-  #niri.enable = true;
+  niri.enable = true;
   #bspwm.enable = true;
 
   # Display Manager
@@ -152,7 +140,8 @@
   wleave.enable = true;
   #dunst.enable = true;
   system-programs.enable = true;
-  standard-apps.enable = true;
+  system-essentials.enable = true;
+  work_drive.enable = true; # Enable Work Group Drive
 
   #=============================================================================#
   #                              GUI PROGRAMS                                  #
@@ -164,6 +153,7 @@
     "pavucontrol"
     "nwg-displays"
     "hyprlock"
+    "ark"
   ];
   nixos-apps-gui.extraPackages = [
   ];
@@ -178,12 +168,16 @@
     "vim"
     "nano"
     "htop"
+    "btop"
     "tree"
     "unzip"
     "zip"
+    "xz"
     "rsync"
     "openssh"
     "killall"
+    "eza"
+    "fzf"
     "gcc"
     "gnumake"
     "nmap"
@@ -193,7 +187,21 @@
     "strace"
     "file"
     "which"
+    "evtest"
+    "iotop"
+    "iftop"
+    "sysstat"
+    "lm_sensors"
+    "ethtool"
+    "pciutils"
+    "usbutils"
     "p7zip"
+    "gnutar"
+    "zstd"
+    "gnused"
+    "gawk"
+    "gnupg"
+    "nvtop"
     "libxml2"
   ];
   nixos-apps-cli.extraPackages = [
@@ -217,12 +225,17 @@
   #=============================================================================#
   nixos-apps-work.enable = [
     "thunderbird"
-    "keepass"
-    "libreoffice"
-    "krb5"
-    "cifs-utils"
-    "keyutils"
     "element"
+    "libreoffice"
+
+    #Security
+    "keepass"
+    "krb5"
+    "keyutils"
+    "cifs-utils"
+    "geteduroam"
+    "lxqt-sudo"
+    "polkit-gnome"
   ];
   nixos-apps-work.extraPackages = [
   ];
