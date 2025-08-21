@@ -122,6 +122,7 @@
   #                              GUI PROGRAMS                                  #
   #=============================================================================#
   nixos-apps-gui.enable = [
+    "zen-browser"
     "pavucontrol"
     "nwg-displays"
     "mesa-demos"
