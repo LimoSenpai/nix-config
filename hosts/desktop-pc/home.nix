@@ -25,7 +25,7 @@
     "bitwarden"
     "easyeffects"
     "obsidian"
-    "brave"
+    #"brave"
     "loupe"
     "nextcloud"
     "vscode"
