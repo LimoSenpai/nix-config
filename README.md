@@ -213,7 +213,7 @@ All configurations use NixOS 25.05 as the base system version.
 - **Console**: German keymap
 
 ### User Configuration
-- **Username**: tinus (Tinus Braun)
+- **Username**: tinus
 - **Shell**: Zsh
 - **Groups**: networkmanager, wheel, plugdev, ad-cifs (work)
 
