@@ -5,7 +5,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
-  
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -116,8 +116,8 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Enable Nix flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ]; 
+
 
   #=============================================================================#
   #                            SYSTEM CONFIGURATION                            #
@@ -125,8 +125,7 @@
   
   # Window Managers
   hyprland.enable = true;
-  niri.enable = true;
-  #bspwm.enable = true;
+  niri.enable = true; # Enable Niri, a Wayland compositor
 
   # Display Manager
   sddm.enable = true;
@@ -135,13 +134,10 @@
   #nvidia.enable = true;
   #amd-radeon.enable = false;
 
-  # System Services
-  libnotify.enable = true;
-  wleave.enable = true;
-  #dunst.enable = true;
-  system-programs.enable = true;
-  system-essentials.enable = true;
-  work_drive.enable = true; # Enable Work Group Drive
+  system-programs.enable = true; # Enable system programs
+  standard-apps.enable = true; # Enable standard applications
+  work_drive.enable = true; # Enable work drive configuration
+  #zen.enable = true; # Enable Zen Browser, a Firefox-based web browser
 
   #=============================================================================#
   #                              GUI PROGRAMS                                  #

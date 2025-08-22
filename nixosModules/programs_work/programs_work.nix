@@ -42,8 +42,9 @@ in
     };
   };
 
-  config = {
+  config = lib.mkIf (cfg.enable != []) {
     environment.systemPackages = 
-      (map (name: registry.${name}) cfg.enable) ++ cfg.extraPackages;
+      (map (name: registry.${name}) cfg.enable) ++ cfg.extraPackages ++
+      [ pkgs.keyutils ];
   };
 }

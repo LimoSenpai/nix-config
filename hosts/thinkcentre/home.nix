@@ -38,7 +38,7 @@
     "teams"
     "joplin"
   ];
-  home-apps-gui.extraPackages = [ 
+  home-apps-gui.extraPackages = [
   ];
 
   #=============================================================================#
@@ -54,9 +54,10 @@
     "icu"
     "tmux"
   ];
-  home-apps-cli.extraPackages = [ 
+  home-apps-cli.extraPackages = [
     pkgs.wireguard-tools
     pkgs.traceroute
+    pkgs.networkmanagerapplet
   ];
 
   # CLI program options
@@ -84,7 +85,7 @@
   #=============================================================================#
 
   hyprland.enable = true;
-  niri.enable = false;
+  niri.enable = false; # Niri Window Manager
 
   # Window Manager Utilities
   dunst.enable = true;
