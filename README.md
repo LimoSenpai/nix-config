@@ -1,4 +1,4 @@
-# 🏠 Tinus's NixOS Configuration
+# 🏠 My NixOS Configuration
 
 A comprehensive NixOS configuration with support for multiple hosts and environments, featuring modern Wayland compositors, custom packages, and modular organization.
 
