@@ -222,6 +222,7 @@
   nixos-apps-work.enable = [
     # Communication
     "thunderbird"
+    "libreoffice"
     
     # System Authentication
     "lxqt-sudo"
