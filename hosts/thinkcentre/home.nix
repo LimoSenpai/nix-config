@@ -17,69 +17,6 @@
     TERMINAL = "alacritty";
   };
 
-
-  #=============================================================================#
-  #                              GUI PROGRAMS                                  #
-  #=============================================================================#
-  home-apps-gui.enable = [
-    #"vesktop"
-    "bitwarden"
-    #"easyeffects"
-    "obsidian"
-    "brave"
-    "loupe"
-    "nextcloud"
-    "vscode"
-    #"yubikey"
-    "discord"
-    "pcmanfm"
-    "swaylock-fancy"
-    "swaynotificationcenter"
-    "teams"
-    "joplin"
-  ];
-  home-apps-gui.extraPackages = [
-  ];
-
-  #=============================================================================#
-  #                              CLI PROGRAMS                                  #
-  #=============================================================================#
-  home-apps-cli.enable = [
-    "fastfetch"
-    "yazi"
-    "grimblast"
-    "mdadm"
-    "jq"
-    "hyperfine"
-    "icu"
-    "tmux"
-  ];
-  home-apps-cli.extraPackages = [
-    pkgs.wireguard-tools
-    pkgs.traceroute
-    pkgs.networkmanagerapplet
-  ];
-
-  # CLI program options
-  alacritty.enable = true;
-  git.enable = true;
-
-  #=============================================================================#
-  #                            GAMING PROGRAMS                                 #
-  #=============================================================================#
-  home-apps-gaming.enable = [
-    #"arrpc"
-    "gamescope"
-    "lutris"
-    "protontricks"
-    "protonplus"
-    "wine"
-    "winetricks"
-    "prismlauncher"
-  ];
-  home-apps-gaming.extraPackages = [
-  ];
-
   #=============================================================================#
   #                      WINDOW MANAGER ENVIRONMENT                            #
   #=============================================================================#
@@ -110,6 +47,101 @@
   # CLI Programs
   power-profiles-daemon.enable = true; # Power Profiles Daemon | Used in Waybar
   playerctl.enable = true; # Media Player Control | Used in Waybar
+  alacritty.enable = true;
+  git.enable = true;
+
+  #=============================================================================#
+  #                              GUI PROGRAMS                                  #
+  #=============================================================================#
+  home-apps-gui.enable = [
+    # Communication
+    "discord"
+    "teams"
+    
+    # Office & Productivity
+    "obsidian"
+    "vscode"
+    "joplin"
+    
+    # Media
+    "loupe"
+    
+    # Cloud Storage
+    "nextcloud"
+    
+    # Security
+    "bitwarden"
+    "swaylock-fancy"
+    
+    # Audio & Notifications
+    "swaynotificationcenter"
+    
+    # File Management
+    "pcmanfm"
+    
+    # Browsers
+    "brave"
+    
+    # Hardware & Communication (commented)
+    #"vesktop"
+    #"easyeffects"
+    #"yubikey"
+  ];
+  home-apps-gui.extraPackages = [
+  ];
+
+  #=============================================================================#
+  #                              CLI PROGRAMS                                  #
+  #=============================================================================#
+  home-apps-cli.enable = [
+    # System Information
+    "fastfetch"
+    
+    # File Management
+    "yazi"
+    
+    # Screenshot Tools
+    "grimblast"
+    
+    # System Tools
+    "mdadm"
+    "tmux"
+    
+    # Text Processing
+    "jq"
+    "icu"
+    
+    # Performance Tools
+    "hyperfine"
+  ];
+  home-apps-cli.extraPackages = [
+    pkgs.wireguard-tools
+    pkgs.traceroute
+    pkgs.networkmanagerapplet
+  ];
+
+  #=============================================================================#
+  #                            GAMING PROGRAMS                                 #
+  #=============================================================================#
+  home-apps-gaming.enable = [
+    # Game Launchers
+    "lutris"
+    "prismlauncher"
+    
+    # Game Tools
+    "gamescope"
+    "protontricks"
+    "protonplus"
+    
+    # Wine
+    "wine"
+    "winetricks"
+    
+    # Discord Rich Presence (commented)
+    #"arrpc"
+  ];
+  home-apps-gaming.extraPackages = [
+  ];
 
 
   # This value determines the home Manager release that your
