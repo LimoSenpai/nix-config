@@ -130,9 +130,12 @@
   # Display Manager
   sddm.enable = true;
 
+  wleave.enable = true;
+
   # Hardware Support
   #nvidia.enable = true;
   #amd-radeon.enable = false;
+
 
   system-programs.enable = true; # Enable system programs
   work_drive.enable = true; # Enable work drive configuration
