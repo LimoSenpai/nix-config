@@ -80,7 +80,7 @@
     "pcmanfm"
     
     # Browsers
-    "brave"
+    #"brave"
     
     # Hardware & Communication (commented)
     #"vesktop"
