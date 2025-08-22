@@ -33,6 +33,7 @@ let
     # System Tools
     nwg-displays       = nwg-displays;
     hyprlock           = hyprlock;
+    ark                = kdePackages.ark; # Archive manager
     
     # AMD Tools
     mesa-demos         = mesa-demos;

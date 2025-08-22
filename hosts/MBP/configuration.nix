@@ -116,15 +116,59 @@
   wleave.enable = true; # Enable Wleave for window management
   dunst.enable = true; # Enable Dunst for notifications
   system-programs.enable = true; # Enable system programs
-  standard-apps.enable = true; # Enable standard applications
+
+  #=============================================================================#
+  #                          SYSTEM ESSENTIAL PACKAGES                         #
+  #=============================================================================#
+  nixos-system-essentials.enable = [
+    # Core system libraries
+    "bluez"
+    "glib"
+    
+    # Themes and icons
+    "hicolor-icon-theme"
+    "adwaita-icon-theme" 
+    "gsettings-desktop-schemas"
+    
+    # Documentation
+    "man-db"
+    "man-pages"
+    
+    # Core utilities
+    "coreutils"
+    "util-linux"
+    "findutils"
+    
+    # Audio libraries
+    "alsa-lib"
+    "alsa-utils"
+    "pipewire"
+    
+    # Graphics libraries
+    "mesa"
+    
+    # System libraries
+    "systemd"
+    "dbus"
+  ];
+  nixos-system-essentials.extraPackages = [ 
+  ];
 
   #=============================================================================#
   #                              GUI PROGRAMS                                  #
   #=============================================================================#
   nixos-apps-gui.enable = [
+    # Browsers
     "zen-browser"
+    
+    # Audio
     "pavucontrol"
+    
+    # System Tools
     "nwg-displays"
+    "ark"
+    
+    # Hardware Monitoring
     "mesa-demos"
     "radeon-profile"
   ];
@@ -135,29 +179,66 @@
   #                              CLI PROGRAMS                                  #
   #=============================================================================#
   nixos-apps-cli.enable = [
+    # Version Control & Network
     "git"
     "curl"
     "wget"
-    "vim"
-    "nano"
-    "htop"
-    "tree"
-    "unzip"
-    "zip"
-    "rsync"
     "openssh"
-    "killall"
-    "gcc"
-    "gnumake"
     "nmap"
     "tcpdump"
     "wireshark-cli"
+    
+    # Text Editors
+    "vim"
+    "nano"
+    
+    # System Monitoring
+    "htop"
+    "btop"
+    "iotop"
+    "iftop"
+    "sysstat"
+    "lm_sensors"
+    "nvtop"
+    
+    # File Management
+    "tree"
+    "eza"
+    "fzf"
+    "rsync"
+    
+    # Archive Tools
+    "unzip"
+    "zip"
+    "xz"
+    "p7zip"
+    "gnutar"
+    "zstd"
+    
+    # Development Tools
+    "gcc"
+    "gnumake"
+    
+    # System Tools
+    "killall"
     "lsof"
     "strace"
     "file"
     "which"
-    "p7zip"
+    "evtest"
+    "ethtool"
+    "pciutils"
+    "usbutils"
+    
+    # Text Processing
+    "gnused"
+    "gawk"
     "libxml2"
+    
+    # Security
+    "gnupg"
+    
+    # Hardware specific (MacBook)
     "tiny-dfr"
   ];
   nixos-apps-cli.extraPackages = [
@@ -167,6 +248,7 @@
   #                            GAMING PROGRAMS                                 #
   #=============================================================================#
   nixos-apps-gaming.enable = [
+    # Steam Tools
     "adwsteamgtk"
   ];
   nixos-apps-gaming.extraPackages = [
@@ -180,13 +262,21 @@
   #                              WORK PROGRAMS                                 #
   #=============================================================================#
   nixos-apps-work.enable = [
+    # Communication
     "thunderbird"
-    "keepass"
-    "libreoffice"
-    "krb5"
-    "cifs-utils"
-    "keyutils"
     "element"
+    
+    # Office
+    "libreoffice"
+    
+    # Security & Authentication
+    "keepass"
+    "krb5"
+    "keyutils"
+    "cifs-utils"
+    "geteduroam"
+    "lxqt-sudo"
+    "polkit-gnome"
   ];
   nixos-apps-work.extraPackages = [
   ];

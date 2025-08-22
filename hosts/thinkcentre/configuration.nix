@@ -1,15 +1,3 @@
-# Edit this configuration file to define w    };
-
-    ### PROXY SETTINGS ### 
-    proxy = { 
-      default = "http://www-proxy1.uni-marburg.de:3128/"; 
-      httpProxy = "http://www-proxy1.uni-marburg.de:3128"; 
-      httpsProxy = "http://www-proxy1.uni-marburg.de:3128"; 
-      noProxy = "127.0.0.1,localhost,::1,.local,192.168.0.0/16,10.0.0.0/8,192.168.178.0/24";
-    };d be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, lib, pkgs, ... }:
 
 {
@@ -17,7 +5,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
-  
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -128,8 +116,8 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Enable Nix flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ]; 
+
 
   #=============================================================================#
   #                            SYSTEM CONFIGURATION                            #
@@ -137,33 +125,73 @@
   
   # Window Managers
   hyprland.enable = true;
-  #niri.enable = true;
-  #bspwm.enable = true;
+  niri.enable = true; # Enable Niri, a Wayland compositor
 
   # Display Manager
   sddm.enable = true;
+
+  wleave.enable = true;
 
   # Hardware Support
   #nvidia.enable = true;
   #amd-radeon.enable = false;
 
-  # System Services
-  libnotify.enable = true;
-  wleave.enable = true;
-  #dunst.enable = true;
-  system-programs.enable = true;
-  standard-apps.enable = true;
+
+  system-programs.enable = true; # Enable system programs
+  work_drive.enable = true; # Enable work drive configuration
+  #zen.enable = true; # Enable Zen Browser, a Firefox-based web browser
+
+  #=============================================================================#
+  #                          SYSTEM ESSENTIAL PACKAGES                         #
+  #=============================================================================#
+  nixos-system-essentials.enable = [
+    # Core system libraries
+    "bluez"
+    "glib"
+    
+    # Themes and icons
+    "hicolor-icon-theme"
+    "adwaita-icon-theme" 
+    "gsettings-desktop-schemas"
+    
+    # Documentation
+    "man-db"
+    "man-pages"
+    
+    # Core utilities
+    "coreutils"
+    "util-linux"
+    "findutils"
+    
+    # Audio libraries
+    "alsa-lib"
+    "alsa-utils"
+    "pipewire"
+    
+    # Graphics libraries
+    "mesa"
+    
+    # System libraries
+    "systemd"
+    "dbus"
+  ];
+  nixos-system-essentials.extraPackages = [ 
+  ];
 
   #=============================================================================#
   #                              GUI PROGRAMS                                  #
   #=============================================================================#
   nixos-apps-gui.enable = [
+    # Browsers
     "zen-browser"
 
-    #System Tools
+    # Audio
     "pavucontrol"
+    
+    # System Tools
     "nwg-displays"
     "hyprlock"
+    "ark"
   ];
   nixos-apps-gui.extraPackages = [
   ];
@@ -172,29 +200,64 @@
   #                              CLI PROGRAMS                                  #
   #=============================================================================#
   nixos-apps-cli.enable = [
+    # Version Control & Network
     "git"
     "curl"
     "wget"
-    "vim"
-    "nano"
-    "htop"
-    "tree"
-    "unzip"
-    "zip"
-    "rsync"
     "openssh"
-    "killall"
-    "gcc"
-    "gnumake"
     "nmap"
     "tcpdump"
     "wireshark-cli"
+    
+    # Text Editors
+    "vim"
+    "nano"
+    
+    # System Monitoring
+    "htop"
+    "btop"
+    "iotop"
+    "iftop"
+    "sysstat"
+    "lm_sensors"
+    "nvtop"
+    
+    # File Management
+    "tree"
+    "eza"
+    "fzf"
+    "rsync"
+    
+    # Archive Tools
+    "unzip"
+    "zip"
+    "xz"
+    "p7zip"
+    "gnutar"
+    "zstd"
+    
+    # Development Tools
+    "gcc"
+    "gnumake"
+    
+    # System Tools
+    "killall"
     "lsof"
     "strace"
     "file"
     "which"
-    "p7zip"
+    "evtest"
+    "ethtool"
+    "pciutils"
+    "usbutils"
+    
+    # Text Processing
+    "gnused"
+    "gawk"
     "libxml2"
+    
+    # Security
+    "gnupg"
   ];
   nixos-apps-cli.extraPackages = [
   ];
@@ -203,6 +266,7 @@
   #                            GAMING PROGRAMS                                 #
   #=============================================================================#
   nixos-apps-gaming.enable = [
+    # Steam Tools
     "adwsteamgtk"
   ];
   nixos-apps-gaming.extraPackages = [
@@ -216,13 +280,21 @@
   #                              WORK PROGRAMS                                 #
   #=============================================================================#
   nixos-apps-work.enable = [
+    # Communication
     "thunderbird"
-    "keepass"
-    "libreoffice"
-    "krb5"
-    "cifs-utils"
-    "keyutils"
     "element"
+    
+    # Office
+    "libreoffice"
+
+    # Security & Authentication
+    "keepass"
+    "krb5"
+    "keyutils"
+    "cifs-utils"
+    "geteduroam"
+    "lxqt-sudo"
+    "polkit-gnome"
   ];
   nixos-apps-work.extraPackages = [
   ];

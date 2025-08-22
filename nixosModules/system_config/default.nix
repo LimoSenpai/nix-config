@@ -5,10 +5,11 @@
     [
       ./fonts.nix
       ./nvidia.nix
-      ./standard_apps.nix
+      ./system_essentials.nix
       ./environment.nix
       ./services.nix
       ./hardware.nix
       ./programs.nix
+      ./work_drive.nix
     ];
 }
