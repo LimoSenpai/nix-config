@@ -22,7 +22,7 @@
   #=============================================================================#
 
   hyprland.enable = true;
-  #niri.enable = false;
+  niri.enable = false;
 
   # Window Manager Utilities
   dunst.enable = true;
