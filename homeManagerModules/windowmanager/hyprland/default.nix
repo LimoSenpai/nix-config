@@ -177,7 +177,7 @@
         "wl-paste --type image --watch cliphist store"
 
         # Cursor
-        "hyprctl setcursor Bibata-Modern-Classic 26"
+        "hyprctl setcursor Bibata-Modern-Classic 30"
 
 
         # Custom Programs
@@ -314,7 +314,7 @@
         "WLR_NO_HARDWARE_CURSORS, 1"
 
         "HYPRCURSOR_THEME,Bibata-Modern-Classic"
-        "HYPRCURSOR_SIZE,28"
+        "HYPRCURSOR_SIZE,30"
       ];
 
       windowrule = [
