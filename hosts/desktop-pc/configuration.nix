@@ -197,6 +197,7 @@
   ];
   nixos-apps-cli.extraPackages = [
     pkgs.webkitgtk_4_1
+    pkgs.betterdiscordctl
   ];
 
   #=============================================================================#

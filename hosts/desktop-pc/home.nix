@@ -65,6 +65,7 @@
     # Office & Productivity
     "obsidian"
     "vscode"
+    "joplin"
     
     # Media
     "loupe"
