@@ -73,6 +73,7 @@
 
         # --- Utilities ---
         "Super+Shift, S, exec, grimblast copy area | wl-copy"
+        "Super+Alt, S, exec, grimblast save window | wl-copy"
         "Super, Print, exec, grimblast copy screen | wl-copy"
         "Super, M, exec, bash ~/.config/nix-config/scripts/dfsmount"
 
