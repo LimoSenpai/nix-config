@@ -66,6 +66,7 @@
     "obsidian"
     "vscode"
     "joplin"
+    "kate"
     
     # Media
     "loupe"
@@ -90,6 +91,7 @@
   ];
   home-apps-gui.extraPackages = [ 
     pkgs.betterdiscordctl
+    pkgs.networkmanagerapplet
   ];
 
   #=============================================================================#
