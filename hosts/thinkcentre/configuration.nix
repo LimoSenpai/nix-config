@@ -64,8 +64,8 @@
     };
     */
 
-    wg-quick.interfaces.wg0 = {
-      configFile = "/etc/wireguard/wg_config.conf"; 
+    #wg-quick.interfaces.wg0 = {
+      #configFile = "/etc/wireguard/wg_config.conf"; 
       /*
       preUp = ''
       #  ${pkgs.iproute2}/bin/ip route replace 89.246.51.89/32 via 10.193.63.250 dev wlp2s0
@@ -74,7 +74,7 @@
       #  ${pkgs.iproute2}/bin/ip route del 89.246.51.89/32 dev wlp2s0 || true
       '';
       */
-    };
+    #};
   };
 
   /*
@@ -136,10 +136,10 @@
   #nvidia.enable = true;
   #amd-radeon.enable = false;
 
-
+  # Software
+  netbird.enable = true; # Enable NetBird VPN client
   system-programs.enable = true; # Enable system programs
   work_drive.enable = true; # Enable work drive configuration
-  #zen.enable = true; # Enable Zen Browser, a Firefox-based web browser
 
   #=============================================================================#
   #                          SYSTEM ESSENTIAL PACKAGES                         #
@@ -208,6 +208,7 @@
     "nmap"
     "tcpdump"
     "wireshark-cli"
+    "netbird"
     
     # Text Editors
     "vim"
