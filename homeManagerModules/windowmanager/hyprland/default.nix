@@ -36,10 +36,10 @@
           snap.enabled = true;
       };
 
-      gestures = {
-        workspace_swipe = true;
-        workspace_swipe_cancel_ratio = 0.15;
-      };
+      #gestures = {
+      #  workspace_swipe = true;
+      #  workspace_swipe_cancel_ratio = 0.15;
+      #};
 
       plugin = {
         touch_gestures = {
@@ -312,7 +312,7 @@
         "QT_QPA_PLATFORM, wayland"
         "QT_QPA_PLATFORMTHEME, kde"
         "QT_STYLE_OVERRIDE,kvantum"
-        "WLR_NO_HARDWARE_CURSORS, 1"
+        "WLR_NO_HARDWARE_CURSORS, 0"
 
         "HYPRCURSOR_THEME,Bibata-Modern-Classic"
         "HYPRCURSOR_SIZE,30"
