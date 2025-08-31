@@ -16,7 +16,7 @@
 
   # Use stable kernel for NVIDIA compatibility
   # boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelPackages = pkgs.linuxPackages_6_15;
+  boot.kernelPackages = pkgs.linuxPackages_6_16;
 
   networking.hostName = "nixos-desktop"; # Define your hostname.
 

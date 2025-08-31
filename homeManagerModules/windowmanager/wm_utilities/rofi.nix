@@ -1,5 +1,6 @@
-{ inputs, pkgs, lib, config, ... }:
-let
+{ inputs, pkgs, lib, config, stylix, ... }:
+let  
+  colors = config.lib.stylix.colors.withHashtag;
   inherit (config.lib.formats.rasi) mkLiteral;
 in {
 
@@ -60,10 +61,10 @@ in {
           "mainbox" = {
             enabled = true;
             spacing = mkLiteral "20px";
-            margin = mkLiteral "40px";
+            #margin = mkLiteral "40px";
             padding = mkLiteral "40px";
             border-radius = mkLiteral "12px";
-            background-color = mkLiteral "white/50%";
+            background-color = mkLiteral "${colors.base00}";
             children = map mkLiteral [ "inputbar" "mode-switcher" "listview" ];
           };
 
@@ -75,7 +76,7 @@ in {
             padding = mkLiteral "0px 0px 10px 0px";
             border = mkLiteral "0px 0px 2px 0px";
             border-radius = mkLiteral "0px";
-            border-color = mkLiteral "gray/20%";
+            border-color = mkLiteral "${colors.base0D}";
             background-color = mkLiteral "transparent";
             children = map mkLiteral [ "entry" ];
           };
@@ -120,25 +121,25 @@ in {
             padding = mkLiteral "15px";
             border = mkLiteral "1px solid";
             border-radius = mkLiteral "8px";
-            border-color = mkLiteral "gray/30%";
-            background-color = mkLiteral "white";
-            text-color = mkLiteral "black";
+            border-color = mkLiteral "${colors.base0D}";
+            background-color = mkLiteral "${colors.base00}";
+            text-color = mkLiteral "${colors.base05}";
             cursor = mkLiteral "pointer";
           };
 
           "element normal.active" = {
-            background-color = mkLiteral "#67FF80";
+            background-color = mkLiteral "${colors.base0D}";
             text-color = mkLiteral "black";
           };
 
           "element selected.normal" = {
-            background-color = mkLiteral "#FDD66F";
+            background-color = mkLiteral "${colors.base01}";
             text-color = mkLiteral "black";
           };
 
           "element selected.active" = {
-            background-color = mkLiteral "#FF7F7C";
-            text-color = mkLiteral "black";
+            background-color = mkLiteral "${colors.base0A}";
+            text-color = mkLiteral "${colors.base05}";
           };
 
           "element-icon" = {
@@ -162,7 +163,7 @@ in {
             spacing = mkLiteral "20px";
             margin = mkLiteral "0px 10%";
             background-color = mkLiteral "transparent";
-            text-color = mkLiteral "white";
+            text-color = mkLiteral "${colors.base04}";
           };
 
           "button" = {
@@ -170,13 +171,13 @@ in {
             padding = mkLiteral "6px";
             border = mkLiteral "0px solid";
             border-radius = mkLiteral "100%";
-            background-color = mkLiteral "#719DF9";
+            background-color = mkLiteral "${colors.base00}";
             text-color = mkLiteral "inherit";
             cursor = mkLiteral "pointer";
           };
 
           "button selected" = {
-            background-color = mkLiteral "#F37277";
+            background-color = mkLiteral "${colors.base03}";
             text-color = mkLiteral "inherit";
           };
 
@@ -184,14 +185,14 @@ in {
           "error-message" = {
             padding = mkLiteral "20px";
             background-color = mkLiteral "transparent";
-            text-color = mkLiteral "black";
+            text-color = mkLiteral "${colors.base05}";
           };
 
           "textbox" = {
             padding = mkLiteral "20px";
             border-radius = mkLiteral "12px";
-            background-color = mkLiteral "white/30%";
-            text-color = mkLiteral "black";
+            background-color = mkLiteral "${colors.base02}";
+            text-color = mkLiteral "${colors.base05}";
             vertical-align = mkLiteral "0.5";
             horizontal-align = mkLiteral "0.0";
           };
