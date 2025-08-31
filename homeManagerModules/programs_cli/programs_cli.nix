@@ -13,6 +13,7 @@ let
     rg          = ripgrep;
     tmux        = tmux;
     alacritty   = alacritty;
+    pandoc      = pandoc;
   };
 
   validNames = builtins.attrNames registry;
@@ -37,6 +38,7 @@ in
   options ={
     alacritty.enable  = lib.mkEnableOption "Alacritty Terminal";
     git.enable = lib.mkEnableOption "Git version control";
+    pinentry.enable = lib.mkEnableOption "Pinentry for GnuPG";
   };
 
   config = {
@@ -53,5 +55,6 @@ in
       userName = "Tinus Braun";
       userEmail = "brauntinus@gnetic.pro";
     };
+
   };
 }

@@ -40,6 +40,7 @@
   home-apps-gui.extraPackages = [ 
     pkgs.networkmanagerapplet
     pkgs.firefox
+    pkgs.arduino-ide
   ];
 
   #=============================================================================#
@@ -54,12 +55,14 @@
     "hyperfine"
     "icu"
     "tmux"
+    "pandoc"
   ];
   home-apps-cli.extraPackages = [ 
     pkgs.nix-output-monitor
     pkgs.betterdiscordctl
     pkgs.wireguard-tools
     pkgs.traceroute
+    pkgs.pinentry-tty
   ];
 
   # CLI program options
