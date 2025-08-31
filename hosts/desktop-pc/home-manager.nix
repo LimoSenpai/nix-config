@@ -6,7 +6,6 @@
       # HM needs these so .mozilla/... is *inside* $HOME
       home.username = "tinus";
       home.homeDirectory = "/home/tinus";
-      home.stateVersion = "25.05";
 
       imports = [
         ./home.nix
