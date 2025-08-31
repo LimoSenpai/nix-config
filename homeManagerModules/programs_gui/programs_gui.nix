@@ -10,7 +10,7 @@ let
     loupe       = loupe;
     nextcloud   = nextcloud-client;
     vscode      = vscode-fhs;
-    yubikey     = yubikey-personalization-gui;
+    yubikey     = yubioath-flutter;
     goofcord    = goofcord;
     pcmanfm     = pcmanfm;
     discord     = discord;
