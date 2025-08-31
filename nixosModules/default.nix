@@ -13,6 +13,7 @@
       ./programs_cli
       ./programs_work
       ./system_config
+      ./services
 
 
       ./wm/hyprland

@@ -312,7 +312,7 @@
         "QT_QPA_PLATFORM, wayland"
         "QT_QPA_PLATFORMTHEME, kde"
         "QT_STYLE_OVERRIDE,kvantum"
-        "WLR_NO_HARDWARE_CURSORS, 1"
+        "WLR_NO_HARDWARE_CURSORS, 0"
 
         "HYPRCURSOR_THEME,Bibata-Modern-Classic"
         "HYPRCURSOR_SIZE,30"

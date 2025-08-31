@@ -88,6 +88,7 @@
     #"yubikey"
   ];
   home-apps-gui.extraPackages = [
+    pkgs.yubioath-flutter
   ];
 
   #=============================================================================#

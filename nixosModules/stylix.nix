@@ -33,7 +33,8 @@ in
         name = "Noto Color Emoji";
       };
     };
-    targets.qt.platform = lib.mkDefault "adwaita";
+    # Temporarily disabled to debug plasma5 issue
+    # targets.qt.platform = lib.mkDefault "adwaita";
     #targets.zen-browser.profileNames = [
     #  "fbzuf3jk"
     #];

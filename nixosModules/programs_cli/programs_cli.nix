@@ -28,7 +28,8 @@ let
     nmap               = nmap;
     tcpdump            = tcpdump;
     wireshark-cli      = wireshark-cli;
-    
+    netbird            = netbird;
+
     # System Tools
     lsof               = lsof;
     strace             = strace;

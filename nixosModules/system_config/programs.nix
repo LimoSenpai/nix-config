@@ -6,6 +6,12 @@
 
   config = lib.mkIf config.system-programs.enable {
     programs = {
+
+
+    
+    gnupg.agent.pinentryPackage = {
+      enable = true;
+    };
     
     coolercontrol = {
       enable =  true;

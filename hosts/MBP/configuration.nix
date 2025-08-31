@@ -37,8 +37,6 @@
   };
   # networking.wireless.iwd.enable = true;
 
-  
-
   hardware.firmware = [
    (pkgs.stdenvNoCC.mkDerivation (final: {
       name = "brcm-firmware";
@@ -89,6 +87,7 @@
     enable = true;
     xkb.options = "altwin:swap_lalt_lwin"; # Swap left Alt and left Super
   };
+  
 
   #=============================================================================#
   #                            SYSTEM CONFIGURATION                            #
@@ -160,15 +159,25 @@
   nixos-apps-gui.enable = [
     # Browsers
     "zen-browser"
+<<<<<<< HEAD
+
+    # SYSTEM TOOLS
+=======
     
     # Audio
+>>>>>>> d68928e39ea0e9e8315a2fd7b6e7ee910608143f
     "pavucontrol"
     
     # System Tools
     "nwg-displays"
+<<<<<<< HEAD
+
+    # AMD
+=======
     "ark"
     
     # Hardware Monitoring
+>>>>>>> d68928e39ea0e9e8315a2fd7b6e7ee910608143f
     "mesa-demos"
     "radeon-profile"
   ];

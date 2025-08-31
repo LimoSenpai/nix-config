@@ -39,12 +39,12 @@
     */
 
     ### PROXY SETTINGS ### 
-    proxy = { 
-      default = "http://www-proxy1.uni-marburg.de:3128/"; 
-      httpProxy = "http://www-proxy1.uni-marburg.de:3128"; 
-      httpsProxy = "http://www-proxy1.uni-marburg.de:3128"; 
-      noProxy = "127.0.0.1,localhost,::1,.local,192.168.0.0/16,10.0.0.0/8,192.168.178.0/24";
-    };
+    #proxy = { 
+    #  default = "http://www-proxy1.uni-marburg.de:3128/"; 
+    #  httpProxy = "http://www-proxy1.uni-marburg.de:3128"; 
+    #  httpsProxy = "http://www-proxy1.uni-marburg.de:3128"; 
+    #  noProxy = "127.0.0.1,localhost,::1,.local,192.168.0.0/16,10.0.0.0/8,192.168.178.0/24";
+    #};
 
     /*
     networkmanager.ensureProfiles.profiles = {
@@ -76,6 +76,27 @@
       */
     };
   };
+
+    # optional but recommended if you later want split-DNS
+    services.resolved.enable = true;
+
+    systemd.network.networks."10-eno1" = {
+      matchConfig.Name = "eno1";
+      networkConfig.DHCP = "yes";
+      routes = [
+        { Destination = "192.168.1.119/32"; Gateway = "137.248.113.250"; }
+        { Destination = "192.168.16.40/32"; Gateway = "137.248.113.250"; }
+        { Destination = "192.168.16.3/32";  Gateway = "137.248.113.250"; }
+      ];
+    };
+
+    # pin hostnames (same as /etc/hosts)
+    networking.hosts = {
+      "192.168.1.119" = [ "share.uni-marburg.de" ];
+      "192.168.16.40" = [ "support.hrz.uni-marburg.de" ];
+      "192.168.16.3"  = [ "ldap-master.hrz.uni-marburg.de" ];
+    };
+
 
   /*
   networking.networkmanager.dispatcherScripts = [
@@ -136,10 +157,10 @@
   #nvidia.enable = true;
   #amd-radeon.enable = false;
 
-
+  # Software
+  netbird.enable = true; # Enable NetBird VPN client
   system-programs.enable = true; # Enable system programs
   work_drive.enable = true; # Enable work drive configuration
-  #zen.enable = true; # Enable Zen Browser, a Firefox-based web browser
 
   #=============================================================================#
   #                          SYSTEM ESSENTIAL PACKAGES                         #
@@ -189,7 +210,7 @@
     "pavucontrol"
     
     # System Tools
-    "nwg-displays"
+    #"nwg-displays"
     "hyprlock"
     "ark"
   ];
@@ -208,6 +229,7 @@
     "nmap"
     "tcpdump"
     "wireshark-cli"
+    "netbird"
     
     # Text Editors
     "vim"
@@ -260,6 +282,7 @@
     "gnupg"
   ];
   nixos-apps-cli.extraPackages = [
+    pkgs.dig
   ];
 
   #=============================================================================#
