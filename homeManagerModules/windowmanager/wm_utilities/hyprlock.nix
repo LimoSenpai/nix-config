@@ -1,7 +1,4 @@
 { inputs, pkgs, lib, config, stylix, ... }:
-let
-  colors = config.lib.stylix.colors.withHashtag;
-in
 {
     options = {
       hyprlock.enable = lib.mkEnableOption "Hyprlock - Lockscreen";
@@ -13,8 +10,8 @@ in
           # BACKGROUND
           background {
               monitor =
-              path = ~/.config/nix-config/assets/wallpapers/current_wallpaper.jpg
-              blur_passes = 0
+              path = ~/.config/nix-config/assets/wallpapers/hyprlock.png
+              blur_passes = 2
               contrast = 0.8916
               brightness = 0.8172
               vibrancy = 0.1696
@@ -23,126 +20,120 @@ in
 
           # GENERAL
           general {
-              no_fade_in = false
               grace = 0
-              disable_loading_bar = false
           }
 
-          # GREETINGS
+          # Day
           label {
               monitor =
-              text = Welcome!
-              color = ${colors.base05}80
-              font_size = 55
+              text = cmd[update:1000] echo -e "$(date +"%A")"
+              color = rgba(216, 222, 233, 0.70)
+              font_size = 90
               font_family = SF Pro Display Bold
-              position = 150, 320
-              halign = left
+              position = 0, 350
+              halign = center
+              valign = center
+          }
+
+          # Date-Month
+          label {
+              monitor =
+              text = cmd[update:1000] echo -e "$(date +"%d %B")"
+              color = rgba(216, 222, 233, 0.70)
+              font_size = 40
+              font_family = SF Pro Display Bold
+              position = 0, 250
+              halign = center
               valign = center
           }
 
           # Time
           label {
               monitor =
-              text = cmd[update:1000] echo "<span>$(date +"%I:%M")</span>"
-              color = ${colors.base05}80
-              font_size = 40
+              text = cmd[update:1000] echo "<span>$(date +"- %I:%M -")</span>"
+              color = rgba(216, 222, 233, 0.70)
+              font_size = 20
               font_family = SF Pro Display Bold
-              position = 240, 240
-              halign = left
+              position = 0, 190
+              halign = center
               valign = center
           }
 
-          # Day-Month-Date
-          label {
-              monitor =
-              text = cmd[update:1000] echo -e "$(date +"%A, %B %d")"
-              color = ${colors.base05}80
-              font_size = 19
-              font_family = SF Pro Display Bold
-              position = 217, 175
-              halign = left
-              valign = center
-          }
-
-          # Profie-Photo
-          image {
-              monitor =
-              path = ~/.config/hypr/vivek.png
-              border_size = 2
-              border_color = ${colors.base0D}75
-              size = 95
-              rounding = -1
-              rotate = 0
-              reload_time = -1
-              reload_cmd = 
-              position = 270, 25
-              halign = left
-              valign = center
-          }
+          # Profile Photo - Commented out since we don't have a profile image
+          # Uncomment and set a custom image path if you have one
+          # image {
+          #     monitor =
+          #     path = ~/.config/hypr/profile.png
+          #     border_size = 2
+          #     border_color = rgba(255, 255, 255, .65)
+          #     size = 130
+          #     rounding = -1
+          #     rotate = 0
+          #     reload_time = -1
+          #     reload_cmd = 
+          #     position = 0, 40
+          #     halign = center
+          #     valign = center
+          # }
 
           # USER-BOX
           shape {
               monitor =
-              size = 320, 55
-              color = ${colors.base05}80
+              size = 300, 60
+              color = rgba(255, 255, 255, .1)
               rounding = -1
               border_size = 0
-              border_color = ${colors.base01}10
+              border_color = rgba(255, 255, 255, 0)
               rotate = 0
-              xray = false # if true, make a "hole" in the background (rectangle of specified size, no rotation)
+              xray = false
 
-              position = 160, -140
-              halign = left
+              position = 0, -130
+              halign = center
               valign = center
           }
 
           # USER
           label {
               monitor =
-              text =     $USER
-              color = ${colors.base05}80
-              outline_thickness = 0
-              dots_size = 0.2 # Scale of input-field height, 0.2 - 0.8
-              dots_spacing = 0.2 # Scale of dots' absolute size, 0.0 - 1.0
-              dots_center = true
-              font_size = 16
+              text = $USER
+              color = rgba(216, 222, 233, 0.80)
+              font_size = 18
               font_family = SF Pro Display Bold
-              position = 275, -140
-              halign = left
+              position = 0, -130
+              halign = center
               valign = center
           }
 
           # INPUT FIELD
           input-field {
               monitor =
-              size = 320, 55
-              outline_thickness = 0
-              dots_size = 0.2 # Scale of input-field height, 0.2 - 0.8
-              dots_spacing = 0.2 # Scale of dots' absolute size, 0.0 - 1.0
+              size = 300, 60
+              outline_thickness = 2
+              dots_size = 0.2
+              dots_spacing = 0.2
               dots_center = true
               outer_color = rgba(255, 255, 255, 0)
-              inner_color = ${colors.base00}10
-              font_color = ${colors.base05}
+              inner_color = rgba(255, 255, 255, 0.1)
+              font_color = rgb(200, 200, 200)
               fade_on_empty = false
               font_family = SF Pro Display Bold
-              placeholder_text = <i><span foreground="##ffffff99">🔒  Enter Pass</span></i>
+              placeholder_text = <i><span foreground="##ffffff99">🔒 Enter Pass</span></i>
               hide_input = false
-              position = 160, -220
-              halign = left
+              position = 0, -210
+              halign = center
               valign = center
           }
 
-          # CURRENT SONG
-          #label {
-          #    monitor =
-          #    text = cmd[update:1000] echo "$(~/.config/hypr/Scripts/songdetail.sh)" 
-          #    color = ${colors.base01}65
-          #    font_size = 14
-          #    font_family = JetBrains Mono Nerd, SF Pro Display Bold
-          #    position = 210, 45
-          #    halign = left
-          #    valign = bottom
-          #}
+          # Power
+          label {
+              monitor =
+              text = 󰐥  󰜉  󰤄
+              color = rgba(255, 255, 255, 0.6)
+              font_size = 50
+              position = 0, 100
+              halign = center
+              valign = bottom
+          }
       '';
     };
   };

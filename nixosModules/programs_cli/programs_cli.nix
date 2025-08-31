@@ -9,12 +9,16 @@ let
     vim                = vim;
     nano               = nano;
     htop               = htop;
+    btop               = btop;
     tree               = tree;
     unzip              = unzip;
     zip                = zip;
+    xz                 = xz;
     rsync              = rsync;
     openssh            = openssh;
     killall            = killall;
+    eza                = eza; # A modern replacement for 'ls'
+    fzf                = fzf; # A command-line fuzzy finder
     
     # Development Tools
     gcc                = gcc;
@@ -24,21 +28,42 @@ let
     nmap               = nmap;
     tcpdump            = tcpdump;
     wireshark-cli      = wireshark-cli;
-    
+    netbird            = netbird;
+
     # System Tools
     lsof               = lsof;
     strace             = strace;
     file               = file;
     which              = which;
+    evtest             = evtest;
+    
+    # System Monitoring
+    iotop              = iotop;
+    iftop              = iftop;
+    sysstat            = sysstat;
+    lm_sensors         = lm_sensors;
+    ethtool            = ethtool;
+    pciutils           = pciutils;
+    usbutils           = usbutils;
     
     # Archive Tools
     p7zip              = p7zip;
+    gnutar             = gnutar;
+    zstd               = zstd;
+    
+    # Text Processing
+    gnused             = gnused;
+    gawk               = gawk;
     
     # XML/Web Tools
     libxml2            = libxml2;
     
+    # Security
+    gnupg              = gnupg;
+    
     # Hardware specific
     tiny-dfr           = tiny-dfr;
+    nvtop              = nvtopPackages.v3d;
   };
 
   validNames = builtins.attrNames registry;

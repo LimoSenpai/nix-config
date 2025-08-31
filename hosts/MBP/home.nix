@@ -17,6 +17,7 @@
     TERMINAL = "alacritty";
   };
 
+<<<<<<< HEAD
 
   #=============================================================================#
   #                              GUI PROGRAMS                                  #
@@ -85,12 +86,14 @@
   home-apps-gaming.extraPackages = [
   ];
 
+=======
+>>>>>>> d68928e39ea0e9e8315a2fd7b6e7ee910608143f
   #=============================================================================#
   #                      WINDOW MANAGER ENVIRONMENT                            #
   #=============================================================================#
 
   hyprland.enable = true;
-  #niri.enable = false;
+  niri.enable = false;
 
   # Window Manager Utilities
   dunst.enable = true;
@@ -115,6 +118,104 @@
   # CLI Programs
   power-profiles-daemon.enable = true; # Power Profiles Daemon | Used in Waybar
   playerctl.enable = true; # Media Player Control | Used in Waybar
+  alacritty.enable = true;
+  git.enable = true;
+
+  #=============================================================================#
+  #                              GUI PROGRAMS                                  #
+  #=============================================================================#
+  home-apps-gui.enable = [
+    # Communication
+    "discord"
+    "teams"
+    
+    # Office & Productivity
+    "obsidian"
+    "vscode"
+    "joplin"
+    
+    # Media
+    "loupe"
+    
+    # Cloud Storage
+    "nextcloud"
+    
+    # Security
+    "bitwarden"
+    "yubikey"
+    "swaylock-fancy"
+    
+    # Audio & Notifications
+    "swaynotificationcenter"
+    
+    # File Management
+    "pcmanfm"
+    
+    # Browsers
+    "brave"
+    
+    # Browsers & Communication (commented)
+    #"vesktop"
+    #"easyeffects"
+  ];
+  home-apps-gui.extraPackages = [ 
+    pkgs.networkmanagerapplet
+    pkgs.firefox
+  ];
+
+  #=============================================================================#
+  #                              CLI PROGRAMS                                  #
+  #=============================================================================#
+  home-apps-cli.enable = [
+    # System Information
+    "fastfetch"
+    
+    # File Management
+    "yazi"
+    
+    # Screenshot Tools
+    "grimblast"
+    
+    # System Tools
+    "mdadm"
+    "tmux"
+    
+    # Text Processing
+    "jq"
+    "icu"
+    
+    # Performance Tools
+    "hyperfine"
+  ];
+  home-apps-cli.extraPackages = [ 
+    pkgs.nix-output-monitor
+    pkgs.betterdiscordctl
+    pkgs.wireguard-tools
+    pkgs.traceroute
+  ];
+
+  #=============================================================================#
+  #                            GAMING PROGRAMS                                 #
+  #=============================================================================#
+  home-apps-gaming.enable = [
+    # Game Launchers
+    "lutris"
+    "prismlauncher"
+    
+    # Game Tools
+    "gamescope"
+    "protontricks"
+    "protonplus"
+    
+    # Wine
+    "wine"
+    "winetricks"
+    
+    # Discord Rich Presence (commented)
+    #"arrpc"
+  ];
+  home-apps-gaming.extraPackages = [
+  ];
 
 
   # This value determines the home Manager release that your

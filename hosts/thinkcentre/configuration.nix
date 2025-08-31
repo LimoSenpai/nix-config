@@ -1,15 +1,3 @@
-# Edit this configuration file to define w    };
-
-    ### PROXY SETTINGS ### 
-    proxy = { 
-      default = "http://www-proxy1.uni-marburg.de:3128/"; 
-      httpProxy = "http://www-proxy1.uni-marburg.de:3128"; 
-      httpsProxy = "http://www-proxy1.uni-marburg.de:3128"; 
-      noProxy = "127.0.0.1,localhost,::1,.local,192.168.0.0/16,10.0.0.0/8,192.168.178.0/24";
-    };d be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, lib, pkgs, ... }:
 
 {
@@ -17,7 +5,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
-  
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -51,12 +39,12 @@
     */
 
     ### PROXY SETTINGS ### 
-    proxy = { 
-      default = "http://www-proxy1.uni-marburg.de:3128/"; 
-      httpProxy = "http://www-proxy1.uni-marburg.de:3128"; 
-      httpsProxy = "http://www-proxy1.uni-marburg.de:3128"; 
-      noProxy = "127.0.0.1,localhost,::1,.local,192.168.0.0/16,10.0.0.0/8,192.168.178.0/24";
-    };
+    #proxy = { 
+    #  default = "http://www-proxy1.uni-marburg.de:3128/"; 
+    #  httpProxy = "http://www-proxy1.uni-marburg.de:3128"; 
+    #  httpsProxy = "http://www-proxy1.uni-marburg.de:3128"; 
+    #  noProxy = "127.0.0.1,localhost,::1,.local,192.168.0.0/16,10.0.0.0/8,192.168.178.0/24";
+    #};
 
     /*
     networkmanager.ensureProfiles.profiles = {
@@ -88,6 +76,27 @@
       */
     };
   };
+
+    # optional but recommended if you later want split-DNS
+    services.resolved.enable = true;
+
+    systemd.network.networks."10-eno1" = {
+      matchConfig.Name = "eno1";
+      networkConfig.DHCP = "yes";
+      routes = [
+        { Destination = "192.168.1.119/32"; Gateway = "137.248.113.250"; }
+        { Destination = "192.168.16.40/32"; Gateway = "137.248.113.250"; }
+        { Destination = "192.168.16.3/32";  Gateway = "137.248.113.250"; }
+      ];
+    };
+
+    # pin hostnames (same as /etc/hosts)
+    networking.hosts = {
+      "192.168.1.119" = [ "share.uni-marburg.de" ];
+      "192.168.16.40" = [ "support.hrz.uni-marburg.de" ];
+      "192.168.16.3"  = [ "ldap-master.hrz.uni-marburg.de" ];
+    };
+
 
   /*
   networking.networkmanager.dispatcherScripts = [
@@ -128,8 +137,8 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Enable Nix flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ]; 
+
 
   #=============================================================================#
   #                            SYSTEM CONFIGURATION                            #
@@ -137,33 +146,73 @@
   
   # Window Managers
   hyprland.enable = true;
-  #niri.enable = true;
-  #bspwm.enable = true;
+  niri.enable = true; # Enable Niri, a Wayland compositor
 
   # Display Manager
   sddm.enable = true;
+
+  wleave.enable = true;
 
   # Hardware Support
   #nvidia.enable = true;
   #amd-radeon.enable = false;
 
-  # System Services
-  libnotify.enable = true;
-  wleave.enable = true;
-  #dunst.enable = true;
-  system-programs.enable = true;
-  standard-apps.enable = true;
+  # Software
+  netbird.enable = true; # Enable NetBird VPN client
+  system-programs.enable = true; # Enable system programs
+  work_drive.enable = true; # Enable work drive configuration
+
+  #=============================================================================#
+  #                          SYSTEM ESSENTIAL PACKAGES                         #
+  #=============================================================================#
+  nixos-system-essentials.enable = [
+    # Core system libraries
+    "bluez"
+    "glib"
+    
+    # Themes and icons
+    "hicolor-icon-theme"
+    "adwaita-icon-theme" 
+    "gsettings-desktop-schemas"
+    
+    # Documentation
+    "man-db"
+    "man-pages"
+    
+    # Core utilities
+    "coreutils"
+    "util-linux"
+    "findutils"
+    
+    # Audio libraries
+    "alsa-lib"
+    "alsa-utils"
+    "pipewire"
+    
+    # Graphics libraries
+    "mesa"
+    
+    # System libraries
+    "systemd"
+    "dbus"
+  ];
+  nixos-system-essentials.extraPackages = [ 
+  ];
 
   #=============================================================================#
   #                              GUI PROGRAMS                                  #
   #=============================================================================#
   nixos-apps-gui.enable = [
+    # Browsers
     "zen-browser"
 
-    #System Tools
+    # Audio
     "pavucontrol"
-    "nwg-displays"
+    
+    # System Tools
+    #"nwg-displays"
     "hyprlock"
+    "ark"
   ];
   nixos-apps-gui.extraPackages = [
   ];
@@ -172,37 +221,75 @@
   #                              CLI PROGRAMS                                  #
   #=============================================================================#
   nixos-apps-cli.enable = [
+    # Version Control & Network
     "git"
     "curl"
     "wget"
-    "vim"
-    "nano"
-    "htop"
-    "tree"
-    "unzip"
-    "zip"
-    "rsync"
     "openssh"
-    "killall"
-    "gcc"
-    "gnumake"
     "nmap"
     "tcpdump"
     "wireshark-cli"
+    "netbird"
+    
+    # Text Editors
+    "vim"
+    "nano"
+    
+    # System Monitoring
+    "htop"
+    "btop"
+    "iotop"
+    "iftop"
+    "sysstat"
+    "lm_sensors"
+    "nvtop"
+    
+    # File Management
+    "tree"
+    "eza"
+    "fzf"
+    "rsync"
+    
+    # Archive Tools
+    "unzip"
+    "zip"
+    "xz"
+    "p7zip"
+    "gnutar"
+    "zstd"
+    
+    # Development Tools
+    "gcc"
+    "gnumake"
+    
+    # System Tools
+    "killall"
     "lsof"
     "strace"
     "file"
     "which"
-    "p7zip"
+    "evtest"
+    "ethtool"
+    "pciutils"
+    "usbutils"
+    
+    # Text Processing
+    "gnused"
+    "gawk"
     "libxml2"
+    
+    # Security
+    "gnupg"
   ];
   nixos-apps-cli.extraPackages = [
+    pkgs.dig
   ];
 
   #=============================================================================#
   #                            GAMING PROGRAMS                                 #
   #=============================================================================#
   nixos-apps-gaming.enable = [
+    # Steam Tools
     "adwsteamgtk"
   ];
   nixos-apps-gaming.extraPackages = [
@@ -216,13 +303,21 @@
   #                              WORK PROGRAMS                                 #
   #=============================================================================#
   nixos-apps-work.enable = [
+    # Communication
     "thunderbird"
-    "keepass"
-    "libreoffice"
-    "krb5"
-    "cifs-utils"
-    "keyutils"
     "element"
+    
+    # Office
+    "libreoffice"
+
+    # Security & Authentication
+    "keepass"
+    "krb5"
+    "keyutils"
+    "cifs-utils"
+    "geteduroam"
+    "lxqt-sudo"
+    "polkit-gnome"
   ];
   nixos-apps-work.extraPackages = [
   ];

@@ -36,10 +36,10 @@
           snap.enabled = true;
       };
 
-      gestures = {
-        workspace_swipe = true;
-        workspace_swipe_cancel_ratio = 0.15;
-      };
+      #gestures = {
+      #  workspace_swipe = true;
+      #  workspace_swipe_cancel_ratio = 0.15;
+      #};
 
       plugin = {
         touch_gestures = {
@@ -73,6 +73,7 @@
 
         # --- Utilities ---
         "Super+Shift, S, exec, grimblast copy area | wl-copy"
+        "Super+Alt, S, exec, grimblast save window | wl-copy"
         "Super, Print, exec, grimblast copy screen | wl-copy"
         "Super, M, exec, bash ~/.config/nix-config/scripts/dfsmount"
 
@@ -177,7 +178,7 @@
         "wl-paste --type image --watch cliphist store"
 
         # Cursor
-        "hyprctl setcursor Bibata-Modern-Classic 26"
+        "hyprctl setcursor Bibata-Modern-Classic 30"
 
 
         # Custom Programs
@@ -311,10 +312,10 @@
         "QT_QPA_PLATFORM, wayland"
         "QT_QPA_PLATFORMTHEME, kde"
         "QT_STYLE_OVERRIDE,kvantum"
-        "WLR_NO_HARDWARE_CURSORS, 1"
+        "WLR_NO_HARDWARE_CURSORS, 0"
 
         "HYPRCURSOR_THEME,Bibata-Modern-Classic"
-        "HYPRCURSOR_SIZE,28"
+        "HYPRCURSOR_SIZE,30"
       ];
 
       windowrule = [

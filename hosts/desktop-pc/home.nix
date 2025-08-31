@@ -18,72 +18,11 @@
   };
 
   #=============================================================================#
-  #                              GUI PROGRAMS                                  #
-  #=============================================================================#
-  home-apps-gui.enable = [
-    "vesktop"
-    "bitwarden"
-    "easyeffects"
-    "obsidian"
-    "brave"
-    "loupe"
-    "nextcloud"
-    "vscode"
-    "yubikey"
-    "discord"
-    "pcmanfm"
-    "swaynotificationcenter"
-    #"goofcord"
-  ];
-  home-apps-gui.extraPackages = [ 
-    pkgs.betterdiscordctl
-  ];
-
-  # GUI program options
-  obs-studio.enable = true;
-
-  #=============================================================================#
-  #                              CLI PROGRAMS                                  #
-  #=============================================================================#
-  home-apps-cli.enable = [
-    "fastfetch"
-    "yazi"
-    "grimblast"
-    "mdadm"
-    "jq"
-    "hyperfine"
-    "icu"
-    "tmux"
-  ];
-  home-apps-cli.extraPackages = [ 
-  ];
-
-  # CLI program options
-  alacritty.enable = true;
-  git.enable = true;
-
-  #=============================================================================#
-  #                            GAMING PROGRAMS                                 #
-  #=============================================================================#
-  home-apps-gaming.enable = [
-    "arrpc"
-    "gamescope"
-    "lutris"
-    "protontricks"
-    "protonplus"
-    "wine"
-    "winetricks"
-    "prismlauncher"
-  ];
-  home-apps-gaming.extraPackages = [
-  ];
-
-  #=============================================================================#
   #                      WINDOW MANAGER ENVIRONMENT                            #
   #=============================================================================#
 
   hyprland.enable = true;
-  #niri.enable = false;
+  niri.enable = false;
 
   # Window Manager Utilities
   dunst.enable = true;
@@ -106,11 +45,102 @@
   
   # GUI Programs
   spicetify.enable = true; # Spotify Customization
+  obs-studio.enable = true;
 
   # CLI Programs
   # foot.enable = true; # Terminal Emulator (disabled due to SSH issues)
   power-profiles-daemon.enable = true; # Power Profiles Daemon | Used in Waybar
   playerctl.enable = true; # Media Player Control | Used in Waybar
+  alacritty.enable = true;
+  git.enable = true;
+
+  #=============================================================================#
+  #                              GUI PROGRAMS                                  #
+  #=============================================================================#
+  home-apps-gui.enable = [
+    # Communication
+    "vesktop"
+    "discord"
+    
+    # Office & Productivity
+    "obsidian"
+    "vscode"
+    "joplin"
+    
+    # Media
+    "loupe"
+    
+    # Cloud Storage
+    "nextcloud"
+    
+    # Security
+    "bitwarden"
+    "yubikey"
+    
+    # Audio
+    "easyeffects"
+    "swaynotificationcenter"
+    
+    # File Management
+    "pcmanfm"
+    
+    # Browsers (commented)
+    #"brave"
+    #"goofcord"
+  ];
+  home-apps-gui.extraPackages = [ 
+    pkgs.betterdiscordctl
+  ];
+
+  #=============================================================================#
+  #                              CLI PROGRAMS                                  #
+  #=============================================================================#
+  home-apps-cli.enable = [
+    # System Information
+    "fastfetch"
+    
+    # File Management
+    "yazi"
+    
+    # Screenshot Tools
+    "grimblast"
+    
+    # System Tools
+    "mdadm"
+    "tmux"
+    
+    # Text Processing
+    "jq"
+    "icu"
+    
+    # Performance Tools
+    "hyperfine"
+  ];
+  home-apps-cli.extraPackages = [ 
+  ];
+
+  #=============================================================================#
+  #                            GAMING PROGRAMS                                 #
+  #=============================================================================#
+  home-apps-gaming.enable = [
+    # Discord Rich Presence
+    "arrpc"
+    
+    # Game Launchers
+    "lutris"
+    "prismlauncher"
+    
+    # Game Tools
+    "gamescope"
+    "protontricks"
+    "protonplus"
+    
+    # Wine
+    "wine"
+    "winetricks"
+  ];
+  home-apps-gaming.extraPackages = [
+  ];
 
   # Stylix Configuration
   # stylix.targets.foot.enable = true;

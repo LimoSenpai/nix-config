@@ -14,8 +14,13 @@ let
     
     # Network/Authentication
     krb5               = krb5;
-    cifs-utils         = cifs-utils;
     keyutils           = keyutils;
+    cifs-utils         = cifs-utils;
+    geteduroam         = geteduroam;
+    
+    # Root Authentication Tools
+    lxqt-sudo          = lxqt.lxqt-sudo;
+    polkit-gnome       = polkit_gnome;
   };
 
   validNames = builtins.attrNames registry;
@@ -37,8 +42,9 @@ in
     };
   };
 
-  config = {
+  config = lib.mkIf (cfg.enable != []) {
     environment.systemPackages = 
-      (map (name: registry.${name}) cfg.enable) ++ cfg.extraPackages;
+      (map (name: registry.${name}) cfg.enable) ++ cfg.extraPackages ++
+      [ pkgs.keyutils ];
   };
 }
