@@ -163,6 +163,7 @@
       exec-once = [
         # wallpaper
         "waypaper --restore"
+        "swww-daemon"
 
         # Input method
         "fcitx5"

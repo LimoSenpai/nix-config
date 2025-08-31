@@ -123,7 +123,7 @@
     "pavucontrol"
     
     # System Tools
-    "nwg-displays"
+    # "nwg-displays" #broken in unstable branch 25.11
     "ark"
     
     # Browsers
