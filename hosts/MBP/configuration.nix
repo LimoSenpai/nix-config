@@ -159,25 +159,14 @@
   nixos-apps-gui.enable = [
     # Browsers
     "zen-browser"
-<<<<<<< HEAD
 
     # SYSTEM TOOLS
-=======
-    
-    # Audio
->>>>>>> d68928e39ea0e9e8315a2fd7b6e7ee910608143f
     "pavucontrol"
     
     # System Tools
     "nwg-displays"
-<<<<<<< HEAD
 
     # AMD
-=======
-    "ark"
-    
-    # Hardware Monitoring
->>>>>>> d68928e39ea0e9e8315a2fd7b6e7ee910608143f
     "mesa-demos"
     "radeon-profile"
   ];
