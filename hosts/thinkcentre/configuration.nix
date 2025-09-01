@@ -158,7 +158,6 @@
   #amd-radeon.enable = false;
 
   # Software
-  netbird.enable = true; # Enable NetBird VPN client
   system-programs.enable = true; # Enable system programs
   work_drive.enable = true; # Enable work drive configuration
 

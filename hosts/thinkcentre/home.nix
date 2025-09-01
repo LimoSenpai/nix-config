@@ -103,6 +103,7 @@
     
     # File Management
     "yazi"
+    "yaziPlugins-sudo"
     
     # Screenshot Tools
     "grimblast"
