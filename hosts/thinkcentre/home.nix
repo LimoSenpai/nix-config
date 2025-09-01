@@ -88,10 +88,9 @@
     # Hardware & Communication (commented)
     #"vesktop"
     #"easyeffects"
-    #"yubikey"
+    "yubikey"
   ];
   home-apps-gui.extraPackages = [
-    pkgs.yubioath-flutter
   ];
 
   #=============================================================================#

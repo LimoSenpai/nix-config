@@ -76,6 +76,7 @@
     
     # Security
     "bitwarden"
+    "yubikey"
     
     # Audio
     "easyeffects"
@@ -118,6 +119,7 @@
     "hyperfine"
   ];
   home-apps-cli.extraPackages = [ 
+    pkgs.mdadm
   ];
 
   #=============================================================================#
