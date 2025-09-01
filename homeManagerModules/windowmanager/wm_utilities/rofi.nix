@@ -17,8 +17,7 @@ in {
       rofi = {
         enable = true;
         package = pkgs.rofi-wayland;
-  # Hint: bind this in Hyprland, e.g.:
-  # bind = SUPER, D, exec, rofi -show drun
+
           theme = lib.mkForce {
           # Configuration
           "configuration" = {
@@ -65,6 +64,8 @@ in {
             padding = mkLiteral "40px";
             border-radius = mkLiteral "12px";
             background-color = mkLiteral "${colors.base00}";
+            border = mkLiteral "2px solid";
+            border-color = mkLiteral "${colors.base0D}";
             children = map mkLiteral [ "inputbar" "mode-switcher" "listview" ];
           };
 
@@ -84,7 +85,7 @@ in {
           "entry" = {
             enabled = true;
             background-color = mkLiteral "transparent";
-            text-color = mkLiteral "gray";
+            text-color = mkLiteral "${colors.base07}";
             cursor = mkLiteral "text";
             placeholder = "Type to filter";
             placeholder-color = mkLiteral "inherit";
@@ -129,12 +130,12 @@ in {
 
           "element normal.active" = {
             background-color = mkLiteral "${colors.base0D}";
-            text-color = mkLiteral "black";
+            text-color = mkLiteral "${colors.base0B}";
           };
 
           "element selected.normal" = {
             background-color = mkLiteral "${colors.base01}";
-            text-color = mkLiteral "black";
+            text-color = mkLiteral "${colors.base05}";
           };
 
           "element selected.active" = {
@@ -163,7 +164,7 @@ in {
             spacing = mkLiteral "20px";
             margin = mkLiteral "0px 10%";
             background-color = mkLiteral "transparent";
-            text-color = mkLiteral "${colors.base04}";
+            text-color = mkLiteral "${colors.base05}";
           };
 
           "button" = {

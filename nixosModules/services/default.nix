@@ -4,6 +4,5 @@
   imports =
     [
       ./services.nix
-      ./netbird.nix
     ];
 }

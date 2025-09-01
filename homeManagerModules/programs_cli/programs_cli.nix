@@ -4,6 +4,7 @@ let
   registry = with pkgs; {
     fastfetch   = fastfetch;
     yazi        = yazi;
+    yaziPlugins-sudo = yaziPlugins.sudo;
     grimblast   = grimblast; # Screenshot tool
     mdadm       = mdadm;
     jq          = jq;

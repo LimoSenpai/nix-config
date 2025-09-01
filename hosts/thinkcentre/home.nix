@@ -50,6 +50,9 @@
   alacritty.enable = true;
   git.enable = true;
 
+  # GUI Programs
+  spicetify.enable = true; # Spotify Customization
+
   #=============================================================================#
   #                              GUI PROGRAMS                                  #
   #=============================================================================#
@@ -100,6 +103,7 @@
     
     # File Management
     "yazi"
+    "yaziPlugins-sudo"
     
     # Screenshot Tools
     "grimblast"
