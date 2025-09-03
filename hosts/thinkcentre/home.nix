@@ -33,7 +33,7 @@
   hyprlock.enable = true;
 
   # Cursor & Theming
-  cursor.enable = true; # Bibata Cursor Theme
+  cursor.enable = true; # Future Cursor Theme
 
   # Wallpaper Management
   waypaper.enable = true;

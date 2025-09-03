@@ -60,6 +60,7 @@
     packages.${system} = {
       cirno-downloader = pkgs.callPackage ../../pkgs/cirno-downloader.nix {};
       bibata-hyprcursor = pkgs.callPackage ../../pkgs/bibata-hyprcursor.nix {};
+      future-cursors = pkgs.callPackage ../../pkgs/future-cursors.nix {};
       gdk-pixbuf-dev = pkgs.gdk-pixbuf.dev;
     };
     # Make Derivations accessible in the flake
@@ -70,6 +71,7 @@
         wine = prev.wineWowPackages.stable;
         cirno-downloader = prev.callPackage ../../pkgs/cirno-downloader.nix {};
         bibata-hyprcursor = prev.callPackage ../../pkgs/bibata-hyprcursor.nix {};
+        future-cursors = prev.callPackage ../../pkgs/future-cursors.nix {};
         gdk-pixbuf-dev = prev.gdk-pixbuf.dev;
       };
 

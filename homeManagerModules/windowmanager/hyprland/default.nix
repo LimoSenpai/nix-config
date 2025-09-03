@@ -8,9 +8,9 @@
     wayland.windowManager.hyprland = {
       enable = true;
 
-      #plugins = [
-      #  pkgs.hyprlandPlugins.hyprgrass
-      #];
+      plugins = [
+        pkgs.hyprlandPlugins.hyprgrass
+      ];
 
       settings = {
 
@@ -36,13 +36,14 @@
           snap.enabled = true;
       };
 
-      gestures = {
-        workspace_swipe = true;
-        workspace_swipe_cancel_ratio = 0.15;
-      };
+      #gestures = {
+      #  workspace_swipe = true;
+      #  workspace_swipe_cancel_ratio = 0.15;
+      #};
 
       plugin = {
         touch_gestures = {
+          workspace_swipe = true;
           workspace_swipe_gesture = 3;
           emulate_touchpad_swipe = true;
           
@@ -179,7 +180,7 @@
         "wl-paste --type image --watch cliphist store"
 
         # Cursor
-        "hyprctl setcursor Bibata-Modern-Classic 30"
+        "hyprctl setcursor Future-Cursors 30"
 
 
         # Custom Programs
@@ -315,7 +316,10 @@
         "QT_STYLE_OVERRIDE,kvantum"
         "WLR_NO_HARDWARE_CURSORS, 0"
 
-        "HYPRCURSOR_THEME,Bibata-Modern-Classic"
+        # ############ Cursors #############
+        "XCURSOR_THEME,Future-Cursors"
+        "XCURSOR_SIZE,30"
+        "HYPRCURSOR_THEME,Future-Cursors"
         "HYPRCURSOR_SIZE,30"
       ];
 
