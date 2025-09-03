@@ -180,7 +180,7 @@
         "wl-paste --type image --watch cliphist store"
 
         # Cursor
-        "hyprctl setcursor Future-Cursors 30"
+        "hyprctl setcursor Future-Cursors 35"
 
 
         # Custom Programs
@@ -318,9 +318,9 @@
 
         # ############ Cursors #############
         "XCURSOR_THEME,Future-Cursors"
-        "XCURSOR_SIZE,30"
+        "XCURSOR_SIZE,35"
         "HYPRCURSOR_THEME,Future-Cursors"
-        "HYPRCURSOR_SIZE,30"
+        "HYPRCURSOR_SIZE,35"
       ];
 
       windowrule = [
