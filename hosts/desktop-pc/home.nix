@@ -84,6 +84,9 @@
     
     # File Management
     "pcmanfm"
+
+    # Screenshot annotations
+    "satty"
     
     # Browsers (commented)
     #"brave"
@@ -105,7 +108,8 @@
     "yazi"
     
     # Screenshot Tools
-    "grimblast"
+    "slurp"
+    "grim"
     
     # System Tools
     "mdadm"

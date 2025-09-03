@@ -73,10 +73,10 @@
         "Super+Alt, M, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle" 
 
         # --- Utilities ---
-        "Super+Shift, S, exec, grimblast copy area | wl-copy"
-        "Super+Alt, S, exec, grimblast save area | wl-copy"
-        "Super, Print, exec, grimblast copy screen | wl-copy"
-        "Super, M, exec, bash ~/.config/nix-config/scripts/dfsmount"
+      "SUPER+SHIFT, S, exec, grim -g \"$(slurp)\" - | satty --filename - --output-filename ~/Pictures/Screenshot-$(date +'%Y%m%d-%H%M%S').png"
+      "SUPER+ALT, S, exec, grim - | satty --filename - --output-filename ~/Pictures/Screenshot-$(date +'%Y%m%d-%H%M%S').png"
+      "SUPER, Print, exec, grim - | satty --filename - --output-filename ~/Pictures/Screenshot-$(date +'%Y%m%d-%H%M%S').png --copy-command wl-copy"
+
 
         ##! Apps
         "Super, T, exec, alacritty" # Terminal Emulator
@@ -193,7 +193,7 @@
       ];
 
       decoration = {
-          rounding = 0;
+          rounding = 20;
           
           blur = {
               enabled = true;

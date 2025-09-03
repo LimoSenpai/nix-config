@@ -81,6 +81,9 @@
     
     # File Management
     "pcmanfm"
+
+    # Screenshot annotations
+    "satty"
     
     # Browsers
     #"brave"
@@ -105,7 +108,8 @@
     "yaziPlugins-sudo"
     
     # Screenshot Tools
-    "grimblast"
+    "slurp"
+    "grim"
     
     # System Tools
     "mdadm"

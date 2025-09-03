@@ -20,6 +20,7 @@ let
     office      = libreoffice-qt-still;
     joplin      = joplin-desktop;
     kate        = kdePackages.kate;
+    satty       = satty;
 
   };
 
