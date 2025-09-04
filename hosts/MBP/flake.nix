@@ -13,7 +13,7 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-hardware.url = "github:mkorje/nixos-hardware"; #Using mkorje's fork for fixed T2 support
+    nixos-hardware.url = "github:nixos/nixos-hardware"; #Using mkorje's fork for fixed T2 support
     # Hyprland, the Wayland compositor
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins = {

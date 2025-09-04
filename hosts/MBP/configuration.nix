@@ -266,6 +266,7 @@
     
     # Office
     "libreoffice"
+    "onenote"
     
     # Security & Authentication
     "keepass"
@@ -277,6 +278,8 @@
     "polkit-gnome"
   ];
   nixos-apps-work.extraPackages = [
+    pkgs.qalculate-gtk
+    pkgs.speedcrunch
   ];
   
 
