@@ -6,7 +6,6 @@ let
     obsidian    = obsidian;
     bitwarden   = bitwarden-desktop;
     easyeffects = easyeffects;
-    brave       = brave;
     loupe       = loupe;
     nextcloud   = nextcloud-client;
     vscode      = vscode-fhs;
@@ -21,7 +20,8 @@ let
     joplin      = joplin-desktop;
     kate        = kdePackages.kate;
     satty       = satty;
-
+    chromium    = ungoogled-chromium;
+    ausweisapp  = ausweisapp;
   };
 
   validNames = builtins.attrNames registry;

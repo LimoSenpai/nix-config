@@ -15,7 +15,7 @@
       gtk.enable = true;
       x11.enable = true;
       name = "Future-Cursors";
-      size = 35; # Size in pixels
+      size = 40; # Size in pixels
       package = pkgs.future-cursors;
     };
   };

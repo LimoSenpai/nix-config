@@ -32,6 +32,7 @@ let
     
     # System Tools
     nwg-displays       = nwg-displays;
+    way-displays       = way-displays;
     hyprlock           = hyprlock;
     ark                = file-roller; # Archive manager (GNOME-based instead of KDE)
     

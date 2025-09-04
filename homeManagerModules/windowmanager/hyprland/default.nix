@@ -14,10 +14,10 @@
 
       settings = {
 
-        source = [
-          "monitors.conf"
-          "workspaces.conf"
-        ];
+        #source = [
+        #  "./monitors.conf"
+        #  "workspaces.conf"
+        #];
       
 
       general = {
@@ -180,7 +180,7 @@
         "wl-paste --type image --watch cliphist store"
 
         # Cursor
-        "hyprctl setcursor Future-Cursors 35"
+        "hyprctl setcursor Future-Cursors 40"
 
 
         # Custom Programs
@@ -318,9 +318,9 @@
 
         # ############ Cursors #############
         "XCURSOR_THEME,Future-Cursors"
-        "XCURSOR_SIZE,35"
+        "XCURSOR_SIZE,40"
         "HYPRCURSOR_THEME,Future-Cursors"
-        "HYPRCURSOR_SIZE,35"
+        "HYPRCURSOR_SIZE,40"
       ];
 
       windowrule = [
