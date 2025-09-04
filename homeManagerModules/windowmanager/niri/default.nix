@@ -77,8 +77,8 @@
           "Mod+Print".action.spawn = ["sh" "-c" "grimblast copy screen | wl-copy"];
 
           ## --- APPS ---
-          "Mod+T".action.spawn = ["foot"];
-          "Mod+E".action.spawn = ["thunar"];
+          "Mod+T".action.spawn = ["alacritty"];
+          "Mod+E".action.spawn = ["pcmanfm"];
           "Mod+B".action.spawn = ["zen"];
           "Mod+C".action.spawn = ["code"];
           "Mod+Control+V".action.spawn = ["pavucontrol"];

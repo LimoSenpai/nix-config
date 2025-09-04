@@ -89,13 +89,16 @@ home-manager switch --flake .#tinus@<hostname>
 - **App Launcher**: Rofi (Wayland) + Wofi
 - **Notifications**: Dunst + SwayNotificationCenter
 - **Wallpapers**: SWWW with Waypaper management
-- **Cursor**: Bibata (custom Hyprcursor build)
+- **Cursor**: Future Cursors (inspired by macOS) + Bibata (custom Hyprcursor build)
 - **Theming**: Stylix for system-wide consistency
 
 ## 📦 Custom Packages
 
 ### `cirno-downloader`
 A custom game/media downloader with WebKit integration. Includes extensive library patching for compatibility.
+
+### `future-cursors`
+Future Cursors theme for Linux desktops - an X-cursor theme inspired by macOS and based on capitaine-cursors.
 
 ### `bibata-hyprcursor` 
 Custom build of Bibata cursor theme with Hyprcursor support for Hyprland.

@@ -15,6 +15,8 @@ let
     tmux        = tmux;
     alacritty   = alacritty;
     pandoc      = pandoc;
+    slurp       = slurp;
+    grim        = grim;
   };
 
   validNames = builtins.attrNames registry;

@@ -8,9 +8,9 @@
     wayland.windowManager.hyprland = {
       enable = true;
 
-      #plugins = [
-      #  pkgs.hyprlandPlugins.hyprgrass
-      #];
+      plugins = [
+        pkgs.hyprlandPlugins.hyprgrass
+      ];
 
       settings = {
 
@@ -36,13 +36,14 @@
           snap.enabled = true;
       };
 
-      gestures = {
-        workspace_swipe = true;
-        workspace_swipe_cancel_ratio = 0.15;
-      };
+      #gestures = {
+      #  workspace_swipe = true;
+      #  workspace_swipe_cancel_ratio = 0.15;
+      #};
 
       plugin = {
         touch_gestures = {
+          workspace_swipe = true;
           workspace_swipe_gesture = 3;
           emulate_touchpad_swipe = true;
           
@@ -72,10 +73,10 @@
         "Super+Alt, M, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle" 
 
         # --- Utilities ---
-        "Super+Shift, S, exec, grimblast copy area | wl-copy"
-        "Super+Alt, S, exec, grimblast save area | wl-copy"
-        "Super, Print, exec, grimblast copy screen | wl-copy"
-        "Super, M, exec, bash ~/.config/nix-config/scripts/dfsmount"
+      "SUPER+SHIFT, S, exec, grim -g \"$(slurp)\" - | satty --filename - --output-filename ~/Pictures/Screenshot-$(date +'%Y%m%d-%H%M%S').png"
+      "SUPER+ALT, S, exec, grim - | satty --filename - --output-filename ~/Pictures/Screenshot-$(date +'%Y%m%d-%H%M%S').png"
+      "SUPER, Print, exec, grim - | satty --filename - --output-filename ~/Pictures/Screenshot-$(date +'%Y%m%d-%H%M%S').png --copy-command wl-copy"
+
 
         ##! Apps
         "Super, T, exec, alacritty" # Terminal Emulator
@@ -179,7 +180,7 @@
         "wl-paste --type image --watch cliphist store"
 
         # Cursor
-        "hyprctl setcursor Bibata-Modern-Classic 30"
+        "hyprctl setcursor Future-Cursors 35"
 
 
         # Custom Programs
@@ -192,7 +193,7 @@
       ];
 
       decoration = {
-          rounding = 0;
+          rounding = 20;
           
           blur = {
               enabled = true;
@@ -315,8 +316,11 @@
         "QT_STYLE_OVERRIDE,kvantum"
         "WLR_NO_HARDWARE_CURSORS, 0"
 
-        "HYPRCURSOR_THEME,Bibata-Modern-Classic"
-        "HYPRCURSOR_SIZE,30"
+        # ############ Cursors #############
+        "XCURSOR_THEME,Future-Cursors"
+        "XCURSOR_SIZE,35"
+        "HYPRCURSOR_THEME,Future-Cursors"
+        "HYPRCURSOR_SIZE,35"
       ];
 
       windowrule = [

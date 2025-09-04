@@ -57,6 +57,7 @@
     packages.${system} = {
       cirno-downloader = pkgs.callPackage ../../pkgs/cirno-downloader.nix {};
       bibata-hyprcursor = pkgs.callPackage ../../pkgs/bibata-hyprcursor.nix {};
+      future-cursors = pkgs.callPackage ../../pkgs/future-cursors.nix {};
     };
     # Make Derivations accessible in the flake
     overlays = {
@@ -64,6 +65,7 @@
         wine = prev.wineWowPackages.stable;
         cirno-downloader = prev.callPackage ../../pkgs/cirno-downloader.nix {};
         bibata-hyprcursor = prev.callPackage ../../pkgs/bibata-hyprcursor.nix {};
+        future-cursors = prev.callPackage ../../pkgs/future-cursors.nix {};
       };
       niri = niri-flake.overlays.niri;
       noGtksourceviewCheck = final: prev: {

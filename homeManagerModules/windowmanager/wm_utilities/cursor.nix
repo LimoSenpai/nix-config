@@ -6,17 +6,17 @@
 
   config = lib.mkIf config.cursor.enable {
     home.packages = with pkgs; [
-      bibata-cursors        # X11 cursors
-      bibata-hyprcursor     # Hyprcursors
+      future-cursors       # X11 cursors
+      bibata-cursors       # Fallback X11 cursors
+      bibata-hyprcursor    # Hyprcursors (kept for compatibility)
     ];
 
     home.pointerCursor = {
       gtk.enable = true;
       x11.enable = true;
-      name = "Bibata-Modern-Classic";
-      size = 30; # Size in pixels
-      package = pkgs.bibata-cursors;
+      name = "Future-Cursors";
+      size = 35; # Size in pixels
+      package = pkgs.future-cursors;
     };
   };
 }
-

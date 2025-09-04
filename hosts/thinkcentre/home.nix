@@ -33,7 +33,7 @@
   hyprlock.enable = true;
 
   # Cursor & Theming
-  cursor.enable = true; # Bibata Cursor Theme
+  cursor.enable = true; # Future Cursor Theme
 
   # Wallpaper Management
   waypaper.enable = true;
@@ -81,6 +81,9 @@
     
     # File Management
     "pcmanfm"
+
+    # Screenshot annotations
+    "satty"
     
     # Browsers
     #"brave"
@@ -105,7 +108,8 @@
     "yaziPlugins-sudo"
     
     # Screenshot Tools
-    "grimblast"
+    "slurp"
+    "grim"
     
     # System Tools
     "mdadm"
