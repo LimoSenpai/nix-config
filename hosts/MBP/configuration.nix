@@ -99,7 +99,8 @@
 
   # Window Managers
   hyprland.enable = true;
-  sway.enable = true; # Enable Sway, a Wayland compositor
+  gnome.enable = true;
+  #sway.enable = true; # Enable Sway, a Wayland compositor
   niri.enable = true; # Enable Niri, a Wayland compositor
   #bspwm.enable = true; # Enable BSPWM, a tiling window manager
 
@@ -164,13 +165,13 @@
     "pavucontrol"
     
     # System Tools
-    "nwg-displays"
 
     # AMD
     "mesa-demos"
     "radeon-profile"
   ];
   nixos-apps-gui.extraPackages = [
+    pkgs.wdisplays
   ];
 
   #=============================================================================#
@@ -289,6 +290,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Did you read the comment?
 
 }
