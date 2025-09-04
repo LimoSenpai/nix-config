@@ -11,6 +11,7 @@ let
     
     # Office
     libreoffice        = libreoffice-qt-still;
+    onenote            = p3x-onenote;
     
     # Network/Authentication
     krb5               = krb5;
@@ -21,6 +22,8 @@ let
     # Root Authentication Tools
     lxqt-sudo          = lxqt.lxqt-sudo;
     polkit-gnome       = polkit_gnome;
+
+
   };
 
   validNames = builtins.attrNames registry;
