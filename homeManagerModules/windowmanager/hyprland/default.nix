@@ -14,10 +14,10 @@
 
       settings = {
 
-        #source = [
-        #  "./monitors.conf"
-        #  "workspaces.conf"
-        #];
+        source = [
+          "monitors.conf"
+          "workspaces.conf"
+        ];
       
 
       general = {
@@ -184,11 +184,11 @@
 
 
         # Custom Programs
-        "thunderbird"
-        "element-desktop"
+        "thunderbird [workspace 7 silent]"
+        "element-desktop [workspace 6 silent]"
         "zen"
         "arrpc"
-        "easyeffects"
+        "easyeffects [workspace 9 silent]"
         
       ];
 
