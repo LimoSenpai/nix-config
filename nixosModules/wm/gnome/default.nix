@@ -5,10 +5,10 @@
   };
 
   config = lib.mkIf config.gnome.enable {
-    services.xserver = {
+    services.desktopManager = {
 
       #displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
+      gnome.enable = true;
     };
     environment.systemPackages = with pkgs; [
        gnomeExtensions.pop-shell
