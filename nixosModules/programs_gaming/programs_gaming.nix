@@ -2,25 +2,11 @@
 let
   # Central registry: name -> package/configuration
   registry = with pkgs; {
-    # Gaming Platforms
-    lutris             = lutris;
-    heroic             = heroic;
-    
-    # Gaming Tools
-    gamescope          = gamescope;
-    mangohud           = mangohud;
-    
-    # Steam Tools
+    # Steam Tools (requiring system configuration)
     adwsteamgtk        = adwsteamgtk;
     protontricks       = protontricks;
     
-    # Emulators
-    retroarch          = retroarch;
-    
-    # Minecraft
-    prismlauncher      = prismlauncher;
-    
-    # Custom packages
+    # Custom Packages (that might need system-wide access)
     cirno-downloader   = cirno-downloader;
   };
 

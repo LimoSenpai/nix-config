@@ -63,6 +63,7 @@
   # Window Managers
   hyprland.enable = true;
   niri.enable = true;
+  gnome.enable = true;
   #bspwm.enable = true;
 
   # Display Manager
@@ -119,16 +120,13 @@
   #                              GUI PROGRAMS                                  #
   #=============================================================================#
   nixos-apps-gui.enable = [
-    # Audio
+    # System audio (if needed system-wide)
     "pavucontrol"
     
-    # System Tools
+    # System Tools requiring system access
     #"nwg-displays" #broken in unstable branch 25.11
     #"way-displays"
     "ark"
-    
-    # Browsers
-    "zen-browser"
   ];
   nixos-apps-gui.extraPackages = [
     pkgs.wdisplays
@@ -138,64 +136,17 @@
   #                              CLI PROGRAMS                                  #
   #=============================================================================#
   nixos-apps-cli.enable = [
-    # Version Control & Network
-    "git"
-    "curl"
-    "wget"
-    "openssh"
+    # Network Tools requiring root
     "nmap"
     "tcpdump"
     "wireshark-cli"
     
-    # Text Editors
-    "vim"
-    "nano"
-    
-    # System Monitoring
-    "htop"
-    "btop"
-    "iotop"
-    "iftop"
-    "sysstat"
+    # System monitoring requiring system access
     "lm_sensors"
-    "nvtop"
-    
-    # File Management
-    "tree"
-    "eza"
-    "fzf"
-    "rsync"
-    
-    # Archive Tools
-    "unzip"
-    "zip"
-    "xz"
-    "p7zip"
-    "gnutar"
-    "zstd"
-    
-    # Development Tools
-    "gcc"
-    "gnumake"
-    
-    # System Tools
-    "killall"
-    "lsof"
-    "strace"
-    "file"
-    "which"
-    "evtest"
     "ethtool"
     "pciutils"
     "usbutils"
-    
-    # Text Processing
-    "gnused"
-    "gawk"
-    "libxml2"
-    
-    # Security
-    "gnupg"
+    "nvtop"
   ];
   nixos-apps-cli.extraPackages = [
     pkgs.webkitgtk_4_1
@@ -206,11 +157,9 @@
   #                            GAMING PROGRAMS                                 #
   #=============================================================================#
   nixos-apps-gaming.enable = [
-    # Steam Tools
+    # Steam Tools requiring system configuration
     "adwsteamgtk"
-    
-    # Game Downloaders
-    "cirno-downloader"
+    "protontricks"
   ];
   nixos-apps-gaming.extraPackages = [
   ];
@@ -223,11 +172,10 @@
   #                              WORK PROGRAMS                                 #
   #=============================================================================#
   nixos-apps-work.enable = [
-    # Communication
-    "thunderbird"
-    "libreoffice"
-    
-    # System Authentication
+    # System authentication tools
+    "krb5"
+    "keyutils"
+    "cifs-utils"
     "lxqt-sudo"
     "polkit-gnome"
   ];

@@ -1,27 +1,63 @@
-{ lib, pkgs, config, ... }:
+{ lib, pkgs, config, inputs, ... }:
 let
   # Central registry: name -> package
   registry = with pkgs; {
-    vesktop     = vesktop;
-    obsidian    = obsidian;
-    bitwarden   = bitwarden-desktop;
-    easyeffects = easyeffects;
-    loupe       = loupe;
-    nextcloud   = nextcloud-client;
-    vscode      = vscode-fhs;
-    yubikey     = yubioath-flutter;
-    goofcord    = goofcord;
-    pcmanfm     = pcmanfm;
-    discord     = discord;
-    teams       = teams-for-linux;
-    swaylock-fancy = swaylock-fancy;
+    # Browsers
+    firefox            = firefox;
+    zen-browser        = inputs.zen-browser.packages.${pkgs.system}.default;
+    chromium           = ungoogled-chromium;
+    
+    # Communication
+    vesktop            = vesktop;
+    discord            = discord;
+    thunderbird        = thunderbird;
+    element-desktop    = element-desktop;
+    teams              = teams-for-linux;
+    goofcord           = goofcord;
+    
+    # Office & Productivity
+    obsidian           = obsidian;
+    vscode             = vscode-fhs;
+    joplin             = joplin-desktop;
+    kate               = kdePackages.kate;
+    libreoffice        = libreoffice;
+    office             = libreoffice-qt-still;
+    
+    # Media
+    vlc                = vlc;
+    mpv                = mpv;
+    loupe              = loupe;
+    
+    # Graphics
+    gimp               = gimp;
+    inkscape           = inkscape;
+    
+    # Cloud Storage
+    nextcloud          = nextcloud-client;
+    
+    # Security
+    bitwarden          = bitwarden-desktop;
+    yubikey            = yubioath-flutter;
+    ausweisapp         = ausweisapp;
+    swaylock-fancy     = swaylock-fancy;
+    
+    # Audio
+    easyeffects        = easyeffects;
     swaynotificationcenter = swaynotificationcenter;
-    office      = libreoffice-qt-still;
-    joplin      = joplin-desktop;
-    kate        = kdePackages.kate;
-    satty       = satty;
-    chromium    = ungoogled-chromium;
-    ausweisapp  = ausweisapp;
+    pavucontrol        = pavucontrol;
+    pulseaudio         = pulseaudio;
+    
+    # File Management
+    pcmanfm            = pcmanfm;
+    ark                = file-roller; # Archive manager (GNOME-based instead of KDE)
+    
+    # Screenshot Tools
+    satty              = satty;
+    
+    # System Tools
+    nwg-displays       = nwg-displays;
+    way-displays       = way-displays;
+    hyprlock           = hyprlock;
   };
 
   validNames = builtins.attrNames registry;

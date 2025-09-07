@@ -58,18 +58,31 @@
   #                              GUI PROGRAMS                                  #
   #=============================================================================#
   home-apps-gui.enable = [
+    # Browsers
+    "zen-browser"
+    "firefox"
+    "chromium"
+    
     # Communication
     "vesktop"
     "discord"
+    "element-desktop"
     
     # Office & Productivity
     "obsidian"
     "vscode"
     "joplin"
     "kate"
+    "libreoffice"
     
     # Media
+    "vlc"
+    "mpv"
     "loupe"
+    
+    # Graphics
+    "gimp"
+    "inkscape"
     
     # Cloud Storage
     "nextcloud"
@@ -85,12 +98,10 @@
     
     # File Management
     "pcmanfm"
+    "ark"
 
     # Screenshot annotations
     "satty"
-    
-    # Browsers (commented)
-    "chromium"
   ];
   home-apps-gui.extraPackages = [ 
     pkgs.betterdiscordctl
@@ -101,8 +112,60 @@
   #                              CLI PROGRAMS                                  #
   #=============================================================================#
   home-apps-cli.enable = [
+    # Version Control & Network (user-level)
+    "git"
+    "curl"
+    "wget"
+    "openssh"
+    
+    # Text Editors
+    "vim"
+    "nano"
+    
+    # System Monitoring (user-level)
+    "htop"
+    "btop"
+    "iotop"
+    "iftop"
+    "sysstat"
+    
+    # File Management
+    "tree"
+    "eza"
+    "fzf"
+    "rsync"
+    
+    # Archive Tools
+    "unzip"
+    "zip"
+    "xz"
+    "p7zip"
+    "gnutar"
+    "zstd"
+    
+    # Development Tools
+    "gcc"
+    "gnumake"
+    
+    # System Tools
+    "killall"
+    "lsof"
+    "strace"
+    "file"
+    "which"
+    "evtest"
+    
+    # Text Processing
+    "gnused"
+    "gawk"
+    "libxml2"
+    
+    # Security
+    "gnupg"
+    
     # System Information
     "fastfetch"
+    "lshw"
     
     # File Management
     "yazi"
@@ -121,6 +184,12 @@
     
     # Performance Tools
     "hyperfine"
+    
+    # Search
+    "rg"
+    
+    # Document conversion
+    "pandoc"
   ];
   home-apps-cli.extraPackages = [ 
     pkgs.mdadm
@@ -130,15 +199,27 @@
   #                            GAMING PROGRAMS                                 #
   #=============================================================================#
   home-apps-gaming.enable = [
+    # Gaming Platforms
+    "lutris"
+    "heroic"
+    
+    # Gaming Tools
+    "gamescope"
+    "mangohud"
+    
+    # Emulators
+    "retroarch"
+    
+    # Minecraft
+    "prismlauncher"
+    
+    # Custom packages
+    "cirno-downloader"
+    
     # Discord Rich Presence
     "arrpc"
     
-    # Game Launchers
-    "lutris"
-    "prismlauncher"
-    
     # Game Tools
-    "gamescope"
     "protontricks"
     "protonplus"
     
@@ -147,6 +228,27 @@
     "winetricks"
   ];
   home-apps-gaming.extraPackages = [
+  ];
+
+  #=============================================================================#
+  #                              WORK PROGRAMS                                 #
+  #=============================================================================#
+  home-apps-work.enable = [
+    # Communication
+    "thunderbird"
+    "element"
+    
+    # Security
+    "keepass"
+    
+    # Office
+    "libreoffice"
+    "onenote"
+    
+    # Network/Authentication (user-level)
+    "geteduroam"
+  ];
+  home-apps-work.extraPackages = [
   ];
 
   # Stylix Configuration
