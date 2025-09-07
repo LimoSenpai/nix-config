@@ -13,7 +13,6 @@
     
     environment.systemPackages = with pkgs; [
        gnomeExtensions.pop-shell
-       gnomeExtensions.dash-to-panel
        gnomeExtensions.blur-my-shell
        gnomeExtensions.dash-to-panel
        gnome-tweaks
