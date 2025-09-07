@@ -19,6 +19,7 @@ let
     killall            = killall;
     eza                = eza; # A modern replacement for 'ls'
     fzf                = fzf; # A command-line fuzzy finder
+    lshw               = lshw; # List hardware information
     
     # Development Tools
     gcc                = gcc;
