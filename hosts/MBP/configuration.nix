@@ -238,7 +238,7 @@
     "gnupg"
     
     # Hardware specific (MacBook)
-    "tiny-dfr"
+    #"tiny-dfr"
   ];
   nixos-apps-cli.extraPackages = [
   ];

@@ -10,10 +10,16 @@
       #displayManager.gdm.enable = true;
       gnome.enable = true;
     };
+    
     environment.systemPackages = with pkgs; [
        gnomeExtensions.pop-shell
+       gnomeExtensions.dash-to-panel
+       gnomeExtensions.blur-my-shell
+       gnomeExtensions.dash-to-panel
        gnome-tweaks
     ];
+
+
     environment.gnome.excludePackages = (with pkgs; [
       atomix # puzzle game
       cheese # webcam tool
