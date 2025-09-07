@@ -43,7 +43,6 @@ let
     
     # Audio
     easyeffects        = easyeffects;
-    swaynotificationcenter = swaynotificationcenter;
     pavucontrol        = pavucontrol;
     pulseaudio         = pulseaudio;
     
@@ -58,6 +57,7 @@ let
     nwg-displays       = nwg-displays;
     way-displays       = way-displays;
     hyprlock           = hyprlock;
+    swaynotificationcenter = swaynotificationcenter;
   };
 
   validNames = builtins.attrNames registry;
