@@ -48,6 +48,7 @@ let
     
     # File Management
     pcmanfm            = pcmanfm;
+    nautilus           = nautilus;
     ark                = file-roller; # Archive manager (GNOME-based instead of KDE)
     
     # Screenshot Tools

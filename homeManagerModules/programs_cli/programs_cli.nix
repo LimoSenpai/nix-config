@@ -48,6 +48,7 @@ let
     evtest             = evtest;
     mdadm              = mdadm;
     tmux               = tmux;
+    wl-copy            = wl-clipboard; # Command line clipboard utilities for Wayland
     
     # Text Processing
     gnused             = gnused;

@@ -17,6 +17,25 @@
     TERMINAL = "alacritty";
   };
 
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      # Web Browser - Zen Browser
+      "text/html" = "zen.desktop";
+      "x-scheme-handler/http" = "zen.desktop";
+      "x-scheme-handler/https" = "zen.desktop";
+      "x-scheme-handler/about" = "zen.desktop";
+      "x-scheme-handler/unknown" = "zen.desktop";
+      
+      # File Manager - Nautilus
+      "inode/directory" = "org.gnome.Nautilus.desktop";
+      "application/x-gnome-saved-search" = "org.gnome.Nautilus.desktop";
+      
+      # Terminal - Alacritty
+      "application/x-terminal-emulator" = "Alacritty.desktop";
+    };
+  };
+
   #=============================================================================#
   #                      WINDOW MANAGER ENVIRONMENT                            #
   #=============================================================================#
@@ -92,7 +111,7 @@
     "swaynotificationcenter"
     
     # File Management
-    "pcmanfm"
+    "nautilus"
     "ark"
     
     # Screenshot annotations
@@ -160,6 +179,7 @@
     # System Information
     "fastfetch"
     "lshw"
+    "wl-copy"
     
     # File Management
     "yazi"

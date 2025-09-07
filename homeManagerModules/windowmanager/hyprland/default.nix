@@ -73,14 +73,14 @@
         "Super+Alt, M, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle" 
 
         # --- Utilities ---
-      "SUPER+SHIFT, S, exec, grim -g \"$(slurp)\" - | satty --filename - --output-filename ~/Pictures/Screenshot-$(date +'%Y%m%d-%H%M%S').png"
-      "SUPER+ALT, S, exec, grim - | satty --filename - --output-filename ~/Pictures/Screenshot-$(date +'%Y%m%d-%H%M%S').png"
-      "SUPER, Print, exec, grim - | satty --filename - --output-filename ~/Pictures/Screenshot-$(date +'%Y%m%d-%H%M%S').png --copy-command wl-copy"
+        "SUPER+SHIFT, S, exec, grim -g \"$(slurp)\" - | wl-copy" # Screenshot selected area to clipboard
+        "SUPER+ALT, S, exec, grim -g \"$(slurp)\" - | wl-copy" # Screenshot selected area to clipboard
+        "SUPER, Print, exec, grim - | wl-copy" # Screenshot full screen to clipboard
 
 
         ##! Apps
         "Super, T, exec, alacritty" # Terminal Emulator
-        "Super, E, exec, pcmanfm" # File manager
+        "Super, E, exec, nautilus" # File manager
         "Super, B, exec, zen" # Browser
         "Super, C, exec, code" # Code editor
         "Ctrl+Super, V, exec, pavucontrol" # Volume mixer

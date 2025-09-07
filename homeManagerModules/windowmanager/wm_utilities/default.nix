@@ -12,5 +12,6 @@
       ./wlogout.nix
       ./waypaper.nix
       ./swww.nix
+      ./gtk.nix
     ];
 }
