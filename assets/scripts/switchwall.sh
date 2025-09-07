@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# Wallpaper switching script that works with both GNOME and Wayland compositors
+# - GNOME: Uses gsettings to set wallpaper
+# - Wayland compositors (Hyprland, etc.): Uses swww to set wallpaper
 set -e
 
 NIXCONFIG="$HOME/.config/nix-config"
@@ -43,8 +46,26 @@ while true; do
 
   if [[ -f "$SELECTED_WALLPAPER" ]] && [[ "$SELECTED_WALLPAPER" != "$OLD_WALLPAPER" ]]; then
     echo "Selected wallpaper: $SELECTED_WALLPAPER"
-    # Try to set with swww, capture output
-    if command -v swww &>/dev/null; then
+    
+    # Detect desktop environment and set wallpaper accordingly
+    if [[ "$XDG_CURRENT_DESKTOP" == "GNOME" ]] || [[ "$DESKTOP_SESSION" == "gnome" ]]; then
+      # GNOME environment - use gsettings
+      if command -v gsettings &>/dev/null; then
+        if gsettings set org.gnome.desktop.background picture-uri "file://$SELECTED_WALLPAPER" && \
+           gsettings set org.gnome.desktop.background picture-uri-dark "file://$SELECTED_WALLPAPER"; then
+          echo "GNOME wallpaper set successfully."
+          pkill waypaper
+          break
+        else
+          echo "Failed to set GNOME wallpaper. Try again."
+        fi
+      else
+        echo "gsettings not found! Cannot set GNOME wallpaper."
+        pkill waypaper
+        exit 1
+      fi
+    elif command -v swww &>/dev/null; then
+      # Wayland compositor (Hyprland, etc.) - use swww
       if swww img "$SELECTED_WALLPAPER"; then
         echo "swww successfully set the wallpaper."
         pkill waypaper
@@ -53,7 +74,9 @@ while true; do
         echo "swww failed to set the wallpaper. Try again."
       fi
     else
-      echo "swww not found! Please install swww."
+      echo "No supported wallpaper setter found!"
+      echo "For GNOME: gsettings is required"
+      echo "For Wayland compositors: swww is required"
       pkill waypaper
       exit 1
     fi
