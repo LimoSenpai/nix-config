@@ -158,15 +158,10 @@
   #                              GUI PROGRAMS                                  #
   #=============================================================================#
   nixos-apps-gui.enable = [
-    # Browsers
-    "zen-browser"
-
-    # SYSTEM TOOLS
+    # System audio (if needed system-wide)
     "pavucontrol"
     
-    # System Tools
-
-    # AMD
+    # AMD Tools requiring system access
     "mesa-demos"
     "radeon-profile"
   ];
@@ -178,67 +173,19 @@
   #                              CLI PROGRAMS                                  #
   #=============================================================================#
   nixos-apps-cli.enable = [
-    # Version Control & Network
-    "git"
-    "curl"
-    "wget"
-    "openssh"
+    # Network Tools requiring root
     "nmap"
     "tcpdump"
     "wireshark-cli"
     
-    # Text Editors
-    "vim"
-    "nano"
-    
-    # System Monitoring
-    "htop"
-    "btop"
-    "iotop"
-    "iftop"
-    "sysstat"
+    # System monitoring requiring system access
     "lm_sensors"
-    "nvtop"
-    
-    # File Management
-    "tree"
-    "eza"
-    "fzf"
-    "rsync"
-    
-    # Archive Tools
-    "unzip"
-    "zip"
-    "xz"
-    "p7zip"
-    "gnutar"
-    "zstd"
-    
-    # Development Tools
-    "gcc"
-    "gnumake"
-    
-    # System Tools
-    "killall"
-    "lsof"
-    "strace"
-    "file"
-    "which"
-    "evtest"
     "ethtool"
     "pciutils"
     "usbutils"
     
-    # Text Processing
-    "gnused"
-    "gawk"
-    "libxml2"
-    
-    # Security
-    "gnupg"
-    
     # Hardware specific (MacBook)
-    #"tiny-dfr"
+    "tiny-dfr"
   ];
   nixos-apps-cli.extraPackages = [
   ];
@@ -247,8 +194,9 @@
   #                            GAMING PROGRAMS                                 #
   #=============================================================================#
   nixos-apps-gaming.enable = [
-    # Steam Tools
+    # Steam Tools requiring system configuration
     "adwsteamgtk"
+    "protontricks"
   ];
   nixos-apps-gaming.extraPackages = [
   ];
@@ -261,20 +209,10 @@
   #                              WORK PROGRAMS                                 #
   #=============================================================================#
   nixos-apps-work.enable = [
-    # Communication
-    "thunderbird"
-    "element"
-    
-    # Office
-    "libreoffice"
-    "onenote"
-    
-    # Security & Authentication
-    "keepass"
+    # System authentication tools
     "krb5"
     "keyutils"
     "cifs-utils"
-    "geteduroam"
     "lxqt-sudo"
     "polkit-gnome"
   ];

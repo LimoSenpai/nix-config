@@ -2,28 +2,14 @@
 let
   # Central registry: name -> package/configuration
   registry = with pkgs; {
-    # Communication
-    thunderbird        = thunderbird-bin;
-    element            = element-desktop;
-    
-    # Security
-    keepass            = keepassxc;
-    
-    # Office
-    libreoffice        = libreoffice-qt-still;
-    onenote            = p3x-onenote;
-    
-    # Network/Authentication
+    # Network/Authentication (system-level)
     krb5               = krb5;
     keyutils           = keyutils;
     cifs-utils         = cifs-utils;
-    geteduroam         = geteduroam;
     
-    # Root Authentication Tools
+    # Root Authentication Tools (system-wide needed)
     lxqt-sudo          = lxqt.lxqt-sudo;
     polkit-gnome       = polkit_gnome;
-
-
   };
 
   validNames = builtins.attrNames registry;

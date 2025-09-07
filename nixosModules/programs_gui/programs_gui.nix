@@ -2,43 +2,20 @@
 let
   # Central registry: name -> package/configuration
   registry = with pkgs; {
-    # Browsers
-    firefox            = firefox;
-    chromium           = chromium;
-    zen-browser        = inputs.zen-browser.packages.${pkgs.system}.default;
-    
-    # Media
-    vlc                = vlc;
-    mpv                = mpv;
-    
-    # Graphics
-    gimp               = gimp;
-    inkscape           = inkscape;
-    
-    # Office
-    libreoffice        = libreoffice;
-    
-    # Communication
-    discord            = discord;
-    element-desktop    = element-desktop;
-    thunderbird        = thunderbird;
-    
-    # Development
-    vscode             = vscode;
-    
-    # Audio
-    pavucontrol        = pavucontrol;
-    pulseaudio         = pulseaudio;
-    
-    # System Tools
+    # System Tools (requiring system-level access)
     nwg-displays       = nwg-displays;
     way-displays       = way-displays;
-    hyprlock           = hyprlock;
+    
+    # File Management (system-level)
     ark                = file-roller; # Archive manager (GNOME-based instead of KDE)
     
-    # AMD Tools
+    # AMD Tools (requiring system access)
     mesa-demos         = mesa-demos;
     radeon-profile     = radeon-profile;
+    
+    # System Audio (if needed system-wide)
+    pavucontrol        = pavucontrol;
+    pulseaudio         = pulseaudio;
   };
 
   validNames = builtins.attrNames registry;
