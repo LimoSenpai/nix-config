@@ -189,6 +189,7 @@
         "zen"
         "arrpc"
         "easyeffects [workspace 9 silent]"
+        "syncthing --no-browser"
         
       ];
 

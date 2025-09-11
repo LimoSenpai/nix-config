@@ -78,7 +78,7 @@
   home-apps-gui.enable = [
     # Browsers
     "zen-browser"
-    "firefox" 
+    "librewolf" 
     "chromium"
     
     # Communication
@@ -116,6 +116,7 @@
     # File Management
     "nautilus"
     "ark"
+    "syncthing"
 
     # Screenshot annotations
     "satty"
