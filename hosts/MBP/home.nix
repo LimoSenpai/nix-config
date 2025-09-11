@@ -75,8 +75,8 @@
   home-apps-gui.enable = [
     # Browsers
     "zen-browser"
-    "firefox"
-    "chromium"
+    "librewolf"
+    #"chromium"
     
     # Communication
     "discord"
@@ -218,20 +218,20 @@
   home-apps-gaming.enable = [
     # Gaming Platforms
     "lutris"
-    "heroic"
+    #"heroic"
     
     # Gaming Tools
-    "gamescope"
-    "mangohud"
+    #"gamescope"
+    #"mangohud"
     
     # Emulators
-    "retroarch"
+    #"retroarch"
     
     # Minecraft
     "prismlauncher"
     
     # Custom packages
-    "cirno-downloader"
+    #"cirno-downloader"
     
     # Game Tools
     "protontricks"
@@ -256,7 +256,7 @@
     "element"
     
     # Security
-    "keepass"
+    #"keepass"
     
     # Office
     "libreoffice"
@@ -264,6 +264,8 @@
     
     # Network/Authentication (user-level)
     "geteduroam"
+
+    "arduino-ide"
   ];
   home-apps-work.extraPackages = [
   ];

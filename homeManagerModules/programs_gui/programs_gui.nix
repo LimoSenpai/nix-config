@@ -3,7 +3,7 @@ let
   # Central registry: name -> package
   registry = with pkgs; {
     # Browsers
-    firefox            = firefox;
+    librewolf          = librewolf-bin;
     zen-browser        = inputs.zen-browser.packages.${pkgs.system}.default;
     chromium           = ungoogled-chromium;
     
