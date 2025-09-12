@@ -77,7 +77,7 @@
         */
       #};
       interfaces.wg1 = {
-        configFile = "/etc/wireguard/wg_k8s.conf"; 
+        configFile = "/etc/wireguard/wg1.conf"; 
       };
     };
   };
