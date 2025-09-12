@@ -6,7 +6,6 @@ let
     librewolf          = librewolf-bin;
     zen-browser        = inputs.zen-browser.packages.${pkgs.system}.default;
     chromium           = ungoogled-chromium;
-    librewolf          = librewolf-bin;
 
     # Communication
     vesktop            = vesktop;
