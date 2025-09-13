@@ -85,6 +85,13 @@
   dunst.enable = true;
   system-programs.enable = true;
 
+  security.wrappers.sunshine = {
+    source = "${pkgs.sunshine}/bin/sunshine";
+    owner = "root";
+    group = "root";
+    capabilities = "cap_sys_admin+p";
+  };
+
   #=============================================================================#
   #                          SYSTEM ESSENTIAL PACKAGES                         #
   #=============================================================================#
