@@ -31,7 +31,8 @@ let
     # Graphics
     gimp               = gimp;
     inkscape           = inkscape;
-    
+    lact               = lact;
+
     # Cloud Storage
     nextcloud          = nextcloud-client;
     

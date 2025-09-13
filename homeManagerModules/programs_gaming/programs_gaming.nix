@@ -27,7 +27,8 @@ let
     protontricks       = protontricks;
     protonplus         = protonplus;
     adwsteamgtk        = adwsteamgtk;
-    
+    moonlight-qt       = moonlight-qt;
+
     # Wine
     wine               = wine;
     winetricks         = winetricks;

@@ -238,6 +238,7 @@
     # Game Tools
     "protontricks"
     "protonplus"
+    "moonlight-qt"
     
     # Wine
     "wine"
