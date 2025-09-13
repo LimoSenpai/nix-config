@@ -28,6 +28,7 @@ let
     protonplus         = protonplus;
     adwsteamgtk        = adwsteamgtk;
     moonlight-qt       = moonlight-qt;
+    sunshine           = sunshine;
 
     # Wine
     wine               = wine;
