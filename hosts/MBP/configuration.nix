@@ -32,8 +32,8 @@
     enable = true;
     wifi.backend = "wpa_supplicant";
   };
-  networking.wg-quick.interfaces.wg0 = {
-    configFile = "/etc/wireguard/wg_config.conf"; 
+  networking.wg-quick.interfaces.wg1 = {
+    configFile = "/etc/wireguard/wg1.conf"; 
   };
   # networking.wireless.iwd.enable = true;
 
@@ -99,7 +99,7 @@
 
   # Window Managers
   hyprland.enable = true;
-  gnome.enable = true;
+  #gnome.enable = true;
   #sway.enable = true; # Enable Sway, a Wayland compositor
   niri.enable = true; # Enable Niri, a Wayland compositor
   #bspwm.enable = true; # Enable BSPWM, a tiling window manager
@@ -185,7 +185,7 @@
     "usbutils"
     
     # Hardware specific (MacBook)
-    "tiny-dfr"
+    #"tiny-dfr"
   ];
   nixos-apps-cli.extraPackages = [
   ];

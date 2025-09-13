@@ -15,6 +15,8 @@ let
     
     # Network/Authentication (user-level)
     geteduroam         = geteduroam;
+
+    arduino-ide        = arduino-ide;
   };
 
   validNames = builtins.attrNames registry;

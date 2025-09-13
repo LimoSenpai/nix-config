@@ -5,6 +5,7 @@ let
     # System Tools (requiring system-level access)
     nwg-displays       = nwg-displays;
     way-displays       = way-displays;
+    hyprlock           = hyprlock; # Screen locker for Hyprland
     
     # File Management (system-level)
     ark                = file-roller; # Archive manager (GNOME-based instead of KDE)

@@ -36,10 +36,10 @@
           snap.enabled = true;
       };
 
-      #gestures = {
-      #  workspace_swipe = true;
-      #  workspace_swipe_cancel_ratio = 0.15;
-      #};
+      gestures = {
+        workspace_swipe = true;
+        workspace_swipe_cancel_ratio = 0.15;
+      };
 
       plugin = {
         touch_gestures = {
@@ -189,6 +189,7 @@
         "zen"
         "arrpc"
         "easyeffects [workspace 9 silent]"
+        "syncthing --no-browser"
         
       ];
 

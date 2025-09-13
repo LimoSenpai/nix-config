@@ -11,7 +11,7 @@
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usbhid" "uas" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ]; #"kvm-intel" "apple-gmux" "applesmc" "apple-bce"
-  boot.kernelParams = [ "i915.enable_guc=2" ]; #"intel_iommu=on" "iommu=pt" "pcie_ports=compat" 
+  boot.kernelParams = [ "i915.enable_guc=2" "mem_sleep_default=s2idle"]; #"intel_iommu=on" "iommu=pt" "pcie_ports=compat" 
   boot.extraModulePackages = [ ];
   boot.loader = {
     efi.efiSysMountPoint = "/boot"; # make sure to change this to your EFI partition!

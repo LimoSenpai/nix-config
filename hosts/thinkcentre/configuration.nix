@@ -64,16 +64,21 @@
     };
     */
 
-    wg-quick.interfaces.wg0 = {
-      configFile = "/etc/wireguard/wg_config.conf"; 
-      /*
-      preUp = ''
-      #  ${pkgs.iproute2}/bin/ip route replace 89.246.51.89/32 via 10.193.63.250 dev wlp2s0
-      #'';
-      #postDown = ''
-      #  ${pkgs.iproute2}/bin/ip route del 89.246.51.89/32 dev wlp2s0 || true
-      '';
-      */
+    wg-quick ={
+      #interfaces.wg0 = {
+      #  configFile = "/etc/wireguard/wg_lan.conf"; 
+        /*
+        preUp = ''
+        #  ${pkgs.iproute2}/bin/ip route replace 89.246.51.89/32 via 10.193.63.250 dev wlp2s0
+        #'';
+        #postDown = ''
+        #  ${pkgs.iproute2}/bin/ip route del 89.246.51.89/32 dev wlp2s0 || true
+        '';
+        */
+      #};
+      interfaces.wg1 = {
+        configFile = "/etc/wireguard/wg1.conf"; 
+      };
     };
   };
 
@@ -210,6 +215,7 @@
     "ark"
   ];
   nixos-apps-gui.extraPackages = [
+    pkgs.wdisplays
   ];
 
   #=============================================================================#
@@ -272,6 +278,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Did you read the comment?
 
 }
