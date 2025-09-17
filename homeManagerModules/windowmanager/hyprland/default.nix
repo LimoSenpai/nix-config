@@ -9,7 +9,7 @@
       enable = true;
 
       plugins = [
-        pkgs.hyprlandPlugins.hyprgrass
+        #pkgs.hyprlandPlugins.hyprgrass
       ];
 
       settings = {
@@ -36,10 +36,10 @@
           snap.enabled = true;
       };
 
-      gestures = {
-        workspace_swipe = true;
-        workspace_swipe_cancel_ratio = 0.15;
-      };
+      #gestures = {
+      #  workspace_swipe = true;
+      #  workspace_swipe_cancel_ratio = 0.15;
+      #};
 
       plugin = {
         touch_gestures = {
