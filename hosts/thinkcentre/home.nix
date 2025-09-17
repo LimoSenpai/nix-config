@@ -268,6 +268,8 @@
     
     # Network/Authentication (user-level)
     "geteduroam"
+
+    "dbeaver-bin"
   ];
   home-apps-work.extraPackages = [
   ];

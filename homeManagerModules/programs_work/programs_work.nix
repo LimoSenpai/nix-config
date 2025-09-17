@@ -17,6 +17,8 @@ let
     geteduroam         = geteduroam;
 
     arduino-ide        = arduino-ide;
+
+    dbeaver-bin        = dbeaver-bin;
   };
 
   validNames = builtins.attrNames registry;
