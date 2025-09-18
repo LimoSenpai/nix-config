@@ -7,7 +7,6 @@
 
   # The username and home directory for the user
   home.username = "tinus";
-  home.homeDirectory = "/home/tinus";
   
   # default Programs
   home.sessionVariables = {

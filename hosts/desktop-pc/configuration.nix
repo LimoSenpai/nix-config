@@ -24,7 +24,9 @@
   users.groups = {
     tinus = {};
     plugdev = {};
-    media = {};
+    media = {
+      gid = 1500;
+    };
   };
 
   users.users.tinus = {

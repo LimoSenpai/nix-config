@@ -14,13 +14,6 @@
   #for yubikey
   services.pcscd.enable = true;
 
-  services.udev.extraRules = ''
-    # SteelSeries Aerox 9 Wireless — Allow USB and hidraw access
-    SUBSYSTEM=="usb", ATTRS{idVendor}=="1038", MODE="0666"
-    KERNEL=="hidraw*", ATTRS{idVendor}=="1038", MODE="0666"
-    SUBSYSTEM=="drm", DRIVERS=="amdgpu", ATTR{device/power_dpm_force_performance_level}="low"
-  '';
-
   services.power-profiles-daemon.enable = true;
   services.udisks2.enable = true;
   services.gvfs.enable = true;

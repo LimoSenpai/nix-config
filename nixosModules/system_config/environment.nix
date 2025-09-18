@@ -35,4 +35,17 @@
       '';
     };
   };
+
+  environment.etc."idmapd.conf".text = lib.mkForce ''
+    [General]
+    Domain = lan
+    Pipefs-Directory=/var/lib/nfs/rpc_pipefs
+
+    [Mapping]
+    Nobody-Group=nogroup
+    Nobody-User=nobody
+
+    [Translation]
+    Method=nsswitch
+  '';
 }

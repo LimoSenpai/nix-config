@@ -27,39 +27,39 @@
 
   fileSystems."/tank" = {
     device = "192.168.1.17:/tank";
-    fsType = "nfs";
+    fsType = "nfs4";
     options = [
-      "nfsvers=4.2"
+      "rw"
       "hard"
-      "timeo=600"
-      "retrans=3"
-      "noatime"
+      "intr"
       "_netdev"
-      "x-systemd.automount"              # lazy mount
-      "noauto"                           # required for automount
-      "x-systemd.idle-timeout=600"       # unmount after 10 min idle
-      "x-systemd.requires=network-online.target"
-      "x-systemd.after=network-online.target"
+      "x-systemd.automount"
+      "x-systemd.idle-timeout=600"
+      "timeo=900"
+      "retrans=5"
+      "sec=sys"
     ];
   };
 
+
   fileSystems."/backup" = {
     device = "192.168.1.17:/backup";
-    fsType = "nfs";
+    fsType = "nfs4";
     options = [
-      "nfsvers=4.2"
+      "rw"
       "hard"
-      "timeo=600"
-      "retrans=3"
-      "noatime"
+      "intr"
       "_netdev"
       "x-systemd.automount"
-      "noauto"
       "x-systemd.idle-timeout=600"
-      "x-systemd.requires=network-online.target"
-      "x-systemd.after=network-online.target"
+      "timeo=900"
+      "retrans=5"
+      "sec=sys"
     ];
   };
+
+
+
 
 #    fileSystems."/mnt/jbod" =
 #    { device = "/dev/md127";
