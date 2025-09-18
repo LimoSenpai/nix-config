@@ -8,15 +8,9 @@
     wayland.windowManager.hyprland = {
       enable = true;
 
-<<<<<<< HEAD
       #plugins = [
       #  pkgs.hyprlandPlugins.hyprgrass
       #];
-=======
-      plugins = [
-        #pkgs.hyprlandPlugins.hyprgrass
-      ];
->>>>>>> 636b36caca10b388efac30665adbecf1c4b52b29
 
       settings = {
 

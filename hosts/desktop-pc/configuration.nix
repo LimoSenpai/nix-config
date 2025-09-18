@@ -21,7 +21,11 @@
   networking.hostName = "nixos-desktop"; # Define your hostname.
 
   # User Configuration
-  users.groups.tinus = {};
+  users.groups = {
+    tinus = {};
+    plugdev = {};
+    media = {};
+  };
 
   users.users.tinus = {
     isNormalUser = true;

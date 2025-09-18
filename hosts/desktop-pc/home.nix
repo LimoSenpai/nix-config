@@ -46,7 +46,7 @@
   # Window Manager Utilities
   dunst.enable = true;
   wleave.enable = true;
-  rofi-wayland.enable = true;
+  rofi.enable = true;
   wofi.enable = true;
   waybar.enable = true;
 
