@@ -130,6 +130,7 @@
   ];
   nixos-apps-gui.extraPackages = [
     pkgs.wdisplays
+    pkgs.firefox
   ];
 
   #=============================================================================#

@@ -210,6 +210,7 @@
     pkgs.betterdiscordctl
     pkgs.wireguard-tools
     pkgs.traceroute
+    pkgs.firefox
   ];
 
   #=============================================================================#
