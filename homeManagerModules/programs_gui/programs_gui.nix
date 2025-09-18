@@ -6,7 +6,7 @@ let
     librewolf          = librewolf-bin;
     zen-browser        = inputs.zen-browser.packages.${pkgs.system}.default;
     chromium           = ungoogled-chromium;
-    
+
     # Communication
     vesktop            = vesktop;
     discord            = discord;
@@ -31,7 +31,8 @@ let
     # Graphics
     gimp               = gimp;
     inkscape           = inkscape;
-    
+    lact               = lact;
+
     # Cloud Storage
     nextcloud          = nextcloud-client;
     
@@ -50,6 +51,7 @@ let
     pcmanfm            = pcmanfm;
     nautilus           = nautilus;
     ark                = file-roller; # Archive manager (GNOME-based instead of KDE)
+    syncthing          = syncthing;
     
     # Screenshot Tools
     satty              = satty;

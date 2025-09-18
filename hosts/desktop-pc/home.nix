@@ -102,6 +102,7 @@
     # Graphics
     "gimp"
     "inkscape"
+    "lact"
     
     # Cloud Storage
     "nextcloud"
@@ -125,6 +126,7 @@
   home-apps-gui.extraPackages = [ 
     pkgs.betterdiscordctl
     pkgs.networkmanagerapplet
+    pkgs.kdePackages.kdenlive
   ];
 
   #=============================================================================#
@@ -242,6 +244,7 @@
     # Game Tools
     "protontricks"
     "protonplus"
+    "moonlight-qt"
     
     # Wine
     "wine"

@@ -46,7 +46,7 @@
   # Window Manager Utilities
   dunst.enable = true;
   waybar.enable = true;
-  rofi-wayland.enable = true;
+  rofi.enable = true;
   wofi.enable = true;
   wleave.enable = true;
   hyprlock.enable = true;
@@ -78,7 +78,7 @@
   home-apps-gui.enable = [
     # Browsers
     "zen-browser"
-    "firefox" 
+    "librewolf" 
     "chromium"
     
     # Communication
@@ -116,11 +116,13 @@
     # File Management
     "nautilus"
     "ark"
+    "syncthing"
 
     # Screenshot annotations
     "satty"
   ];
   home-apps-gui.extraPackages = [
+    pkgs.fluffychat
   ];
 
   #=============================================================================#
@@ -238,6 +240,7 @@
     # Game Tools
     "protontricks"
     "protonplus"
+    "moonlight-qt"
     
     # Wine
     "wine"
@@ -265,6 +268,8 @@
     
     # Network/Authentication (user-level)
     "geteduroam"
+
+    "dbeaver-bin"
   ];
   home-apps-work.extraPackages = [
   ];
