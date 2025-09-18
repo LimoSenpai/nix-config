@@ -79,7 +79,7 @@
   home-apps-gui.enable = [
     # Browsers
     "zen-browser"
-    "firefox"
+    "librewolf"
     "chromium"
     
     # Communication

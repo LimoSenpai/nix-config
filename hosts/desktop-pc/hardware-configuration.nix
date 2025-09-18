@@ -12,6 +12,7 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
+  boot.supportedFilesystems = [ "nfs" ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/2ca51280-edb0-42af-949a-656ddc527c41";
@@ -23,6 +24,42 @@
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
+
+  fileSystems."/tank" = {
+    device = "192.168.1.17:/tank";
+    fsType = "nfs";
+    options = [
+      "nfsvers=4.2"
+      "hard"
+      "timeo=600"
+      "retrans=3"
+      "noatime"
+      "_netdev"
+      "x-systemd.automount"              # lazy mount
+      "noauto"                           # required for automount
+      "x-systemd.idle-timeout=600"       # unmount after 10 min idle
+      "x-systemd.requires=network-online.target"
+      "x-systemd.after=network-online.target"
+    ];
+  };
+
+  fileSystems."/backup" = {
+    device = "192.168.1.17:/backup";
+    fsType = "nfs";
+    options = [
+      "nfsvers=4.2"
+      "hard"
+      "timeo=600"
+      "retrans=3"
+      "noatime"
+      "_netdev"
+      "x-systemd.automount"
+      "noauto"
+      "x-systemd.idle-timeout=600"
+      "x-systemd.requires=network-online.target"
+      "x-systemd.after=network-online.target"
+    ];
+  };
 
 #    fileSystems."/mnt/jbod" =
 #    { device = "/dev/md127";
