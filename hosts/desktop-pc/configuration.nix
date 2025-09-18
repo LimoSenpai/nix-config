@@ -27,7 +27,7 @@
     isNormalUser = true;
     description = "Tinus Braun";
     group = "tinus";
-    extraGroups = [ "networkmanager" "wheel" "plugdev"];
+    extraGroups = [ "networkmanager" "wheel" "plugdev" "media" ];
     shell = pkgs.zsh;
   };
 
@@ -130,6 +130,7 @@
   ];
   nixos-apps-gui.extraPackages = [
     pkgs.wdisplays
+    pkgs.firefox
   ];
 
   #=============================================================================#

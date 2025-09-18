@@ -21,7 +21,7 @@
     isNormalUser = true;
     description = "Tinus Braun";
     group = "tinus";
-    extraGroups = [ "networkmanager" "wheel" "plugdev" "ad-cifs" ];
+    extraGroups = [ "networkmanager" "wheel" "plugdev" "ad-cifs" "media" ];
     shell = pkgs.zsh;
   };
 
@@ -29,7 +29,7 @@
   networking = {
     networkmanager.enable = true;
     hostName = "nixos-thinkcentre";
-
+    nameservers = [ "192.168.1.1" "137.248.1.8" ];
     # Default gateway via eno1
     /*
     defaultGateway = {
@@ -79,6 +79,9 @@
       interfaces.wg1 = {
         configFile = "/etc/wireguard/wg1.conf"; 
       };
+      #interfaces.wg2 = {
+      #  configFile = "/etc/wireguard/wg2.conf"; 
+      #};
     };
   };
 

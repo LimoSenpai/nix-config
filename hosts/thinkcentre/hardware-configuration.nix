@@ -14,6 +14,7 @@
     "iwlwifi"
    ];
   boot.extraModulePackages = [ ];
+  boot.supportedFilesystems = [ "nfs" ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/ec41e0b3-80e4-4460-b91e-182140b0f26b";
@@ -29,6 +30,42 @@
   swapDevices =
     [ { device = "/dev/disk/by-uuid/0871d390-0aa8-43b7-a813-e3cbd225fd67"; }
     ];
+
+    fileSystems."/tank" = {
+    device = "192.168.1.17:/tank";
+    fsType = "nfs";
+    options = [
+      "nfsvers=4.2"
+      "hard"
+      "timeo=600"
+      "retrans=3"
+      "noatime"
+      "_netdev"
+      "x-systemd.automount"              # lazy mount
+      "noauto"                           # required for automount
+      "x-systemd.idle-timeout=600"       # unmount after 10 min idle
+      "x-systemd.requires=network-online.target"
+      "x-systemd.after=network-online.target"
+    ];
+  };
+
+  fileSystems."/backup" = {
+    device = "192.168.1.17:/backup";
+    fsType = "nfs";
+    options = [
+      "nfsvers=4.2"
+      "hard"
+      "timeo=600"
+      "retrans=3"
+      "noatime"
+      "_netdev"
+      "x-systemd.automount"
+      "noauto"
+      "x-systemd.idle-timeout=600"
+      "x-systemd.requires=network-online.target"
+      "x-systemd.after=network-online.target"
+    ];
+  };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

@@ -5,10 +5,10 @@ let
 in {
 
   options = {
-    rofi-wayland.enable = lib.mkEnableOption "Rofi - Application Launcher";
+    rofi.enable = lib.mkEnableOption "Rofi - Application Launcher";
   };
 
-  config = lib.mkIf config.rofi-wayland.enable {
+  config = lib.mkIf config.rofi.enable {
     #home.packages =  with pkgs; [
     #  rofi-wayland
     #];

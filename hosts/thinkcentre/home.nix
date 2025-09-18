@@ -46,7 +46,7 @@
   # Window Manager Utilities
   dunst.enable = true;
   waybar.enable = true;
-  rofi-wayland.enable = true;
+  rofi.enable = true;
   wofi.enable = true;
   wleave.enable = true;
   hyprlock.enable = true;
@@ -268,6 +268,8 @@
     
     # Network/Authentication (user-level)
     "geteduroam"
+
+    "dbeaver-bin"
   ];
   home-apps-work.extraPackages = [
   ];
