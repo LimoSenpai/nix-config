@@ -40,7 +40,7 @@
   in
     {
 
-    darwinConfigurations."your-hostname" = darwin.lib.darwinSystem {  # Replace your-hostname with your Mac's hostname
+    darwinConfigurations."mbp-darwin" = darwin.lib.darwinSystem {  # Replace your-hostname with your Mac's hostname
       inherit system;
       specialArgs = { inherit inputs pkgs; };
       modules = [

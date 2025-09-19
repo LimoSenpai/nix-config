@@ -5,7 +5,6 @@
   # Auto upgrade nix package  # This value determines the nix-darwin release with which your system is to be compatible
   # Do not change this value after initial setup.
   system.stateVersion = 6;
-  services.nix-daemon.enable = true;
 
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true;
@@ -14,20 +13,8 @@
   networking.hostName = "mbp-darwin";  
 
   # Console and Localization
-  console.keyMap = "de-latin1-nodeadkeys";
   time.timeZone = lib.mkDefault "Europe/Berlin";
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "de_DE.UTF-8";
-    LC_IDENTIFICATION = "de_DE.UTF-8";
-    LC_MEASUREMENT = "de_DE.UTF-8";
-    LC_MONETARY = "de_DE.UTF-8";
-    LC_NAME = "de_DE.UTF-8";
-    LC_NUMERIC = "de_DE.UTF-8";
-    LC_PAPER = "de_DE.UTF-8";
-    LC_TELEPHONE = "de_DE.UTF-8";
-    LC_TIME = "de_DE.UTF-8";
-  };
+
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -37,6 +24,7 @@
 
   # System settings
   system = {
+    primaryUser = "tinus";
     # Configure keyboard
     keyboard = {
       enableKeyMapping = true;
@@ -103,5 +91,69 @@
     m-cli  # useful macOS CLI commands
     mas    # Mac App Store CLI
   ];
+
+  # Activation script: make .app bundles visible to Spotlight by
+  # symlinking them into /Applications and $HOME/Applications and running mdimport.
+  system.activationScripts.spotlight-apps = {
+    text = ''
+      set -euo pipefail
+
+  # Directories to scan for .app bundles. Avoid using a bash array
+  # with shell-style expansions because Nix will try to interpret
+  # them inside the multiline string. Use an explicit for loop below.
+
+      target_system_apps="/Applications"
+      target_user_apps="$HOME/Applications"
+
+      mkdir -p "$target_system_apps" "$target_user_apps"
+
+      link_app() {
+        src="$1"
+        name="$2"
+        for tgt in "$target_system_apps" "$target_user_apps"; do
+          dest="$tgt/$name"
+          if [ -L "$dest" ] && [ "$(readlink "$dest")" = "$src" ]; then
+            continue
+          fi
+          if [ -e "$dest" ] && [ ! -L "$dest" ]; then
+            continue
+          fi
+          ln -sf "$src" "$dest"
+          # Ask Spotlight to import the bundle so it becomes searchable
+          if command -v mdimport >/dev/null 2>&1; then
+            /usr/bin/mdimport -r "$src" || true
+            /usr/bin/mdimport "$dest" || true
+          fi
+        done
+      }
+
+      # Cleanup dead symlinks
+      find "$target_system_apps" "$target_user_apps" -maxdepth 1 -type l -print0 2>/dev/null | xargs -0 -r -n1 sh -c 'p="$0"; [ -e "$p" ] || rm -f "$p"' realpath
+
+      for d in \
+        "$HOME/.nix-profile/Applications" \
+        "/run/current-system/sw/Applications" \
+        "/nix/var/nix/profiles/per-user/$USER/profile/Applications" \
+        "/nix/var/nix/profiles/default/share/applications" \
+        "/nix/store"; do
+        if [ "$d" = "/nix/store" ]; then
+          find "$d" -maxdepth 2 -type d -name "*.app" -print0 2>/dev/null | while IFS= read -r -d "" app; do
+            name="$(basename "$app")"
+            link_app "$app" "$name"
+          done
+        else
+          if [ -d "$d" ]; then
+            find "$d" -maxdepth 3 -type d -name "*.app" -print0 2>/dev/null | while IFS= read -r -d "" app; do
+              name="$(basename "$app")"
+              link_app "$app" "$name"
+            done
+          fi
+        fi
+      done
+
+      /usr/bin/touch "$target_system_apps"
+
+    '';
+  };
 
 }

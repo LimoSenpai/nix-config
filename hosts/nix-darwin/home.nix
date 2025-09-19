@@ -13,24 +13,6 @@
     PATH = "$HOME/bin:$PATH";
   };
 
-  xdg.mimeApps = {
-    enable = true;
-    defaultApplications = {
-      # Web Browser - Zen Browser
-      "text/html" = "zen.desktop";
-      "x-scheme-handler/http" = "zen.desktop";
-      "x-scheme-handler/https" = "zen.desktop";
-      "x-scheme-handler/about" = "zen.desktop";
-      "x-scheme-handler/unknown" = "zen.desktop";
-      
-      # File Manager - Nautilus
-      "inode/directory" = "org.gnome.Nautilus.desktop";
-      "application/x-gnome-saved-search" = "org.gnome.Nautilus.desktop";
-      
-      # Terminal - Alacritty
-      "application/x-terminal-emulator" = "Alacritty.desktop";
-    };
-  };
 
   #=============================================================================#
   #                      MACOS SPECIFIC SETTINGS                              #
@@ -45,6 +27,7 @@
   #=============================================================================#
   #                           PROGRAM CONFIGURATION                           #
   #=============================================================================#
+
   
   # Terminal
   programs.alacritty = {
@@ -93,10 +76,34 @@
     ];
   };
 
+  # Git configuration
+  programs.git = {
+    enable = true;
+    userName = "Tinus Braun";
+    userEmail = "your.email@example.com";  # Replace with your email
+  };
+
+  # Shell configuration
+  programs.zsh = {
+    enable = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" "docker" "macos" ];
+      theme = "robbyrussell";
+    };
+  };
+
+
+
   #=============================================================================#
   #                              USER PACKAGES                                 #
   #=============================================================================#
   home.packages = with pkgs; [
+    # Tiling manager
+    yabai
+
     # Development tools
     git
     vim
@@ -129,31 +136,27 @@
     
     # Security
     gnupg
-    bitwarden-cli
+    bitwarden
     
     # Terminal utilities
     eza  # Better ls
     bat  # Better cat
-    
-    # Cloud tools
-    awscli2
-    google-cloud-sdk
-    
+        
     # Development
     nodejs
     python3
     go
     
     # Database tools
-    dbeaver
+    dbeaver-bin
     
     # GUI Applications that work on Darwin
     vscode
-    firefox
-    chromium
+    firefox-bin
     thunderbird
     obsidian
-    vlc
+    bitwarden-desktop
+    alacritty
   ];
 
   # This value determines the home Manager release that your
