@@ -8,111 +8,16 @@
     coreutils
   ];
 
-  # Auto upgrade nix package and the daemon service.
+  # Auto upgrade nix package  # This value determines the nix-darwin release with which your system is to be compatible
+  # Do not change this value after initial setup.
+  system.stateVersion = 6;
   services.nix-daemon.enable = true;
 
-  # Create /etc/zshrc that load  # This value determines the nix-darwin release with which your system is to be compatible
-  system.stateVersion = 4;ix-darwin environment.
+  # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true;
 
   # Set your system hostname
-  networking.hostName = "your-hostname";  # Replace with your desired hostname
-    nameservers = [ "192.168.1.1" "137.248.1.8" ];
-    # Default gateway via eno1
-    /*
-    defaultGateway = {
-      address   = "192.168.113.250";
-      interface = "eno1";
-    };
-    */
-
-    ### PROXY SETTINGS ### 
-    #proxy = { 
-    #  default = "http://www-proxy1.uni-marburg.de:3128/"; 
-    #  httpProxy = "http://www-proxy1.uni-marburg.de:3128"; 
-    #  httpsProxy = "http://www-proxy1.uni-marburg.de:3128"; 
-    #  noProxy = "127.0.0.1,localhost,::1,.local,192.168.0.0/16,10.0.0.0/8,192.168.178.0/24";
-    #};
-
-    /*
-    networkmanager.ensureProfiles.profiles = {
-      "lan-default" = {
-        connection = {
-          id = "lan-default";
-          type = "ethernet";
-          interface-name = "eno1";
-          autoconnect = true;
-        };
-        ipv4 = {
-          method = "auto";
-          route-metric = 100;
-        };
-        ipv6.method = "auto";
-      };
-    };
-    */
-
-    wg-quick ={
-      #interfaces.wg0 = {
-      #  configFile = "/etc/wireguard/wg_lan.conf"; 
-        /*
-        preUp = ''
-        #  ${pkgs.iproute2}/bin/ip route replace 89.246.51.89/32 via 10.193.63.250 dev wlp2s0
-        #'';
-        #postDown = ''
-        #  ${pkgs.iproute2}/bin/ip route del 89.246.51.89/32 dev wlp2s0 || true
-        '';
-        */
-      #};
-      interfaces.wg1 = {
-        configFile = "/etc/wireguard/wg1.conf"; 
-      };
-      #interfaces.wg2 = {
-      #  configFile = "/etc/wireguard/wg2.conf"; 
-      #};
-    };
-  };
-
-    # optional but recommended if you later want split-DNS
-    services.resolved.enable = true;
-
-    systemd.network.networks."10-eno1" = {
-      matchConfig.Name = "eno1";
-      networkConfig.DHCP = "yes";
-      routes = [
-        { Destination = "192.168.1.119/32"; Gateway = "137.248.113.250"; }
-        { Destination = "192.168.16.40/32"; Gateway = "137.248.113.250"; }
-        { Destination = "192.168.16.3/32";  Gateway = "137.248.113.250"; }
-      ];
-    };
-
-    # pin hostnames (same as /etc/hosts)
-    networking.hosts = {
-      "192.168.1.119" = [ "share.uni-marburg.de" ];
-      "192.168.16.40" = [ "support.hrz.uni-marburg.de" ];
-      "192.168.16.3"  = [ "ldap-master.hrz.uni-marburg.de" ];
-    };
-
-
-  /*
-  networking.networkmanager.dispatcherScripts = [
-    {
-      source = pkgs.writeShellScript "wg-endpoint-route" ''
-        IFACE="$1"; STATE="$2"
-        if [ "$IFACE" = "wlp2s0" ]; then
-          case "$STATE" in
-            up|vpn-up)
-              ${pkgs.iproute2}/bin/ip route replace 89.246.51.89/32 via 10.193.63.250 dev wlp2s0
-              ;;
-            down|vpn-down)
-              ${pkgs.iproute2}/bin/ip route del 89.246.51.89/32 dev wlp2s0 || true
-              ;;
-          esac
-        fi
-      '';
-    }
-  ];
-  */
+  networking.hostName = "mbp-darwin";  
 
   # Console and Localization
   console.keyMap = "de-latin1-nodeadkeys";
@@ -171,6 +76,7 @@
         FXEnableExtensionChangeWarning = false;
       };
     };
+  };
 
   #=============================================================================#
   #                          SYSTEM ESSENTIAL PACKAGES                         #
@@ -273,17 +179,5 @@
   ];
   nixos-apps-work.extraPackages = [
   ];
-
-  
-
-
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "25.11"; # Did you read the comment?
 
 }
