@@ -3,7 +3,7 @@
 {
   # The username and home directory for the user
   home.username = "tinus";
-  home.homeDirectory = "/Users/tinus";
+  home.homeDirectory = lib.mkForce "/Users/tinus";
   
   # Default Programs and Environment Variables
   home.sessionVariables = {
