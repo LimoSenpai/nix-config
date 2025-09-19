@@ -270,6 +270,7 @@
     "geteduroam"
 
     "dbeaver-bin"
+    "rustdesk"
   ];
   home-apps-work.extraPackages = [
   ];

@@ -19,6 +19,7 @@ let
     arduino-ide        = arduino-ide;
 
     dbeaver-bin        = dbeaver-bin;
+    rustdesk           = rustdesk;
   };
 
   validNames = builtins.attrNames registry;
