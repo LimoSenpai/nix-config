@@ -7,7 +7,7 @@
 
   # The username and home directory for the user
   home.username = "tinus";
-  home.homeDirectory = "/home/tinus";
+  home.homeDirectory = "/Users/tinus";  # Updated for macOS path
   
   # default Programs
   home.sessionVariables = {
@@ -37,27 +37,10 @@
   };
 
   #=============================================================================#
-  #                      WINDOW MANAGER ENVIRONMENT                            #
+  #                      MACOS SPECIFIC SETTINGS                              #
   #=============================================================================#
 
-  hyprland.enable = true;
-  niri.enable = false; # Niri Window Manager
-
-  # Window Manager Utilities
-  dunst.enable = true;
-  waybar.enable = true;
-  rofi.enable = true;
-  wofi.enable = true;
-  wleave.enable = true;
-  hyprlock.enable = true;
-
-  # Cursor & Theming
-  cursor.enable = true; # Future Cursor Theme
-
-  # Wallpaper Management
-  waypaper.enable = true;
-  swww.enable = true;
-  switchwall.enable = true; 
+  # macOS specific configurations can be added here
 
   #=============================================================================#
   #                           ADDITIONAL PROGRAMS                              #

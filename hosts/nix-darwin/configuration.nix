@@ -1,34 +1,22 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  # List packages installed in system profile
+  environment.systemPackages = with pkgs; [
+    vim
+    git
+    coreutils
+  ];
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  # Auto upgrade nix package and the daemon service.
+  services.nix-daemon.enable = true;
 
-  # Use stable kernel for NVIDIA compatibility
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelPackages = pkgs.linuxPackages_6_16;
+  # Create /etc/zshrc that load  # This value determines the nix-darwin release with which your system is to be compatible
+  system.stateVersion = 4;ix-darwin environment.
+  programs.zsh.enable = true;
 
-  # User Configuration
-  users.groups.tinus = {};
-
-  users.users.tinus = {
-    isNormalUser = true;
-    description = "Tinus Braun";
-    group = "tinus";
-    extraGroups = [ "networkmanager" "wheel" "plugdev" "ad-cifs" "media" ];
-    shell = pkgs.zsh;
-  };
-
-  # Enable networking
-  networking = {
-    networkmanager.enable = true;
-    hostName = "nixos-thinkcentre";
+  # Set your system hostname
+  networking.hostName = "your-hostname";  # Replace with your desired hostname
     nameservers = [ "192.168.1.1" "137.248.1.8" ];
     # Default gateway via eno1
     /*
@@ -145,29 +133,44 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ]; 
+  # Enable experimental features
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  # System settings
+  system = {
+    # Configure keyboard
+    keyboard = {
+      enableKeyMapping = true;
+      remapCapsLockToEscape = true;  # Optional: remap caps lock to escape
+    };
+    
+    # Configure defaults
+    defaults = {
+      NSGlobalDomain = {
+        AppleShowAllExtensions = true;
+        AppleShowScrollBars = "WhenScrolling";
+        NSAutomaticCapitalizationEnabled = false;
+        NSAutomaticDashSubstitutionEnabled = false;
+        NSAutomaticPeriodSubstitutionEnabled = false;
+        NSAutomaticQuoteSubstitutionEnabled = false;
+        NSAutomaticSpellingCorrectionEnabled = false;
+        NSNavPanelExpandedStateForSaveMode = true;
+        NSNavPanelExpandedStateForSaveMode2 = true;
+      };
 
-  #=============================================================================#
-  #                            SYSTEM CONFIGURATION                            #
-  #=============================================================================#
-  
-  # Window Managers
-  hyprland.enable = true;
-  niri.enable = true; # Enable Niri, a Wayland compositor
+      dock = {
+        autohide = true;
+        orientation = "bottom";
+        showhidden = true;
+        tilesize = 40;
+      };
 
-  # Display Manager
-  sddm.enable = true;
-
-  wleave.enable = true;
-
-  # Hardware Support
-  #nvidia.enable = true;
-  #amd-radeon.enable = false;
-
-  # Software
-  system-programs.enable = true; # Enable system programs
-  work_drive.enable = true; # Enable work drive configuration
+      finder = {
+        AppleShowAllExtensions = true;
+        _FXShowPosixPathInTitle = true;
+        FXEnableExtensionChangeWarning = false;
+      };
+    };
 
   #=============================================================================#
   #                          SYSTEM ESSENTIAL PACKAGES                         #
