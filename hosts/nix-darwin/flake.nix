@@ -44,13 +44,19 @@
       inherit system;
       specialArgs = { inherit inputs pkgs; };
       modules = [
+        # Base configuration
         ./configuration.nix
+
+        # Home Manager configuration
         home-manager.darwinModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.tinus = import ./home.nix;  # Replace tinus with your username
+          home-manager.users.tinus = import ./home.nix;
         }
+
+        # Import your modules (they will need to be made Darwin-compatible)
+        ../../homeManagerModules
       ];
     };
 

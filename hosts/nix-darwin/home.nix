@@ -1,20 +1,16 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
-  imports = [ 
-      ../../homeManagerModules
-    ];
-
   # The username and home directory for the user
   home.username = "tinus";
-  home.homeDirectory = "/Users/tinus";  # Updated for macOS path
+  home.homeDirectory = "/Users/tinus";
   
-  # default Programs
+  # Default Programs and Environment Variables
   home.sessionVariables = {
-    XDG_DATA_DIRS = "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}:/usr/share";
-    BROWSER = "zen";
-    EDITOR = "nano";
+    EDITOR = "vim";
+    VISUAL = "code";
     TERMINAL = "alacritty";
+    PATH = "$HOME/bin:$PATH";
   };
 
   xdg.mimeApps = {
@@ -46,216 +42,118 @@
   #                           ADDITIONAL PROGRAMS                              #
   #=============================================================================#
   
-  # CLI Programs
-  power-profiles-daemon.enable = true; # Power Profiles Daemon | Used in Waybar
-  playerctl.enable = true; # Media Player Control | Used in Waybar
-  alacritty.enable = true;
-  git.enable = true;
+  #=============================================================================#
+  #                           PROGRAM CONFIGURATION                           #
+  #=============================================================================#
+  
+  # Terminal
+  programs.alacritty = {
+    enable = true;
+    # Add your alacritty config here
+  };
 
-  # GUI Programs
-  spicetify.enable = true; # Spotify Customization
+  # Git configuration
+  programs.git = {
+    enable = true;
+    userName = "Tinus Braun";
+    userEmail = "your.email@example.com";  # Replace with your email
+  };
+
+  # Shell configuration
+  programs.zsh = {
+    enable = true;
+    enableAutosuggestions = true;
+    enableSyntaxHighlighting = true;
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" "docker" "macos" ];
+      theme = "robbyrussell";
+    };
+  };
+
+  # Homebrew configuration (for macOS-specific packages)
+  homebrew = {
+    enable = true;
+    onActivation = {
+      autoUpdate = true;
+      cleanup = "zap";
+    };
+    taps = [
+      "homebrew/cask"
+      "homebrew/cask-fonts"
+      "homebrew/services"
+    ];
+    brews = [
+      "mas"  # Mac App Store CLI
+    ];
+    casks = [
+      "rectangle"  # Window management
+      "alt-tab"    # Better Alt-Tab
+      "keepingyouawake"  # Prevent sleep
+    ];
+  };
 
   #=============================================================================#
-  #                              GUI PROGRAMS                                  #
+  #                              USER PACKAGES                                 #
   #=============================================================================#
-  home-apps-gui.enable = [
-    # Browsers
-    "zen-browser"
-    "librewolf" 
-    "chromium"
+  home.packages = with pkgs; [
+    # Development tools
+    git
+    vim
+    vscode
+    gnumake
+    gcc
     
-    # Communication
-    "discord"
-    "teams"
-    "element-desktop"
+    # CLI utilities
+    curl
+    wget
+    tree
+    ripgrep
+    fd
+    fzf
+    jq
+    yq
+    tmux
+    htop
+    btop
     
-    # Office & Productivity
-    "obsidian"
-    "vscode"
-    "joplin"
-    "libreoffice"
+    # Archive tools
+    unzip
+    zip
+    gnutar
     
-    # Media
-    "vlc"
-    "mpv"
-    "loupe"
-    
-    # Graphics
-    "gimp"
-    "inkscape"
-    
-    # Cloud Storage
-    "nextcloud"
+    # Text processing
+    pandoc
+    gnused
+    gawk
     
     # Security
-    "bitwarden"
-    "yubikey"
-    "swaylock-fancy"
+    gnupg
+    bitwarden-cli
     
-    # Audio & Notifications
-    "easyeffects"
-    "swaynotificationcenter"
+    # Terminal utilities
+    eza  # Better ls
+    bat  # Better cat
     
-    # File Management
-    "nautilus"
-    "ark"
-    "syncthing"
-
-    # Screenshot annotations
-    "satty"
-  ];
-  home-apps-gui.extraPackages = [
-    pkgs.fluffychat
-  ];
-
-  #=============================================================================#
-  #                              CLI PROGRAMS                                  #
-  #=============================================================================#
-  home-apps-cli.enable = [
-    # Version Control & Network (user-level)
-    "git"
-    "curl"
-    "wget"
-    "openssh"
+    # Cloud tools
+    awscli2
+    google-cloud-sdk
     
-    # Text Editors
-    "vim"
-    "nano"
+    # Development
+    nodejs
+    python3
+    go
     
-    # System Monitoring (user-level)
-    "htop"
-    "btop"
-    "iotop"
-    "iftop"
-    "sysstat"
+    # Database tools
+    dbeaver
     
-    # File Management
-    "tree"
-    "eza"
-    "fzf"
-    "rsync"
-    
-    # Archive Tools
-    "unzip"
-    "zip"
-    "xz"
-    "p7zip"
-    "gnutar"
-    "zstd"
-    
-    # Development Tools
-    "gcc"
-    "gnumake"
-    
-    # System Tools
-    "killall"
-    "lsof"
-    "strace"
-    "file"
-    "which"
-    "evtest"
-    "wl-copy"
-    
-    # Text Processing
-    "gnused"
-    "gawk"
-    "libxml2"
-    
-    # Security
-    "gnupg"
-    
-    # System Information
-    "fastfetch"
-    "lshw"
-    
-    # File Management
-    "yazi"
-    "yaziPlugins-sudo"
-    
-    # Screenshot Tools
-    "slurp"
-    "grim"
-    
-    # System Tools
-    "mdadm"
-    "tmux"
-    
-    # Text Processing
-    "jq"
-    "icu"
-    
-    # Performance Tools
-    "hyperfine"
-    
-    # Search
-    "rg"
-    
-    # Document conversion
-    "pandoc"
-  ];
-  home-apps-cli.extraPackages = [
-    pkgs.wireguard-tools
-    pkgs.traceroute
-    pkgs.networkmanagerapplet
-  ];
-
-  #=============================================================================#
-  #                            GAMING PROGRAMS                                 #
-  #=============================================================================#
-  home-apps-gaming.enable = [
-    # Gaming Platforms
-    "lutris"
-    "heroic"
-    
-    # Gaming Tools
-    "gamescope"
-    "mangohud"
-    
-    # Emulators
-    "retroarch"
-    
-    # Minecraft
-    "prismlauncher"
-    
-    # Custom packages
-    "cirno-downloader"
-    
-    # Game Tools
-    "protontricks"
-    "protonplus"
-    "moonlight-qt"
-    
-    # Wine
-    "wine"
-    "winetricks"
-    
-    # Discord Rich Presence (commented)
-    #"arrpc"
-  ];
-  home-apps-gaming.extraPackages = [
-  ];
-
-  #=============================================================================#
-  #                              WORK PROGRAMS                                 #
-  #=============================================================================#
-  home-apps-work.enable = [
-    # Communication
-    "thunderbird"
-    "element"
-    
-    # Security
-    "keepass"
-    
-    # Office
-    "libreoffice"
-    
-    # Network/Authentication (user-level)
-    "geteduroam"
-
-    "dbeaver-bin"
-    "rustdesk"
-  ];
-  home-apps-work.extraPackages = [
+    # GUI Applications that work on Darwin
+    vscode
+    firefox
+    chromium
+    thunderbird
+    obsidian
+    vlc
   ];
 
   # This value determines the home Manager release that your

@@ -1,12 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  # List packages installed in system profile
-  environment.systemPackages = with pkgs; [
-    vim
-    git
-    coreutils
-  ];
 
   # Auto upgrade nix package  # This value determines the nix-darwin release with which your system is to be compatible
   # Do not change this value after initial setup.
@@ -79,105 +73,35 @@
   };
 
   #=============================================================================#
-  #                          SYSTEM ESSENTIAL PACKAGES                         #
+  #                          SYSTEM PACKAGES                                  #
   #=============================================================================#
-  nixos-system-essentials.enable = [
-    # Core system libraries
-    "bluez"
-    "glib"
-    
-    # Themes and icons
-    "hicolor-icon-theme"
-    "adwaita-icon-theme" 
-    "gsettings-desktop-schemas"
-    
-    # Documentation
-    "man-db"
-    "man-pages"
-    
+  environment.systemPackages = with pkgs; [
     # Core utilities
-    "coreutils"
-    "util-linux"
-    "findutils"
+    coreutils
+    findutils
+    gnutar
+    gzip
+    wget
+    curl
+    git
     
-    # Audio libraries
-    "alsa-lib"
-    "alsa-utils"
-    "pipewire"
+    # System tools
+    htop
+    tree
+    ripgrep
+    fd
     
-    # Graphics libraries
-    "mesa"
+    # Development tools
+    vim
+    nano
     
-    # System libraries
-    "systemd"
-    "dbus"
-  ];
-  nixos-system-essentials.extraPackages = [ 
-  ];
-
-  #=============================================================================#
-  #                              GUI PROGRAMS                                  #
-  #=============================================================================#
-  nixos-apps-gui.enable = [
-    # System audio (if needed system-wide)
-    "pavucontrol"
+    # Network tools
+    nmap
+    dig
     
-    # System Tools requiring system access
-    "hyprlock"
-    "ark"
-  ];
-  nixos-apps-gui.extraPackages = [
-    pkgs.wdisplays
-  ];
-
-  #=============================================================================#
-  #                              CLI PROGRAMS                                  #
-  #=============================================================================#
-  nixos-apps-cli.enable = [
-    # Network Tools requiring root
-    "nmap"
-    "tcpdump"
-    "wireshark-cli"
-    "netbird"
-    
-    # System monitoring requiring system access
-    "lm_sensors"
-    "ethtool"
-    "pciutils"
-    "usbutils"
-    "nvtop"
-  ];
-  nixos-apps-cli.extraPackages = [
-    pkgs.dig
-  ];
-
-  #=============================================================================#
-  #                            GAMING PROGRAMS                                 #
-  #=============================================================================#
-  nixos-apps-gaming.enable = [
-    # Steam Tools requiring system configuration
-    "adwsteamgtk"
-    "protontricks"
-  ];
-  nixos-apps-gaming.extraPackages = [
-  ];
-  
-  # Gaming Options
-  steam.enable = true;
-  gamemode.enable = true;
-
-  #=============================================================================#
-  #                              WORK PROGRAMS                                 #
-  #=============================================================================#
-  nixos-apps-work.enable = [
-    # System authentication tools
-    "krb5"
-    "keyutils"
-    "cifs-utils"
-    "lxqt-sudo"
-    "polkit-gnome"
-  ];
-  nixos-apps-work.extraPackages = [
+    # macOS specific
+    m-cli  # useful macOS CLI commands
+    mas    # Mac App Store CLI
   ];
 
 }
