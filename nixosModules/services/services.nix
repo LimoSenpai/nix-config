@@ -44,4 +44,27 @@
     layout = "de";
     variant = "nodeadkeys";
   };
+
+  services.openssh = {
+    enable = true;
+    openFirewall = true;
+    settings = {
+      PubkeyAuthentication = true;
+      PasswordAuthentication = false;
+      PermitRootLogin = "prohibit-password";
+    };
+  };
+
+  security.sudo.enable = true;
+
+  # Allow 'tinus' to power off without a password
+  security.sudo.extraRules = [
+    {
+      users = [ "tinus" ];
+      commands = [{
+        command = "/run/current-system/sw/bin/systemctl poweroff";
+        options = [ "NOPASSWD" ];
+      }];
+    }
+  ];
 }

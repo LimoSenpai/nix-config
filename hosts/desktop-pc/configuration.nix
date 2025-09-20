@@ -118,6 +118,9 @@
     # System libraries
     "systemd"
     "dbus"
+
+    #Networking essentials
+    "ethtool"
   ];
   nixos-system-essentials.extraPackages = [ 
   ];

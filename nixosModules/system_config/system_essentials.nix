@@ -37,10 +37,13 @@ let
     # Networking essentials
     networkmanager           = networkmanager;
     wpa_supplicant           = wpa_supplicant;
+    ethtool                  = ethtool;
   };
 
   validNames = builtins.attrNames registry;
   cfg = config.nixos-system-essentials;
+
+  iface = "enp12s0";
 in
 {
   options.nixos-system-essentials = {
@@ -60,16 +63,14 @@ in
 
   config = lib.mkMerge [
     {
-      environment.systemPackages = 
+      environment.systemPackages =
         (map (name: registry.${name}) cfg.enable) ++ cfg.extraPackages;
     }
-    
-    # Special configuration for NetworkManager
+
     (lib.mkIf (builtins.elem "networkmanager" cfg.enable) {
       networking.networkmanager.enable = true;
     })
-    
-    # Special configuration for PipeWire
+
     (lib.mkIf (builtins.elem "pipewire" cfg.enable) {
       security.rtkit.enable = true;
       services.pipewire = {
@@ -79,5 +80,18 @@ in
         pulse.enable = true;
       };
     })
+
+    # WoL service now under `config`
+    {
+      systemd.services."wol-${iface}" = {
+        description = "Enable Wake-on-LAN on ${iface}";
+        wantedBy = [ "multi-user.target" ];
+        after = [ "network-online.target" ];
+        serviceConfig = {
+          Type = "oneshot";
+          ExecStart = "${pkgs.ethtool}/sbin/ethtool -s ${iface} wol g";
+        };
+      };
+    }
   ];
 }
