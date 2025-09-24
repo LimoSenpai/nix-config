@@ -30,13 +30,6 @@
     networkmanager.enable = true;
     hostName = "nixos-thinkcentre";
     nameservers = [ "192.168.1.1" "137.248.1.8" ];
-    # Default gateway via eno1
-    /*
-    defaultGateway = {
-      address   = "192.168.113.250";
-      interface = "eno1";
-    };
-    */
 
     ### PROXY SETTINGS ### 
     #proxy = { 
@@ -46,42 +39,13 @@
     #  noProxy = "127.0.0.1,localhost,::1,.local,192.168.0.0/16,10.0.0.0/8,192.168.178.0/24";
     #};
 
-    /*
-    networkmanager.ensureProfiles.profiles = {
-      "lan-default" = {
-        connection = {
-          id = "lan-default";
-          type = "ethernet";
-          interface-name = "eno1";
-          autoconnect = true;
-        };
-        ipv4 = {
-          method = "auto";
-          route-metric = 100;
-        };
-        ipv6.method = "auto";
-      };
-    };
-    */
-
     wg-quick ={
-      #interfaces.wg0 = {
-      #  configFile = "/etc/wireguard/wg_lan.conf"; 
-        /*
-        preUp = ''
-        #  ${pkgs.iproute2}/bin/ip route replace 89.246.51.89/32 via 10.193.63.250 dev wlp2s0
-        #'';
-        #postDown = ''
-        #  ${pkgs.iproute2}/bin/ip route del 89.246.51.89/32 dev wlp2s0 || true
-        '';
-        */
+      #interfaces.wg1 = {
+      #  configFile = "/etc/wireguard/wg1.conf"; 
       #};
-      interfaces.wg1 = {
-        configFile = "/etc/wireguard/wg1.conf"; 
+      interfaces.wg2 = {
+        configFile = "/etc/wireguard/wg2.conf"; 
       };
-      #interfaces.wg2 = {
-      #  configFile = "/etc/wireguard/wg2.conf"; 
-      #};
     };
   };
 
