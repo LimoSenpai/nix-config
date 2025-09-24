@@ -51,7 +51,7 @@
 
     # optional but recommended if you later want split-DNS
     services.resolved.enable = true;
-
+/*
     systemd.network.networks."10-eno1" = {
       matchConfig.Name = "eno1";
       networkConfig.DHCP = "yes";
@@ -59,6 +59,7 @@
         { Destination = "192.168.1.119/32"; Gateway = "137.248.113.250"; }
         { Destination = "192.168.16.40/32"; Gateway = "137.248.113.250"; }
         { Destination = "192.168.16.3/32";  Gateway = "137.248.113.250"; }
+        { Destination = "137.248.21.22/32";  Gateway = "137.248.113.250"; }
       ];
     };
 
@@ -68,27 +69,27 @@
       "192.168.16.40" = [ "support.hrz.uni-marburg.de" ];
       "192.168.16.3"  = [ "ldap-master.hrz.uni-marburg.de" ];
     };
+*/
 
+  systemd.network.networks."10-eno1" = {
+    matchConfig.Name = "eno1";
+    networkConfig.DHCP = "yes";
 
-  /*
-  networking.networkmanager.dispatcherScripts = [
-    {
-      source = pkgs.writeShellScript "wg-endpoint-route" ''
-        IFACE="$1"; STATE="$2"
-        if [ "$IFACE" = "wlp2s0" ]; then
-          case "$STATE" in
-            up|vpn-up)
-              ${pkgs.iproute2}/bin/ip route replace 89.246.51.89/32 via 10.193.63.250 dev wlp2s0
-              ;;
-            down|vpn-down)
-              ${pkgs.iproute2}/bin/ip route del 89.246.51.89/32 dev wlp2s0 || true
-              ;;
-          esac
-        fi
-      '';
-    }
-  ];
-  */
+    routes = [
+      { Destination = "192.168.1.119/32"; Gateway = "137.248.113.250"; GatewayOnLink = true; Metric = 50; }
+      { Destination = "192.168.16.40/32"; Gateway = "137.248.113.250"; GatewayOnLink = true; Metric = 50; }
+      { Destination = "192.168.16.3/32";  Gateway = "137.248.113.250"; GatewayOnLink = true; Metric = 50; }
+      { Destination = "137.248.21.22/32"; Gateway = "137.248.113.250"; GatewayOnLink = true; Metric = 50; }
+    ];
+
+    # Make sure these go via main (before wg policy rules)
+    routingPolicyRules = [
+      { To = "192.168.1.119/32"; Table = "main"; Priority = 1000; }
+      { To = "192.168.16.40/32"; Table = "main"; Priority = 1000; }
+      { To = "192.168.16.3/32";  Table = "main"; Priority = 1000; }
+      { To = "137.248.21.22/32"; Table = "main"; Priority = 1000; }
+    ];
+  };
 
   # Console and Localization
   console.keyMap = "de-latin1-nodeadkeys";
