@@ -51,7 +51,7 @@
 
     # optional but recommended if you later want split-DNS
     services.resolved.enable = true;
-/*
+
     systemd.network.networks."10-eno1" = {
       matchConfig.Name = "eno1";
       networkConfig.DHCP = "yes";
@@ -69,8 +69,8 @@
       "192.168.16.40" = [ "support.hrz.uni-marburg.de" ];
       "192.168.16.3"  = [ "ldap-master.hrz.uni-marburg.de" ];
     };
-*/
 
+/*
   systemd.network.networks."10-eno1" = {
     matchConfig.Name = "eno1";
     networkConfig.DHCP = "yes";
@@ -90,6 +90,7 @@
       { To = "137.248.21.22/32"; Table = "main"; Priority = 1000; }
     ];
   };
+*/
 
   # Console and Localization
   console.keyMap = "de-latin1-nodeadkeys";
