@@ -38,15 +38,14 @@
     # Spicetify
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
-    sddm-sugar-candy-nix = {
-      url = "gitlab:Zhaith-Izaliel/sddm-sugar-candy-nix";
-      # Optional, by default this flake follows nixpkgs-unstable.
+    sddm-astronaut = {
+      url = "github:Keyitdev/sddm-astronaut-theme";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, hyprland, stylix, self, sddm-sugar-candy-nix, niri-flake, zen-browser, ... }:
+  outputs = inputs@{ nixpkgs, home-manager, hyprland, stylix, self, sddm-astronaut, niri-flake, zen-browser, ... }:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs {

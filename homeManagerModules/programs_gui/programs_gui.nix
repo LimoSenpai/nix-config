@@ -27,6 +27,7 @@ let
     vlc                = vlc;
     mpv                = mpv;
     loupe              = loupe;
+    spotify            = spotify;
     
     # Graphics
     gimp               = gimp;

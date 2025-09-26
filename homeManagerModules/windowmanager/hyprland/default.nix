@@ -70,7 +70,7 @@
         "Super+Shift, M, exec, wpctl set-mute @DEFAULT_SINK@ toggle" 
         "Alt, XF86AudioMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle" 
         ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle" 
-        "Super+Alt, M, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle" 
+        "Super+Alt, Y, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle" 
 
         # --- Utilities ---
         "SUPER+SHIFT, S, exec, grim -g \"$(slurp)\" - | wl-copy" # Screenshot selected area to clipboard

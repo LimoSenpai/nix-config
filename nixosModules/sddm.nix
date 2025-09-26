@@ -10,19 +10,17 @@
   in {
     services.displayManager.sddm = {
       enable = true;
-      sugarCandyNix = {
-        enable = true;
-        settings = {
+      package = pkgs.kdePackages.sddm;
+      theme = "astronaut";
+      settings = {
+        Theme = {
+          Current = "astronaut";
+          ThemeDir = "${inputs.sddm-astronaut}/share/sddm/themes";
+          FacesDir = "/usr/share/sddm/faces";
+        };
+        General = {
           Background = lib.cleanSource ../assets/wallpapers/current_wallpaper.jpg;
-          ScreenWidth = 2560;
-          ScreenHeight = 1440;
-          FormPosition = "left";
-          HaveFormBackground = true;
-          PartialBlur = true;
-          MainColor = colors.base0D;
-          AccentColor = colors.base09;
-          BackgroundColor = colors.base01;
-          OverrideLoginButtonTextColor = colors.base05;
+          InputMethod = "";
         };
       };
     };

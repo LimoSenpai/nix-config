@@ -50,7 +50,7 @@
     openFirewall = true;
     settings = {
       PubkeyAuthentication = true;
-      PasswordAuthentication = false;
+      PasswordAuthentication = true;
       PermitRootLogin = "prohibit-password";
     };
   };
