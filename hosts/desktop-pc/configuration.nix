@@ -16,7 +16,7 @@
 
   # Use stable kernel for NVIDIA compatibility
   # boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelPackages = pkgs.linuxPackages_6_16;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
   networking.hostName = "nixos-desktop"; # Define your hostname.
 
@@ -73,6 +73,7 @@
   #bspwm.enable = true;
 
   # Display Manager
+  # In your host config:
   sddm.enable = true;
 
   # Hardware Support
@@ -140,6 +141,8 @@
   nixos-apps-gui.extraPackages = [
     pkgs.wdisplays
     pkgs.firefox
+    pkgs.linuxKernel.packages.linux_zen.ryzen-smu
+    pkgs.ryzen-monitor-ng
   ];
 
   #=============================================================================#

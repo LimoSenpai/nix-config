@@ -1,29 +1,26 @@
-  { inputs, pkgs, lib, config, ...}: {
-    # I WASTED SO MUCH TIME HERE
-
+{ inputs, pkgs, lib, config, options, ... }:
+{
   options = {
     sddm.enable = lib.mkEnableOption "SDDM";
   };
 
-  config = lib.mkIf config.sddm.enable (let
-  colors = config.lib.stylix.colors.withHashtag;
-  in {
+  config = lib.mkIf config.sddm.enable {
     services.displayManager.sddm = {
-      enable = true;
-      package = pkgs.kdePackages.sddm;
-      theme = "astronaut";
-      settings = {
-        Theme = {
-          Current = "astronaut";
-          ThemeDir = "${inputs.sddm-astronaut}/share/sddm/themes";
-          FacesDir = "/usr/share/sddm/faces";
+        enable = true;
+        package = pkgs.kdePackages.sddm;        # Qt6 SDDM
+        theme = "astronaut"; # Theme folder name in /usr/share/sddm/themes/
+        settings = {
+          Theme = {
+            ThemeDir = "${pkgs.sddm-astronaut-hyprland_kath}/share/sddm/themes";
+          };
         };
-        General = {
-          Background = lib.cleanSource ../assets/wallpapers/current_wallpaper.jpg;
-          InputMethod = "";
-        };
+        # Ensure SDDM has access to necessary Qt plugins
+        extraPackages = with pkgs.kdePackages; [
+          qtmultimedia
+          qtsvg
+          qtvirtualkeyboard
+          qtquick3d
+        ];
       };
     };
-  });
 }
-

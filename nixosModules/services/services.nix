@@ -36,6 +36,7 @@
     pulse.enable = true;
   };
 
+  services.lact.enable = true;
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -57,7 +58,7 @@
 
   security.sudo.enable = true;
 
-  # Allow 'tinus' to power off without a password
+  # Allow 'tinus' to power off without a password | FOR HOME ASSISTANT REMOTE SHUTDOWN
   security.sudo.extraRules = [
     {
       users = [ "tinus" ];
