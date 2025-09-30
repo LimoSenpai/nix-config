@@ -83,6 +83,8 @@ let
     
     # Terminal Emulator
     alacritty          = alacritty;
+
+    mpvpaper           = mpvpaper; # Set wallpapers using mpv
   };
 
   validNames = builtins.attrNames registry;

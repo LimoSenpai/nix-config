@@ -39,6 +39,13 @@ let
       packages = [ pkgs.future-cursors ];
       package = pkgs.future-cursors;
     };
+    "point-er-blackplus" = {
+      description = "Point.er Black+ cursor theme";
+      xcursorName = "Point.er-BlackPlus";
+      hyprcursorName = null;
+      packages = [ pkgs.point-er-cursors ];
+      package = pkgs.point-er-cursors;
+    };
   };
 
   selectedTheme = themeProfiles.${cfg.theme};
@@ -50,10 +57,10 @@ in
 
     theme = lib.mkOption {
       type = lib.types.enum (lib.attrNames themeProfiles);
-      default = "google-dot-black";
+      default = "point-er-blackplus";
       description = ''
-        Select the default cursor theme. Available themes include Google Dot variants
-        and the existing Future Cursors.
+        Select the default cursor theme. Available themes include the Point.er conversion,
+        Google Dot variants, and Future Cursors.
       '';
     };
 
@@ -84,6 +91,7 @@ in
       selectedTheme.packages ++ [
       pkgs.future-cursors       # X11 cursors
       pkgs.google-cursor        # Google Dot cursor variants
+      pkgs.point-er-cursors     # Converted Point.er cursor pack
       pkgs.bibata-cursors       # Fallback X11 cursors
       pkgs.bibata-hyprcursor    # Hyprcursors (kept for compatibility)
     ]);

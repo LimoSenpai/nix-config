@@ -50,7 +50,8 @@
   waybar.enable = true;
 
   # Cursor & Theming
-  cursor.enable = true; # Google Dot (Black) Cursor Theme
+  cursor.enable = true;
+  cursor.theme = "point-er-blackplus";
 
   # Wallpaper Management
   waypaper.enable = true;
@@ -212,6 +213,8 @@
     
     # Document conversion
     "pandoc"
+
+    "mpvpaper"
   ];
   home-apps-cli.extraPackages = [ 
     pkgs.mdadm

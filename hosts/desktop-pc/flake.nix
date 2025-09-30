@@ -55,6 +55,7 @@
       cirno-downloader = pkgs.callPackage ../../pkgs/cirno-downloader.nix {};
       bibata-hyprcursor = pkgs.callPackage ../../pkgs/bibata-hyprcursor.nix {};
       future-cursors = pkgs.callPackage ../../pkgs/future-cursors.nix {};
+      point-er-cursors = pkgs.callPackage ../../pkgs/point-er-cursors.nix {};
       gdk-pixbuf-dev = pkgs.gdk-pixbuf.dev;
       sddm-astronaut-hyprland_kath = pkgs.callPackage ../../pkgs/sddm-astronaut.nix {};
     };
@@ -69,6 +70,7 @@
         cirno-downloader = prev.callPackage ../../pkgs/cirno-downloader.nix {};
         bibata-hyprcursor = prev.callPackage ../../pkgs/bibata-hyprcursor.nix {};
         future-cursors = prev.callPackage ../../pkgs/future-cursors.nix {};
+        point-er-cursors = prev.callPackage ../../pkgs/point-er-cursors.nix {};
         sddm-astronaut-hyprland_kath = prev.callPackage ../../pkgs/sddm-astronaut.nix {};
       };
 

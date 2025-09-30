@@ -1,0 +1,9 @@
+[Icon Theme]
+Name=Point.er-White
+Comment=Converted Point.er cursor theme (Point.er White)
+Inherits=default
+Directories=cursors
+
+[cursors]
+Size=64
+Type=Fixed

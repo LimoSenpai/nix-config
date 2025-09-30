@@ -93,12 +93,12 @@ home-manager switch --flake .#tinus@<hostname>
 - **Theming**: Stylix for system-wide consistency
 
 ### Cursor Module
-Enable the Home Manager cursor module to pick between Google Dot variants and Future Cursors:
+Enable the Home Manager cursor module to pick between Google Dot variants, Future Cursors, or the converted Point.er set:
 
 ```nix
 cursor = {
   enable = true;
-  theme = "google-dot-black"; # also: google-dot-blue, google-dot-red, google-dot-white, future-cursors
+  theme = "google-dot-black"; # also: google-dot-blue, google-dot-red, google-dot-white, future-cursors, point-er-blackplus
 };
 ```
 
@@ -114,6 +114,9 @@ Future Cursors theme for Linux desktops - an X-cursor theme inspired by macOS an
 
 ### `bibata-hyprcursor` 
 Custom build of Bibata cursor theme with Hyprcursor support for Hyprland.
+
+### `point-er-cursors`
+Windows "Point.er" cursor suite converted to the Xcursor format with black, white, and "Plus" variants.
 
 ### `rivalcfg`
 SteelSeries Rival mouse configuration utility.
