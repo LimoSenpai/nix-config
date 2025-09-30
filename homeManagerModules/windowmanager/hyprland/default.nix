@@ -179,16 +179,13 @@
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
 
-        # Cursor
-        "hyprctl setcursor Future-Cursors 40"
-
 
         # Custom Programs
-        "thunderbird [workspace 7 silent]"
-        "element-desktop [workspace 6 silent]"
+        "[workspace 7 silent] thunderbird"
+        "[workspace 3 silent] discord"
         "zen"
         "arrpc"
-        "easyeffects [workspace 9 silent]"
+        "[workspace 9 silent] easyeffects"
         "syncthing --no-browser"
         
       ];
@@ -300,6 +297,7 @@
       cursor = {
           zoom_factor = 1;
           zoom_rigid = false;
+          enable_hyprcursor = false; # Force XCursor everywhere (see https://wiki.hypr.land/Configuring/Variables/#cursor)
       };
 
       env = [
@@ -316,13 +314,27 @@
         "QT_QPA_PLATFORMTHEME, kde"
         "QT_STYLE_OVERRIDE,kvantum"
         "WLR_NO_HARDWARE_CURSORS, 0"
-
-        # ############ Cursors #############
-        "XCURSOR_THEME,Future-Cursors"
-        "XCURSOR_SIZE,40"
-        "HYPRCURSOR_THEME,Future-Cursors"
-        "HYPRCURSOR_SIZE,40"
-      ];
+      ]
+      ++ lib.optionals config.cursor.enable (
+        let
+          cursorTheme = config.cursor.resolvedTheme;
+          cursorSize = builtins.toString config.cursor.resolvedSize;
+        in
+        [
+          "XCURSOR_THEME,${cursorTheme}"
+          "XCURSOR_SIZE,${cursorSize}"
+        ]
+      )
+      ++ lib.optionals (config.cursor.enable && config.cursor.resolvedHyprcursorTheme != null) (
+        let
+          hyprTheme = config.cursor.resolvedHyprcursorTheme;
+          cursorSize = builtins.toString config.cursor.resolvedSize;
+        in
+        [
+          "HYPRCURSOR_THEME,${hyprTheme}"
+          "HYPRCURSOR_SIZE,${cursorSize}"
+        ]
+      );
 
       windowrule = [
         # ######## Window rules ########

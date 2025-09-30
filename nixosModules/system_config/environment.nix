@@ -15,10 +15,8 @@
 
   # Environment Settings
   environment.variables = {
-    XCURSOR_THEME = "Bibata-Modern-Classic";
-    XCURSOR_SIZE = 26;
-    HYPRCURSOR_THEME = "Bibata-Modern-Classic";
-    HYPRCURSOR_SIZE = 26;
+    XCURSOR_THEME = "GoogleDot-Black";
+    XCURSOR_SIZE = 25;
     NIXOS_OZONE = "1"; # Enable Ozone for Hyprland
   };
   

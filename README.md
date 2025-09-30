@@ -89,8 +89,20 @@ home-manager switch --flake .#tinus@<hostname>
 - **App Launcher**: Rofi (Wayland) + Wofi
 - **Notifications**: Dunst + SwayNotificationCenter
 - **Wallpapers**: SWWW with Waypaper management
-- **Cursor**: Future Cursors (inspired by macOS) + Bibata (custom Hyprcursor build)
+- **Cursor**: Google Dot (black variant by default) with Future Cursors and Bibata Hyprcursor fallback
 - **Theming**: Stylix for system-wide consistency
+
+### Cursor Module
+Enable the Home Manager cursor module to pick between Google Dot variants and Future Cursors:
+
+```nix
+cursor = {
+  enable = true;
+  theme = "google-dot-black"; # also: google-dot-blue, google-dot-red, google-dot-white, future-cursors
+};
+```
+
+Hyprland adopts the same cursor metadata automatically via environment variables.
 
 ## 📦 Custom Packages
 

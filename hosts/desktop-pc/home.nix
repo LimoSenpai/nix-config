@@ -50,7 +50,7 @@
   waybar.enable = true;
 
   # Cursor & Theming
-  cursor.enable = true; # Future Cursor Theme
+  cursor.enable = true; # Google Dot (Black) Cursor Theme
 
   # Wallpaper Management
   waypaper.enable = true;
