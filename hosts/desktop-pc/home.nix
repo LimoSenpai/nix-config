@@ -62,7 +62,6 @@
   #=============================================================================#
   
   # GUI Programs
-  #spicetify.enable = true; # Spotify Customization
   obs-studio.enable = true;
 
   # CLI Programs
@@ -98,6 +97,7 @@
     "mpv"
     "loupe"
     #"spotify"
+    #"spicetify-cli"
     
     # Graphics
     "gimp"

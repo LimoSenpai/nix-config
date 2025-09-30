@@ -84,6 +84,7 @@
   wleave.enable = true;
   dunst.enable = true;
   system-programs.enable = true;
+  
 
   #=============================================================================#
   #                          SYSTEM ESSENTIAL PACKAGES                         #

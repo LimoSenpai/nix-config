@@ -28,6 +28,7 @@ let
     mpv                = mpv;
     loupe              = loupe;
     spotify            = spotify;
+    spicetify-cli      = spicetify-cli;
     
     # Graphics
     gimp               = gimp;

@@ -38,14 +38,9 @@
     # Spicetify
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
-    #sddm-astronaut = {
-    #  url = "github:Keyitdev/sddm-astronaut-theme";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
-
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, hyprland, stylix, self, niri-flake, zen-browser, ... }:
+  outputs = inputs@{ nixpkgs, home-manager, hyprland, stylix, self, niri-flake, zen-browser, spicetify-nix, ... }:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
@@ -93,6 +88,7 @@
 
           home-manager.nixosModules.home-manager
           stylix.nixosModules.stylix
+          spicetify-nix.nixosModules.spicetify 
 
           {
             nixpkgs.overlays = [ 

@@ -4,5 +4,6 @@
   imports =
     [
       ./programs_gui.nix
+      ./spicetify.nix
     ];
 }
