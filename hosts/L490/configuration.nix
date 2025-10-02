@@ -39,14 +39,14 @@
     #  noProxy = "127.0.0.1,localhost,::1,.local,192.168.0.0/16,10.0.0.0/8,192.168.178.0/24";
     #};
 
-    #wg-quick ={
-      #interfaces.wg1 = {
-      #  configFile = "/etc/wireguard/wg1.conf"; 
-      #};
+    wg-quick ={
+      interfaces.wg2 = {
+        configFile = "/etc/wireguard/wg2.conf"; 
+      };
       #interfaces.wg2 = {
       #  configFile = "/etc/wireguard/wg2.conf"; 
       #};
-    #};
+    };
   };
 
     # optional but recommended if you later want split-DNS
