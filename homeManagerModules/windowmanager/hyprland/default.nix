@@ -14,10 +14,10 @@
 
       settings = {
 
-        source = [
-          "monitors.conf"
-          "workspaces.conf"
-        ];
+        #source = [
+        #  "monitors.conf"
+        #  "workspaces.conf"
+        #];
       
 
       general = {

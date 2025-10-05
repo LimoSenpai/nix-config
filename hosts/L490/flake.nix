@@ -85,14 +85,12 @@
           ../../nixosModules
 
           home-manager.nixosModules.home-manager
-          sddm-sugar-candy-nix.nixosModules.default
           stylix.nixosModules.stylix
 
           {
             nixpkgs.overlays = [ 
               self.overlays.default 
               self.overlays.niri
-              sddm-sugar-candy-nix.overlays.default
             ];
           }
         ];
