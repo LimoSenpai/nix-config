@@ -100,7 +100,7 @@ in
       gtk.enable = true;
       x11.enable = true;
       name = selectedTheme.xcursorName;
-      size = 25; # Size in pixels
+      size = 35; # Size in pixels
       package = selectedTheme.package;
     };
 
@@ -108,7 +108,7 @@ in
     cursor = {
       resolvedTheme = selectedTheme.xcursorName;
       resolvedHyprcursorTheme = selectedTheme.hyprcursorName;
-      resolvedSize = 25;
+      resolvedSize = 35;
     };
   };
 }

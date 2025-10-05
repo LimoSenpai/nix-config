@@ -128,6 +128,10 @@
     pkgs.betterdiscordctl
     pkgs.networkmanagerapplet
     pkgs.kdePackages.kdenlive
+
+
+    pkgs.sillytavern
+    pkgs.ollama
   ];
 
   #=============================================================================#

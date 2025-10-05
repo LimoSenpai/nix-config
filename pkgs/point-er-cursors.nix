@@ -18,7 +18,7 @@ stdenvNoCC.mkDerivation rec {
     runHook preBuild
 
     mkdir -p build
-    bash ${converterScript} ${pointErWindows} build 25
+    bash ${converterScript} ${pointErWindows} build 35
 
     runHook postBuild
   '';
