@@ -70,7 +70,6 @@
   git.enable = true;
 
   # GUI Programs
-  spicetify.enable = true; # Spotify Customization
 
   #=============================================================================#
   #                              GUI PROGRAMS                                  #

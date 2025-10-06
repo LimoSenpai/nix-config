@@ -134,7 +134,8 @@
 
   # Software
   system-programs.enable = true; # Enable system programs
-  work_drive.enable = true; # Enable work drive configuration
+  #work_drive.enable = true; # Enable work drive configuration
+  
 
   #=============================================================================#
   #                          SYSTEM ESSENTIAL PACKAGES                         #
