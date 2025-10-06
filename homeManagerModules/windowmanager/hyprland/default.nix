@@ -16,7 +16,7 @@
 
         source = [
           "monitors.conf"
-        #  "workspaces.conf"
+          "workspaces.conf"
         ];
       
 
