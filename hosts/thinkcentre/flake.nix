@@ -38,15 +38,10 @@
     # Spicetify
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
-    sddm-sugar-candy-nix = {
-      url = "gitlab:Zhaith-Izaliel/sddm-sugar-candy-nix";
-      # Optional, by default this flake follows nixpkgs-unstable.
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, hyprland, stylix, self, sddm-sugar-candy-nix, niri-flake, zen-browser, ... }:
+  outputs = inputs@{ nixpkgs, home-manager, hyprland, stylix, self, niri-flake, spicetify-nix, zen-browser, ... }:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
@@ -61,7 +56,9 @@
       cirno-downloader = pkgs.callPackage ../../pkgs/cirno-downloader.nix {};
       bibata-hyprcursor = pkgs.callPackage ../../pkgs/bibata-hyprcursor.nix {};
       future-cursors = pkgs.callPackage ../../pkgs/future-cursors.nix {};
+      point-er-cursors = pkgs.callPackage ../../pkgs/point-er-cursors.nix {};
       gdk-pixbuf-dev = pkgs.gdk-pixbuf.dev;
+      sddm-astronaut-hyprland_kath = pkgs.callPackage ../../pkgs/sddm-astronaut.nix {};
     };
     # Make Derivations accessible in the flake
     overlays = {
@@ -72,7 +69,9 @@
         cirno-downloader = prev.callPackage ../../pkgs/cirno-downloader.nix {};
         bibata-hyprcursor = prev.callPackage ../../pkgs/bibata-hyprcursor.nix {};
         future-cursors = prev.callPackage ../../pkgs/future-cursors.nix {};
-        gdk-pixbuf-dev = prev.gdk-pixbuf.dev;
+        gdk-pixbuf-dev = prev.gdk-pixbuf.dev; 
+        point-er-cursors = prev.callPackage ../../pkgs/point-er-cursors.nix {};
+        sddm-astronaut-hyprland_kath = prev.callPackage ../../pkgs/sddm-astronaut.nix {};
       };
 
     niri = niri-flake.overlays.niri;
@@ -88,14 +87,14 @@
           ../../nixosModules
 
           home-manager.nixosModules.home-manager
-          sddm-sugar-candy-nix.nixosModules.default
           stylix.nixosModules.stylix
+          spicetify-nix.nixosModules.spicetify 
+
 
           {
             nixpkgs.overlays = [ 
               self.overlays.default 
               self.overlays.niri
-              sddm-sugar-candy-nix.overlays.default
             ];
           }
         ];

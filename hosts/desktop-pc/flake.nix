@@ -95,6 +95,7 @@
           ../../nixosModules
 
           home-manager.nixosModules.home-manager
+          sddm-sugar-candy-nix.nixosModules.default
           stylix.nixosModules.stylix
           spicetify-nix.nixosModules.spicetify 
 

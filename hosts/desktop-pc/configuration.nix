@@ -53,6 +53,19 @@
     '';
   };
 
+  # WoL service now under `config`
+
+  systemd.services."wol-${iface}" = {
+    description = "Enable Wake-on-LAN on ${iface}";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network-online.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.ethtool}/sbin/ethtool -s ${iface} wol g";
+    };
+  };
+
+
   services.ollama = {
     enable = true;
     acceleration = "cuda"; # options: "cuda", "rocm", "metal", or "none"

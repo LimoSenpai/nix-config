@@ -59,7 +59,7 @@
         { Destination = "192.168.1.119/32"; Gateway = "137.248.113.250"; }
         { Destination = "192.168.16.40/32"; Gateway = "137.248.113.250"; }
         { Destination = "192.168.16.3/32";  Gateway = "137.248.113.250"; }
-        { Destination = "137.248.21.22/32";  Gateway = "137.248.113.250"; }
+        { Destination = "192.168.16.189/32";  Gateway = "137.248.113.250"; }
       ];
     };
 
@@ -68,6 +68,7 @@
       "192.168.1.119" = [ "share.uni-marburg.de" ];
       "192.168.16.40" = [ "support.hrz.uni-marburg.de" ];
       "192.168.16.3"  = [ "ldap-master.hrz.uni-marburg.de" ];
+      "192.168.16.189" = [ "dfs.hrz.uni-marburg.de" ];
     };
 
 /*
@@ -133,7 +134,8 @@
 
   # Software
   system-programs.enable = true; # Enable system programs
-  work_drive.enable = true; # Enable work drive configuration
+  #work_drive.enable = true; # Enable work drive configuration
+  
 
   #=============================================================================#
   #                          SYSTEM ESSENTIAL PACKAGES                         #
