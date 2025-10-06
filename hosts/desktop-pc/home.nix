@@ -128,10 +128,6 @@
     pkgs.betterdiscordctl
     pkgs.networkmanagerapplet
     pkgs.kdePackages.kdenlive
-
-
-    pkgs.sillytavern
-    pkgs.ollama
   ];
 
   #=============================================================================#
@@ -154,6 +150,7 @@
     "iotop"
     "iftop"
     "sysstat"
+    "nftables"
     
     # File Management
     "tree"

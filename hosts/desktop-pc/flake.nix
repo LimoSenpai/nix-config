@@ -38,9 +38,14 @@
     # Spicetify
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
+    stable-diffusion-webui-nix = {
+      url = "github:Janrupf/stable-diffusion-webui-nix/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, hyprland, stylix, self, niri-flake, zen-browser, spicetify-nix, ... }:
+  outputs = inputs@{ nixpkgs, home-manager, hyprland, stylix, self, niri-flake, zen-browser, spicetify-nix, stable-diffusion-webui-nix,... }:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
@@ -75,6 +80,7 @@
       };
 
     niri = niri-flake.overlays.niri;
+    stable-diffusion-webui = stable-diffusion-webui-nix.overlays.default;
   };
 
 
@@ -96,6 +102,7 @@
             nixpkgs.overlays = [ 
               self.overlays.default 
               self.overlays.niri
+              self.overlays.stable-diffusion-webui
             ];
           }
         ];

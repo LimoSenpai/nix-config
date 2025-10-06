@@ -40,6 +40,25 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 11434 ];
+    # optional: restrict to LAN only
+    extraCommands = ''
+      iptables -A nixos-fw -p tcp --dport 11434 -s 192.168.1.0/24 -j nixos-fw-accept
+    '';
+  };
+
+  services.ollama = {
+    enable = true;
+    acceleration = "cuda"; # options: "cuda", "rocm", "metal", or "none"
+    host = "0.0.0.0";
+    environmentVariables = {
+      OLLAMA_LOW_VRAM = "false";
+    };
+  };
+
+
   # Console and Localization
   console.keyMap = "de-latin1-nodeadkeys";
   time.timeZone = "Europe/Berlin";
@@ -84,6 +103,11 @@
   wleave.enable = true;
   dunst.enable = true;
   system-programs.enable = true;
+
+  environment.systemPackages = [
+    pkgs.stable-diffusion-webui.forge.cuda # For lllyasviel's fork of AUTOMATIC1111 WebUI
+    pkgs.stable-diffusion-webui.comfy.cuda # For ComfyUI
+  ];
   
 
   #=============================================================================#
@@ -144,6 +168,7 @@
     pkgs.firefox
     pkgs.linuxKernel.packages.linux_zen.ryzen-smu
     pkgs.ryzen-monitor-ng
+    pkgs.bottles
   ];
 
   #=============================================================================#

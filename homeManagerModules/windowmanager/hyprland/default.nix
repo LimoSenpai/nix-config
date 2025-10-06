@@ -14,10 +14,10 @@
 
       settings = {
 
-        #source = [
-        #  "monitors.conf"
+        source = [
+          "monitors.conf"
         #  "workspaces.conf"
-        #];
+        ];
       
 
       general = {
@@ -187,6 +187,8 @@
         "arrpc"
         "[workspace 9 silent] easyeffects"
         "syncthing --no-browser"
+
+        "stable-diffusion-webui --listen"
         
       ];
 

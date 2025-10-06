@@ -80,6 +80,7 @@ let
     
     # Network Tools
     wireguard          = wireguard;
+    nftables           = nftables;
     
     # Terminal Emulator
     alacritty          = alacritty;
