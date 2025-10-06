@@ -52,7 +52,7 @@
     settings = {
       PubkeyAuthentication = true;
       PasswordAuthentication = true;
-      PermitRootLogin = "prohibit-password";
+      PermitRootLogin = "yes";
     };
   };
 
