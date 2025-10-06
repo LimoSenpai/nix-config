@@ -77,7 +77,6 @@
         gdk-pixbuf-dev = prev.gdk-pixbuf.dev; 
         point-er-cursors = prev.callPackage ../../pkgs/point-er-cursors.nix {};
         sddm-astronaut-hyprland_kath = prev.callPackage ../../pkgs/sddm-astronaut.nix {};
-   
       };
 
     niri = niri-flake.overlays.niri;

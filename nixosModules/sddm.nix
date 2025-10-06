@@ -21,10 +21,6 @@
           qtvirtualkeyboard
           qtquick3d
         ];
-        autoLogin = {
-          enable = true;
-          user = "tinus";
-        };
       };
     };
 
