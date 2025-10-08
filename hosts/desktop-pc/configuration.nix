@@ -55,13 +55,13 @@
 
   # WoL service now under `config`
 
-  systemd.services."wol-${iface}" = {
-    description = "Enable Wake-on-LAN on ${iface}";
+  systemd.services."wol-enp12s0" = {
+    description = "Enable Wake-on-LAN on enp12s0";
     wantedBy = [ "multi-user.target" ];
     after = [ "network-online.target" ];
     serviceConfig = {
       Type = "oneshot";
-      ExecStart = "${pkgs.ethtool}/sbin/ethtool -s ${iface} wol g";
+      ExecStart = "${pkgs.ethtool}/sbin/ethtool -s enp12s0 wol g";
     };
   };
 
