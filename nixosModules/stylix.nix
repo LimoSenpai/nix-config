@@ -7,7 +7,7 @@ in
   stylix = {
     enable = true;
     image = inputs.self + "/../../assets/wallpapers/current_wallpaper.jpg";
-    polarity = "dark";
+    polarity = "light";
     opacity = {
       terminal = opacity;
       popups = opacity;
