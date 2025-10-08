@@ -10,7 +10,7 @@ let
     keepass            = keepassxc;
     
     # Office
-    libreoffice        = libreoffice-qt-still;
+    libreoffice        = libreoffice-fresh;
     onenote            = p3x-onenote;
     
     # Network/Authentication (user-level)

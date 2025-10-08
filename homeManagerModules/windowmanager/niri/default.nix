@@ -156,7 +156,7 @@
               open-floating = true;
             }
             {
-              matches = [{ app-id = "(?i)org\.freedesktop\.impl\.portal\.desktop\.kde"; }];
+              matches = [{ app-id = "(?i)org\\.freedesktop\\.impl\\.portal\\.desktop\\.kde"; }];
               open-floating = true;
             }
             {
@@ -167,13 +167,13 @@
               open-floating = true;
             }
             {
-              matches = [{ app-id = "(?i)org\.gnome\.Calculator"; }];
+              matches = [{ app-id = "(?i)org\\.gnome\\.Calculator"; }];
               open-floating = true;
             }
             {
               matches = [
                 { app-id = "(?i)mpv"; }
-                { app-id = "(?i)com\.github\.rafostar\.Clapper"; }
+                { app-id = "(?i)com\\.github\\.rafostar\\.Clapper"; }
               ];
               open-floating = true;
             }
