@@ -193,7 +193,7 @@
       ];
 
       decoration = {
-          rounding = 20;
+          rounding = 0;
           
           blur = {
               enabled = true;
@@ -213,7 +213,7 @@
           };
           
           shadow = {
-              enabled = true;
+              enabled = false;
               ignore_window = true;
               range = 30;
               offset = "0 2";

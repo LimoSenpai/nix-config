@@ -227,7 +227,7 @@
   home-apps-gaming.enable = [
     # Gaming Platforms
     "lutris"
-    "heroic"
+    #"heroic"
     
     # Gaming Tools
     "gamescope"

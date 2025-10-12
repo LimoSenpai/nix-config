@@ -104,7 +104,7 @@
   
   # Window Managers
   hyprland.enable = true;
-  niri.enable = true;
+  niri.enable = false;
   #gnome.enable = true;
   #bspwm.enable = true;
 
@@ -145,71 +145,71 @@ systemd.services.stable-diffusion-webui = {
     ${pkgs.coreutils}/bin/mkdir -p /var/lib/stable-diffusion-webui/data/scripts
 
     ${pkgs.coreutils}/bin/cat <<'EOF' > /var/lib/stable-diffusion-webui/data/scripts/000_forge_space_overlay.py
-import hashlib
-import os
-import shutil
+    import hashlib
+    import os
+    import shutil
 
-from modules import script_callbacks
-from modules.paths_internal import data_path
-from modules_forge import forge_space
+    from modules import script_callbacks
+    from modules.paths_internal import data_path
+    from modules_forge import forge_space
 
-_original_init = forge_space.ForgeSpace.__init__
-
-
-def _ensure_overlay(src: str) -> str:
-    overlay_root = os.path.join(data_path, "forge-space-overlays")
-    os.makedirs(overlay_root, exist_ok=True)
-
-    digest = hashlib.sha1(src.encode("utf-8")).hexdigest()[:8]
-    target_root = os.path.join(overlay_root, f"{os.path.basename(src)}-{digest}")
-
-    shutil.copytree(src, target_root, dirs_exist_ok=True)
-    return target_root
+    _original_init = forge_space.ForgeSpace.__init__
 
 
-def _retarget_space(space: forge_space.ForgeSpace) -> None:
-    try:
-        if os.access(space.root_path, os.W_OK):
-            return
+    def _ensure_overlay(src: str) -> str:
+        overlay_root = os.path.join(data_path, "forge-space-overlays")
+        os.makedirs(overlay_root, exist_ok=True)
 
-        patched_root = _ensure_overlay(space.root_path)
-        space.root_path = patched_root
-        space.hf_path = os.path.join(patched_root, "huggingface_space_mirror")
-    except Exception as exc:
-        print(f"[forge-space-overlay] failed to prepare overlay for {space.root_path}: {exc}")
+        digest = hashlib.sha1(src.encode("utf-8")).hexdigest()[:8]
+        target_root = os.path.join(overlay_root, f"{os.path.basename(src)}-{digest}")
 
-
-def _patch_existing_spaces() -> None:
-    for space in list(getattr(forge_space, "spaces", [])):
-        _retarget_space(space)
+        shutil.copytree(src, target_root, dirs_exist_ok=True)
+        return target_root
 
 
-def _patched_init(self, root_path, *args, **kwargs):
-    patched_root = root_path
-    try:
-        if not os.access(root_path, os.W_OK):
-            patched_root = _ensure_overlay(root_path)
-    except Exception as exc:
-        print(f"[forge-space-overlay] failed to prepare overlay for {root_path}: {exc}")
+    def _retarget_space(space: forge_space.ForgeSpace) -> None:
+        try:
+            if os.access(space.root_path, os.W_OK):
+                return
+
+            patched_root = _ensure_overlay(space.root_path)
+            space.root_path = patched_root
+            space.hf_path = os.path.join(patched_root, "huggingface_space_mirror")
+        except Exception as exc:
+            print(f"[forge-space-overlay] failed to prepare overlay for {space.root_path}: {exc}")
+
+
+    def _patch_existing_spaces() -> None:
+        for space in list(getattr(forge_space, "spaces", [])):
+            _retarget_space(space)
+
+
+    def _patched_init(self, root_path, *args, **kwargs):
         patched_root = root_path
+        try:
+            if not os.access(root_path, os.W_OK):
+                patched_root = _ensure_overlay(root_path)
+        except Exception as exc:
+            print(f"[forge-space-overlay] failed to prepare overlay for {root_path}: {exc}")
+            patched_root = root_path
 
-    _original_init(self, patched_root, *args, **kwargs)
-    _retarget_space(self)
+        _original_init(self, patched_root, *args, **kwargs)
+        _retarget_space(self)
 
 
-def _on_before_ui() -> None:
+    def _on_before_ui() -> None:
+        _patch_existing_spaces()
+
+
+    def _on_app_started(*_args, **_kwargs) -> None:
+        _patch_existing_spaces()
+
+
+    forge_space.ForgeSpace.__init__ = _patched_init
     _patch_existing_spaces()
-
-
-def _on_app_started(*_args, **_kwargs) -> None:
-    _patch_existing_spaces()
-
-
-forge_space.ForgeSpace.__init__ = _patched_init
-_patch_existing_spaces()
-script_callbacks.on_before_ui(_on_before_ui)
-script_callbacks.on_app_started(_on_app_started)
-EOF
+    script_callbacks.on_before_ui(_on_before_ui)
+    script_callbacks.on_app_started(_on_app_started)
+    EOF
   '';
 
   serviceConfig = {
@@ -277,7 +277,7 @@ EOF
     "pipewire"
     
     # Graphics libraries
-    "mesa"
+    #"mesa"
     "vulkan-loader"
     
     # System libraries
@@ -317,14 +317,14 @@ EOF
     # Network Tools requiring root
     "nmap"
     "tcpdump"
-    "wireshark-cli"
+    #"wireshark-cli"
     
     # System monitoring requiring system access
     "lm_sensors"
     "ethtool"
     "pciutils"
     "usbutils"
-    "nvtop"
+    #"nvtop"
   ];
   nixos-apps-cli.extraPackages = [
     pkgs.webkitgtk_4_1
@@ -351,8 +351,8 @@ EOF
   #=============================================================================#
   nixos-apps-work.enable = [
     # System authentication tools
-    "krb5"
-    "keyutils"
+    #"krb5"
+    #"keyutils"
     "cifs-utils"
     "lxqt-sudo"
     "polkit-gnome"

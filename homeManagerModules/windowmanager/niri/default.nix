@@ -6,6 +6,7 @@
 
   config = lib.mkIf config.niri.enable {
     programs.niri = {
+      enable = true;
       settings =
         let
           actions = config.lib.niri.actions;

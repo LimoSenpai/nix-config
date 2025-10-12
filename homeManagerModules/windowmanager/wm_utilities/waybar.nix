@@ -256,7 +256,7 @@
             font-family: JetBrainsMono Nerd Font;
             padding: 0;
             margin: 0;
-            border-radius: 0px 0px 20px 20px;
+            border-radius: 0px 0px 0px 0px;
             border-color: @base0D;
           }
 
