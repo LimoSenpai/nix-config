@@ -9,6 +9,5 @@
       ./environment.nix
       ./hardware.nix
       ./programs.nix
-      ./work_drive.nix
     ];
 }

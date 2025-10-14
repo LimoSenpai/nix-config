@@ -234,7 +234,6 @@
     "mangohud"
     
     # Emulators
-    "retroarch"
     
     # Minecraft
     "prismlauncher"

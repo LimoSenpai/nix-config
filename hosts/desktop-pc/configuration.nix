@@ -126,91 +126,91 @@
     pkgs.stable-diffusion-webui.comfy.cuda # For ComfyUI
   ];
 
-systemd.services.stable-diffusion-webui = {
-  description = "Stable Diffusion WebUI (Forge)";
-  wantedBy = [ "multi-user.target" ];
-  after = [ "network-online.target" "nvidia-persistenced.service" ];
-  wants = [ "network-online.target" ];
+  systemd.services.stable-diffusion-webui = {
+    description = "Stable Diffusion WebUI (Forge)";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network-online.target" "nvidia-persistenced.service" ];
+    wants = [ "network-online.target" ];
 
-  # Needed tools
-  path = [ pkgs.git pkgs.curl pkgs.bash ];
+    # Needed tools
+    path = [ pkgs.git pkgs.curl pkgs.bash ];
 
-  environment = {
-    HOME = "/var/lib/stable-diffusion-webui";
-    PYTHONUNBUFFERED = "1";
-  };
+    environment = {
+      HOME = "/var/lib/stable-diffusion-webui";
+      PYTHONUNBUFFERED = "1";
+    };
 
-  preStart = ''
-    ${pkgs.coreutils}/bin/mkdir -p /var/lib/stable-diffusion-webui/data
-    ${pkgs.coreutils}/bin/mkdir -p /var/lib/stable-diffusion-webui/data/scripts
+    preStart = ''
+      ${pkgs.coreutils}/bin/mkdir -p /var/lib/stable-diffusion-webui/data
+      ${pkgs.coreutils}/bin/mkdir -p /var/lib/stable-diffusion-webui/data/scripts
 
-    ${pkgs.coreutils}/bin/cat <<'EOF' > /var/lib/stable-diffusion-webui/data/scripts/000_forge_space_overlay.py
-    import hashlib
-    import os
-    import shutil
+      ${pkgs.coreutils}/bin/cat <<'EOF' > /var/lib/stable-diffusion-webui/data/scripts/000_forge_space_overlay.py
+      import hashlib
+      import os
+      import shutil
 
-    from modules import script_callbacks
-    from modules.paths_internal import data_path
-    from modules_forge import forge_space
+      from modules import script_callbacks
+      from modules.paths_internal import data_path
+      from modules_forge import forge_space
 
-    _original_init = forge_space.ForgeSpace.__init__
-
-
-    def _ensure_overlay(src: str) -> str:
-        overlay_root = os.path.join(data_path, "forge-space-overlays")
-        os.makedirs(overlay_root, exist_ok=True)
-
-        digest = hashlib.sha1(src.encode("utf-8")).hexdigest()[:8]
-        target_root = os.path.join(overlay_root, f"{os.path.basename(src)}-{digest}")
-
-        shutil.copytree(src, target_root, dirs_exist_ok=True)
-        return target_root
+      _original_init = forge_space.ForgeSpace.__init__
 
 
-    def _retarget_space(space: forge_space.ForgeSpace) -> None:
-        try:
-            if os.access(space.root_path, os.W_OK):
-                return
+      def _ensure_overlay(src: str) -> str:
+          overlay_root = os.path.join(data_path, "forge-space-overlays")
+          os.makedirs(overlay_root, exist_ok=True)
 
-            patched_root = _ensure_overlay(space.root_path)
-            space.root_path = patched_root
-            space.hf_path = os.path.join(patched_root, "huggingface_space_mirror")
-        except Exception as exc:
-            print(f"[forge-space-overlay] failed to prepare overlay for {space.root_path}: {exc}")
+          digest = hashlib.sha1(src.encode("utf-8")).hexdigest()[:8]
+          target_root = os.path.join(overlay_root, f"{os.path.basename(src)}-{digest}")
 
-
-    def _patch_existing_spaces() -> None:
-        for space in list(getattr(forge_space, "spaces", [])):
-            _retarget_space(space)
+          shutil.copytree(src, target_root, dirs_exist_ok=True)
+          return target_root
 
 
-    def _patched_init(self, root_path, *args, **kwargs):
-        patched_root = root_path
-        try:
-            if not os.access(root_path, os.W_OK):
-                patched_root = _ensure_overlay(root_path)
-        except Exception as exc:
-            print(f"[forge-space-overlay] failed to prepare overlay for {root_path}: {exc}")
-            patched_root = root_path
+      def _retarget_space(space: forge_space.ForgeSpace) -> None:
+          try:
+              if os.access(space.root_path, os.W_OK):
+                  return
 
-        _original_init(self, patched_root, *args, **kwargs)
-        _retarget_space(self)
-
-
-    def _on_before_ui() -> None:
-        _patch_existing_spaces()
+              patched_root = _ensure_overlay(space.root_path)
+              space.root_path = patched_root
+              space.hf_path = os.path.join(patched_root, "huggingface_space_mirror")
+          except Exception as exc:
+              print(f"[forge-space-overlay] failed to prepare overlay for {space.root_path}: {exc}")
 
 
-    def _on_app_started(*_args, **_kwargs) -> None:
-        _patch_existing_spaces()
+      def _patch_existing_spaces() -> None:
+          for space in list(getattr(forge_space, "spaces", [])):
+              _retarget_space(space)
 
 
-    forge_space.ForgeSpace.__init__ = _patched_init
-    _patch_existing_spaces()
-    script_callbacks.on_before_ui(_on_before_ui)
-    script_callbacks.on_app_started(_on_app_started)
-    EOF
-  '';
+      def _patched_init(self, root_path, *args, **kwargs):
+          patched_root = root_path
+          try:
+              if not os.access(root_path, os.W_OK):
+                  patched_root = _ensure_overlay(root_path)
+          except Exception as exc:
+              print(f"[forge-space-overlay] failed to prepare overlay for {root_path}: {exc}")
+              patched_root = root_path
+
+          _original_init(self, patched_root, *args, **kwargs)
+          _retarget_space(self)
+
+
+      def _on_before_ui() -> None:
+          _patch_existing_spaces()
+
+
+      def _on_app_started(*_args, **_kwargs) -> None:
+          _patch_existing_spaces()
+
+
+      forge_space.ForgeSpace.__init__ = _patched_init
+      _patch_existing_spaces()
+      script_callbacks.on_before_ui(_on_before_ui)
+      script_callbacks.on_app_started(_on_app_started)
+      EOF
+    '';
 
   serviceConfig = {
     User = "root";
