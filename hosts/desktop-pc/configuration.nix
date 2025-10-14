@@ -9,6 +9,12 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
+
+  fileSystems."/mnt/jbod" = {
+    device = "/dev/disk/by-uuid/77757fbb-37de-4f66-814b-056a28c7d2c0";
+    fsType = "ext4";
+    options = [ "nofail" "x-systemd.device-timeout=10s" ];
+  };
   
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -40,6 +46,19 @@
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "tinus";
 
+
+  # WoL service now under `config`
+
+  systemd.services."wol-enp12s0" = {
+    description = "Enable Wake-on-LAN on enp12s0";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network-online.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.ethtool}/sbin/ethtool -s enp12s0 wol g";
+    };
+  };
+
   # Enable networking
   networking.networkmanager.enable = true;
 
@@ -53,17 +72,6 @@
     '';
   };
 
-  # WoL service now under `config`
-
-  systemd.services."wol-enp12s0" = {
-    description = "Enable Wake-on-LAN on enp12s0";
-    wantedBy = [ "multi-user.target" ];
-    after = [ "network-online.target" ];
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = "${pkgs.ethtool}/sbin/ethtool -s enp12s0 wol g";
-    };
-  };
 
 
   services.ollama = {
