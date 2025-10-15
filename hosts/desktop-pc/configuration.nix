@@ -10,11 +10,7 @@
       ./hardware-configuration.nix
     ];
 
-  fileSystems."/mnt/jbod" = {
-    device = "/dev/disk/by-uuid/77757fbb-37de-4f66-814b-056a28c7d2c0";
-    fsType = "ext4";
-    options = [ "nofail" "x-systemd.device-timeout=10s" ];
-  };
+
   
   # Bootloader.
   boot.loader.systemd-boot.enable = true;

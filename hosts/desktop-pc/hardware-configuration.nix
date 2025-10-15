@@ -25,6 +25,20 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
+
+  boot.swraid = {
+    enable = true;
+    mdadmConf = ''
+      ARRAY /dev/md/jbod metadata=1.2 UUID=ba1d60c1:f85c853c:023e3766:d566bc70
+    '';
+  };
+
+  fileSystems."/mnt/jbod" = {
+    device = "/dev/disk/by-uuid/77757fbb-37de-4f66-814b-056a28c7d2c0";
+    fsType = "ext4";
+    options = [ "nofail" "x-systemd.device-timeout=10s" ];
+  };
+
   fileSystems."/tank" = {
     device = "192.168.1.17:/tank";
     fsType = "nfs4";
