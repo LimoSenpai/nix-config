@@ -79,6 +79,25 @@
     };
   };
 
+  # Ensure the md0 JBOD array is assembled before mounts run.
+  systemd.services."mdadm-assemble-jbod" = {
+    description = "Assemble md0 JBOD array";
+    wantedBy = [ "local-fs.target" ];
+    before = [ "mnt-jbod.mount" ];
+    after = [ "systemd-udev-settle.service" ];
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+      ExecStart = "${pkgs.writeShellScript "mdadm-assemble-jbod" ''
+        set -eu
+        ${pkgs.mdadm}/bin/mdadm --assemble --scan || true
+        if [ -e /dev/md0 ]; then
+          ${pkgs.mdadm}/bin/mdadm --manage /dev/md0 --run || true
+        fi
+      ''}";
+    };
+  };
+
 
   # Console and Localization
   console.keyMap = "de-latin1-nodeadkeys";

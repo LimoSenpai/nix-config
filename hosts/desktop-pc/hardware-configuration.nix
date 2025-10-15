@@ -8,7 +8,7 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "uas" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "uas" "sd_mod" "md_mod" "raid0" "raid1" "raid10" "raid456"];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
@@ -25,18 +25,19 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
-
   boot.swraid = {
     enable = true;
     mdadmConf = ''
-      ARRAY /dev/md/jbod metadata=1.2 UUID=ba1d60c1:f85c853c:023e3766:d566bc70
+      AUTO +linear
+      MAILADDR root
+      ARRAY /dev/md0 metadata=1.2 name=archlinux:0 UUID=ba1d60c1:f85c853c:023e3766:d566bc70
     '';
   };
 
   fileSystems."/mnt/jbod" = {
-    device = "/dev/disk/by-uuid/77757fbb-37de-4f66-814b-056a28c7d2c0";
+    device = "/dev/md0";
     fsType = "ext4";
-    options = [ "nofail" "x-systemd.device-timeout=10s" ];
+    options = [ "nofail" "x-systemd.device-timeout=10" ];
   };
 
   fileSystems."/tank" = {
