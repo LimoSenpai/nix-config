@@ -110,7 +110,7 @@
             { command = ["waypaper" "--restore"]; }
             { command = ["swww-daemon"]; }
             { command = ["fcitx5"]; }
-            { command = ["lxqt-policykit-agent"]; }
+            # Note: polkit agent is started via systemd service in environment.nix
             { sh = "sleep 1 && dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"; }
             { command = ["swaync"]; }
             { command = ["wl-paste" "--type" "text" "--watch" "cliphist" "store"]; }

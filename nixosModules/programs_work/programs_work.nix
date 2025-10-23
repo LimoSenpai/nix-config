@@ -8,7 +8,8 @@ let
     cifs-utils         = cifs-utils;
     
     # Root Authentication Tools (system-wide needed)
-    lxqt-sudo          = lxqt.lxqt-sudo;
+    # lxqt-sudo is temporarily disabled due to Qt6 build issues in nixpkgs
+    # lxqt-sudo          = lxqt.lxqt-sudo;
     polkit-gnome       = polkit_gnome;
   };
 

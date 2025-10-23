@@ -377,7 +377,7 @@
     #"krb5"
     #"keyutils"
     "cifs-utils"
-    "lxqt-sudo"
+    #"lxqt-sudo"  # Temporarily disabled due to Qt6 build issues
     "polkit-gnome"
   ];
   nixos-apps-work.extraPackages = [

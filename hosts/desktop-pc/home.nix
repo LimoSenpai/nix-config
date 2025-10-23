@@ -106,7 +106,8 @@
     "lact"
     
     # Cloud Storage
-    "nextcloud"
+    # Temporarily disabled due to Qt6 GuiPrivate build issues
+    #"nextcloud"
     
     # Security
     "bitwarden"
@@ -217,8 +218,7 @@
 
     "mpvpaper"
   ];
-  home-apps-cli.extraPackages = [ 
-    pkgs.mdadm
+  home-apps-cli.extraPackages = [
   ];
 
   #=============================================================================#

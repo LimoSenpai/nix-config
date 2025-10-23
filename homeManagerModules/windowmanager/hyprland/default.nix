@@ -170,7 +170,7 @@
         "fcitx5"
 
         # Core components (authentication, lock screen, notification daemon)
-        "lxqt-policykit-agent &"
+        # Note: polkit agent is started via systemd service in environment.nix
         "sleep 1 && dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "swaync"
 

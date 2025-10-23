@@ -124,8 +124,10 @@ in
 
     programs.git = lib.mkIf config.git.enable {
       enable = true;
-      userName = "Tinus Braun";
-      userEmail = "brauntinus@gnetic.pro";
+      settings = {
+        user.name = "Tinus Braun";
+        user.email = "brauntinus@gnetic.pro";
+      };
     };
 
   };

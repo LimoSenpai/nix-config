@@ -36,7 +36,8 @@ let
     lact               = lact;
 
     # Cloud Storage
-    nextcloud          = nextcloud-client;
+    # Temporarily disabled due to Qt6 GuiPrivate build issues in nixpkgs
+    # nextcloud          = nextcloud-client;
     
     # Security
     bitwarden          = bitwarden-desktop;
