@@ -42,10 +42,20 @@
       url = "github:Janrupf/stable-diffusion-webui-nix/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
+    quickshell = {
+      url = "github:outfoxxed/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.quickshell.follows = "quickshell";  # Use same quickshell version
+    };
 
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, hyprland, stylix, self, niri-flake, zen-browser, spicetify-nix, stable-diffusion-webui-nix,... }:
+  outputs = inputs@{ nixpkgs, home-manager, hyprland, stylix, self, niri-flake, zen-browser, spicetify-nix, stable-diffusion-webui-nix, quickshell, noctalia, ... }:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs {

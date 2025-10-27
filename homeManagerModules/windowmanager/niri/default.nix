@@ -1,4 +1,13 @@
-{ config, pkgs, lib, inputs, stylix, ... }: {
+{ config, pkgs, lib, inputs, stylix, ... }: 
+
+let
+  # Noctalia IPC helper function
+  noctalia = cmd: [
+    "noctalia-shell" "ipc" "call"
+  ] ++ (pkgs.lib.splitString " " cmd);
+in
+
+{
 
   options = {
     niri.enable = lib.mkEnableOption "Niri Window Manager";
@@ -19,10 +28,6 @@
           workspaceMoveBinds = builtins.listToAttrs (map (num: {
             name = "Mod+Shift+" + keyFor num;
             value.action = actions.move-window-to-workspace num;
-          }) workspaceRange);
-          workspaceSendSilentBinds = builtins.listToAttrs (map (num: {
-            name = "Mod+Alt+" + keyFor num;
-            value.action = actions.move-window-to-workspace num { focus = false; };
           }) workspaceRange);
           baseEnv = {
             QT_IM_MODULE = "fcitx";
@@ -106,6 +111,7 @@
           };
 
           spawn-at-startup = [
+            { command = ["noctalia-shell"]; }
             { command = ["waybar"]; }
             { command = ["waypaper" "--restore"]; }
             { command = ["swww-daemon"]; }
@@ -198,23 +204,24 @@
             in
             {
               ## Launchers & system
-              "Mod+Space".action = spawn "rofi" "-show" "drun";
-              "Mod+L".action = spawn "hyprlock";
+              "Mod+Space".action.spawn = noctalia "launcher toggle";
+              "Mod+L".action.spawn = noctalia "lockScreen toggle";
+              "Mod+P".action.spawn = noctalia "sessionMenu toggle";
               "Mod+Control+W".action = spawn "/etc/profiles/per-user/tinus/bin/switchwall";
               "Mod+N".action = spawn "swaync-client" "-t";
               "Mod+Alt+O".action = quit;
               "Mod+Shift+Alt+Q".action = quit { skip-confirmation = true; };
 
-              ## Audio & brightness
-              "XF86MonBrightnessUp".action = shell "qs -c $qsConfig ipc call brightness increment || brightnessctl s 5%+";
-              "XF86MonBrightnessDown".action = shell "qs -c $qsConfig ipc call brightness decrement || brightnessctl s 5%-";
-              "XF86AudioRaiseVolume".action = spawn "wpctl" "set-volume" "-l" "1" "@DEFAULT_AUDIO_SINK@" "2%+";
-              "XF86AudioLowerVolume".action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "2%-";
-              "XF86AudioMute".action = spawn "wpctl" "set-mute" "@DEFAULT_SINK@" "toggle";
-              "Alt+XF86AudioMute".action = spawn "wpctl" "set-mute" "@DEFAULT_SOURCE@" "toggle";
-              "XF86AudioMicMute".action = spawn "wpctl" "set-mute" "@DEFAULT_SOURCE@" "toggle";
-              "Mod+Shift+M".action = spawn "wpctl" "set-mute" "@DEFAULT_SINK@" "toggle";
-              "Mod+Alt+Y".action = spawn "wpctl" "set-mute" "@DEFAULT_SOURCE@" "toggle";
+              ## Audio & brightness (Noctalia integration)
+              "XF86MonBrightnessUp".action.spawn = noctalia "brightness increment";
+              "XF86MonBrightnessDown".action.spawn = noctalia "brightness decrement";
+              "XF86AudioRaiseVolume".action.spawn = noctalia "volume increase";
+              "XF86AudioLowerVolume".action.spawn = noctalia "volume decrease";
+              "XF86AudioMute".action.spawn = noctalia "volume muteOutput";
+              "Alt+XF86AudioMute".action.spawn = noctalia "volume muteInput";
+              "XF86AudioMicMute".action.spawn = noctalia "volume muteInput";
+              "Mod+Shift+M".action.spawn = noctalia "volume muteOutput";
+              "Mod+Alt+Y".action.spawn = noctalia "volume muteInput";
 
               ## Screenshots
               "Mod+Shift+S".action = shell "grim -g \"$(slurp)\" - | wl-copy";
@@ -270,8 +277,7 @@
               "Mod+Control+Alt+Left".action = focus-monitor-left;
             }
             // workspaceFocusBinds
-            // workspaceMoveBinds
-            // workspaceSendSilentBinds;
+            // workspaceMoveBinds;
         };
     };
   };

@@ -127,13 +127,15 @@
   
   # Window Managers
   hyprland.enable = true;
-  niri.enable = false;
+  niri.enable = true;
   #gnome.enable = true;
   #bspwm.enable = true;
 
   # Display Manager
   # In your host config:
   sddm.enable = true;
+
+  noctalia.enable = true;
 
   # Hardware Support
   nvidia.enable = true;

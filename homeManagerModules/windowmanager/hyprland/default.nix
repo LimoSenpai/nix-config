@@ -70,7 +70,18 @@
         "Super+Shift, M, exec, wpctl set-mute @DEFAULT_SINK@ toggle" 
         "Alt, XF86AudioMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle" 
         ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle" 
-        "Super+Alt, Y, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle" 
+        "Super+Alt, Y, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
+
+        # --- Noctalia (Quickshell) alternative keybinds ---
+        "Super+Shift, Space, exec, noctalia-shell ipc call launcher toggle" # Noctalia Launcher
+        "Super+Shift, L, exec, noctalia-shell ipc call lockScreen toggle" # Noctalia lock screen
+        "Super, P, exec, noctalia-shell ipc call sessionMenu toggle" # Noctalia session menu
+        "Super+Shift, XF86MonBrightnessUp, exec, noctalia-shell ipc call brightness increment"
+        "Super+Shift, XF86MonBrightnessDown, exec, noctalia-shell ipc call brightness decrement"
+        "Super+Shift, XF86AudioRaiseVolume, exec, noctalia-shell ipc call volume increase"
+        "Super+Shift, XF86AudioLowerVolume, exec, noctalia-shell ipc call volume decrease"
+        "Super+Shift, XF86AudioMute, exec, noctalia-shell ipc call volume muteOutput"
+        "Super+Shift, XF86AudioMicMute, exec, noctalia-shell ipc call volume muteInput" 
 
         # --- Utilities ---
         "SUPER+SHIFT, S, exec, grim -g \"$(slurp)\" - | wl-copy" # Screenshot selected area to clipboard
