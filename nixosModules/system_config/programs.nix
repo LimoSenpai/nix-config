@@ -64,7 +64,7 @@
           line_break.disabled = true;
         };
         presets = [
-          "nerd-font-symbols"
+          "jetpack" #pastel-powerline
         ];
       };
       

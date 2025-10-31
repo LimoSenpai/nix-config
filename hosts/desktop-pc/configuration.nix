@@ -127,7 +127,7 @@
   
   # Window Managers
   hyprland.enable = true;
-  niri.enable = true;
+  #niri.enable = true;
   #gnome.enable = true;
   #bspwm.enable = true;
 

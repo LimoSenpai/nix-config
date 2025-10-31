@@ -1,6 +1,19 @@
 { config, pkgs, lib, inputs, stylix, ... }: 
 
 let
+  system = pkgs.stdenv.system;
+  niriPackages = inputs.niri-flake.packages.${system};
+  xwaylandSatellitePkg = niriPackages.xwayland-satellite-unstable;
+  electronWaylandEnv = {
+    NIXOS_OZONE_WL = "1";
+    ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+  };
+  stylixColors = if config.lib ? stylix then config.lib.stylix.colors.withHashtag else null;
+  borderActiveColor = if stylixColors != null then stylixColors.base0D else "#5fafff";
+  borderInactiveColor = if stylixColors != null then stylixColors.base03 else "#444444";
+  focusRingActiveColor = if stylixColors != null then stylixColors.base0C else "#ccffff";
+  focusRingInactiveColor = if stylixColors != null then stylixColors.base04 else "#888888";
+  shadowColor = if stylixColors != null then stylixColors.base00 + "70" else "#00000070";
   # Noctalia IPC helper function
   noctalia = cmd: [
     "noctalia-shell" "ipc" "call"
@@ -14,6 +27,7 @@ in
   };
 
   config = lib.mkIf config.niri.enable {
+    home.packages = [ xwaylandSatellitePkg ];
     programs.niri = {
       enable = true;
       settings =
@@ -27,7 +41,7 @@ in
           }) workspaceRange);
           workspaceMoveBinds = builtins.listToAttrs (map (num: {
             name = "Mod+Shift+" + keyFor num;
-            value.action = actions.move-window-to-workspace num;
+            value.action."move-column-to-workspace" = num;
           }) workspaceRange);
           baseEnv = {
             QT_IM_MODULE = "fcitx";
@@ -38,7 +52,6 @@ in
             QT_QPA_PLATFORM = "wayland";
             QT_QPA_PLATFORMTHEME = "kde";
             QT_STYLE_OVERRIDE = "kvantum";
-            WLR_NO_HARDWARE_CURSORS = "0";
             XDG_SESSION_TYPE = "wayland";
           };
           cursorEnv = lib.optionalAttrs config.cursor.enable (
@@ -60,7 +73,87 @@ in
             }
           );
         in {
-          environment = baseEnv // cursorEnv // hyprcursorEnv;
+          environment = baseEnv // cursorEnv // hyprcursorEnv // electronWaylandEnv;
+
+          xwayland-satellite = {
+            enable = true;
+            path = lib.getExe xwaylandSatellitePkg;
+          };
+
+          outputs = {
+            "DP-1" = {
+              mode = {
+                width = 2560;
+                height = 1440;
+                refresh = 179.952;
+              };
+              position = {
+                x = 1920;
+                y = 0;
+              };
+              scale = 1.0;
+            };
+            "DP-2" = {
+              mode = {
+                width = 1920;
+                height = 1080;
+                refresh = 144.001;
+              };
+              position = {
+                x = 4480;
+                y = 194;
+              };
+              scale = 1.0;
+            };
+            "DP-3" = {
+              mode = {
+                width = 1920;
+                height = 1080;
+                refresh = 144.001;
+              };
+              position = {
+                x = 0;
+                y = 194;
+              };
+              scale = 1.0;
+            };
+            "DP-4" = {
+              mode = {
+                width = 2560;
+                height = 1440;
+                refresh = 179.95;
+              };
+              position = {
+                x = 1920;
+                y = 0;
+              };
+              scale = 1.0;
+            };
+            "DP-5" = {
+              mode = {
+                width = 1920;
+                height = 1080;
+                refresh = 144.0;
+              };
+              position = {
+                x = 4480;
+                y = 194;
+              };
+              scale = 1.0;
+            };
+            "DP-6" = {
+              mode = {
+                width = 1920;
+                height = 1080;
+                refresh = 144.0;
+              };
+              position = {
+                x = 0;
+                y = 194;
+              };
+              scale = 1.0;
+            };
+          };
 
           input = {
             mod-key = "Super";
@@ -70,9 +163,9 @@ in
               repeat-rate = 35;
               xkb.layout = "de";
             };
-            mouse.natural-scroll = true;
+            mouse.natural-scroll = false;
             touchpad = {
-              natural-scroll = true;
+              natural-scroll = false;
               tap = true;
               middle-emulation = true;
               click-method = "clickfinger";
@@ -84,14 +177,14 @@ in
             border = {
               enable = true;
               width = 1;
-              active.color = "#5fafff";
-              inactive.color = "#444444";
-            };
+              active.color = borderActiveColor;
+              inactive.color = borderInactiveColor;
+              };
             focus-ring = {
               enable = true;
               width = 2;
-              active.color = "#ccffff";
-              inactive.color = "#888888";
+              active.color = focusRingActiveColor;
+              inactive.color = focusRingInactiveColor;
             };
             shadow = {
               enable = true;
@@ -101,7 +194,7 @@ in
               };
               softness = 30.0;
               spread = 5.0;
-              color = "#00000070";
+              color = shadowColor;
             };
             gaps = 4;
           };
@@ -236,45 +329,45 @@ in
               "Mod+Control+V".action = spawn "pavucontrol";
 
               ## Window management
-              "Mod+Q".action = close-window;
-              "Mod+X".action = toggle-window-floating;
-              "Mod+F".action = fullscreen-window;
-              "Mod+Shift+F".action = toggle-windowed-fullscreen;
-              "Mod+Alt+F".action = maximize-column;
+              "Mod+Q".action = actions.close-window;
+              "Mod+X".action = actions.toggle-window-floating;
+              "Mod+Shift+F".action = actions.fullscreen-window;
+              "Mod+Alt+F".action = actions.toggle-windowed-fullscreen;
+              "Mod+F".action = actions.maximize-column;
 
               ## Focus movement
-              "Mod+Left".action = focus-window-or-monitor-left;
-              "Mod+Right".action = focus-window-or-monitor-right;
-              "Mod+Up".action = focus-window-up;
-              "Mod+Down".action = focus-window-down;
-              "Mod+BracketLeft".action = focus-window-or-monitor-left;
-              "Mod+BracketRight".action = focus-window-or-monitor-right;
+              "Mod+Left".action = actions.focus-column-or-monitor-left;
+              "Mod+Right".action = actions.focus-column-or-monitor-right;
+              "Mod+Up".action = actions.focus-window-up;
+              "Mod+Down".action = actions.focus-window-down;
+              "Mod+BracketLeft".action = actions.focus-column-or-monitor-left;
+              "Mod+BracketRight".action = actions.focus-column-or-monitor-right;
 
               ## Move windows
-              "Mod+Shift+Left".action = consume-or-expel-window-left;
-              "Mod+Shift+Right".action = consume-or-expel-window-right;
-              "Mod+Shift+Up".action = move-window-up;
-              "Mod+Shift+Down".action = move-window-down;
+              "Mod+Shift+Left".action = actions.consume-or-expel-window-left;
+              "Mod+Shift+Right".action = actions.consume-or-expel-window-right;
+              "Mod+Shift+Up".action = actions.move-window-up;
+              "Mod+Shift+Down".action = actions.move-window-down;
 
               ## Column sizing
-              "Mod+Semicolon".action = set-column-width "-10%";
-              "Mod+Apostrophe".action = set-column-width "+10%";
+              "Mod+Semicolon".action = actions.set-column-width "-10%";
+              "Mod+Apostrophe".action = actions.set-column-width "+10%";
 
               ## Workspace navigation
-              "Mod+Control+Right".action = focus-workspace-down;
-              "Mod+Control+Left".action = focus-workspace-up;
-              "Mod+Page_Down".action = focus-workspace-down;
-              "Mod+Page_Up".action = focus-workspace-up;
-              "Mod+Control+Page_Down".action = focus-workspace-down;
-              "Mod+Control+Page_Up".action = focus-workspace-up;
-              "Mod+WheelScrollDown".action = focus-workspace-down;
-              "Mod+WheelScrollUp".action = focus-workspace-up;
-              "Control+Mod+WheelScrollDown".action = focus-workspace-down;
-              "Control+Mod+WheelScrollUp".action = focus-workspace-up;
+              "Mod+Control+Right".action = actions.focus-workspace-down;
+              "Mod+Control+Left".action = actions.focus-workspace-up;
+              "Mod+Page_Down".action = actions.focus-workspace-down;
+              "Mod+Page_Up".action = actions.focus-workspace-up;
+              "Mod+Control+Page_Down".action = actions.focus-workspace-down;
+              "Mod+Control+Page_Up".action = actions.focus-workspace-up;
+              "Mod+WheelScrollDown".action = actions.focus-workspace-down;
+              "Mod+WheelScrollUp".action = actions.focus-workspace-up;
+              "Control+Mod+WheelScrollDown".action = actions.focus-workspace-down;
+              "Control+Mod+WheelScrollUp".action = actions.focus-workspace-up;
 
               ## Monitor focus
-              "Mod+Control+Alt+Right".action = focus-monitor-right;
-              "Mod+Control+Alt+Left".action = focus-monitor-left;
+              "Mod+Control+Alt+Right".action = actions.focus-monitor-right;
+              "Mod+Control+Alt+Left".action = actions.focus-monitor-left;
             }
             // workspaceFocusBinds
             // workspaceMoveBinds;
