@@ -37,7 +37,7 @@ let
 
     # Cloud Storage
     # Temporarily disabled due to Qt6 GuiPrivate build issues in nixpkgs
-    # nextcloud          = nextcloud-client;
+    nextcloud          = nextcloud-client;
     
     # Security
     bitwarden          = bitwarden-desktop;

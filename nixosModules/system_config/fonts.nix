@@ -1,4 +1,4 @@
-{ conifg, pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 {
   fonts = {
     enableDefaultPackages = true;  # optional

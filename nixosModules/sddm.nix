@@ -7,6 +7,7 @@
   config = lib.mkIf config.sddm.enable {
     services.displayManager.sddm = {
         enable = true;
+        wayland.enable = true;
         package = pkgs.kdePackages.sddm;        # Qt6 SDDM
         theme = "astronaut"; # Theme folder name in /usr/share/sddm/themes/
         settings = {
@@ -22,6 +23,9 @@
           qtquick3d
         ];
       };
+
+    services.displayManager.autoLogin.enable = true;
+    services.displayManager.autoLogin.user = "tinus";
 
     };
 }

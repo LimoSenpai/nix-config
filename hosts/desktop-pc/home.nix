@@ -4,10 +4,6 @@
   imports = [ 
       ../../homeManagerModules
     ];
-
-  # The username and home directory for the user
-  home.username = "tinus";
-  
   # default Programs
   home.sessionVariables = {
     XDG_DATA_DIRS = "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}:/usr/share";
@@ -107,7 +103,7 @@
     
     # Cloud Storage
     # Temporarily disabled due to Qt6 GuiPrivate build issues
-    #"nextcloud"
+    "nextcloud"
     
     # Security
     "bitwarden"

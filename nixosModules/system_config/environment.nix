@@ -1,19 +1,5 @@
-
-{ config, lib, pkgs, ... }:
+{ lib, ... }:
 {
-
-  # Using polkit-gnome instead of lxqt-policykit due to Qt6 build issues
-  systemd.user.services.polkit-gnome-authentication-agent = {
-    description = "PolicyKit Authentication Agent";
-    wantedBy = [ "graphical-session.target" ];
-    after = [ "graphical-session.target" ];
-    serviceConfig = {
-      ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-      Restart = "on-failure";
-    };
-  };
-
-
   # Environment Settings
   environment.variables = {
     XCURSOR_THEME = "GoogleDot-Black";
