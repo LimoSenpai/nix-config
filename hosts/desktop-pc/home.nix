@@ -9,7 +9,7 @@
     XDG_DATA_DIRS = "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}:/usr/share";
     BROWSER = "zen";
     EDITOR = "nano";
-    TERMINAL = "alacritty";
+  TERMINAL = "wezterm";
   };
 
   xdg.mimeApps = {
@@ -26,8 +26,8 @@
       "inode/directory" = "org.gnome.Nautilus.desktop";
       "application/x-gnome-saved-search" = "org.gnome.Nautilus.desktop";
       
-      # Terminal - Alacritty
-      "application/x-terminal-emulator" = "Alacritty.desktop";
+  # Terminal - WezTerm
+  "application/x-terminal-emulator" = "org.wezfurlong.wezterm.desktop";
     };
   };
 
@@ -65,8 +65,14 @@
   # foot.enable = true; # Terminal Emulator (disabled due to SSH issues)
   power-profiles-daemon.enable = true; # Power Profiles Daemon | Used in Waybar
   playerctl.enable = true; # Media Player Control | Used in Waybar
-  alacritty.enable = true;
+  wezterm.enable = true;
   git.enable = true;
+
+  services.udiskie.enable = true;
+  services.udiskie.settings = {
+    automount = true;
+    notify = true;
+  };
 
   #=============================================================================#
   #                              GUI PROGRAMS                                  #
@@ -81,6 +87,7 @@
     "vesktop"
     "discord"
     "element-desktop"
+    "teams"
     
     # Office & Productivity
     "obsidian"
@@ -116,6 +123,7 @@
     
     # File Management
     "nautilus"
+    "pcmanfm"
     "ark"
 
     # Screenshot annotations
@@ -174,6 +182,7 @@
     "file"
     "which"
     "evtest"
+   "cliphist"
     "wl-copy"
     
     # Text Processing
@@ -223,8 +232,10 @@
   home-apps-gaming.enable = [
     # Gaming Platforms
     "lutris"
-    #"heroic"
-    
+    "heroic"
+    "archipelago"
+    #"archipelago-minecraft"
+
     # Gaming Tools
     "gamescope"
     "mangohud"
@@ -233,9 +244,6 @@
     
     # Minecraft
     "prismlauncher"
-    
-    # Custom packages
-    "cirno-downloader"
     
     # Discord Rich Presence
     "arrpc"

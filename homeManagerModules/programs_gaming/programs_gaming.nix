@@ -5,6 +5,8 @@ let
     # Gaming Platforms
     lutris             = lutris;
     heroic             = heroic;
+    archipelago        = archipelago;
+    archipelago-minecraft = archipelago-minecraft;
     
     # Gaming Tools
     gamemode           = gamemode;

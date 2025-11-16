@@ -106,7 +106,7 @@
 
   # Enable Nix features
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nixpkgs.config.allowBroken = true;
+  #nixpkgs.config.allowBroken = true;
 
   #=============================================================================#
   #                            SYSTEM CONFIGURATION                            #
@@ -133,8 +133,12 @@
   dunst.enable = true;
   system-programs.enable = true;
   nixos-services.enable = lib.mkAfter [
-    "stable-diffusion-webui"
+    "storage-daemons"
+    #"stable-diffusion-webui"
     "ollama"
+    "gnome-keyring"
+    "openssh"
+    "sudo-poweroff"
   ];
   
 

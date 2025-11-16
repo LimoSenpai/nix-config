@@ -2,10 +2,10 @@
   description = "NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # was: github:nixos/nixpkgs/nixos-25.05
+  nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # home-manager, used for managing user configuration
     home-manager = {
-      url = "github:nix-community/home-manager"; # was: github:nix-community/home-manager/release-25.05
+  url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Hyprland, the Wayland compositor
@@ -14,7 +14,7 @@
     niri-flake.url = "github:sodiboo/niri-flake";
 
     # Zen Browser
-    zen-browser.url = "github:youwen5/zen-browser-flake";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
     # optional, but recommended if you closely follow NixOS unstable so it shares
     # system libraries, and improves startup time
     # NOTE: if you experience a build failure with Zen, the first thing to check is to remove this line!
@@ -32,7 +32,7 @@
     
     # Stylix 
     stylix = {
-      url = "github:nix-community/stylix"; # was: github:nix-community/stylix/release-25.05
+      url = "github:nix-community/stylix/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Spicetify

@@ -39,9 +39,9 @@ let
       services.printing.enable = true;
     };
 
-    lact = {
-      services.lact.enable = true;
-    };
+    #lact = {
+    #  services.lact.enable = true;
+    #};
 
     xserver = {
       services.xserver = {
@@ -87,7 +87,7 @@ let
       };
     };
 
-    stable-diffusion-webui = {
+/*      stable-diffusion-webui = {
       environment.systemPackages = [
         pkgs.stable-diffusion-webui.forge.cuda
         pkgs.stable-diffusion-webui.comfy.cuda
@@ -200,7 +200,7 @@ let
           ];
         };
       };
-    };
+    }; */
   };
 
   validNames = builtins.attrNames registry;

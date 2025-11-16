@@ -48,6 +48,7 @@ let
     evtest             = evtest;
     mdadm              = mdadm;
     tmux               = tmux;
+    cliphist           = cliphist;
     wl-copy            = wl-clipboard; # Command line clipboard utilities for Wayland
     
     # Text Processing
@@ -84,6 +85,7 @@ let
     
     # Terminal Emulator
     alacritty          = alacritty;
+    wezterm            = wezterm;
 
     mpvpaper           = mpvpaper; # Set wallpapers using mpv
   };

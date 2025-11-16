@@ -225,7 +225,7 @@ in
 
           window-rules = [
             {
-              matches = [{ app-id = "(?i)alacritty"; }];
+              matches = [{ app-id = "(?i)org\\.wezfurlong\\.wezterm"; }];
               opacity = 0.7;
             }
             {
@@ -322,7 +322,7 @@ in
               "Mod+Print".action = shell "grim - | wl-copy";
 
               ## Application shortcuts
-              "Mod+T".action = spawn "alacritty";
+              "Mod+T".action = spawn "wezterm";
               "Mod+E".action = spawn "nautilus";
               "Mod+B".action = spawn "zen";
               "Mod+C".action = spawn "code";

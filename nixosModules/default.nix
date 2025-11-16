@@ -19,7 +19,7 @@
       ./wm/hyprland
       ./wm/niri
       ./wm/bspwm
-      ./wm/gnome
+      #./wm/gnome
       ./wm/wm_utils
       ./wm/kde6
       ./wm/sway

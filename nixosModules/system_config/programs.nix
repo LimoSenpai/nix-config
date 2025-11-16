@@ -5,7 +5,28 @@
   };
 
   config = lib.mkIf config.system-programs.enable {
-      programs = {
+      programs =
+        let
+          ohMyZshCustomPath = pkgs.linkFarm "oh-my-zsh-custom" [
+            {
+              name = "plugins/zsh-history-substring-search/zsh-history-substring-search.zsh";
+              path = "${pkgs.zsh-history-substring-search}/share/zsh-history-substring-search/zsh-history-substring-search.zsh";
+            }
+            {
+              name = "plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";
+              path = "${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";
+            }
+            {
+              name = "plugins/nix-zsh-completions";
+              path = "${pkgs.nix-zsh-completions}/share/zsh/plugins/nix-zsh-completions";
+            }
+            {
+              name = "site-functions";
+              path = "${pkgs.nix-zsh-completions}/share/zsh/site-functions";
+            }
+          ];
+          ohMyZshCustom = toString ohMyZshCustomPath;
+        in {
       
       gnupg.agent.pinentryPackage = {
         enable = true;
@@ -45,11 +66,8 @@
             "git"
             "man"
           ];
-          customPkgs = [
-            pkgs.zsh-history-substring-search
-            pkgs.zsh-syntax-highlighting
-            pkgs.nix-zsh-completions
-          ];
+          custom = ohMyZshCustom;
+          customPkgs = lib.mkForce [];
         };
       };
 

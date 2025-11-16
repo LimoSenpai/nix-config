@@ -90,7 +90,7 @@
 
 
         ##! Apps
-        "Super, T, exec, alacritty" # Terminal Emulator
+  "Super, T, exec, wezterm" # Terminal Emulator
         "Super, E, exec, nautilus" # File manager
         "Super, B, exec, zen" # Browser
         "Super, C, exec, code" # Code editor
@@ -367,8 +367,8 @@
         "pin, class:kando"
 
         
-        # Opacity 
-        "opacity 0.7, class:^(Alacritty)$"
+    # Opacity 
+    "opacity 0.7, class:^(org\\.wezfurlong\\.wezterm)$"
 
         # Floating
         "float, class:^(dunst)$"
