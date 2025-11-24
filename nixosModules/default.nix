@@ -7,11 +7,13 @@
       ./stylix.nix
 
 
-      # new Structure
-      ./programs_gaming
-      ./programs_gui
-      ./programs_cli
-      ./programs_work
+      # Application sets
+      ./apps/cli.nix
+      ./apps/gui.nix
+      ./apps/gaming.nix
+      ./apps/work.nix
+      ./apps/spicetify.nix
+      ./apps/noctalia.nix
       ./system_config
       ./services
 
