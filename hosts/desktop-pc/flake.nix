@@ -72,6 +72,7 @@
       point-er-cursors = pkgs.callPackage ../../pkgs/point-er-cursors.nix {};
       gdk-pixbuf-dev = pkgs.gdk-pixbuf.dev;
       sddm-astronaut-hyprland_kath = pkgs.callPackage ../../pkgs/sddm-astronaut.nix {};
+      zen-browser = pkgs.callPackage ../../pkgs/zen-browser.nix {};
     };
     # Make Derivations accessible in the flake
     overlays = {
@@ -86,6 +87,7 @@
         future-cursors = prev.callPackage ../../pkgs/future-cursors.nix {};
         point-er-cursors = prev.callPackage ../../pkgs/point-er-cursors.nix {};
         sddm-astronaut-hyprland_kath = prev.callPackage ../../pkgs/sddm-astronaut.nix {};
+        zen-browser = prev.callPackage ../../pkgs/zen-browser.nix {};
       };
 
     niri = niri-flake.overlays.niri;

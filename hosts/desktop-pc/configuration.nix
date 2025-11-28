@@ -105,6 +105,9 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Enable Firefox DRM/Widevine support (required for Zen Browser live streams)
+  nixpkgs.config.firefox.enableWideVine = true;
+
   # Enable Nix features
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   #nixpkgs.config.allowBroken = true;
@@ -182,6 +185,12 @@
     "ethtool"
   ];
   nixos-system-essentials.extraPackages = [ 
+    # Media codecs for Zen Browser live streams (YouTube/Twitch)
+    pkgs.libva
+    pkgs.ffmpeg_7-full
+    pkgs.linphonePackages.mediastreamer2
+    pkgs.openh264
+    pkgs.linphonePackages.msopenh264
   ];
 
   #=============================================================================#

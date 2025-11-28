@@ -12,6 +12,7 @@
       ./apps/playerctl.nix
       ./apps/power-profiles-daemon.nix
       ./apps/gaming-misc.nix
+      ./apps/zen-browser.nix
 
       ./windowmanager/hyprland 
       ./windowmanager/niri

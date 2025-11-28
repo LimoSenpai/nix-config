@@ -9,7 +9,10 @@
     XDG_DATA_DIRS = "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}:/usr/share";
     BROWSER = "zen";
     EDITOR = "nano";
-  TERMINAL = "wezterm";
+    TERMINAL = "wezterm";
+    # Enable hardware video acceleration for Firefox/Zen Browser
+    MOZ_ENABLE_WAYLAND = "1";
+    LIBVA_DRIVER_NAME = "nvidia"; # Change to "radeonsi" for AMD, "i965" for Intel
   };
 
   xdg.mimeApps = {
@@ -44,6 +47,9 @@
   rofi.enable = true;
   wofi.enable = true;
   waybar.enable = true;
+
+  # Browser configuration
+  zen-browser.enable = true;
 
   # Cursor & Theming
   cursor.enable = true;
@@ -230,6 +236,10 @@
     "mpvpaper"
   ];
   home-apps-cli.extraPackages = [
+    # Media codec packages for Zen Browser live streams
+    pkgs.libva
+    pkgs.libva-utils
+    pkgs.ffmpeg_7-full
   ];
 
   #=============================================================================#

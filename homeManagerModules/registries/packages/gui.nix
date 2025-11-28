@@ -3,7 +3,7 @@ with pkgs;
 {
   # Browsers
   librewolf          = librewolf-bin;
-  zen-browser        = inputs.zen-browser.packages.${pkgs.system}.default;
+  zen-browser        = zen-browser;
   chromium           = ungoogled-chromium;
 
   # Communication

@@ -90,9 +90,9 @@
 
 
         ##! Apps
-  "Super, T, exec, wezterm" # Terminal Emulator
+        "Super, T, exec, wezterm" # Terminal Emulator
         "Super, E, exec, nautilus" # File manager
-        "Super, B, exec, zen" # Browser
+        "Super, B, exec, zen-browser" # Browser
         "Super, C, exec, code" # Code editor
         "Ctrl+Super, V, exec, pavucontrol" # Volume mixer
         #"Ctrl+Shift, Escape, exec, gnome-system-monitor" # Task manager
