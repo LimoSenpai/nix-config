@@ -8,22 +8,27 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "uas" "sd_mod" "md_mod" "raid0" "raid1" "raid10" "raid456"];
+
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "uas" "sd_mod" "md_mod" "raid0" "raid1" "raid10" "raid456" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
   boot.supportedFilesystems = [ "nfs" ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/2ca51280-edb0-42af-949a-656ddc527c41";
+    { device = "/dev/disk/by-uuid/ee66b00f-a9c3-4b89-8afd-e1b459eed77a";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/6BEC-824D";
+    { device = "/dev/disk/by-uuid/C226-CC54";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
+
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/840d2046-c12a-48c7-ab2d-85b97ad026a5"; }
+    ];
 
   boot.swraid = {
     enable = true;
@@ -37,7 +42,7 @@
   fileSystems."/mnt/jbod" = {
     device = "/dev/md0";
     fsType = "ext4";
-    options = [ "nofail" "x-systemd.device-timeout=10" ];
+    options = [ "x-systemd.device-timeout=10" ];
   };
 
   fileSystems."/tank" = {
@@ -93,17 +98,6 @@
     ];
   };
 
-
-
-
-#    fileSystems."/mnt/jbod" =
-#    { device = "/dev/md127";
-#      fsType = "ext4";
-#    };
-
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/7631c5f1-c14d-46ed-9914-b924c5395354"; }
-    ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

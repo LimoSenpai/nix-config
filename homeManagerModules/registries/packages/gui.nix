@@ -59,6 +59,7 @@ with pkgs;
   
   # System Tools
   nwg-displays       = nwg-displays;
+  wdisplays          = wdisplays;
   way-displays       = way-displays;
   hyprlock           = hyprlock;
   swaynotificationcenter = swaynotificationcenter;

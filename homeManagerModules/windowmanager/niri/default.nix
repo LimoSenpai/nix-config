@@ -1,7 +1,7 @@
 { config, pkgs, lib, inputs, stylix, ... }: 
 
 let
-  system = pkgs.stdenv.system;
+  system = pkgs.stdenv.hostPlatform.system;
   niriPackages = inputs.niri-flake.packages.${system};
   xwaylandSatellitePkg = niriPackages.xwayland-satellite-unstable;
   electronWaylandEnv = {

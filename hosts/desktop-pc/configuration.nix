@@ -47,6 +47,7 @@
     description = "Enable Wake-on-LAN on enp12s0";
     wantedBy = [ "multi-user.target" ];
     after = [ "network-online.target" ];
+    wants = [ "network-online.target" ];
     serviceConfig = {
       Type = "oneshot";
       ExecStart = "${pkgs.ethtool}/sbin/ethtool -s enp12s0 wol g";
@@ -190,9 +191,7 @@
     # System audio (if needed system-wide)
     "pavucontrol"
     
-    # System Tools requiring system access
-    #"nwg-displays" #broken in unstable branch 25.11
-    #"way-displays"
+    
     "ark"
   ];
   nixos-apps-gui.extraPackages = [

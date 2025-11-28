@@ -49,6 +49,7 @@ with pkgs;
   tmux               = tmux;
   cliphist           = cliphist;
   wl-copy            = wl-clipboard;
+  ffmpeg_7-full      = ffmpeg_7-full;
   
   # Text Processing
   gnused             = gnused;

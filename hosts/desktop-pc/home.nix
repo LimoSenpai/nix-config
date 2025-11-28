@@ -81,7 +81,7 @@
     # Browsers
     "zen-browser"
     "librewolf"
-    "chromium"
+    #"chromium"
     
     # Communication
     "vesktop"
@@ -128,6 +128,12 @@
 
     # Screenshot annotations
     "satty"
+
+    #System Tools
+    # System Tools requiring system access
+    "nwg-displays" #broken in unstable branch 25.11
+    #"way-displays"
+    #"wdisplays"
   ];
   home-apps-gui.extraPackages = [ 
     pkgs.betterdiscordctl
