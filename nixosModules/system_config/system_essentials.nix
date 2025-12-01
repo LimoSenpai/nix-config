@@ -42,9 +42,6 @@ in
       };
     })
 
-<<<<<<< HEAD
-
-=======
     # WoL service now under `config`
     #{
     #  systemd.services."wol-${iface}" = {
@@ -57,6 +54,5 @@ in
     #    };
     #  };
     #}
->>>>>>> 3008eb4 (forgot)
   ];
 }

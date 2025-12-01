@@ -2,8 +2,6 @@
 with pkgs;
 {
   # System Tools (requiring system-level access)
-  nwg-displays       = nwg-displays;
-  way-displays       = way-displays;
   hyprlock           = hyprlock;
   
   # File Management (system-level)

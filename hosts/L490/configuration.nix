@@ -12,7 +12,7 @@
 
   # Use stable kernel for NVIDIA compatibility
   # boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelPackages = pkgs.linuxPackages_6_16;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # User Configuration
   users.groups.tinus = {};
@@ -112,7 +112,7 @@
 
   # Software
   system-programs.enable = true; # Enable system programs
-  work_drive.enable = true; # Enable work drive configuration
+  
 
   #=============================================================================#
   #                          SYSTEM ESSENTIAL PACKAGES                         #
@@ -163,7 +163,6 @@
     "ark"
   ];
   nixos-apps-gui.extraPackages = [
-    pkgs.wdisplays
   ];
 
   #=============================================================================#
@@ -210,7 +209,6 @@
     "krb5"
     "keyutils"
     "cifs-utils"
-    "lxqt-sudo"
     "polkit-gnome"
   ];
   nixos-apps-work.extraPackages = [

@@ -1,4 +1,4 @@
-{config, pkgs, ... }:
+{config, pkgs, inputs, ... }:
 
 {
   imports =
@@ -14,6 +14,7 @@
       ./apps/work.nix
       ./apps/spicetify.nix
       ./apps/noctalia.nix
+      ./apps/ollama.nix
       ./system_config
       ./services
 

@@ -19,7 +19,7 @@ with pkgs;
   prismlauncher      = prismlauncher;
   
   # Custom packages
-  cirno-downloader   = cirno-downloader;
+  #cirno-downloader   = cirno-downloader;
   
   # Discord Rich Presence
   arrpc              = arrpc;

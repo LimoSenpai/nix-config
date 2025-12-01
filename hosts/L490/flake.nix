@@ -2,10 +2,10 @@
   description = "NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # was: github:nixos/nixpkgs/nixos-25.05
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11"; # was: github:nixos/nixpkgs/nixos-25.05
     # home-manager, used for managing user configuration
     home-manager = {
-      url = "github:nix-community/home-manager"; # was: github:nix-community/home-manager/release-25.05
+      url = "github:nix-community/home-manager/release-25.11"; # was: github:nix-community/home-manager/release-25.05
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Hyprland, the Wayland compositor

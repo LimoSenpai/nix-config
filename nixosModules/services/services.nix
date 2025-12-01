@@ -1,5 +1,5 @@
 
-{ config, lib, pkgs, ... }:
+{ lib, pkgs, config, ... }:
 let
   registry = import ./definitions { inherit lib pkgs; };
 

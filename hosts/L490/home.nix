@@ -69,6 +69,9 @@
   alacritty.enable = true;
   git.enable = true;
 
+  # Browser configuration
+  zen-browser.enable = true;
+
   # GUI Programs
   #spicetify.enable = true; # Spotify Customization
 
@@ -77,7 +80,7 @@
   #=============================================================================#
   home-apps-gui.enable = [
     # Browsers
-    "zen-browser"
+    #"zen-browser"
     "librewolf" 
     "chromium"
     
@@ -100,6 +103,7 @@
     # Graphics
     "gimp"
     "inkscape"
+    "nwg-displays"
     
     # Cloud Storage
     "nextcloud"
@@ -235,7 +239,7 @@
     "prismlauncher"
     
     # Custom packages
-    "cirno-downloader"
+    #"cirno-downloader"
     
     # Game Tools
     "protontricks"
