@@ -29,7 +29,7 @@
   networking = {
     networkmanager.enable = true;
     hostName = "nixos-l490";
-    #nameservers = [ "192.168.1.1" "137.248.1.8" ];
+    nameservers = [ "192.168.1.1" "1.1.1.1" ];
 
     ### PROXY SETTINGS ### 
     #proxy = { 
@@ -40,8 +40,8 @@
     #};
 
     wg-quick ={
-      interfaces.wg2 = {
-        configFile = "/etc/wireguard/wg2.conf"; 
+      interfaces.wg0 = {
+        configFile = "/etc/wireguard/wg0.conf"; 
       };
       #interfaces.wg2 = {
       #  configFile = "/etc/wireguard/wg2.conf"; 
@@ -70,27 +70,6 @@
     #  "192.168.16.3"  = [ "ldap-master.hrz.uni-marburg.de" ];
     #};
 
-/*
-  systemd.network.networks."10-eno1" = {
-    matchConfig.Name = "eno1";
-    networkConfig.DHCP = "yes";
-
-    routes = [
-      { Destination = "192.168.1.119/32"; Gateway = "137.248.113.250"; GatewayOnLink = true; Metric = 50; }
-      { Destination = "192.168.16.40/32"; Gateway = "137.248.113.250"; GatewayOnLink = true; Metric = 50; }
-      { Destination = "192.168.16.3/32";  Gateway = "137.248.113.250"; GatewayOnLink = true; Metric = 50; }
-      { Destination = "137.248.21.22/32"; Gateway = "137.248.113.250"; GatewayOnLink = true; Metric = 50; }
-    ];
-
-    # Make sure these go via main (before wg policy rules)
-    routingPolicyRules = [
-      { To = "192.168.1.119/32"; Table = "main"; Priority = 1000; }
-      { To = "192.168.16.40/32"; Table = "main"; Priority = 1000; }
-      { To = "192.168.16.3/32";  Table = "main"; Priority = 1000; }
-      { To = "137.248.21.22/32"; Table = "main"; Priority = 1000; }
-    ];
-  };
-*/
 
   # Console and Localization
   console.keyMap = "de-latin1-nodeadkeys";

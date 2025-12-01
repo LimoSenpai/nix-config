@@ -41,7 +41,7 @@
 
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, hyprland, stylix, self, niri-flake, zen-browser, ... }:
+  outputs = inputs@{ nixpkgs, home-manager, hyprland, stylix, spicetify-nix, self, niri-flake, zen-browser, ... }:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
@@ -58,6 +58,8 @@
       future-cursors = pkgs.callPackage ../../pkgs/future-cursors.nix {};
       gdk-pixbuf-dev = pkgs.gdk-pixbuf.dev;
       sddm-astronaut-hyprland_kath = pkgs.callPackage ../../pkgs/sddm-astronaut.nix {};
+      point-er-cursors = pkgs.callPackage ../../pkgs/point-er-cursors.nix {};
+
     };
     # Make Derivations accessible in the flake
     overlays = {
@@ -70,6 +72,8 @@
         future-cursors = prev.callPackage ../../pkgs/future-cursors.nix {};
         gdk-pixbuf-dev = prev.gdk-pixbuf.dev;
         sddm-astronaut-hyprland_kath = prev.callPackage ../../pkgs/sddm-astronaut.nix {};
+        point-er-cursors = prev.callPackage ../../pkgs/point-er-cursors.nix {};
+
       };
 
     niri = niri-flake.overlays.niri;
@@ -86,6 +90,8 @@
 
           home-manager.nixosModules.home-manager
           stylix.nixosModules.stylix
+          spicetify-nix.nixosModules.spicetify 
+
 
           {
             nixpkgs.overlays = [ 
