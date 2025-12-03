@@ -37,6 +37,9 @@
     group = "tinus";
     extraGroups = [ "networkmanager" "wheel" "plugdev" "media" ];
     shell = pkgs.zsh;
+    openssh.authorizedKeys.keys = [
+      ''command="sudo systemctl poweroff" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJhByIPm19lZ7pNTVkoOTPlZUEOikehZUDC6rb6nRdrG root@a0d7b954-ssh''
+    ];
   };
 
 
