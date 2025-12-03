@@ -85,7 +85,6 @@
   #=============================================================================#
   home-apps-gui.enable = [
     # Browsers
-    "zen-browser"
     #"librewolf"
     #"chromium"
     

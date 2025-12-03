@@ -112,6 +112,16 @@
 
   # Software
   system-programs.enable = true; # Enable system programs
+
+  #System Services
+  nixos-services.enable = lib.mkAfter [
+    "storage-daemons"
+    #"stable-diffusion-webui"
+    #"ollama"
+    "gnome-keyring"
+    "openssh"
+    "sudo-poweroff"
+  ];
   
 
   #=============================================================================#

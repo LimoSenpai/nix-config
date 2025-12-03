@@ -142,7 +142,7 @@
   nixos-services.enable = lib.mkAfter [
     "storage-daemons"
     #"stable-diffusion-webui"
-    "ollama"
+    #"ollama"
     "gnome-keyring"
     "openssh"
     "sudo-poweroff"
