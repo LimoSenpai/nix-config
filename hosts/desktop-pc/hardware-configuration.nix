@@ -61,26 +61,6 @@
     ];
   };
 
-    fileSystems."/downloads" = {
-    device = "192.168.1.17:/tank/downloads";
-    fsType = "nfs4";
-    options = [
-      "rw" "hard" "intr" "_netdev"
-      "x-systemd.automount" "x-systemd.idle-timeout=600"
-      "timeo=900" "retrans=5" "sec=sys"
-    ];
-  };
-
-    fileSystems."/media" = {
-    device = "192.168.1.17:/tank/media";
-    fsType = "nfs4";
-    options = [
-      "rw" "hard" "intr" "_netdev"
-      "x-systemd.automount" "x-systemd.idle-timeout=600"
-      "timeo=900" "retrans=5" "sec=sys"
-    ];
-  };
-
 
   fileSystems."/backup" = {
     device = "192.168.1.17:/backup";

@@ -144,6 +144,7 @@
     pkgs.betterdiscordctl
     pkgs.networkmanagerapplet
     pkgs.kdePackages.kdenlive
+    pkgs.mediaharbor
   ];
 
   #=============================================================================#
@@ -239,6 +240,7 @@
     pkgs.libva
     pkgs.libva-utils
     pkgs.ffmpeg_7-full
+    pkgs.pipx
   ];
 
   #=============================================================================#

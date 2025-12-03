@@ -73,6 +73,7 @@
       gdk-pixbuf-dev = pkgs.gdk-pixbuf.dev;
       sddm-astronaut-hyprland_kath = pkgs.callPackage ../../pkgs/sddm-astronaut.nix {};
       zen-browser = pkgs.callPackage ../../pkgs/zen-browser.nix {};
+      mediaharbor = pkgs.callPackage ../../pkgs/mediaharbor.nix {};
     };
     # Make Derivations accessible in the flake
     overlays = {
@@ -88,6 +89,7 @@
         point-er-cursors = prev.callPackage ../../pkgs/point-er-cursors.nix {};
         sddm-astronaut-hyprland_kath = prev.callPackage ../../pkgs/sddm-astronaut.nix {};
         zen-browser = prev.callPackage ../../pkgs/zen-browser.nix {};
+        mediaharbor = prev.callPackage ../../pkgs/mediaharbor.nix {};
       };
 
     niri = niri-flake.overlays.niri;
