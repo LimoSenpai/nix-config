@@ -18,7 +18,7 @@ with pkgs;
   vscode             = vscode-fhs;
   joplin             = joplin-desktop;
   kate               = kdePackages.kate;
-  libreoffice        = libreoffice;
+  libreoffice        = libreoffice-still-unwrapped;
   office             = libreoffice-qt-still;
   
   # Media

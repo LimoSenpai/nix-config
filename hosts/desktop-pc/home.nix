@@ -99,7 +99,6 @@
     "vscode"
     "joplin"
     "kate"
-    "libreoffice"
     
     # Media
     "vlc"
@@ -144,7 +143,8 @@
     pkgs.betterdiscordctl
     pkgs.networkmanagerapplet
     pkgs.kdePackages.kdenlive
-    pkgs.mediaharbor
+    pkgs.soundconverter
+    pkgs.zen-browser
   ];
 
   #=============================================================================#
@@ -289,7 +289,7 @@
     "keepass"
     
     # Office
-    "libreoffice"
+    #"libreoffice"
     "onenote"
     
     # Network/Authentication (user-level)
@@ -310,5 +310,5 @@
   # You can update home Manager without changing this value. See
   # the home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = "25.11";
+  home.stateVersion = "26.05";
 }
