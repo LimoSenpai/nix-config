@@ -17,8 +17,9 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Use stable kernel for NVIDIA compatibility
+  boot.kernelPackages = pkgs.linuxPackages_6_17;
   # boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  # boot.kernelPackages = pkgs.linuxPackages_zen;
 
   networking.hostName = "nixos-desktop"; # Define your hostname.
 
@@ -129,7 +130,7 @@
   # In your host config:
   sddm.enable = true;
 
-  noctalia.enable = true;
+  #noctalia.enable = true;
 
   # Hardware Support
   nvidia.enable = true;

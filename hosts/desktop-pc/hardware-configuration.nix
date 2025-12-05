@@ -15,6 +15,15 @@
   boot.extraModulePackages = [ ];
   boot.supportedFilesystems = [ "nfs" ];
 
+  boot.swraid = {
+    enable = true;
+    mdadmConf = ''
+      AUTO +linear
+      MAILADDR root
+      ARRAY /dev/md0 metadata=1.2 name=archlinux:0 UUID=77757fbb-37de-4f66-814b-056a28c7d2c0
+    '';
+  };
+
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/ee66b00f-a9c3-4b89-8afd-e1b459eed77a";
       fsType = "ext4";
@@ -29,15 +38,6 @@
   swapDevices =
     [ { device = "/dev/disk/by-uuid/840d2046-c12a-48c7-ab2d-85b97ad026a5"; }
     ];
-
-  boot.swraid = {
-    enable = true;
-    mdadmConf = ''
-      AUTO +linear
-      MAILADDR root
-      ARRAY /dev/md0 metadata=1.2 name=archlinux:0 UUID=ba1d60c1:f85c853c:023e3766:d566bc70
-    '';
-  };
 
   fileSystems."/mnt/jbod" = {
     device = "/dev/md0";
